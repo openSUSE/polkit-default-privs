@@ -21,6 +21,8 @@
 # Author: Ludwig Nussel  <lnussel@suse.de> 2008
 #
 
+. /etc/sysconfig/security || exit 1
+
 mode=""
 case "$CHECK_PERMISSIONS" in
     set) mode="-set" ;;
@@ -32,7 +34,7 @@ esac
 # collect files that contain permission specifications
 #
 # 1. central fixed permissions file
-files="/etc/polkit-permissions"
+files=""
 
 # 2. central easy, secure paranoid as those are defined by SUSE
 for level in $PERMISSION_SECURITY; do 
