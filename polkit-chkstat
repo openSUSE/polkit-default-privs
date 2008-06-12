@@ -26,6 +26,7 @@ use Digest::MD5 qw/md5_hex/;
 my $polkit_public_dir = '/var/lib/PolicyKit-public';
 my $suseconfig_dir = '/var/adm/SuSEconfig/md5';
 my $md5_dir = $suseconfig_dir.'/md5';
+my $reload_file = '/var/lib/misc/PolicyKit.reload';
 
 my $do_set;
 
@@ -98,3 +99,5 @@ while(<>) {
 		}
 	}
 }
+
+utime undef, undef, $reload_file if $do_set;
