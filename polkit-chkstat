@@ -1,0 +1,100 @@
+#!/usr/bin/perl -w
+# This module sets policykit permssions
+# Copyright (C) 2008 SUSE Linux Products GmbH, Nuernberg, Germany.
+#
+# This program is free software; you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation; either version 2 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program; if not, write to the Free Software
+# Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+#
+# Author: Ludwig Nussel  <lnussel@suse.de> 2008
+#
+
+use strict;
+use File::Path;
+use Digest::MD5 qw/md5_hex/;
+
+my $polkit_public_dir = '/var/lib/PolicyKit-public';
+my $suseconfig_dir = '/var/adm/SuSEconfig/md5';
+my $md5_dir = $suseconfig_dir.'/md5';
+
+my $do_set;
+
+if($#ARGV != -1 && $ARGV[0] eq '-set') {
+	$do_set = 1;
+	shift @ARGV;
+}
+
+if($#ARGV == -1) {
+	print STDERR "specify files\n";
+	exit 1;
+}
+
+mkpath($md5_dir.'/'.$polkit_public_dir) if $do_set;
+
+while(<>) {
+	chomp;
+	next unless $_;
+	next if(/^#/);
+	my ($privilege, $perms) = split(/\s+/);
+	if($perms !~ /:/) {
+		$perms = $perms.':'.$perms.':'.$perms;
+	}
+	my $overridefile = $polkit_public_dir.'/'.$privilege.'.defaults-override';
+	if($do_set) {
+		if(-e $overridefile) {
+			if(!open(F, '<', $md5_dir.'/'.$overridefile)) {
+				print STDERR "$overridefile was created externally, skip.\n";
+				next;
+			}
+			my $should_digest = <F>;
+			$should_digest = substr($should_digest, 0, 32);
+			close F;
+			if(!open(F, '<', $overridefile)) {
+				print STDERR "can't open $overridefile: $!, skip.\n";
+				next;
+			}
+			my $digest = md5_hex(<F>);
+			close F;
+			if($digest ne $should_digest) {
+				print "$should_digest $digest\n";
+				print STDERR "$overridefile was modifed externally, skip.\n";
+				next;
+			}
+		}
+		if(!open(F, '>', $overridefile.'.new')) {
+			print STDERR "can't create $overridefile.new: $!, skip.\n";
+			next;
+		}
+		print F $perms;
+		close F;
+		my $digest = md5_hex($perms);
+		if(!open(F, '>', $md5_dir.'/'.$overridefile)) {
+			print STDERR "can't save md5 check for $privilege: $!\n";
+			unlink($overridefile.".new");
+			next;
+		}
+		print F $digest." -\n";
+		close F;
+		rename($overridefile.'.new', $overridefile);
+	} else {
+		if(!open(F, '<', $overridefile)) {
+			print STDERR "can't open $overridefile: $!, skip.\n";
+			next;
+		}
+		my $hasperms = <F>;
+		close F;
+		if($hasperms ne $perms) {
+			print "$privilege should be $perms (wrong permssions $hasperms)\n";
+		}
+	}
+}

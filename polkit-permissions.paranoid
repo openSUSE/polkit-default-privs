@@ -1,0 +1,39 @@
+#
+# /etc/polkit-permissions.paranoid has all privileged operations
+# disabled. Such a setting likely doesn't yield a usable system.
+# It's up to the administrator to selectively grant the required
+# privileges then.
+#
+# Please do not modify this file, use polkit-permissions.local instead.
+#
+org.freedesktop.policykit.read                              	no
+org.freedesktop.policykit.revoke                            	no
+org.freedesktop.policykit.grant                             	no
+org.freedesktop.policykit.modify-defaults                   	no
+org.freedesktop.network-manager-settings.system.modify      	no
+org.freedesktop.hal.killswitch.bluetooth                    	no
+org.freedesktop.hal.killswitch.wlan                         	no
+org.freedesktop.hal.killswitch.wwan                         	no
+org.freedesktop.hal.lock                                    	no
+org.freedesktop.hal.storage.mount-fixed                     	no
+org.freedesktop.hal.storage.mount-removable                 	no
+org.freedesktop.hal.storage.unmount-others                  	no
+org.freedesktop.hal.storage.eject                           	no
+org.freedesktop.hal.storage.crypto-setup-fixed              	no
+org.freedesktop.hal.storage.crypto-setup-removable          	no
+org.freedesktop.hal.wol.enabled                             	no
+org.freedesktop.hal.wol.enable                              	no
+org.freedesktop.hal.wol.supported                           	no
+org.freedesktop.hal.power-management.shutdown               	no
+org.freedesktop.hal.power-management.shutdown-multiple-sessions	no
+org.freedesktop.hal.power-management.reboot                 	no
+org.freedesktop.hal.power-management.reboot-multiple-sessions	no
+org.freedesktop.hal.power-management.set-powersave          	no
+org.freedesktop.hal.power-management.suspend                	no
+org.freedesktop.hal.power-management.hibernate              	no
+org.freedesktop.hal.power-management.standby                	no
+org.freedesktop.hal.power-management.cpufreq                	no
+org.freedesktop.hal.power-management.lcd-panel              	no
+org.freedesktop.hal.power-management.light-sensor           	no
+org.freedesktop.hal.power-management.keyboard-backlight     	no
+org.freedesktop.hal.dockstation.undock                      	no

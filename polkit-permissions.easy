@@ -1,0 +1,38 @@
+#
+# /etc/polkit-permissions.easy is set up for the use in a standalone
+# and single-user installations to make things work out-of-the box.
+# Some of the settings might be considered somewhat lax from the
+# security standpoint. These aspects are handled differently in the
+# polkit-permissions.secure file.
+#
+org.freedesktop.policykit.read                              	auth_admin_keep_always
+org.freedesktop.policykit.revoke                            	auth_admin_keep_always
+org.freedesktop.policykit.grant                             	auth_admin_keep_always
+org.freedesktop.policykit.modify-defaults                   	auth_admin_keep_always
+org.freedesktop.network-manager-settings.system.modify      	auth_admin_keep_always
+org.freedesktop.hal.killswitch.bluetooth                    	yes
+org.freedesktop.hal.killswitch.wlan                         	yes
+org.freedesktop.hal.killswitch.wwan                         	yes
+org.freedesktop.hal.lock                                    	yes
+org.freedesktop.hal.storage.mount-fixed                     	auth_admin_keep_always
+org.freedesktop.hal.storage.mount-removable                 	yes
+org.freedesktop.hal.storage.unmount-others                  	yes
+org.freedesktop.hal.storage.eject                           	yes
+org.freedesktop.hal.storage.crypto-setup-fixed              	auth_admin_keep_always
+org.freedesktop.hal.storage.crypto-setup-removable          	yes
+org.freedesktop.hal.wol.enabled                             	yes
+org.freedesktop.hal.wol.enable                              	yes
+org.freedesktop.hal.wol.supported                           	yes
+org.freedesktop.hal.power-management.shutdown               	yes
+org.freedesktop.hal.power-management.shutdown-multiple-sessions	yes
+org.freedesktop.hal.power-management.reboot                 	yes
+org.freedesktop.hal.power-management.reboot-multiple-sessions	yes
+org.freedesktop.hal.power-management.set-powersave          	yes
+org.freedesktop.hal.power-management.suspend                	yes
+org.freedesktop.hal.power-management.hibernate              	yes
+org.freedesktop.hal.power-management.standby                	yes
+org.freedesktop.hal.power-management.cpufreq                	yes
+org.freedesktop.hal.power-management.lcd-panel              	yes
+org.freedesktop.hal.power-management.light-sensor           	yes
+org.freedesktop.hal.power-management.keyboard-backlight     	yes
+org.freedesktop.hal.dockstation.undock                      	yes

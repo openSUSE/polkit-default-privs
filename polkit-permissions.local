@@ -1,0 +1,14 @@
+#
+# /etc/polkit-permissions.local
+#
+# This file is used by SuSEconfig and polkit-chkstat to check or set
+# which the implicit default privileges granted by PolicyKit
+#
+# In particular, this file will not be touched during an upgrade of the
+# installation. It is designed to be a placeholder for local
+# additions by the administrator of the system.
+#
+# Format:
+# <privilege> <any>:<inactive>:<active>
+#
+
