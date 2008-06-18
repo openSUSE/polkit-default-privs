@@ -37,3 +37,5 @@ org.freedesktop.hal.power-management.lcd-panel              	no
 org.freedesktop.hal.power-management.light-sensor           	no
 org.freedesktop.hal.power-management.keyboard-backlight     	no
 org.freedesktop.hal.dockstation.undock                      	no
+org.libvirt.unix.monitor                                    	no
+org.libvirt.unix.manage                                     	no

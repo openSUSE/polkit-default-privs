@@ -36,3 +36,5 @@ org.freedesktop.hal.power-management.lcd-panel              	auth_admin_keep_alw
 org.freedesktop.hal.power-management.light-sensor           	auth_admin_keep_always
 org.freedesktop.hal.power-management.keyboard-backlight     	auth_admin_keep_always
 org.freedesktop.hal.dockstation.undock                      	auth_admin_keep_always
+org.libvirt.unix.monitor                                    	auth_admin_keep_always
+org.libvirt.unix.manage                                     	auth_admin_keep_always
