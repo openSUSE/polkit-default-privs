@@ -24,7 +24,7 @@ use File::Path;
 use Digest::MD5 qw/md5_hex/;
 
 my $polkit_public_dir = '/var/lib/PolicyKit-public';
-my $suseconfig_dir = '/var/adm/SuSEconfig/md5';
+my $suseconfig_dir = '/var/adm/SuSEconfig';
 my $md5_dir = $suseconfig_dir.'/md5';
 my $reload_file = '/var/lib/misc/PolicyKit.reload';
 
@@ -51,7 +51,22 @@ while(<>) {
 		$perms = $perms.':'.$perms.':'.$perms;
 	}
 	my $overridefile = $polkit_public_dir.'/'.$privilege.'.defaults-override';
+	my $old_perms;
+	if(-e $overridefile) {
+		if(!open(F, '<', $overridefile)) {
+			print STDERR "can't open $overridefile: $!, skip.\n";
+			next;
+		}
+		$old_perms = <F>;
+		close F;
+	}
+
+	if(defined $old_perms && $perms eq $old_perms) {
+		next;
+	}
+
 	if($do_set) {
+		print "setting $privilege to $perms".($old_perms?"\n  (wrong permssions $old_perms)\n":"\n");
 		if(-e $overridefile) {
 			if(!open(F, '<', $md5_dir.'/'.$overridefile)) {
 				print STDERR "$overridefile was created externally, skip.\n";
@@ -60,12 +75,7 @@ while(<>) {
 			my $should_digest = <F>;
 			$should_digest = substr($should_digest, 0, 32);
 			close F;
-			if(!open(F, '<', $overridefile)) {
-				print STDERR "can't open $overridefile: $!, skip.\n";
-				next;
-			}
-			my $digest = md5_hex(<F>);
-			close F;
+			my $digest = md5_hex($old_perms);
 			if($digest ne $should_digest) {
 				print "$should_digest $digest\n";
 				print STDERR "$overridefile was modifed externally, skip.\n";
@@ -88,15 +98,7 @@ while(<>) {
 		close F;
 		rename($overridefile.'.new', $overridefile);
 	} else {
-		if(!open(F, '<', $overridefile)) {
-			print STDERR "can't open $overridefile: $!, skip.\n";
-			next;
-		}
-		my $hasperms = <F>;
-		close F;
-		if($hasperms ne $perms) {
-			print "$privilege should be $perms (wrong permssions $hasperms)\n";
-		}
+		print "$privilege should be $perms".($old_perms?"\n  (wrong permssions $old_perms)\n":"\n");
 	}
 }
 
