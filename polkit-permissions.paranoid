@@ -39,3 +39,31 @@ org.freedesktop.hal.power-management.keyboard-backlight     	no
 org.freedesktop.hal.dockstation.undock                      	no
 org.libvirt.unix.monitor                                    	no
 org.libvirt.unix.manage                                     	no
+org.gnome.clockapplet.mechanism.settimezone                     no
+org.gnome.clockapplet.mechanism.settime                         no
+org.gnome.clockapplet.mechanism.configurehwclock                no
+org.freedesktop.packagekit.install                              no
+org.freedesktop.packagekit.localinstall-untrusted               no
+org.freedesktop.packagekit.localinstall-trusted                 no
+org.freedesktop.packagekit.install-signature                    no
+org.freedesktop.packagekit.accept-eula                          no
+org.freedesktop.packagekit.update-package                       no
+org.freedesktop.packagekit.remove                               no
+org.freedesktop.packagekit.update-system                        no
+org.freedesktop.packagekit.rollback                             no
+org.freedesktop.packagekit.repo-change                          no
+org.freedesktop.packagekit.refresh-cache                        no
+org.pulseaudio.acquire-real-time                                no
+org.pulseaudio.acquire-high-priority                            no
+#
+# just an example program
+#
+org.gnome.policykit.examples.jump                               no
+org.gnome.policykit.examples.frobnicate                         no
+org.gnome.policykit.examples.tweak                              no
+org.gnome.policykit.examples.twiddle                            no
+org.gnome.policykit.examples.punch                              no
+org.gnome.policykit.examples.toggle                             no
+org.gnome.policykit.examples.kick-foo                           no
+org.gnome.policykit.examples.kick-bar                           no
+org.gnome.policykit.examples.kick-baz                           no

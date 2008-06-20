@@ -38,3 +38,31 @@ org.freedesktop.hal.power-management.keyboard-backlight     	auth_admin_keep_alw
 org.freedesktop.hal.dockstation.undock                      	auth_admin_keep_always:auth_admin_keep_always:yes
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
+org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always
+org.gnome.clockapplet.mechanism.settime                         auth_admin_keep_always
+org.gnome.clockapplet.mechanism.configurehwclock                auth_admin_keep_always
+org.freedesktop.packagekit.install                              auth_admin_keep_always
+org.freedesktop.packagekit.localinstall-untrusted               auth_admin_keep_always
+org.freedesktop.packagekit.localinstall-trusted                 auth_admin_keep_always
+org.freedesktop.packagekit.install-signature                    auth_admin_keep_always
+org.freedesktop.packagekit.accept-eula                          auth_admin_keep_always
+org.freedesktop.packagekit.update-package                       auth_admin_keep_always
+org.freedesktop.packagekit.remove                               auth_admin_keep_always
+org.freedesktop.packagekit.update-system                        auth_admin_keep_always
+org.freedesktop.packagekit.rollback                             auth_admin_keep_always
+org.freedesktop.packagekit.repo-change                          auth_admin_keep_always
+org.freedesktop.packagekit.refresh-cache                        yes
+org.pulseaudio.acquire-real-time                                auth_admin_keep_always
+org.pulseaudio.acquire-high-priority                            auth_admin_keep_always
+#
+# just an example program
+#
+org.gnome.policykit.examples.jump                               no:no:auth_self_one_shot
+org.gnome.policykit.examples.frobnicate                         no:no:auth_self
+org.gnome.policykit.examples.tweak                              no:no:auth_admin
+org.gnome.policykit.examples.twiddle                            no:no:auth_admin_keep_always
+org.gnome.policykit.examples.punch                              no:no:auth_self_keep_session
+org.gnome.policykit.examples.toggle                             no:no:auth_admin_keep_always
+org.gnome.policykit.examples.kick-foo                           no:no:auth_self
+org.gnome.policykit.examples.kick-bar                           no:no:auth_self
+org.gnome.policykit.examples.kick-baz                           no:no:auth_self
