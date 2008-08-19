@@ -23,6 +23,7 @@ org.freedesktop.hal.storage.crypto-setup-removable          	auth_admin_keep_alw
 org.freedesktop.hal.wol.enabled                             	auth_admin_keep_always
 org.freedesktop.hal.wol.enable                              	auth_admin_keep_always
 org.freedesktop.hal.wol.supported                           	auth_admin_keep_always
+# shutdown/reboot should be consistent with consolekit
 org.freedesktop.hal.power-management.shutdown               	auth_admin_keep_always
 org.freedesktop.hal.power-management.shutdown-multiple-sessions	auth_admin
 org.freedesktop.hal.power-management.reboot                 	auth_admin_keep_always
@@ -36,6 +37,20 @@ org.freedesktop.hal.power-management.lcd-panel              	auth_admin_keep_alw
 org.freedesktop.hal.power-management.light-sensor           	auth_admin_keep_always
 org.freedesktop.hal.power-management.keyboard-backlight     	auth_admin_keep_always
 org.freedesktop.hal.dockstation.undock                      	auth_admin_keep_always
+#
+# device access
+#
+org.freedesktop.hal.device-access.sound                         no:yes:yes
+org.freedesktop.hal.device-access.video4linux                   no:yes:yes
+org.freedesktop.hal.device-access.cdrom                         no:yes:yes
+org.freedesktop.hal.device-access.dvb                           no:yes:yes
+org.freedesktop.hal.device-access.camera                        no:yes:yes
+org.freedesktop.hal.device-access.scanner                       no:yes:yes
+org.freedesktop.hal.device-access.audio-player                  no:yes:yes
+org.freedesktop.hal.device-access.ieee1394-iidc                 no:yes:yes
+org.freedesktop.hal.device-access.ieee1394-avc                  no:yes:yes
+org.freedesktop.hal.device-access.pda                           no:yes:yes
+#
 org.libvirt.unix.monitor                                    	auth_admin_keep_always
 org.libvirt.unix.manage                                     	auth_admin_keep_always
 org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always
@@ -52,6 +67,7 @@ org.freedesktop.packagekit.update-system                        auth_admin_keep_
 org.freedesktop.packagekit.rollback                             auth_admin_keep_always
 org.freedesktop.packagekit.repo-change                          auth_admin_keep_always
 org.freedesktop.packagekit.refresh-cache                        auth_admin_keep_always
+org.freedesktop.packagekit.set-proxy                            auth_admin_keep_always
 org.pulseaudio.acquire-real-time                                auth_admin_keep_always
 org.pulseaudio.acquire-high-priority                            auth_admin_keep_always
 #
@@ -66,3 +82,9 @@ org.gnome.policykit.examples.toggle                             no:no:auth_admin
 org.gnome.policykit.examples.kick-foo                           no:no:auth_self
 org.gnome.policykit.examples.kick-bar                           no:no:auth_self
 org.gnome.policykit.examples.kick-baz                           no:no:auth_self
+#
+# should be consistent with hal
+org.freedesktop.consolekit.system.stop                          auth_admin_keep_always
+org.freedesktop.consolekit.system.stop-multiple-users           auth_admin_keep_always
+org.freedesktop.consolekit.system.restart                       auth_admin_keep_always
+org.freedesktop.consolekit.system.restart-multiple-users        auth_admin_keep_always
