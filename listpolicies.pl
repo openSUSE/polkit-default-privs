@@ -54,5 +54,11 @@ for my $f (@ARGV) {
 if(!$permissions) {
 	map { print $_->{'name'}, "\n" } @policies;
 } else {
-	map { print sprintf('%-63s %s'."\n", $_->{'name'}, $_->{'value'}) unless exists $known{$_->{'name'}} } @policies;
+	my $have_unknown;
+	for (@policies) {
+		next if exists $known{$_->{'name'}};
+		print sprintf('%-63s %s'."\n", $_->{'name'}, $_->{'value'});
+		$have_unknown = 1;
+	}
+	exit (1) if($have_unknown);
 }
