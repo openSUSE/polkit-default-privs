@@ -1,9 +1,9 @@
 #
-# /etc/polkit-permissions.secure is designed for the use in a
-# multi-user and networked installation. Most privileged operations
-# require authentication as admin first.
+# /etc/polkit-default-privs.restrictive use in an envirenment where
+# hosts are centrally administered and users should have minimal
+# privileges. Privileged operations require authentication as admin.
 #
-# Please do not modify this file, use polkit-permissions.local instead.
+# Please do not modify this file, use polkit-default-privs.local instead.
 #
 org.freedesktop.policykit.read                              	auth_admin_keep_always
 org.freedesktop.policykit.revoke                            	auth_admin_keep_always

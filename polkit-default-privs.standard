@@ -1,9 +1,8 @@
 #
-# /etc/polkit-permissions.easy is set up for the use in a standalone
-# and single-user installations to make things work out-of-the box.
-# Some of the settings might be considered somewhat lax from the
-# security standpoint. These aspects are handled differently in the
-# polkit-permissions.secure file.
+# /etc/polkit-default-privs.standard is set up for use in most
+# desktop systems to make common operations work out-of-the box for
+# locally logged in users. It still restricts users enough to be
+# safely used on most multi user hosts.
 #
 org.freedesktop.policykit.read                              	auth_admin_keep_always
 org.freedesktop.policykit.revoke                            	auth_admin_keep_always
