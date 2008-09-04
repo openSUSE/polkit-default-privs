@@ -18,7 +18,7 @@
 #
 # Based on SuSEconfig.permissions
 #
-# Author: Ludwig Nussel  <lnussel@suse.de> 2008
+# Author: Ludwig Nussel <lnussel@suse.de> 2008
 #
 
 shopt -s nullglob
