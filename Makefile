@@ -6,7 +6,7 @@ fillupdir=/var/adm/fillup-templates
 all:
 
 install:
-	install -d $(DESTDIR)$(sbindir)  $(DESTDIR)$(sysconfdir)
+	install -d $(DESTDIR)$(sbindir)  $(DESTDIR)$(sysconfdir) $(DESTDIR)$(fillupdir)
 	install -d $(DESTDIR)$(sysconfdir)/polkit-default-privs.d
 	install -m 755 set_polkit_default_privs $(DESTDIR)$(sbindir)
 	install -m 755 chkstat-polkit $(DESTDIR)$(sbindir)
