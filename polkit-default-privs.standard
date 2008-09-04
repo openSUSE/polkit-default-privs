@@ -46,36 +46,48 @@ org.freedesktop.hal.dockstation.undock                      	auth_admin_keep_alw
 # appliction would have to be killed or would forcefully stop
 # playing sound which is not what we want.
 #
-org.freedesktop.hal.device-access.sound                         no:yes:yes
-org.freedesktop.hal.device-access.video4linux                   no:yes:yes
-org.freedesktop.hal.device-access.cdrom                         no:yes:yes
-org.freedesktop.hal.device-access.dvb                           no:yes:yes
-org.freedesktop.hal.device-access.camera                        no:yes:yes
-org.freedesktop.hal.device-access.scanner                       no:yes:yes
-org.freedesktop.hal.device-access.audio-player                  no:yes:yes
-org.freedesktop.hal.device-access.ieee1394-iidc                 no:yes:yes
-org.freedesktop.hal.device-access.ieee1394-avc                  no:yes:yes
-org.freedesktop.hal.device-access.pda                           no:yes:yes
+org.freedesktop.hal.device-access.sound                         auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.video4linux                   auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.cdrom                         auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.dvb                           auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.camera                        auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.scanner                       auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.audio-player                  auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.ieee1394-iidc                 auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.ieee1394-avc                  auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.pda                           auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.floppy                        auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.modem                         auth_admin_keep_always
+org.freedesktop.hal.device-access.joystick                      auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.mouse                         auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.video                         auth_admin_keep_always:yes:yes
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
 org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always
 org.gnome.clockapplet.mechanism.settime                         auth_admin_keep_always
 org.gnome.clockapplet.mechanism.configurehwclock                auth_admin_keep_always
-org.freedesktop.packagekit.install                              auth_admin_keep_always
-org.freedesktop.packagekit.localinstall-untrusted               auth_admin_keep_always
-org.freedesktop.packagekit.localinstall-trusted                 auth_admin_keep_always
-org.freedesktop.packagekit.install-signature                    auth_admin_keep_always
-org.freedesktop.packagekit.accept-eula                          auth_admin_keep_always
-org.freedesktop.packagekit.update-package                       auth_admin_keep_always
-org.freedesktop.packagekit.remove                               auth_admin_keep_always
-org.freedesktop.packagekit.update-system                        auth_admin_keep_always
-org.freedesktop.packagekit.rollback                             auth_admin_keep_always
-org.freedesktop.packagekit.repo-change                          auth_admin_keep_always
-org.freedesktop.packagekit.refresh-cache                        yes
-org.freedesktop.packagekit.set-proxy                            auth_admin_keep_always
+#
+# package kit
+#
+org.freedesktop.packagekit.package-install                      auth_admin_keep_always
+org.freedesktop.packagekit.package-install-untrusted            auth_admin
+org.freedesktop.packagekit.system-trust-signing-key             auth_admin
+org.freedesktop.packagekit.package-eula-accept                  auth_admin_keep_always:auth_admin_keep_always:yes
+org.freedesktop.packagekit.package-remove                       auth_admin_keep_always
+org.freedesktop.packagekit.system-update                        auth_admin_keep_always
+org.freedesktop.packagekit.system-rollback                      auth_admin_keep_always
+org.freedesktop.packagekit.system-sources-configure             auth_admin_keep_always
+org.freedesktop.packagekit.system-sources-refresh               auth_admin_keep_always:auth_admin_keep_always:yes
+org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep_always
+#
 org.pulseaudio.acquire-real-time                                auth_admin_keep_always
 org.pulseaudio.acquire-high-priority                            auth_admin_keep_always
+#
+# gconf
+#
+org.gnome.gconf.defaults.set-system                             auth_admin
+org.gnome.gconf.defaults.set-mandatory                          auth_admin
 #
 # just an example program
 #
@@ -94,3 +106,5 @@ org.freedesktop.consolekit.system.stop                          auth_admin_keep_
 org.freedesktop.consolekit.system.stop-multiple-users           auth_admin:auth_admin:yes
 org.freedesktop.consolekit.system.restart                       auth_admin:auth_admin:yes
 org.freedesktop.consolekit.system.restart-multiple-users        auth_admin_keep_always:auth_admin_keep_always:yes
+
+###
