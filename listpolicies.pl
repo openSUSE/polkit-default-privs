@@ -1,8 +1,11 @@
 #!/usr/bin/perl -w
 # either list policies in a polkit file or list policies in polkit files that
-# are not contained in polkit-permissions files. For the latter mode first
+# are not contained in polkit-default-privs files. For the latter mode first
 # specify the polkit files on the command line and then separated with double
-# dash "--" the polkit-permissions files.
+# dash "--" the polkit-default-privs files.
+#
+# calling without arguments will check all policy files in
+# $RPM_BUILD_ROOT and compare against standard set
 
 use strict;
 use XML::Bare;
@@ -11,6 +14,13 @@ use Data::Dumper;
 my $permissions;
 my %known;
 my @policies;
+
+if ($#ARGV == -1) {
+	my $buildroot = $ENV{'RPM_BUILD_ROOT'} || '';
+	@ARGV = glob "$buildroot/usr/share/PolicyKit/policy/*.policy";
+	push @ARGV, '--';
+	push @ARGV, '/etc/polkit-default-privs.standard';
+}
 
 for my $f (@ARGV) {
 	if ("$f" eq '--') {
