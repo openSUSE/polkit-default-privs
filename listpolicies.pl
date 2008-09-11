@@ -16,10 +16,11 @@ my %known;
 my @policies;
 
 if ($#ARGV == -1) {
-	my $buildroot = $ENV{'RPM_BUILD_ROOT'} || '';
-	@ARGV = glob "$buildroot/usr/share/PolicyKit/policy/*.policy";
+	my $buildroot = $ENV{'BUILD_ROOT'} || '';
+	my $rpm_buildroot = $ENV{'RPM_BUILD_ROOT'} || '';
+	@ARGV = glob "$rpm_buildroot/usr/share/PolicyKit/policy/*.policy";
 	push @ARGV, '--';
-	push @ARGV, '/etc/polkit-default-privs.standard';
+	push @ARGV, "$buildroot/etc/polkit-default-privs.standard";
 }
 
 for my $f (@ARGV) {
