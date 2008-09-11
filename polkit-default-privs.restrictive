@@ -58,7 +58,7 @@ org.freedesktop.hal.device-access.video                         auth_admin_keep_
 #
 org.libvirt.unix.monitor                                    	auth_admin_keep_always
 org.libvirt.unix.manage                                     	auth_admin_keep_always
-org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always
+org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always:auth_admin_keep_always:yes
 org.gnome.clockapplet.mechanism.settime                         auth_admin_keep_always
 org.gnome.clockapplet.mechanism.configurehwclock                auth_admin_keep_always
 #
@@ -69,7 +69,7 @@ org.freedesktop.packagekit.package-install-untrusted            auth_admin
 org.freedesktop.packagekit.system-trust-signing-key             auth_admin
 org.freedesktop.packagekit.package-eula-accept                  auth_admin_keep_always
 org.freedesktop.packagekit.package-remove                       auth_admin_keep_always
-org.freedesktop.packagekit.system-update                        auth_admin_keep_always
+org.freedesktop.packagekit.system-update                        auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.packagekit.system-rollback                      auth_admin_keep_always
 org.freedesktop.packagekit.system-sources-configure             auth_admin_keep_always
 org.freedesktop.packagekit.system-sources-refresh               auth_admin_keep_always
@@ -100,5 +100,9 @@ org.freedesktop.consolekit.system.stop                          auth_admin_keep_
 org.freedesktop.consolekit.system.stop-multiple-users           auth_admin_keep_always
 org.freedesktop.consolekit.system.restart                       auth_admin_keep_always
 org.freedesktop.consolekit.system.restart-multiple-users        auth_admin_keep_always
+#
+# smpppd
+#
+org.opensuse.smpppd.connect                                     auth_admin_keep_always:auth_admin_keep_always:yes
 
 ###

@@ -106,5 +106,9 @@ org.freedesktop.consolekit.system.stop                          auth_admin_keep_
 org.freedesktop.consolekit.system.stop-multiple-users           auth_admin:auth_admin:yes
 org.freedesktop.consolekit.system.restart                       auth_admin:auth_admin:yes
 org.freedesktop.consolekit.system.restart-multiple-users        auth_admin_keep_always:auth_admin_keep_always:yes
+#
+# smpppd
+#
+org.opensuse.smpppd.connect                                     auth_admin_keep_always:auth_admin_keep_always:yes
 
 ###
