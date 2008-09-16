@@ -111,4 +111,9 @@ org.freedesktop.consolekit.system.restart-multiple-users        auth_admin_keep_
 #
 org.opensuse.smpppd.connect                                     auth_admin_keep_always:auth_admin_keep_always:yes
 
+#
+# backup-manager
+#
+com.google.code.backupmanager.schedule                          auth_admin
+
 ###
