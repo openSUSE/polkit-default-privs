@@ -23,6 +23,7 @@ install:
 	install -m 644 sysconfig.security-polkit_default_privs $(DESTDIR)$(fillupdir)
 	@for i in $(manpages); do \
 		s=$${i##*.}; \
+		install -d -m 755 $(DESTDIR)$(mandir)/man$$s; \
 		set -- install -m 644 $$i $(DESTDIR)$(mandir)/man$$s/$$i; \
 		echo $$@; \
 		"$$@"; \
