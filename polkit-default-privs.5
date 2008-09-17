@@ -1,0 +1,42 @@
+.\"     Title: polkit-default-privs
+.\"    Author: 
+.\" Generator: DocBook XSL Stylesheets v1.73.2 <http://docbook.sf.net/>
+.\"      Date: 09/17/2008
+.\"    Manual: 
+.\"    Source: 
+.\"
+.TH "POLKIT\-DEFAULT\-PRI" "5" "09/17/2008" "" ""
+.\" disable hyphenation
+.nh
+.\" disable justification (adjust text to left margin only)
+.ad l
+.SH "NAME"
+polkit-default-privs - default privilege settings
+.SH "SYNOPSIS"
+.SH "DESCRIPTION"
+The files /etc/polkit\-default\-privs\.* are line based and space delimited\.
+.sp
+Lines starting with # are comments\.
+.sp
+The first column lists the privilege names
+.sp
+The second column lists the PolicyKit default setting\. A default setting consists of three values separated by colon\. The meanings from left to right are are \fIany user\fR, \fIuser not on the active console\fR and \fIuser on the active console\fR\. If all three values are the same only one value may be specified without colon to shorten the line\.
+.sp
+.SH "FILES"
+/etc/polkit\-default\-privs\.local
+.sp
+/etc/polkit\-default\-privs\.restrictive
+.sp
+/etc/polkit\-default\-privs\.standard
+.sp
+/etc/polkit\-default\-privs\.d/*
+.sp
+.SH "SEE ALSO"
+set_polkit_default_privs(8), PolicyKit(8)
+.sp
+.SH "AUTHOR"
+Written by Ludwig Nussel
+.sp
+.SH "REPORTING BUGS"
+Report bugs to https://bugzilla\.novell\.com/
+.sp
