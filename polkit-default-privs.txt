@@ -1,0 +1,50 @@
+polkit-default-privs(5)
+=======================
+Ludwig Nussel <ludwig.nussel@suse.de>
+
+NAME
+----
+polkit-default-privs - default privilege settings
+
+SYNOPSIS
+--------
+ 
+
+DESCRIPTION
+-----------
+The files `/etc/polkit-default-privs.*` are line based and space
+delimited.
+
+Lines starting with `#` are comments.
+
+The first column lists the privilege names
+
+The second column lists the PolicyKit default setting. A default
+setting consists of three values separated by colon. The meanings
+from left to right are are 'any user', 'user not on the active
+console' and 'user on the active console'. If all three values are
+the same only one value may be specified without colon to shorten
+the line.
+
+FILES
+-----
+`/etc/polkit-default-privs.local`
+
+`/etc/polkit-default-privs.restrictive`
+
+`/etc/polkit-default-privs.standard`
+
+`/etc/polkit-default-privs.d/*`
+
+
+SEE ALSO
+--------
+set_polkit_default_privs(8), PolicyKit(8)
+
+AUTHOR
+------
+Written by Ludwig Nussel
+
+REPORTING BUGS
+--------------
+Report bugs to https://bugzilla.novell.com/
