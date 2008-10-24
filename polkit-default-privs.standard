@@ -64,7 +64,7 @@ org.freedesktop.hal.device-access.video                         auth_admin_keep_
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
-org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always
+org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always:auth_admin_keep_always:yes
 org.gnome.clockapplet.mechanism.settime                         auth_admin_keep_always
 org.gnome.clockapplet.mechanism.configurehwclock                auth_admin_keep_always
 #
