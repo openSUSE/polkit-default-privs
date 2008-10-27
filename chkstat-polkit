@@ -29,6 +29,13 @@ my $md5_dir = $suseconfig_dir.'/md5';
 my $reload_file = '/var/lib/misc/PolicyKit.reload';
 
 my $do_set;
+# privilege => value
+my %to_set;
+
+if($#ARGV != -1 && $ARGV[0] eq '--help' ) {
+	print "USAGE: $0 [-set] <files...>\n";
+	exit 0;
+}
 
 if($#ARGV != -1 && $ARGV[0] eq '-set') {
 	$do_set = 1;
@@ -50,6 +57,10 @@ while(<>) {
 	if($perms !~ /:/) {
 		$perms = $perms.':'.$perms.':'.$perms;
 	}
+	$to_set{$privilege} = $perms;
+}
+
+while (my ($privilege, $perms) = each %to_set) {
 	my $overridefile = $polkit_public_dir.'/'.$privilege.'.defaults-override';
 	my $old_perms;
 	if(-e $overridefile) {
@@ -66,7 +77,7 @@ while(<>) {
 	}
 
 	if($do_set) {
-		print "setting $privilege to $perms".($old_perms?"\n  (wrong permssions $old_perms)\n":"\n");
+		print "setting $privilege to $perms".($old_perms?"\n  (wrong setting $old_perms)\n":"\n");
 		if(-e $overridefile) {
 			if(!open(F, '<', $md5_dir.'/'.$overridefile)) {
 				print STDERR "$overridefile was created externally, skip.\n";
@@ -98,7 +109,7 @@ while(<>) {
 		close F;
 		rename($overridefile.'.new', $overridefile);
 	} else {
-		print "$privilege should be $perms".($old_perms?"\n  (wrong permssions $old_perms)\n":"\n");
+		print "$privilege should be $perms".($old_perms?"\n  (wrong setting $old_perms)\n":"\n");
 	}
 }
 
