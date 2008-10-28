@@ -55,6 +55,9 @@ org.freedesktop.hal.device-access.modem                         auth_admin_keep_
 org.freedesktop.hal.device-access.joystick                      auth_admin_keep_always:yes:yes
 org.freedesktop.hal.device-access.mouse                         auth_admin_keep_always:yes:yes
 org.freedesktop.hal.device-access.video                         auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.fingerprint-reader            auth_admin_keep_always:yes:yes
+org.freedesktop.hal.device-access.obex                          auth_admin_keep_always
+org.freedesktop.hal.device-access.ppdev                         auth_admin_keep_always
 #
 org.libvirt.unix.monitor                                    	auth_admin_keep_always
 org.libvirt.unix.manage                                     	auth_admin_keep_always
@@ -109,5 +112,11 @@ org.opensuse.smpppd.connect                                     auth_admin_keep_
 # backup-manager
 #
 com.google.code.backupmanager.schedule                          auth_admin
+
+#
+# system-config-printer
+#
+
+org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin_keep_always
 
 ###
