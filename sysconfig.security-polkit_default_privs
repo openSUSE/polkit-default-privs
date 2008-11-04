@@ -22,8 +22,12 @@ CHECK_POLKIT_PRIVS=""
 #
 # Examples: "standard", "restrictive foo bar"
 #
-# Defaults to "standard" if not specified. The 'local' file is
-# always evaluated and takes precedence over all other files.
+# If not set the value depends on the setting of
+# PERMISSION_SECURITY. If PERMISSION_SECURITY contains 'secure' or
+# 'paranoid' the value will be 'restrictive', otherwise 'standard'.
+#
+# The 'local' file is always evaluated and takes precedence over all
+# other files.
 #
 POLKIT_DEFAULT_PRIVS=""
 
