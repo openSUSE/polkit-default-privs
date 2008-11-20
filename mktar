@@ -2,7 +2,7 @@
 set -e
 NAME=polkit-default-privs
 VERSION=0.1
-LAST_COMMIT=(`git-rev-list --timestamp HEAD^..HEAD`)
+LAST_COMMIT=(`git rev-list --timestamp HEAD^..HEAD`)
 DATE=`date +%Y%m%d%H%M -d "1970-01-01 00:00 UTC $LAST_COMMIT seconds"`
 fn=$NAME-${VERSION}_$DATE.tar.bz2
 git archive --prefix=$NAME-${VERSION}_$DATE/ HEAD | bzip2 > $fn
