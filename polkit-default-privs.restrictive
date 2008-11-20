@@ -111,7 +111,7 @@ org.opensuse.smpppd.connect                                     auth_admin_keep_
 #
 # backup-manager
 #
-com.google.code.backupmanager.schedule                          auth_admin
+org.opensuse.backupmanager.schedule                             auth_admin
 
 #
 # system-config-printer
