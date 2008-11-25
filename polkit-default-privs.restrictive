@@ -116,7 +116,12 @@ org.opensuse.backupmanager.schedule                             auth_admin
 #
 # system-config-printer
 #
-
-org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin_keep_always
+org.opensuse.cupspkhelper.mechanism.printer-set-default         auth_admin
+org.opensuse.cupspkhelper.mechanism.printer-enable              auth_admin
+org.opensuse.cupspkhelper.mechanism.printer-local-edit          auth_admin
+org.opensuse.cupspkhelper.mechanism.printer-remote-edit         auth_admin
+org.opensuse.cupspkhelper.mechanism.class-edit                  auth_admin
+org.opensuse.cupspkhelper.mechanism.server-settings             auth_admin
+org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin
 
 ###
