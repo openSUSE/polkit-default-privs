@@ -36,6 +36,7 @@ org.freedesktop.hal.power-management.lcd-panel              	auth_admin_keep_alw
 org.freedesktop.hal.power-management.light-sensor           	auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.hal.power-management.keyboard-backlight     	auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.hal.dockstation.undock                      	auth_admin_keep_always:auth_admin_keep_always:yes
+org.freedesktop.hal.leds.brightness                             auth_admin_keep_always:auth_admin_keep_always:yes
 #
 # device access
 #
@@ -64,6 +65,7 @@ org.freedesktop.hal.device-access.video                         auth_admin_keep_
 org.freedesktop.hal.device-access.fingerprint-reader            auth_admin_keep_always:yes:yes
 org.freedesktop.hal.device-access.obex                          auth_admin_keep_always
 org.freedesktop.hal.device-access.ppdev                         auth_admin_keep_always
+org.freedesktop.hal.device-access.removable-block               auth_admin_keep_always
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
