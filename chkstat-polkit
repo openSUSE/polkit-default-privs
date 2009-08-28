@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 # This module sets policykit permssions
-# Copyright (C) 2008 SUSE Linux Products GmbH, Nuernberg, Germany.
+# Copyright (C) 2008, 2009 SUSE Linux Products GmbH, Nuernberg, Germany.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ use File::Path;
 use Digest::MD5 qw/md5_hex/;
 
 my $polkit_public_dir = '/var/lib/PolicyKit-public';
+my $polkit1_localauthority_dir = '/var/lib/polkit-1/localauthority/10-vendor.d';
 my $suseconfig_dir = '/var/adm/SuSEconfig';
 my $md5_dir = $suseconfig_dir.'/md5';
 my $reload_file = '/var/lib/misc/PolicyKit.reload';
@@ -47,7 +48,134 @@ if($#ARGV == -1) {
 	exit 1;
 }
 
+my $policykit_ops = {
+	name => 'PolicyKit',
+	overridefile => sub {
+		my $priv = shift;
+		return $polkit_public_dir.'/'.$priv.'.defaults-override';
+	},
+	parse => sub {
+		my $priv = shift;
+		return shift;
+	},
+	create => sub {
+		my $priv = shift;
+		return shift;
+	},
+	pretty => sub {
+		my $perms = shift;
+		my @p = map { s/^auth/a/; s/_admin/a/; s/_self/s/; s/_keep/k/; s/_session/s/; s/_always/a/; $_ } split(/:/, $perms);
+		return join(':', @p);
+	},
+};
+
+my $polkit1_ops = {
+	name => 'polkit1',
+	overridefile => sub {
+		my $priv = shift;
+		return $polkit1_localauthority_dir.'/'.$priv.'.pkla';
+	},
+	parse => sub {
+		my $priv = shift;
+		my @p;
+		for(@_) {
+			if(/^ResultAny=(.+)\n/) {
+				$p[0] = $1;
+			} elsif(/^ResultInactive=(.+)\n/) {
+				$p[1] = $1;
+			} elsif(/^ResultActive=(.+)\n/) {
+				$p[2] = $1;
+			}
+		}
+		return join(':', @p) if ($p[0] && $p[1] && $p[2]);
+		return undef;
+	},
+	convert => sub {
+		my $perms = shift;
+		my @p = map { s/^(auth_(?:admin|self)_keep).+$/$1/; s/_one_shot//; $_ } split(/:/, $perms);
+		return join(':', @p);
+	},
+	create => sub {
+		my $priv = shift;
+		my $perms = shift;
+
+		my @p = split(/:/, $perms);
+
+		my $txt = "[$priv]\nIdentity=unix-user:*\nAction=$priv\n"
+			. "ResultAny=$p[0]\nResultInactive=$p[1]\nResultActive=$p[2]\n";
+		return $txt;
+	},
+	pretty => sub {
+		my $perms = shift;
+		my @p = map { s/^auth/a/; s/_admin/a/; s/_self/s/; s/_keep/k/; s/_session//; s/_always//; $_ } split(/:/, $perms);
+		return join(':', @p);
+	},
+};
+
+
+sub override($$$)
+{
+	my ($privilege, $perms, $ops) = @_;
+	my $overridefile = $ops->{overridefile}($privilege);
+	my $old_perms;
+	my @old_content;
+	if(-e $overridefile) {
+		if(!open(F, '<', $overridefile)) {
+			print STDERR "can't open $overridefile: $!, skip.\n";
+			return;
+		}
+		@old_content = <F>;
+		$old_perms = $ops->{parse}($privilege, @old_content);
+		close F;
+	}
+
+	$perms = $ops->{convert}($perms) if $ops->{convert};
+
+	if(defined $old_perms && $perms eq $old_perms) {
+		return;
+	}
+
+	if($do_set) {
+		print $ops->{name}.": setting $privilege to ".$ops->{pretty}($perms).($old_perms?" (wrong setting ".$ops->{pretty}($old_perms).")\n":"\n");
+		if(-e $overridefile) {
+			if(!open(F, '<', $md5_dir.'/'.$overridefile)) {
+				print STDERR "$overridefile was created externally, skip.\n";
+				return;
+			}
+			my $should_digest = <F>;
+			$should_digest = substr($should_digest, 0, 32);
+			close F;
+			my $digest = md5_hex(join('', @old_content));
+			if($digest ne $should_digest) {
+				print "$should_digest $digest\n";
+				print STDERR "$overridefile was modifed externally, skip.\n";
+				return;
+			}
+		}
+		if(!open(F, '>', $overridefile.'.new')) {
+			print STDERR "can't create $overridefile.new: $!, skip.\n";
+			return;
+		}
+		my $content = $ops->{create}($privilege, $perms);
+		print F $content;
+		close F;
+		my $digest = md5_hex($content);
+		if(!open(F, '>', $md5_dir.'/'.$overridefile)) {
+			print STDERR "can't save md5 check for $privilege: $!\n";
+			unlink($overridefile.".new");
+			return;
+		}
+		print F $digest."  $overridefile\n";
+		close F;
+		rename($overridefile.'.new', $overridefile);
+	} else {
+		print $ops->{name}.": $privilege should be ".$ops->{pretty}($perms).($old_perms?" (wrong setting ".$ops->{pretty}($old_perms).")\n":"\n");
+	}
+}
+
 mkpath($md5_dir.'/'.$polkit_public_dir) if $do_set;
+mkpath($polkit1_localauthority_dir) if $do_set;
+mkpath($md5_dir.'/'.$polkit1_localauthority_dir) if $do_set;
 
 while(<>) {
 	chomp;
@@ -57,60 +185,15 @@ while(<>) {
 	if($perms !~ /:/) {
 		$perms = $perms.':'.$perms.':'.$perms;
 	}
+	# backward compat with PolicyKit
+	my @p = map { s/^auth_(admin\|self)_keep$/auth_$1_keep_always/; $_ } split(/:/, $perms);
+	$perms = join(':', @p);
 	$to_set{$privilege} = $perms;
 }
 
 while (my ($privilege, $perms) = each %to_set) {
-	my $overridefile = $polkit_public_dir.'/'.$privilege.'.defaults-override';
-	my $old_perms;
-	if(-e $overridefile) {
-		if(!open(F, '<', $overridefile)) {
-			print STDERR "can't open $overridefile: $!, skip.\n";
-			next;
-		}
-		$old_perms = <F>;
-		close F;
-	}
-
-	if(defined $old_perms && $perms eq $old_perms) {
-		next;
-	}
-
-	if($do_set) {
-		print "setting $privilege to $perms".($old_perms?"\n  (wrong setting $old_perms)\n":"\n");
-		if(-e $overridefile) {
-			if(!open(F, '<', $md5_dir.'/'.$overridefile)) {
-				print STDERR "$overridefile was created externally, skip.\n";
-				next;
-			}
-			my $should_digest = <F>;
-			$should_digest = substr($should_digest, 0, 32);
-			close F;
-			my $digest = md5_hex($old_perms);
-			if($digest ne $should_digest) {
-				print "$should_digest $digest\n";
-				print STDERR "$overridefile was modifed externally, skip.\n";
-				next;
-			}
-		}
-		if(!open(F, '>', $overridefile.'.new')) {
-			print STDERR "can't create $overridefile.new: $!, skip.\n";
-			next;
-		}
-		print F $perms;
-		close F;
-		my $digest = md5_hex($perms);
-		if(!open(F, '>', $md5_dir.'/'.$overridefile)) {
-			print STDERR "can't save md5 check for $privilege: $!\n";
-			unlink($overridefile.".new");
-			next;
-		}
-		print F $digest." -\n";
-		close F;
-		rename($overridefile.'.new', $overridefile);
-	} else {
-		print "$privilege should be $perms".($old_perms?"\n  (wrong setting $old_perms)\n":"\n");
-	}
+	override($privilege, $perms, $policykit_ops);
+	override($privilege, $perms, $polkit1_ops);
 }
 
 utime undef, undef, $reload_file if $do_set;
