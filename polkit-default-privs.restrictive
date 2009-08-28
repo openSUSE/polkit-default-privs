@@ -3,6 +3,7 @@
 # hosts are centrally administered and users should have minimal
 # privileges. Privileged operations require authentication as admin.
 #
+#
 # Please do not modify this file, use polkit-default-privs.local instead.
 #
 org.freedesktop.policykit.read                              	auth_admin_keep_always
@@ -79,6 +80,7 @@ org.freedesktop.packagekit.system-rollback                      auth_admin_keep_
 org.freedesktop.packagekit.system-sources-configure             auth_admin_keep_always
 org.freedesktop.packagekit.system-sources-refresh               auth_admin_keep_always
 org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep_always
+org.freedesktop.packagekit.cancel-foreign                       auth_admin_keep
 #
 org.pulseaudio.acquire-real-time                                auth_admin_keep_always
 org.pulseaudio.acquire-high-priority                            auth_admin_keep_always
@@ -125,5 +127,54 @@ org.opensuse.cupspkhelper.mechanism.printer-remote-edit         auth_admin
 org.opensuse.cupspkhelper.mechanism.class-edit                  auth_admin
 org.opensuse.cupspkhelper.mechanism.server-settings             auth_admin
 org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin
+org.opensuse.cupspkhelper.mechanism.job-edit                    auth_admin
+org.opensuse.cupspkhelper.mechanism.job-not-owned-edit          auth_admin
+
+#
+# Firewall Zone Switcher
+#
+org.opensuse.zoneswitcher.control                               auth_admin
+
+#
+# RealTimeKit
+#
+org.freedesktop.RealtimeKit1.acquire-high-priority              auth_admin
+org.freedesktop.RealtimeKit1.acquire-real-time                  auth_admin
+
+#
+# polkit-1
+#
+org.freedesktop.policykit.exec                                  auth_admin
+# example progam
+org.freedesktop.policykit.example.pkexec.run-frobnicate         auth_admin
+
+#
+# device-kit. Should be consitent with hal
+#
+org.freedesktop.devicekit.disks.filesystem-mount                auth_admin
+org.freedesktop.devicekit.disks.filesystem-mount-system-internal auth_admin
+org.freedesktop.devicekit.disks.filesystem-check                auth_admin
+org.freedesktop.devicekit.disks.filesystem-check-system-internal auth_admin
+org.freedesktop.devicekit.disks.filesystem-unmount-others       auth_admin
+org.freedesktop.devicekit.disks.filesystem-lsof                 auth_admin
+org.freedesktop.devicekit.disks.filesystem-lsof-system-internal auth_admin
+org.freedesktop.devicekit.disks.drive-eject                     auth_admin
+org.freedesktop.devicekit.disks.drive-detach                    auth_admin
+org.freedesktop.devicekit.disks.change                          auth_admin
+org.freedesktop.devicekit.disks.change-system-internal          auth_admin
+org.freedesktop.devicekit.disks.drive-ata-smart-refresh         auth_admin
+org.freedesktop.devicekit.disks.drive-ata-smart-selftest        auth_admin
+org.freedesktop.devicekit.disks.drive-ata-smart-retrieve-historical-data auth_admin
+org.freedesktop.devicekit.disks.luks-unlock                     auth_admin
+org.freedesktop.devicekit.disks.luks-lock-others                auth_admin
+org.freedesktop.devicekit.disks.linux-md                        auth_admin
+org.freedesktop.devicekit.disks.cancel-job-others               auth_admin
+org.freedesktop.devicekit.disks.inhibit-polling                 auth_admin
+org.freedesktop.devicekit.power.suspend                         auth_admin
+org.freedesktop.devicekit.power.hibernate                       auth_admin
+org.freedesktop.devicekit.power.qos.request-latency             auth_admin
+org.freedesktop.devicekit.power.qos.request-latency-persistent  auth_admin
+org.freedesktop.devicekit.power.qos.set-minimum-latency         auth_admin
+org.freedesktop.devicekit.power.qos.cancel-request              auth_admin
 
 ###
