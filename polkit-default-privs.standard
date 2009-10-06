@@ -177,11 +177,33 @@ org.freedesktop.devicekit.disks.luks-lock-others                auth_admin:auth_
 org.freedesktop.devicekit.disks.linux-md                        auth_admin:auth_admin:auth_admin
 org.freedesktop.devicekit.disks.cancel-job-others               auth_admin:auth_admin:auth_admin
 org.freedesktop.devicekit.disks.inhibit-polling                 auth_admin:auth_admin:yes
+org.freedesktop.devicekit.disks.drive-set-spindown              auth_admin:auth_admin:auth_admin
+#
 org.freedesktop.devicekit.power.suspend                         auth_admin:auth_admin:yes
 org.freedesktop.devicekit.power.hibernate                       auth_admin:auth_admin:yes
 org.freedesktop.devicekit.power.qos.request-latency             auth_admin:auth_admin:yes
 org.freedesktop.devicekit.power.qos.request-latency-persistent  auth_admin:auth_admin:yes
 org.freedesktop.devicekit.power.qos.set-minimum-latency         auth_admin:auth_admin:auth_admin
 org.freedesktop.devicekit.power.qos.cancel-request              auth_admin:auth_admin:auth_admin
+
+#
+# YaST
+#
+org.opensuse.yast.module-manager.import                         auth_admin_keep_session
+org.opensuse.yast.module-manager.lock                           auth_admin_keep_session
+org.opensuse.yast.modules.yapi.language.read                    no
+org.opensuse.yast.modules.yapi.language.write                   no
+org.opensuse.yast.modules.yapi.time.read                        no
+org.opensuse.yast.modules.yapi.time.write                       no
+org.opensuse.yast.scr.read                                      auth_admin_keep_session
+org.opensuse.yast.scr.write                                     auth_admin_keep_session
+org.opensuse.yast.scr.execute                                   auth_admin_keep_session
+org.opensuse.yast.scr.dir                                       auth_admin_keep_session
+org.opensuse.yast.scr.registeragent                             auth_admin_keep_session
+org.opensuse.yast.scr.unregisteragent                           auth_admin_keep_session
+org.opensuse.yast.scr.unmountagent                              auth_admin_keep_session
+org.opensuse.yast.scr.error                                     auth_admin_keep_session
+org.opensuse.yast.scr.unregisterallagents                       auth_admin_keep_session
+org.opensuse.yast.scr.registernewagents                         auth_admin_keep_session
 
 ###
