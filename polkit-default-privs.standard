@@ -177,7 +177,7 @@ org.freedesktop.devicekit.disks.luks-lock-others                auth_admin:auth_
 org.freedesktop.devicekit.disks.linux-md                        auth_admin:auth_admin:auth_admin
 org.freedesktop.devicekit.disks.cancel-job-others               auth_admin:auth_admin:auth_admin
 org.freedesktop.devicekit.disks.inhibit-polling                 auth_admin:auth_admin:yes
-org.freedesktop.devicekit.disks.drive-set-spindown              auth_admin:auth_admin:auth_admin
+org.freedesktop.devicekit.disks.drive-set-spindown              auth_admin:auth_admin:yes
 #
 org.freedesktop.devicekit.power.suspend                         auth_admin:auth_admin:yes
 org.freedesktop.devicekit.power.hibernate                       auth_admin:auth_admin:yes
