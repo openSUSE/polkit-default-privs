@@ -8,6 +8,9 @@
 # installation. It is designed to be a placeholder for local
 # additions by the administrator of the system.
 #
+# Note that you need to run /sbin/set_polkit_default_privs for
+# changes to take effect.
+#
 # Format:
 # <privilege> <any>:<inactive>:<active>
 #
