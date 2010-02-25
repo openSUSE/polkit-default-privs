@@ -152,6 +152,7 @@ org.freedesktop.RealtimeKit1.acquire-real-time                  auth_admin:auth_
 # polkit-1
 #
 org.freedesktop.policykit.exec                                  auth_admin:auth_admin:auth_admin
+org.freedesktop.policykit.lockdown                              auth_admin
 # example progam
 org.freedesktop.policykit.example.pkexec.run-frobnicate         auth_admin:auth_admin:auth_admin
 
@@ -195,6 +196,9 @@ org.opensuse.yast.modules.yapi.language.read                    no
 org.opensuse.yast.modules.yapi.language.write                   no
 org.opensuse.yast.modules.yapi.time.read                        no
 org.opensuse.yast.modules.yapi.time.write                       no
+org.opensuse.yast.modules.ysr.statelessregister                 auth_admin_keep_session
+org.opensuse.yast.modules.ysr.getregistrationconfig             auth_admin_keep_session
+org.opensuse.yast.modules.ysr.setregistrationconfig             auth_admin_keep_session
 org.opensuse.yast.scr.read                                      auth_admin_keep_session
 org.opensuse.yast.scr.write                                     auth_admin_keep_session
 org.opensuse.yast.scr.execute                                   auth_admin_keep_session
@@ -205,5 +209,19 @@ org.opensuse.yast.scr.unmountagent                              auth_admin_keep_
 org.opensuse.yast.scr.error                                     auth_admin_keep_session
 org.opensuse.yast.scr.unregisterallagents                       auth_admin_keep_session
 org.opensuse.yast.scr.registernewagents                         auth_admin_keep_session
+
+# KDE stuff
+
+org.kde.fontinst.manage                                         auth_admin
+org.kde.kcontrol.kcmclock.save                                  auth_admin
+org.kde.kcontrol.kcmremotewidgets.save                          auth_admin
+org.kde.ksysguard.processlisthelper.changecpuscheduler          auth_admin
+org.kde.ksysguard.processlisthelper.changeioscheduler           auth_admin
+org.kde.ksysguard.processlisthelper.renice                      auth_admin
+org.kde.ksysguard.processlisthelper.sendsignal                  auth_admin
+org.kde.polkitkde1.changeexplicitauthorizations                 auth_admin_keep
+org.kde.polkitkde1.changeimplicitauthorizations                 auth_admin
+org.kde.polkitkde1.changesystemconfiguration                    auth_admin
+org.kde.polkitkde1.readauthorizations                           auth_admin_keep
 
 ###
