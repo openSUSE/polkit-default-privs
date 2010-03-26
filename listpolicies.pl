@@ -72,5 +72,15 @@ if(!$permissions) {
 		print sprintf('%-63s %s'."\n", $_->{'name'}, $_->{'value'});
 		$have_unknown = 1;
 	}
+	if ($ENV{'VERBOSE'}) {
+		my %seen = map { $_->{'name'} => 1} @policies;
+		my @obs;
+		for (keys %known) {
+			push @obs, $_ unless $seen{$_};
+		}
+		for (sort @obs) {
+			print "obsolete entry $_\n";
+		}
+	}
 	exit (1) if($have_unknown);
 }

@@ -10,7 +10,12 @@ org.freedesktop.policykit.read                              	auth_admin_keep_alw
 org.freedesktop.policykit.revoke                            	auth_admin_keep_always
 org.freedesktop.policykit.grant                             	auth_admin_keep_always
 org.freedesktop.policykit.modify-defaults                   	auth_admin_keep_always
+#
 org.freedesktop.network-manager-settings.system.modify      	auth_admin_keep_always
+org.freedesktop.network-manager-settings.system.hostname.modify auth_admin_keep
+org.freedesktop.network-manager-settings.system.wifi.share.protected auth_admin
+org.freedesktop.network-manager-settings.system.wifi.share.open auth_admin
+#
 org.freedesktop.hal.killswitch.bluetooth                    	auth_admin_keep_always
 org.freedesktop.hal.killswitch.wlan                         	auth_admin_keep_always
 org.freedesktop.hal.killswitch.wwan                         	auth_admin_keep_always
@@ -67,6 +72,8 @@ org.libvirt.unix.manage                                     	auth_admin_keep_alw
 org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always
 org.gnome.clockapplet.mechanism.settime                         auth_admin_keep_always
 org.gnome.clockapplet.mechanism.configurehwclock                auth_admin_keep_always
+#
+org.gnome.color.install-system-wide                             auth_admin
 #
 # package kit
 #
@@ -129,6 +136,7 @@ org.opensuse.cupspkhelper.mechanism.server-settings             auth_admin
 org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin
 org.opensuse.cupspkhelper.mechanism.job-edit                    auth_admin
 org.opensuse.cupspkhelper.mechanism.job-not-owned-edit          auth_admin
+org.opensuse.cupspkhelper.mechanism.devices-get                 auth_admin
 
 #
 # Firewall Zone Switcher
@@ -152,26 +160,27 @@ org.freedesktop.policykit.example.pkexec.run-frobnicate         auth_admin
 #
 # device-kit. Should be consitent with hal
 #
-org.freedesktop.devicekit.disks.filesystem-mount                auth_admin
-org.freedesktop.devicekit.disks.filesystem-mount-system-internal auth_admin
-org.freedesktop.devicekit.disks.filesystem-check                auth_admin
-org.freedesktop.devicekit.disks.filesystem-check-system-internal auth_admin
-org.freedesktop.devicekit.disks.filesystem-unmount-others       auth_admin
-org.freedesktop.devicekit.disks.filesystem-lsof                 auth_admin
-org.freedesktop.devicekit.disks.filesystem-lsof-system-internal auth_admin
-org.freedesktop.devicekit.disks.drive-eject                     auth_admin
-org.freedesktop.devicekit.disks.drive-detach                    auth_admin
-org.freedesktop.devicekit.disks.change                          auth_admin
-org.freedesktop.devicekit.disks.change-system-internal          auth_admin
-org.freedesktop.devicekit.disks.drive-ata-smart-refresh         auth_admin
-org.freedesktop.devicekit.disks.drive-ata-smart-selftest        auth_admin
-org.freedesktop.devicekit.disks.drive-ata-smart-retrieve-historical-data auth_admin
-org.freedesktop.devicekit.disks.luks-unlock                     auth_admin
-org.freedesktop.devicekit.disks.luks-lock-others                auth_admin
-org.freedesktop.devicekit.disks.linux-md                        auth_admin
-org.freedesktop.devicekit.disks.cancel-job-others               auth_admin
-org.freedesktop.devicekit.disks.inhibit-polling                 auth_admin
-org.freedesktop.devicekit.disks.drive-set-spindown              auth_admin
+org.freedesktop.udisks.filesystem-mount                auth_admin
+org.freedesktop.udisks.filesystem-mount-system-internal auth_admin
+org.freedesktop.udisks.filesystem-check                auth_admin
+org.freedesktop.udisks.filesystem-check-system-internal auth_admin
+org.freedesktop.udisks.filesystem-unmount-others       auth_admin
+org.freedesktop.udisks.filesystem-lsof                 auth_admin
+org.freedesktop.udisks.filesystem-lsof-system-internal auth_admin
+org.freedesktop.udisks.drive-eject                     auth_admin
+org.freedesktop.udisks.drive-detach                    auth_admin
+org.freedesktop.udisks.change                          auth_admin
+org.freedesktop.udisks.change-system-internal          auth_admin
+org.freedesktop.udisks.drive-ata-smart-refresh         auth_admin
+org.freedesktop.udisks.drive-ata-smart-selftest        auth_admin
+org.freedesktop.udisks.drive-ata-smart-retrieve-historical-data auth_admin
+org.freedesktop.udisks.luks-unlock                     auth_admin
+org.freedesktop.udisks.luks-lock-others                auth_admin
+org.freedesktop.udisks.linux-md                        auth_admin
+org.freedesktop.udisks.cancel-job-others               auth_admin
+org.freedesktop.udisks.inhibit-polling                 auth_admin
+org.freedesktop.udisks.drive-set-spindown              auth_admin
+org.freedesktop.udisks.linux-lvm2                      auth_admin
 #
 org.freedesktop.devicekit.power.suspend                         auth_admin
 org.freedesktop.devicekit.power.hibernate                       auth_admin
@@ -216,5 +225,6 @@ org.kde.polkitkde1.changeexplicitauthorizations                 auth_admin_keep
 org.kde.polkitkde1.changeimplicitauthorizations                 auth_admin
 org.kde.polkitkde1.changesystemconfiguration                    auth_admin
 org.kde.polkitkde1.readauthorizations                           auth_admin_keep
+org.kde.kcontrol.k3bsetup.save                                  auth_admin
 
 ###
