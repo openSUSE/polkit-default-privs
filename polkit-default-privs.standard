@@ -189,12 +189,12 @@ org.freedesktop.udisks.inhibit-polling                 auth_admin:auth_admin:yes
 org.freedesktop.udisks.drive-set-spindown              auth_admin:auth_admin:yes
 org.freedesktop.udisks.linux-lvm2                      auth_admin_keep
 #
-org.freedesktop.devicekit.power.suspend                         auth_admin:auth_admin:yes
-org.freedesktop.devicekit.power.hibernate                       auth_admin:auth_admin:yes
-org.freedesktop.devicekit.power.qos.request-latency             auth_admin:auth_admin:yes
-org.freedesktop.devicekit.power.qos.request-latency-persistent  auth_admin:auth_admin:yes
-org.freedesktop.devicekit.power.qos.set-minimum-latency         auth_admin:auth_admin:auth_admin
-org.freedesktop.devicekit.power.qos.cancel-request              auth_admin:auth_admin:auth_admin
+org.freedesktop.upower.suspend                         auth_admin:auth_admin:yes
+org.freedesktop.upower.hibernate                       auth_admin:auth_admin:yes
+org.freedesktop.upower.qos.request-latency             auth_admin:auth_admin:yes
+org.freedesktop.upower.qos.request-latency-persistent  auth_admin:auth_admin:yes
+org.freedesktop.upower.qos.set-minimum-latency         auth_admin:auth_admin:auth_admin
+org.freedesktop.upower.qos.cancel-request              auth_admin:auth_admin:auth_admin
 
 #
 # YaST
@@ -233,5 +233,11 @@ org.kde.polkitkde1.changeimplicitauthorizations                 auth_admin
 org.kde.polkitkde1.changesystemconfiguration                    auth_admin
 org.kde.polkitkde1.readauthorizations                           auth_admin_keep
 org.kde.kcontrol.k3bsetup.save                                  auth_admin
+
+# moblin
+
+org.moblin.clockapplet.mechanism.settimezone                    auth_admin
+org.moblin.clockapplet.mechanism.settime                        auth_admin
+org.moblin.clockapplet.mechanism.configurehwclock               auth_admin
 
 ###
