@@ -76,9 +76,9 @@ org.freedesktop.hal.device-access.removable-block               auth_admin_keep_
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
-org.gnome.clockapplet.mechanism.settimezone                     auth_admin_keep_always:auth_admin_keep_always:yes
-org.gnome.clockapplet.mechanism.settime                         auth_admin_keep_always
-org.gnome.clockapplet.mechanism.configurehwclock                auth_admin_keep_always
+org.gnome.settingsdaemon.datetimemechanism.settimezone          auth_admin_keep_always:auth_admin_keep_always:yes
+org.gnome.settingsdaemon.datetimemechanism.settime              auth_admin_keep_always
+org.gnome.settingsdaemon.datetimemechanism.configurehwclock     auth_admin_keep_always
 #
 org.gnome.color.install-system-wide                             auth_admin
 #
