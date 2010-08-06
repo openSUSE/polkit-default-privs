@@ -227,6 +227,9 @@ org.kde.polkitkde1.changeimplicitauthorizations                 auth_admin
 org.kde.polkitkde1.changesystemconfiguration                    auth_admin
 org.kde.polkitkde1.readauthorizations                           auth_admin_keep
 org.kde.kcontrol.k3bsetup.save                                  auth_admin
+org.kde.kcontrol.kcmkdm.managefaces                             auth_admin_keep
+org.kde.kcontrol.kcmkdm.managethemes                            auth_admin_keep
+org.kde.kcontrol.kcmkdm.save                                    auth_admin
 
 # moblin
 
