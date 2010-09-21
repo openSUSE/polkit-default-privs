@@ -101,7 +101,7 @@ my $polkit1_ops = {
 
 		my @p = split(/:/, $perms);
 
-		my $txt = "[$priv]\nIdentity=unix-user:*\nAction=$priv\n"
+		my $txt = "[$priv]\nIdentity=unix-group:*\nAction=$priv\n"
 			. "ResultAny=$p[0]\nResultInactive=$p[1]\nResultActive=$p[2]\n";
 		return $txt;
 	},
