@@ -89,6 +89,7 @@ org.freedesktop.packagekit.system-sources-refresh               auth_admin_keep_
 org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep_always
 org.freedesktop.packagekit.cancel-foreign                       auth_admin_keep
 org.freedesktop.packagekit.device-rebind                        auth_admin_keep
+org.freedesktop.packagekit.system-change-install-root           auth_admin
 #
 org.pulseaudio.acquire-real-time                                auth_admin_keep_always
 org.pulseaudio.acquire-high-priority                            auth_admin_keep_always
@@ -236,5 +237,25 @@ org.kde.kcontrol.kcmkdm.save                                    auth_admin
 org.moblin.clockapplet.mechanism.settimezone                    auth_admin
 org.moblin.clockapplet.mechanism.settime                        auth_admin
 org.moblin.clockapplet.mechanism.configurehwclock               auth_admin
+
+# systemd
+org.freedesktop.systemd1.ReplyPassword                          auth_admin
+
+# gnome-control-center
+org.gnome.randr.install-system-wide                             auth_admin
+
+# gnome-power-manager
+org.gnome.power.backlight-helper                                auth_admin
+
+# hp-drive-guard
+com.hp.driveguard.toggle                                        auth_admin
+com.hp.driveguard.install-setup                                 auth_admin
+
+# ModemManager
+org.freedesktop.ModemManager.Device.Control                     auth_admin
+org.freedesktop.ModemManager.Device.Info                        auth_admin
+org.freedesktop.ModemManager.Contacts                           auth_admin
+org.freedesktop.ModemManager.SMS                                auth_admin
+org.freedesktop.ModemManager.Location                           auth_admin
 
 ###
