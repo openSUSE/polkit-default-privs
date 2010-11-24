@@ -15,6 +15,12 @@ org.freedesktop.network-manager-settings.system.modify      	auth_admin_keep_alw
 org.freedesktop.network-manager-settings.system.hostname.modify auth_admin_keep
 org.freedesktop.network-manager-settings.system.wifi.share.protected auth_admin
 org.freedesktop.network-manager-settings.system.wifi.share.open auth_admin
+org.freedesktop.NetworkManager.enable-disable-network           auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.enable-disable-wifi              auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.enable-disable-wwan              auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.use-user-connections             auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.network-control                  auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.sleep-wake                       auth_admin:auth_admin:yes
 #
 org.freedesktop.hal.killswitch.bluetooth                    	auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.hal.killswitch.wlan                         	auth_admin_keep_always:auth_admin_keep_always:yes
