@@ -253,6 +253,8 @@ org.gnome.randr.install-system-wide                             auth_admin
 
 # gnome-power-manager
 org.gnome.power.backlight-helper                                auth_admin
+# xfce4-power-manager, bnc#665169
+org.xfce.power.backlight-helper                                 auth_admin
 
 # hp-drive-guard
 com.hp.driveguard.toggle                                        auth_admin
