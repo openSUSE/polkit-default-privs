@@ -258,10 +258,11 @@ org.freedesktop.systemd1.ReplyPassword                          auth_admin
 # gnome-control-center
 org.gnome.randr.install-system-wide                             auth_admin
 
-# gnome-power-manager
-org.gnome.power.backlight-helper                                auth_admin
+# gnome-power-manager (bnc#650401)
+org.gnome.power.backlight-helper                                auth_admin:auth_admin:yes
 # xfce4-power-manager, bnc#665169
-org.xfce.power.backlight-helper                                 auth_admin
+# code is copy&paste from gnome-power-manager
+org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
 
 # hp-drive-guard
 com.hp.driveguard.toggle                                        auth_admin
