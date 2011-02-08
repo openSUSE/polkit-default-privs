@@ -227,6 +227,9 @@ org.opensuse.yast.scr.unmountagent                              auth_admin_keep_
 org.opensuse.yast.scr.error                                     auth_admin_keep_session
 org.opensuse.yast.scr.unregisterallagents                       auth_admin_keep_session
 org.opensuse.yast.scr.registernewagents                         auth_admin_keep_session
+# webyast-base-ws
+org.opensuse.yast.permissions.read                              no
+org.opensuse.yast.permissions.write                             no
 
 # KDE stuff
 

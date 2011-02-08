@@ -220,6 +220,9 @@ org.opensuse.yast.scr.unmountagent                              auth_admin
 org.opensuse.yast.scr.error                                     auth_admin
 org.opensuse.yast.scr.unregisterallagents                       auth_admin
 org.opensuse.yast.scr.registernewagents                         auth_admin
+# webyast-base-ws
+org.opensuse.yast.permissions.read                              no
+org.opensuse.yast.permissions.write                             no
 
 # KDE stuff
 
