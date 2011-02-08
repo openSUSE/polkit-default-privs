@@ -173,7 +173,11 @@ sub override($$$)
 	}
 }
 
-mkpath($md5_dir.'/'.$polkit_public_dir) if $do_set;
+if (-d $polkit_public_dir) {
+	mkpath($md5_dir.'/'.$polkit_public_dir) if $do_set;
+} else {
+	$policykit_ops = undef;
+}
 mkpath($polkit1_localauthority_dir) if $do_set;
 mkpath($md5_dir.'/'.$polkit1_localauthority_dir) if $do_set;
 
@@ -192,7 +196,7 @@ while(<>) {
 }
 
 while (my ($privilege, $perms) = each %to_set) {
-	override($privilege, $perms, $policykit_ops);
+	override($privilege, $perms, $policykit_ops) if defined $policykit_ops;
 	override($privilege, $perms, $polkit1_ops);
 }
 
