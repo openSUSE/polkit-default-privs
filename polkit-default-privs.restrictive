@@ -223,6 +223,7 @@ org.opensuse.yast.scr.registernewagents                         auth_admin
 # webyast-base-ws
 org.opensuse.yast.permissions.read                              no
 org.opensuse.yast.permissions.write                             no
+org.opensuse.yast.modules.eulas.accept                          no
 
 # KDE stuff
 
