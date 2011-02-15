@@ -45,10 +45,16 @@ for my $f (@ARGV) {
 		for (@{$a}) {
 			next unless exists $_->{'id'}->{"value"};
 			my $p = { name => $_->{'id'}->{'value'} };
-			my $s = $_->{'defaults'}->{'allow_any'}->{'value'} || 'no';
-			$s .= ':'.($_->{'defaults'}->{'allow_inactive'}->{'value'} || 'no');
-			$s .= ':'.($_->{'defaults'}->{'allow_active'}->{'value'} || 'no');
-			$p->{'value'} = $s;
+			my @v;
+			for my $n (qw/any inactive active/) {
+				my $ref = $_->{'defaults'}->{'allow_'.$n};
+				if (ref $ref eq 'ARRAY') {
+					warn $p->{'name'}.": duplicate allow_$n\n";
+					$ref = $ref->[-1];
+				}
+				push @v, $ref->{'value'} || 'no';
+			}
+			$p->{'value'} = join(':', @v);
 			push @policies, $p;
 		}
 	} else {
