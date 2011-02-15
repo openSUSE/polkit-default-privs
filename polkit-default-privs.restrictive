@@ -260,6 +260,8 @@ org.opensuse.yast.modules.yapi.users.userget                    no
 org.opensuse.yast.modules.yapi.users.usermodify                 no
 org.opensuse.yast.modules.yapi.users.useradd                    no
 org.opensuse.yast.modules.yapi.users.userdelete                 no
+org.opensuse.yast.modules.yapi.network.read                     no
+org.opensuse.yast.modules.yapi.network.write                    no
 
 
 # KDE stuff
