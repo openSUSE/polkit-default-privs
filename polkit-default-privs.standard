@@ -316,7 +316,7 @@ com.hp.driveguard.install-setup                                 auth_admin
 
 # ModemManager
 org.freedesktop.ModemManager.Device.Control                     auth_admin
-org.freedesktop.ModemManager.Device.Info                        auth_admin
+org.freedesktop.ModemManager.Device.Info                        auth_admin:auth_admin:yes
 org.freedesktop.ModemManager.Contacts                           auth_admin
 org.freedesktop.ModemManager.SMS                                auth_admin
 org.freedesktop.ModemManager.Location                           auth_admin
