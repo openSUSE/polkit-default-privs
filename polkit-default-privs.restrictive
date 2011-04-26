@@ -320,4 +320,11 @@ org.freedesktop.ModemManager.Contacts                           auth_admin
 org.freedesktop.ModemManager.SMS                                auth_admin
 org.freedesktop.ModemManager.Location                           auth_admin
 
+# urfkill (bnc#688328)
+org.freedesktop.urfkill.block                                   auth_admin
+org.freedesktop.urfkill.blockidx                                auth_admin
+org.freedesktop.urfkill.unblock                                 auth_admin
+org.freedesktop.urfkill.unblockidx                              auth_admin
+org.freedesktop.urfkill.enablekeycontrol                        auth_admin
+
 ###
