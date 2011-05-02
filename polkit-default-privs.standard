@@ -27,6 +27,7 @@ org.freedesktop.NetworkManager.wifi.share.protected             auth_admin
 org.freedesktop.NetworkManager.wifi.share.open                  auth_admin
 org.freedesktop.NetworkManager.settings.modify.own              auth_admin
 org.freedesktop.NetworkManager.settings.modify.system           auth_admin
+org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 #
 org.freedesktop.hal.killswitch.bluetooth                    	auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.hal.killswitch.wlan                         	auth_admin_keep_always:auth_admin_keep_always:yes
