@@ -153,6 +153,7 @@ org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.job-edit                    auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.job-not-owned-edit          auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.devices-get                 auth_admin_keep
+org.opensuse.cupspkhelper.mechanism.all-edit                    auth_admin_keep
 
 #
 # Firewall Zone Switcher
