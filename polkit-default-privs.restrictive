@@ -326,6 +326,8 @@ org.freedesktop.ModemManager.Device.Info                        auth_admin
 org.freedesktop.ModemManager.Contacts                           auth_admin
 org.freedesktop.ModemManager.SMS                                auth_admin
 org.freedesktop.ModemManager.Location                           auth_admin
+# (bnc#691896)
+org.freedesktop.ModemManager.USSD                               auth_admin
 
 # urfkill (bnc#688328)
 org.freedesktop.urfkill.block                                   auth_admin
