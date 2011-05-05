@@ -307,8 +307,12 @@ org.moblin.clockapplet.mechanism.settimezone                    auth_admin
 org.moblin.clockapplet.mechanism.settime                        auth_admin
 org.moblin.clockapplet.mechanism.configurehwclock               auth_admin
 
-# systemd
-org.freedesktop.systemd1.ReplyPassword                          auth_admin
+# systemd (bnc#641924)
+org.freedesktop.hostname1.set-hostname                          auth_admin
+org.freedesktop.hostname1.set-static-hostname                   auth_admin
+org.freedesktop.hostname1.set-machine-info                      auth_admin
+org.freedesktop.systemd1.reply-password                         auth_admin
+org.freedesktop.systemd1.bus-access                             auth_admin
 
 # gnome-control-center
 org.gnome.randr.install-system-wide                             auth_admin
