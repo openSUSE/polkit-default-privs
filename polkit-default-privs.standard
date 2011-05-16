@@ -278,6 +278,9 @@ org.opensuse.yast.modules.yapi.users.useradd                    no
 org.opensuse.yast.modules.yapi.users.userdelete                 no
 org.opensuse.yast.modules.yapi.network.read                     no
 org.opensuse.yast.modules.yapi.network.write                    no
+# bnc#687807
+org.opensuse.yast.system.power-management.reboot                no
+org.opensuse.yast.system.power-management.shutdown              no
 
 
 # KDE stuff
