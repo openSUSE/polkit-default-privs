@@ -94,7 +94,17 @@ org.libvirt.unix.manage                                     	auth_admin_keep_alw
 #
 org.gnome.settingsdaemon.datetimemechanism.configure            auth_admin_keep
 #
-org.gnome.color.install-system-wide                             auth_admin
+# colord (bnc#698250)
+#
+org.freedesktop.color-manager.create-device                     auth_admin
+org.freedesktop.color-manager.create-profile                    auth_admin
+org.freedesktop.color-manager.delete-device                     auth_admin
+org.freedesktop.color-manager.delete-profile                    auth_admin
+org.freedesktop.color-manager.modify-device                     auth_admin
+org.freedesktop.color-manager.modify-profile                    auth_admin
+org.freedesktop.color-manager.install-system-wide               auth_admin
+org.freedesktop.color-manager.device-inhibit                    auth_admin
+org.freedesktop.color-manager.sensor-lock                       auth_admin
 #
 # package kit
 #
