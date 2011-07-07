@@ -128,8 +128,8 @@ org.pulseaudio.acquire-high-priority                            auth_admin_keep_
 #
 # gconf
 #
-org.gnome.gconf.defaults.set-system                             auth_admin
-org.gnome.gconf.defaults.set-mandatory                          auth_admin
+org.gnome.gconf.defaults.set-system                             auth_admin_keep
+org.gnome.gconf.defaults.set-mandatory                          auth_admin_keep
 #
 # just an example program
 #
