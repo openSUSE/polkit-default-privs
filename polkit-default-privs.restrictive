@@ -357,7 +357,7 @@ org.freedesktop.urfkill.unblockidx                              auth_admin
 org.freedesktop.urfkill.enablekeycontrol                        auth_admin
 
 # account services (bnc#676638)
-org.freedesktop.accounts.user-administration                    auth_admin
+org.freedesktop.accounts.user-administration                    auth_admin_keep
 org.freedesktop.accounts.set-login-option                       auth_admin
 org.freedesktop.accounts.change-own-user-data                   auth_admin
 
