@@ -29,4 +29,9 @@ install:
 		"$$@"; \
 	done
 
+package:
+	@obs/mkpackage
+
 .SUFFIXES: .8 .5 .txt
+
+.PHONY: all mans install package
