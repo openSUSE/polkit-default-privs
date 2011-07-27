@@ -253,8 +253,8 @@ org.kde.kcontrol.kcmkdm.managefaces                             auth_admin_keep
 org.kde.kcontrol.kcmkdm.managethemes                            auth_admin_keep
 org.kde.kcontrol.kcmkdm.save                                    auth_admin
 # kde backlight helper (bnc#672145)
-org.kde.powerdevil.backlighthelper.brightness                   auth_admin:auth_admin:yes
-org.kde.powerdevil.backlighthelper.setbrightness                auth_admin:auth_admin:yes
+org.kde.powerdevil.backlighthelper.brightness                   auth_admin:no:yes
+org.kde.powerdevil.backlighthelper.setbrightness                auth_admin:no:yes
 
 # moblin
 
@@ -280,10 +280,10 @@ org.freedesktop.login1.flush-devices                            auth_admin_keep
 org.gnome.randr.install-system-wide                             auth_admin
 
 # gnome-power-manager (bnc#650401)
-org.gnome.power.backlight-helper                                auth_admin:auth_admin:yes
+org.gnome.power.backlight-helper                                auth_admin:no:yes
 # xfce4-power-manager, bnc#665169
 # code is copy&paste from gnome-power-manager
-org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
+org.xfce.power.backlight-helper                                 auth_admin:no:yes
 
 # hp-drive-guard
 com.hp.driveguard.toggle                                        auth_admin
