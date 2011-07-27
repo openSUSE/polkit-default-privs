@@ -29,57 +29,6 @@ org.freedesktop.NetworkManager.settings.modify.own              auth_admin
 org.freedesktop.NetworkManager.settings.modify.system           auth_admin
 org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 #
-org.freedesktop.hal.killswitch.bluetooth                    	auth_admin_keep_always
-org.freedesktop.hal.killswitch.wlan                         	auth_admin_keep_always
-org.freedesktop.hal.killswitch.wwan                         	auth_admin_keep_always
-org.freedesktop.hal.lock                                    	auth_admin_keep_always
-org.freedesktop.hal.storage.mount-fixed                     	auth_admin_keep_always
-org.freedesktop.hal.storage.mount-removable                 	auth_admin_keep_always
-org.freedesktop.hal.storage.unmount-others                  	auth_admin_keep_always
-org.freedesktop.hal.storage.eject                           	auth_admin_keep_always
-org.freedesktop.hal.storage.crypto-setup-fixed              	auth_admin_keep_always
-org.freedesktop.hal.storage.crypto-setup-removable          	auth_admin_keep_always
-org.freedesktop.hal.wol.enabled                             	auth_admin_keep_always
-org.freedesktop.hal.wol.enable                              	auth_admin_keep_always
-org.freedesktop.hal.wol.supported                           	auth_admin_keep_always
-# shutdown/reboot should be consistent with consolekit
-org.freedesktop.hal.power-management.shutdown               	auth_admin_keep_always
-org.freedesktop.hal.power-management.shutdown-multiple-sessions	auth_admin
-org.freedesktop.hal.power-management.reboot                 	auth_admin_keep_always
-org.freedesktop.hal.power-management.reboot-multiple-sessions	auth_admin
-org.freedesktop.hal.power-management.set-powersave          	auth_admin_keep_always
-org.freedesktop.hal.power-management.suspend                	auth_admin_keep_always
-org.freedesktop.hal.power-management.hibernate              	auth_admin_keep_always
-org.freedesktop.hal.power-management.standby                	auth_admin_keep_always
-org.freedesktop.hal.power-management.cpufreq                	auth_admin_keep_always
-org.freedesktop.hal.power-management.lcd-panel              	auth_admin_keep_always
-org.freedesktop.hal.power-management.light-sensor           	auth_admin_keep_always
-org.freedesktop.hal.power-management.keyboard-backlight     	auth_admin_keep_always
-org.freedesktop.hal.dockstation.undock                      	auth_admin_keep_always
-org.freedesktop.hal.leds.brightness                             auth_admin_keep_always
-#
-# device access
-#
-org.freedesktop.hal.device-access.sound                         auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.video4linux                   auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.cdrom                         auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.dvb                           auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.camera                        auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.scanner                       auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.audio-player                  auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.ieee1394-iidc                 auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.ieee1394-avc                  auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.pda                           auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.floppy                        auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.modem                         auth_admin_keep_always
-org.freedesktop.hal.device-access.joystick                      auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.mouse                         auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.video                         auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.fingerprint-reader            auth_admin_keep_always:yes:yes
-org.freedesktop.hal.device-access.obex                          auth_admin_keep_always
-org.freedesktop.hal.device-access.ppdev                         auth_admin_keep_always
-org.freedesktop.hal.device-access.removable-block               auth_admin_keep_always
-#
 org.libvirt.unix.monitor                                    	auth_admin_keep_always
 org.libvirt.unix.manage                                     	auth_admin_keep_always
 #
@@ -136,7 +85,7 @@ org.gnome.policykit.examples.kick-foo                           no:no:auth_self
 org.gnome.policykit.examples.kick-bar                           no:no:auth_self
 org.gnome.policykit.examples.kick-baz                           no:no:auth_self
 #
-# should be consistent with hal
+# should be consistent with udisks
 org.freedesktop.consolekit.system.stop                          auth_admin_keep_always
 org.freedesktop.consolekit.system.stop-multiple-users           auth_admin_keep_always
 org.freedesktop.consolekit.system.restart                       auth_admin_keep_always
@@ -186,7 +135,7 @@ org.freedesktop.policykit.lockdown                              auth_admin
 org.freedesktop.policykit.example.pkexec.run-frobnicate         auth_admin
 
 #
-# device-kit. Should be consitent with hal
+# device-kit. Should be consitent with consolekit
 #
 org.freedesktop.udisks.filesystem-mount                auth_admin
 org.freedesktop.udisks.filesystem-mount-system-internal auth_admin
