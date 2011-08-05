@@ -255,6 +255,8 @@ org.kde.kcontrol.kcmkdm.save                                    auth_admin
 # kde backlight helper (bnc#672145)
 org.kde.powerdevil.backlighthelper.brightness                   no:no:yes
 org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
+# kdepim4/kalarm (bnc#707723)
+org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
 
 # moblin
 
