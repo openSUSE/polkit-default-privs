@@ -285,8 +285,8 @@ org.freedesktop.login1.set-user-linger                          auth_admin_keep
 # gnome-control-center
 org.gnome.randr.install-system-wide                             auth_admin
 
-# gnome-power-manager (bnc#650401)
-org.gnome.power.backlight-helper                                no:no:yes
+# gnome-power-manager/gnome-settings-daemon (bnc#650401, bnc#712841)
+org.gnome.settings-daemon.plugins.power.backlight-helper        no:no:yes
 # xfce4-power-manager, bnc#665169
 # code is copy&paste from gnome-power-manager
 org.xfce.power.backlight-helper                                 no:no:yes
