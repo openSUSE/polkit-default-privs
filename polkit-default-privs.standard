@@ -272,7 +272,7 @@ org.freedesktop.hostname1.set-machine-info                      auth_admin
 org.freedesktop.systemd1.reply-password                         auth_admin
 org.freedesktop.systemd1.bus-access                             auth_admin
 org.freedesktop.timedate1.set-time                              auth_admin_keep
-org.freedesktop.timedate1.set-timezone                          auth_admin_keep
+org.freedesktop.timedate1.set-timezone                          auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.timedate1.set-local-rtc                         auth_admin_keep
 org.freedesktop.locale1.set-locale                              auth_admin_keep
 org.freedesktop.login1.attach-device                            auth_admin_keep
