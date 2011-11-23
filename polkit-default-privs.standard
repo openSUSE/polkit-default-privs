@@ -259,12 +259,6 @@ org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
 # kdepim4/kalarm (bnc#707723)
 org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
 
-# moblin
-
-org.moblin.clockapplet.mechanism.settimezone                    auth_admin
-org.moblin.clockapplet.mechanism.settime                        auth_admin
-org.moblin.clockapplet.mechanism.configurehwclock               auth_admin
-
 # systemd (bnc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
 org.freedesktop.hostname1.set-static-hostname                   auth_admin
