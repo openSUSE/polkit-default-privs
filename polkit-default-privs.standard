@@ -19,13 +19,14 @@ org.freedesktop.NetworkManager.enable-disable-network           auth_admin:auth_
 org.freedesktop.NetworkManager.enable-disable-wifi              auth_admin:auth_admin:yes
 org.freedesktop.NetworkManager.enable-disable-wwan              auth_admin:auth_admin:yes
 org.freedesktop.NetworkManager.use-user-connections             auth_admin:auth_admin:yes
-org.freedesktop.NetworkManager.network-control                  auth_admin:auth_admin:yes
+# auth_admin probably causes issues with suspend here (bnc#716291)
+org.freedesktop.NetworkManager.network-control                  no:no:yes
 org.freedesktop.NetworkManager.sleep-wake                       auth_admin:auth_admin:yes
 # bnc#680140
 org.freedesktop.NetworkManager.enable-disable-wimax             auth_admin:auth_admin:yes
 org.freedesktop.NetworkManager.wifi.share.protected             auth_admin
 org.freedesktop.NetworkManager.wifi.share.open                  auth_admin
-org.freedesktop.NetworkManager.settings.modify.own              auth_admin_keep
+org.freedesktop.NetworkManager.settings.modify.own              auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.NetworkManager.settings.modify.system           auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 #
