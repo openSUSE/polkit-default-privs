@@ -136,7 +136,7 @@ org.freedesktop.policykit.lockdown                              auth_admin
 org.freedesktop.policykit.example.pkexec.run-frobnicate         auth_admin
 
 #
-# device-kit. Should be consitent with consolekit
+# udisks
 #
 org.freedesktop.udisks.filesystem-mount                auth_admin
 org.freedesktop.udisks.filesystem-mount-system-internal auth_admin
@@ -159,6 +159,34 @@ org.freedesktop.udisks.cancel-job-others               auth_admin
 org.freedesktop.udisks.inhibit-polling                 auth_admin
 org.freedesktop.udisks.drive-set-spindown              auth_admin
 org.freedesktop.udisks.linux-lvm2                      auth_admin
+#
+# udisks2 (bnc#742751)
+#
+org.freedesktop.udisks2.filesystem-mount-system         auth_admin
+org.freedesktop.udisks2.filesystem-fstab                auth_admin
+org.freedesktop.udisks2.filesystem-unmount-others       auth_admin
+org.freedesktop.udisks2.encrypted-unlock-system         auth_admin
+org.freedesktop.udisks2.encrypted-unlock-crypttab       auth_admin
+org.freedesktop.udisks2.encrypted-lock-others           auth_admin
+org.freedesktop.udisks2.encrypted-change-passphrase-system      auth_admin
+org.freedesktop.udisks2.loop-delete-others              auth_admin
+org.freedesktop.udisks2.manage-swapspace                auth_admin
+org.freedesktop.udisks2.modify-device-system            auth_admin
+org.freedesktop.udisks2.open-device                     auth_admin
+org.freedesktop.udisks2.open-device-system              auth_admin
+org.freedesktop.udisks2.modify-system-configuration     auth_admin
+org.freedesktop.udisks2.read-system-configuration-secrets       auth_admin
+org.freedesktop.udisks2.ata-smart-selftest              auth_admin
+#
+org.freedesktop.udisks2.filesystem-mount                auth_admin
+org.freedesktop.udisks2.encrypted-unlock                auth_admin
+org.freedesktop.udisks2.encrypted-change-passphrase     auth_admin
+org.freedesktop.udisks2.loop-setup                      auth_admin
+org.freedesktop.udisks2.modify-device                   auth_admin
+org.freedesktop.udisks2.ata-smart-update                auth_admin
+
+#
+# upower
 #
 org.freedesktop.upower.suspend                         auth_admin
 org.freedesktop.upower.hibernate                       auth_admin
