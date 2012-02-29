@@ -340,4 +340,10 @@ org.freedesktop.accounts.user-administration                    auth_admin_keep
 org.freedesktop.accounts.set-login-option                       auth_admin
 org.freedesktop.accounts.change-own-user-data                   auth_admin
 
+#
+# smb4k (bnc#749065)
+#
+de.berlios.smb4k.mounthelper.mount                              auth_admin_keep
+de.berlios.smb4k.mounthelper.unmount                            auth_admin_keep
+
 ###
