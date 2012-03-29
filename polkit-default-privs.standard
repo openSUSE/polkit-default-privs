@@ -36,6 +36,8 @@ org.libvirt.unix.manage                                     	auth_admin_keep_alw
 # gnome-settings-daemon (bnc#690496)
 #
 org.gnome.settingsdaemon.datetimemechanism.configure            auth_admin_keep
+# bnc#750795
+org.gnome.settings-daemon.plugins.wacom.wacom-led-helper        no:no:yes
 #
 # colord (bnc#698250)
 #
