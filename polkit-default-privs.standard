@@ -187,6 +187,14 @@ org.freedesktop.udisks2.encrypted-change-passphrase     auth_admin:auth_admin:ye
 org.freedesktop.udisks2.loop-setup                      auth_admin:auth_admin:yes
 org.freedesktop.udisks2.modify-device                   auth_admin:auth_admin:yes
 org.freedesktop.udisks2.ata-smart-update                auth_admin:auth_admin:yes
+# (bnc#761872)
+org.freedesktop.udisks2.eject-media                     auth_admin:auth_admin:yes
+org.freedesktop.udisks2.filesystem-mount-other-seat     auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.encrypted-unlock-other-seat     auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.loop-modify-others              auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.eject-media-system              auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.eject-media-other-seat          auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.modify-device-other-seat        auth_admin:auth_admin:auth_admin_keep
 
 #
 # upower
