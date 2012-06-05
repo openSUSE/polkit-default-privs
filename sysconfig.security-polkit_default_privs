@@ -3,7 +3,7 @@
 
 ## Type:        list(set,warn,no)
 ## Default:     set
-## Config:      polkit_default_privs
+## Config:      set_polkit_default_privs
 #
 # SuSEconfig can check PolicyKit default privileges.
 # Setting this variable to "set" will change privileges that don't match the
@@ -16,6 +16,7 @@ CHECK_POLKIT_PRIVS=""
 
 ## Type:        string
 ## Default:     "standard"
+## Config:      set_polkit_default_privs
 #
 # SUSE ships with two sets of default privilege settings. These are
 # "standard" and "restrictive".
