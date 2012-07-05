@@ -41,15 +41,15 @@ org.gnome.settings-daemon.plugins.wacom.wacom-led-helper        no:no:yes
 #
 # colord (bnc#698250)
 #
-org.freedesktop.color-manager.create-device                     auth_admin
-org.freedesktop.color-manager.create-profile                    auth_admin
-org.freedesktop.color-manager.delete-device                     auth_admin
-org.freedesktop.color-manager.delete-profile                    auth_admin
-org.freedesktop.color-manager.modify-device                     auth_admin
-org.freedesktop.color-manager.modify-profile                    auth_admin
-org.freedesktop.color-manager.install-system-wide               auth_admin
-org.freedesktop.color-manager.device-inhibit                    auth_admin
-org.freedesktop.color-manager.sensor-lock                       auth_admin
+org.freedesktop.color-manager.create-device                     auth_admin:auth_admin:yes
+org.freedesktop.color-manager.create-profile                    auth_admin:auth_admin:yes
+org.freedesktop.color-manager.delete-device                     auth_admin:auth_admin:yes
+org.freedesktop.color-manager.delete-profile                    auth_admin:auth_admin:yes
+org.freedesktop.color-manager.modify-device                     auth_admin:auth_admin:yes
+org.freedesktop.color-manager.modify-profile                    auth_admin:auth_admin:yes
+org.freedesktop.color-manager.install-system-wide               auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.color-manager.device-inhibit                    auth_admin:auth_admin:yes
+org.freedesktop.color-manager.sensor-lock                       auth_admin:auth_admin:yes
 #
 # package kit
 #
