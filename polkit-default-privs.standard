@@ -58,7 +58,7 @@ org.freedesktop.packagekit.package-install-untrusted            auth_admin
 org.freedesktop.packagekit.system-trust-signing-key             auth_admin
 org.freedesktop.packagekit.package-eula-accept                  auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.packagekit.package-remove                       auth_admin_keep_always
-org.freedesktop.packagekit.system-update                        auth_admin_keep_always
+org.freedesktop.packagekit.system-update                        auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.packagekit.system-rollback                      auth_admin_keep_always
 org.freedesktop.packagekit.system-sources-configure             auth_admin_keep_always
 org.freedesktop.packagekit.system-sources-refresh               auth_admin_keep_always:auth_admin_keep_always:yes
