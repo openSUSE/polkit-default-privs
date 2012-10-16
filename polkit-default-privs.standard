@@ -69,8 +69,9 @@ org.freedesktop.packagekit.system-change-install-root           auth_admin
 org.freedesktop.packagekit.upgrade-system                       auth_admin
 org.freedesktop.packagekit.repair-system                        auth_admin
 #
-org.pulseaudio.acquire-real-time                                auth_admin_keep_always
-org.pulseaudio.acquire-high-priority                            auth_admin_keep_always
+# Pulseaudio meets RealtimeKit (bnc#753849)
+org.pulseaudio.acquire-real-time                                auth_admin_keep_always:auth_admin_keep_always:yes
+org.pulseaudio.acquire-high-priority                            auth_admin_keep_always:auth_admin_keep_always:yes
 #
 # gconf
 #
@@ -125,10 +126,10 @@ org.opensuse.cupspkhelper.mechanism.all-edit                    auth_admin_keep
 org.opensuse.zoneswitcher.control                               auth_admin_keep_always:auth_admin_keep_always:yes
 
 #
-# RealTimeKit
+# RealTimeKit (bnc#753849)
 #
-org.freedesktop.RealtimeKit1.acquire-high-priority              auth_admin:auth_admin:auth_admin
-org.freedesktop.RealtimeKit1.acquire-real-time                  auth_admin:auth_admin:auth_admin
+org.freedesktop.RealtimeKit1.acquire-high-priority              auth_admin:auth_admin:yes
+org.freedesktop.RealtimeKit1.acquire-real-time                  auth_admin:auth_admin:yes
 
 #
 # polkit-1
@@ -307,8 +308,10 @@ org.freedesktop.systemd1.reply-password                         auth_admin
 org.freedesktop.systemd1.bus-access                             auth_admin
 org.freedesktop.timedate1.set-time                              auth_admin_keep
 org.freedesktop.timedate1.set-timezone                          auth_admin_keep:auth_admin_keep:yes
+org.freedesktop.timedate1.set-ntp                               auth_admin_keep
 org.freedesktop.timedate1.set-local-rtc                         auth_admin_keep
 org.freedesktop.locale1.set-locale                              auth_admin_keep
+org.freedesktop.locale1.set-keyboard                            auth_admin_keep
 org.freedesktop.login1.attach-device                            auth_admin_keep
 org.freedesktop.login1.flush-devices                            auth_admin_keep
 org.freedesktop.login1.power-off                                auth_admin_keep:auth_admin_keep:yes
