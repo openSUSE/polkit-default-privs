@@ -1,5 +1,5 @@
 #
-# /etc/polkit-default-privs.restrictive use in an envirenment where
+# /etc/polkit-default-privs.restrictive use in an environment where
 # hosts are centrally administered and users should have minimal
 # privileges. Privileged operations require authentication as admin.
 #
