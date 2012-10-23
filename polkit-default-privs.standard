@@ -196,6 +196,19 @@ org.freedesktop.udisks2.loop-modify-others              auth_admin:auth_admin:au
 org.freedesktop.udisks2.eject-media-system              auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.eject-media-other-seat          auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.modify-device-other-seat        auth_admin:auth_admin:auth_admin_keep
+# (bnc#779404)
+# root only parts
+org.freedesktop.udisks2.modify-drive-settings		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.ata-smart-simulate		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.ata-standby-system		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.ata-standby-other-seat		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.ata-secure-erase		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.cancel-job-other-user		auth_admin:auth_admin:auth_admin_keep
+# these want desktop user perms
+org.freedesktop.udisks2.rescan				auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.ata-check-power			auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.ata-standby			auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.cancel-job			auth_admin:auth_admin:auth_admin_keep
 
 #
 # upower
