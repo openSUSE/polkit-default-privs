@@ -378,4 +378,11 @@ de.berlios.smb4k.mounthelper.unmount                            auth_admin_keep
 #
 org.kde.recorditnow.helper.watch                                auth_admin
 
+#
+# GNOME control-center (bnc#779938)
+#
+org.gnome.controlcenter.user-accounts.administration		no:no:auth_admin_keep
+org.gnome.controlcenter.datetime.configure			no:no:auth_admin_keep
+
+
 ###
