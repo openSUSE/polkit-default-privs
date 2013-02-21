@@ -1,6 +1,6 @@
 #!/usr/bin/perl -w
 # This module sets policykit permssions
-# Copyright (C) 2008, 2009 SUSE Linux Products GmbH, Nuernberg, Germany.
+# Copyright (C) 2008, 2009, 2013 SUSE Linux Products GmbH, Nuernberg, Germany.
 #
 # This program is free software; you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -21,13 +21,9 @@
 
 use strict;
 use File::Path;
-use Digest::MD5 qw/md5_hex/;
+use Data::Dump;
 
-my $polkit_public_dir = '/var/lib/PolicyKit-public';
-my $polkit1_localauthority_dir = '/var/lib/polkit-1/localauthority/10-vendor.d';
-my $suseconfig_dir = '/var/adm/SuSEconfig';
-my $md5_dir = $suseconfig_dir.'/md5';
-my $reload_file = '/var/lib/misc/PolicyKit.reload';
+my $file = '/etc/polkit-1/rules.d/50-default-privs.rules';
 
 my $do_set;
 # privilege => value
@@ -48,139 +44,6 @@ if($#ARGV == -1) {
 	exit 1;
 }
 
-my $policykit_ops = {
-	name => 'PolicyKit',
-	overridefile => sub {
-		my $priv = shift;
-		return $polkit_public_dir.'/'.$priv.'.defaults-override';
-	},
-	parse => sub {
-		my $priv = shift;
-		return shift;
-	},
-	create => sub {
-		my $priv = shift;
-		return shift;
-	},
-	pretty => sub {
-		my $perms = shift;
-		my @p = map { s/^auth/a/; s/_admin/a/; s/_self/s/; s/_keep/k/; s/_session/s/; s/_always/a/; $_ } split(/:/, $perms);
-		return join(':', @p);
-	},
-};
-
-my $polkit1_ops = {
-	name => 'polkit1',
-	overridefile => sub {
-		my $priv = shift;
-		return $polkit1_localauthority_dir.'/'.$priv.'.pkla';
-	},
-	parse => sub {
-		my $priv = shift;
-		my @p;
-		for(@_) {
-			if(/^ResultAny=(.+)\n/) {
-				$p[0] = $1;
-			} elsif(/^ResultInactive=(.+)\n/) {
-				$p[1] = $1;
-			} elsif(/^ResultActive=(.+)\n/) {
-				$p[2] = $1;
-			}
-		}
-		return join(':', @p) if ($p[0] && $p[1] && $p[2]);
-		return undef;
-	},
-	convert => sub {
-		my $perms = shift;
-		my @p = map { s/^(auth_(?:admin|self)_keep).+$/$1/; s/_one_shot//; $_ } split(/:/, $perms);
-		return join(':', @p);
-	},
-	create => sub {
-		my $priv = shift;
-		my $perms = shift;
-
-		my @p = split(/:/, $perms);
-
-		my $txt = "[$priv]\nIdentity=unix-group:*\nAction=$priv\n"
-			. "ResultAny=$p[0]\nResultInactive=$p[1]\nResultActive=$p[2]\n";
-		return $txt;
-	},
-	pretty => sub {
-		my $perms = shift;
-		my @p = map { s/^auth/a/; s/_admin/a/; s/_self/s/; s/_keep/k/; s/_session//; s/_always//; $_ } split(/:/, $perms);
-		return join(':', @p);
-	},
-};
-
-
-sub override($$$)
-{
-	my ($privilege, $perms, $ops) = @_;
-	my $overridefile = $ops->{overridefile}($privilege);
-	my $old_perms;
-	my @old_content;
-	if(-e $overridefile) {
-		if(!open(F, '<', $overridefile)) {
-			print STDERR "can't open $overridefile: $!, skip.\n";
-			return;
-		}
-		@old_content = <F>;
-		$old_perms = $ops->{parse}($privilege, @old_content);
-		close F;
-	}
-
-	$perms = $ops->{convert}($perms) if $ops->{convert};
-
-	if(defined $old_perms && $perms eq $old_perms) {
-		return;
-	}
-
-	if($do_set) {
-		print $ops->{name}.": setting $privilege to ".$ops->{pretty}($perms).($old_perms?" (wrong setting ".$ops->{pretty}($old_perms).")\n":"\n");
-		if(-e $overridefile) {
-			if(!open(F, '<', $md5_dir.'/'.$overridefile)) {
-				print STDERR "$overridefile was created externally, skip.\n";
-				return;
-			}
-			my $should_digest = <F>;
-			$should_digest = substr($should_digest, 0, 32);
-			close F;
-			my $digest = md5_hex(join('', @old_content));
-			if($digest ne $should_digest) {
-				print "$should_digest $digest\n";
-				print STDERR "$overridefile was modifed externally, skip.\n";
-				return;
-			}
-		}
-		if(!open(F, '>', $overridefile.'.new')) {
-			print STDERR "can't create $overridefile.new: $!, skip.\n";
-			return;
-		}
-		my $content = $ops->{create}($privilege, $perms);
-		print F $content;
-		close F;
-		my $digest = md5_hex($content);
-		if(!open(F, '>', $md5_dir.'/'.$overridefile)) {
-			print STDERR "can't save md5 check for $privilege: $!\n";
-			unlink($overridefile.".new");
-			return;
-		}
-		print F $digest."  $overridefile\n";
-		close F;
-		rename($overridefile.'.new', $overridefile);
-	} else {
-		print $ops->{name}.": $privilege should be ".$ops->{pretty}($perms).($old_perms?" (wrong setting ".$ops->{pretty}($old_perms).")\n":"\n");
-	}
-}
-
-if (-d $polkit_public_dir) {
-	mkpath($md5_dir.'/'.$polkit_public_dir) if $do_set;
-} else {
-	$policykit_ops = undef;
-}
-mkpath($polkit1_localauthority_dir) if $do_set;
-mkpath($md5_dir.'/'.$polkit1_localauthority_dir) if $do_set;
-
 while(<>) {
 	chomp;
 	next unless $_;
@@ -189,15 +52,55 @@ while(<>) {
 	if($perms !~ /:/) {
 		$perms = $perms.':'.$perms.':'.$perms;
 	}
-	# backward compat with PolicyKit
-	my @p = map { s/^auth_(admin\|self)_keep$/auth_$1_keep_always/; $_ } split(/:/, $perms);
-	$perms = join(':', @p);
-	$to_set{$privilege} = $perms;
+	# convert PolicyKit syntax
+	my @p = map { s/^(auth_(?:admin|self)_keep).+$/$1/; s/_one_shot//; $_ } split(/:/, $perms);
+	for (@p) {
+		unless (/^(?:auth_(?:admin|self)(?:_keep)?|yes|no)$/) {
+			warn "invalid value $_ in line $.\n";
+			next;
+		}
+	}
+	$to_set{$privilege} = [ @p ];
 }
 
+
+my $rules = '';
 while (my ($privilege, $perms) = each %to_set) {
-	override($privilege, $perms, $policykit_ops) if defined $policykit_ops;
-	override($privilege, $perms, $polkit1_ops);
+	my @p = @$perms;
+	$rules .= sprintf("\t\t'%s':\n\t\t\t[ '%s', '%s', '%s' ],\n", $privilege, $p[0], $p[1], $p[2]);
 }
 
-utime undef, undef, $reload_file if $do_set;
+exit(0) unless $do_set;
+
+open(F, '>', $file.'.new') or die "can't open $file.new: $!\n";
+while(<DATA>) {
+	if (/INSERT_RULES_HERE/) {
+		$_ = $rules;
+	}
+	print F;
+}
+close F;
+
+rename($file.'.new', $file) or die "can't rename $file.new: $!\n";
+
+__END__
+/************************************\
+* AUTOMATICALY GENERATED DO NOT EDIT *
+* see man set_polkit_default_privs   *
+\************************************/
+polkit.addRule(function(action, subject) {
+        rules = { 
+                "INSERT_RULES_HERE" : [ "auth_admin", "auth_admin", "auth_admin" ],
+        };
+        var i = 0;
+        if (subject.local) {
+                if (subject.active) {
+                        i = 2;
+                } else {
+                        i = 1;
+                }   
+        }   
+        if (rules[action.id]) {
+                return rules[action.id][i];
+        }   
+});
