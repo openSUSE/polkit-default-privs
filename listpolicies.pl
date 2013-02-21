@@ -9,76 +9,104 @@
 
 use strict;
 use XML::Bare;
-use Data::Dumper;
+use Data::Dump;
+use Getopt::Long;
+Getopt::Long::Configure("no_ignore_case");
 
-my $permissions;
+my %options;
+
+sub usage($) {
+	my $r = shift;
+	eval "use Pod::Usage; pod2usage($r);";
+	if ($@) {
+		die "cannot display help, install perl(Pod::Usage)\n";
+	}
+}
+
+GetOptions(
+	\%options,
+	"verbose|v",
+	"policy=s@",
+	"check-override",
+	"help|h",
+) or usage(1);
+
+usage(0) if ($options{'help'});
+
 my %known;
 my @policies;
 
 if ($#ARGV == -1) {
 	my $buildroot = $ENV{'BUILD_ROOT'} || '';
 	my $rpm_buildroot = $ENV{'RPM_BUILD_ROOT'} || '';
-	@ARGV = glob "$rpm_buildroot/usr/share/PolicyKit/policy/*.policy";
 	push @ARGV, glob "$rpm_buildroot/usr/share/polkit-1/actions/*.policy";
-	push @ARGV, '--';
-	push @ARGV, "$buildroot/etc/polkit-default-privs.standard";
+	unless ($options{'policy'}) {
+		$options{'policy'} = [ "$buildroot/etc/polkit-default-privs.standard" ];
+	}
 }
 
 for my $f (@ARGV) {
-	if ("$f" eq '--') {
-		$permissions = 1;
-		next;
-	}
 	open (F, '<', $f) or die "$f: $!";
-	if(!$permissions) {
-		#print STDERR "+++ ", $f,"\n";
-		my $xml = XML::Bare->new(text => join('', <F>))->parse();
+	#print STDERR "+++ ", $f,"\n";
+	my $xml = XML::Bare->new(text => join('', <F>))->parse();
 
-		die "file is not a policykit config file" unless exists $xml->{'policyconfig'}->{'action'};
+	die "file is not a policykit config file" unless exists $xml->{'policyconfig'}->{'action'};
 
-		my $a;
-		if (ref $xml->{'policyconfig'}->{'action'} eq 'ARRAY') {
-			$a = $xml->{'policyconfig'}->{'action'}
-		} else {
-			$a = [$xml->{'policyconfig'}->{'action'}];
-		}
-		for (@{$a}) {
-			next unless exists $_->{'id'}->{"value"};
-			my $p = { name => $_->{'id'}->{'value'} };
-			my @v;
-			for my $n (qw/any inactive active/) {
-				my $ref = $_->{'defaults'}->{'allow_'.$n};
-				if (ref $ref eq 'ARRAY') {
-					warn $p->{'name'}.": duplicate allow_$n\n";
-					$ref = $ref->[-1];
-				}
-				push @v, $ref->{'value'} || 'no';
-			}
-			$p->{'value'} = join(':', @v);
-			push @policies, $p;
-		}
+	my $a;
+	if (ref $xml->{'policyconfig'}->{'action'} eq 'ARRAY') {
+		$a = $xml->{'policyconfig'}->{'action'}
 	} else {
-		while(<F>) {
-			chomp;
-			next unless $_;
-			next if(/^#/);
-			my ($privilege, $perms) = split(/\s+/);
-			$known{$privilege} = 1;
+		$a = [$xml->{'policyconfig'}->{'action'}];
+	}
+	for (@{$a}) {
+		next unless exists $_->{'id'}->{"value"};
+		my $p = { name => $_->{'id'}->{'value'} };
+		my $v = ();
+		for my $n (qw/any inactive active/) {
+			my $ref = $_->{'defaults'}->{'allow_'.$n};
+			if (ref $ref eq 'ARRAY') {
+				warn $p->{'name'}.": duplicate allow_$n\n";
+				$ref = $ref->[-1];
+			}
+			push @$v, $ref->{'value'} || 'no';
 		}
+		$p->{'value'} = $v;
+		push @policies, $p;
+	}
+}
+
+for my $f (@{$options{'policy'}}) {
+	open (F, '<', $f) or die "$f: $!";
+	while(<F>) {
+		chomp;
+		next unless $_;
+		next if(/^#/);
+		my ($privilege, $perms) = split(/\s+/);
+		my @p = map { s/^(auth_(?:admin|self)_keep).+$/$1/; s/_one_shot//; $_ } split(/:/, $perms);
+		if (@p != 3) {
+			@p = ($p[0], $p[0], $p[0]);
+		}
+		$known{$privilege} = [ @p ];
 	}
 	close F;
 }
 
-if(!$permissions) {
+if (!$options{'policy'}) {
 	map { print $_->{'name'}, "\n" } @policies;
+} elsif ($options{'check-override'}) {
+	for my $p (@policies) {
+		next unless exists $known{$p->{'name'}};
+		next if $known{$p->{'name'}}->[2] eq $p->{'value'}->[2];
+		print sprintf('%-63s %s -> %s'."\n", $p->{'name'}, $p->{'value'}->[2], $known{$p->{'name'}}->[2]);
+	}
 } else {
 	my $have_unknown;
 	for (@policies) {
 		next if exists $known{$_->{'name'}};
-		print sprintf('%-63s %s'."\n", $_->{'name'}, $_->{'value'});
+		print sprintf('%-63s %s'."\n", $_->{'name'}, join(':', @{$_->{'value'}}));
 		$have_unknown = 1;
 	}
-	if ($ENV{'VERBOSE'}) {
+	if ($options{'verbose'}) {
 		my %seen = map { $_->{'name'} => 1} @policies;
 		my @obs;
 		for (keys %known) {
