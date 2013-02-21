@@ -187,13 +187,13 @@ org.freedesktop.udisks2.loop-setup                      auth_admin
 org.freedesktop.udisks2.modify-device                   auth_admin
 org.freedesktop.udisks2.ata-smart-update                auth_admin
 # (bnc#761872)
-org.freedesktop.udisks2.eject-media                     auth_admin:auth_admin:yes
-org.freedesktop.udisks2.filesystem-mount-other-seat     auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.encrypted-unlock-other-seat     auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.loop-modify-others              auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.eject-media-system              auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.eject-media-other-seat          auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.modify-device-other-seat        auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.eject-media                     auth_admin
+org.freedesktop.udisks2.filesystem-mount-other-seat     auth_admin
+org.freedesktop.udisks2.encrypted-unlock-other-seat     auth_admin
+org.freedesktop.udisks2.loop-modify-others              auth_admin
+org.freedesktop.udisks2.eject-media-system              auth_admin
+org.freedesktop.udisks2.eject-media-other-seat          auth_admin
+org.freedesktop.udisks2.modify-device-other-seat        auth_admin
 
 #
 # upower
@@ -364,14 +364,14 @@ org.kde.recorditnow.helper.watch                                auth_admin
 #
 # GNOME control-center (bnc#779938)
 #
-org.gnome.controlcenter.user-accounts.administration            no:no:auth_admin_keep
-org.gnome.controlcenter.datetime.configure                      no:no:auth_admin_keep
+org.gnome.controlcenter.user-accounts.administration            auth_admin_keep
+org.gnome.controlcenter.datetime.configure                      auth_admin_keep
 
 #
 # PackageKit / systemd offline updates (bnc#798885)
 #
-org.freedesktop.packagekit.trigger-offline-update               no:no:auth_admin_keep
-org.freedesktop.packagekit.clear-offline-update                 no:no:auth_admin_keep
+org.freedesktop.packagekit.trigger-offline-update               auth_admin_keep
+org.freedesktop.packagekit.clear-offline-update                 auth_admin_keep
 
 
 ###
