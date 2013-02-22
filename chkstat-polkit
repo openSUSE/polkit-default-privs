@@ -21,7 +21,6 @@
 
 use strict;
 use File::Path;
-use Data::Dump;
 
 my $file = '/etc/polkit-1/rules.d/50-default-privs.rules';
 
