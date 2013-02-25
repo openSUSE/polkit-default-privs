@@ -88,6 +88,8 @@ __END__
 * see man set_polkit_default_privs   *
 \************************************/
 polkit.addRule(function(action, subject) {
+	// set to true for debugging
+	var debug = false;
         rules = { 
                 "INSERT_RULES_HERE" : [ "auth_admin", "auth_admin", "auth_admin" ],
         };
@@ -99,7 +101,17 @@ polkit.addRule(function(action, subject) {
                         i = 1;
                 }   
         }   
+	if (debug)
+		polkit.log(subject);
+
         if (rules[action.id]) {
+		if (debug)
+			polkit.log(action.id + " => " + rules[action.id][i]);
                 return rules[action.id][i];
-        }   
+        } else {
+		if (debug)
+			polkit.log(action.id + " => no override found");
+	}
 });
+
+// vim: syntax=javascript
