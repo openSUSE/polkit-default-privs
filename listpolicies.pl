@@ -27,11 +27,13 @@ GetOptions(
 	\%options,
 	"verbose|v",
 	"policy=s@",
-	"check-override",
+	"check-override:s",
+	"all",
 	"help|h",
 ) or usage(1);
 
 usage(0) if ($options{'help'});
+die "check-override must be active/local/any\n" if ($options{'check-override'} && $options{'check-override'} !~ /active|local|any/);
 
 my %known;
 my @policies;
@@ -94,15 +96,18 @@ for my $f (@{$options{'policy'}}) {
 if (!$options{'policy'}) {
 	map { print $_->{'name'}, "\n" } @policies;
 } elsif ($options{'check-override'}) {
+	my $what = 2;
+	$what = 1 if $options{'check-override'} eq 'local';
+	$what = 0 if $options{'check-override'} eq 'any';
 	for my $p (@policies) {
 		next unless exists $known{$p->{'name'}};
-		next if $known{$p->{'name'}}->[2] eq $p->{'value'}->[2];
-		print sprintf('%-63s %s -> %s'."\n", $p->{'name'}, $p->{'value'}->[2], $known{$p->{'name'}}->[2]);
+		next if $known{$p->{'name'}}->[$what] eq $p->{'value'}->[$what];
+		print sprintf('%-63s %s -> %s'."\n", $p->{'name'}, $p->{'value'}->[$what], $known{$p->{'name'}}->[$what]);
 	}
 } else {
 	my $have_unknown;
 	for (@policies) {
-		next if exists $known{$_->{'name'}};
+		next unless $options{'all'} or ! exists $known{$_->{'name'}};
 		print sprintf('%-63s %s'."\n", $_->{'name'}, join(':', @{$_->{'value'}}));
 		$have_unknown = 1;
 	}
