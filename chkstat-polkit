@@ -22,7 +22,7 @@
 use strict;
 use File::Path;
 
-my $file = '/etc/polkit-1/rules.d/50-default-privs.rules';
+my $file = '/etc/polkit-1/rules.d/90-default-privs.rules';
 
 my $do_set;
 # privilege => value
