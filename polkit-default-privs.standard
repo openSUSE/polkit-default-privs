@@ -418,5 +418,14 @@ org.freedesktop.packagekit.clear-offline-update			no:no:auth_admin_keep
 #
 org.opensuse.policykit.gparted					auth_admin
 
+#
+# udisks2 (bnc#809277)
+#
+org.freedesktop.udisks2.manage-md-raid				auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.power-off-drive-system			auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.power-off-drive-other-seat		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.ata-smart-enable-disable		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.power-off-drive				auth_admin:auth_admin:yes
+
 ###
 
