@@ -409,9 +409,10 @@ org.gnome.controlcenter.datetime.configure			no:no:auth_admin_keep
 
 #
 # PackageKit / systemd offline updates (bnc#798885)
+# same as org.freedesktop.packagekit.system-update
 #
-org.freedesktop.packagekit.trigger-offline-update		no:no:auth_admin_keep
-org.freedesktop.packagekit.clear-offline-update			no:no:auth_admin_keep
+org.freedesktop.packagekit.trigger-offline-update		auth_admin_keep:auth_admin_keep:yes
+org.freedesktop.packagekit.clear-offline-update			auth_admin_keep:auth_admin_keep:yes
 
 #
 # gparted (bnc#810888)
