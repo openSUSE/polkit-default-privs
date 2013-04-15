@@ -387,4 +387,13 @@ org.freedesktop.udisks2.power-off-drive-other-seat		auth_admin:auth_admin:auth_a
 org.freedesktop.udisks2.ata-smart-enable-disable		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.power-off-drive				auth_admin:auth_admin:yes
 
+# ModemManager1 (bnc#798273)
+org.freedesktop.ModemManager1.Control                           auth_admin
+org.freedesktop.ModemManager1.Device.Control                    auth_admin_keep
+org.freedesktop.ModemManager1.Contacts                          auth_admin_keep
+org.freedesktop.ModemManager1.Messaging                         auth_admin_keep
+org.freedesktop.ModemManager1.Location                          auth_admin_keep
+org.freedesktop.ModemManager1.Firmware                          auth_admin
+org.freedesktop.ModemManager1.USSD                              auth_admin_keep
+
 ###
