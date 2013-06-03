@@ -436,5 +436,10 @@ org.freedesktop.ModemManager1.Messaging                         auth_admin:auth_
 org.freedesktop.ModemManager1.Location                          auth_admin:auth_admin:auth_self_keep
 org.freedesktop.ModemManager1.Firmware                          auth_admin
 org.freedesktop.ModemManager1.USSD                              auth_admin_keep # likely not widely used
-###
 
+# fprintfd (bnc#792095)
+net.reactivated.fprint.device.verify				no:no:auth_admin
+net.reactivated.fprint.device.enroll				no:no:auth_admin
+net.reactivated.fprint.device.setusername			no:no:auth_admin
+
+###
