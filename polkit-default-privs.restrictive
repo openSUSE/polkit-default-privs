@@ -401,4 +401,8 @@ net.reactivated.fprint.device.verify                            no:no:auth_admin
 net.reactivated.fprint.device.enroll                            no:no:auth_admin
 net.reactivated.fprint.device.setusername                       no:no:auth_admin
 
+# lightdm-kde-greeter (bnc#794705)
+org.kde.kcontrol.kcmlightdm.save				no:no:auth_admin_keep
+org.kde.kcontrol.kcmlightdm.savethemedetails			no:no:auth_admin_keep
+
 ###
