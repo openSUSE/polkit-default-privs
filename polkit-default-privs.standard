@@ -450,4 +450,7 @@ org.kde.kcontrol.kcmlightdm.savethemedetails                    no:no:auth_admin
 org.gnome.gnome-system-monitor.kill				no:no:auth_admin
 org.gnome.gnome-system-monitor.renice				no:no:auth_admin
 
+# nepomuk (bnc#825262)
+org.kde.nepomuk.filewatch.raiselimit				no:no:auth_admin_keep
+
 ###
