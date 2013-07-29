@@ -443,4 +443,10 @@ org.libvirt.api.storage-pool.read               auth_admin_keep
 org.libvirt.api.storage-vol.getattr             auth_admin_keep
 org.libvirt.api.storage-vol.read                auth_admin_keep
 
+# MATE settings-daemon (bnc#831404)
+org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.settime		auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.configurehwclock	auth_admin_keep
+
+
 ###
