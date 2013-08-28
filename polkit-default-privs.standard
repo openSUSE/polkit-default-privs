@@ -489,6 +489,7 @@ org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
 org.mate.settingsdaemon.datetimemechanism.settime		auth_admin_keep
 org.mate.settingsdaemon.datetimemechanism.configurehwclock	auth_admin_keep
 org.mate.randr.install-system-wide				auth_admin_keep
+org.mate.power.backlight-helper					no:no:yes
 
 # gufw
 com.ubuntu.pkexec.gufw				auth_admin
