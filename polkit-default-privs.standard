@@ -63,7 +63,7 @@ org.freedesktop.packagekit.package-remove                       auth_admin_keep_
 org.freedesktop.packagekit.system-update                        auth_admin_keep_always:auth_admin_keep_always:yes
 org.freedesktop.packagekit.system-rollback                      auth_admin_keep_always
 org.freedesktop.packagekit.system-sources-configure             auth_admin_keep_always
-org.freedesktop.packagekit.system-sources-refresh               auth_admin_keep_always:auth_admin_keep_always:yes
+org.freedesktop.packagekit.system-sources-refresh               auth_admin_keep_always:no:yes
 org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep_always
 org.freedesktop.packagekit.cancel-foreign                       auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.packagekit.device-rebind                        auth_admin_keep
