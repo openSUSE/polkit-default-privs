@@ -494,4 +494,17 @@ org.mate.power.backlight-helper					no:no:yes
 # gufw
 com.ubuntu.pkexec.gufw				auth_admin
 
+# policycoreutils (bnc#848550)
+org.selinux.restorecon auth_admin_keep
+org.selinux.setenforce auth_admin_keep
+org.selinux.semanage auth_admin_keep
+org.selinux.change_default_policy auth_admin_keep
+org.selinux.change_policy_type auth_admin_keep
+org.selinux.config.pkexec.run no:no:auth_admin
+org.selinux.relabel_on_boot auth_admin_keep
+
+org.selinux.customized yes:yes:yes
+org.selinux.semodule_list yes:yes:yes
+
+
 ###
