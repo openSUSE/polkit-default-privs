@@ -506,5 +506,9 @@ org.selinux.relabel_on_boot auth_admin_keep
 org.selinux.customized yes:yes:yes
 org.selinux.semodule_list yes:yes:yes
 
+# kwallet (bnc#849739)
+
+org.kde.kcontrol.kcmkwallet.save no:no:auth_self_keep
+
 
 ###
