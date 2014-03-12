@@ -295,8 +295,8 @@ org.kde.kcontrol.kcmkdm.managefaces                             auth_admin_keep
 org.kde.kcontrol.kcmkdm.managethemes                            auth_admin_keep
 org.kde.kcontrol.kcmkdm.save                                    auth_admin
 # kde backlight helper (bnc#672145)
-org.kde.powerdevil.backlighthelper.brightness                   auth_admin
-org.kde.powerdevil.backlighthelper.setbrightness                auth_admin
+org.kde.powerdevil.backlighthelper.brightness                   auth_admin:auth_admin:yes
+org.kde.powerdevil.backlighthelper.setbrightness                auth_admin:auth_admin:yes
 # kdepim4/kalarm (bnc#707723)
 org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
 
@@ -322,10 +322,10 @@ org.freedesktop.login1.set-user-linger                          auth_admin_keep
 org.gnome.randr.install-system-wide                             auth_admin
 
 # gnome-power-manager/gnome-settings-daemon (bnc#650401, bnc#712841)
-org.gnome.settings-daemon.plugins.power.backlight-helper        auth_admin
+org.gnome.settings-daemon.plugins.power.backlight-helper        auth_admin:auth_admin:yes
 # xfce4-power-manager, bnc#665169
 # code is copy&paste from gnome-power-manager
-org.xfce.power.backlight-helper                                 auth_admin
+org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
 
 # hp-drive-guard
 com.hp.driveguard.toggle                                        auth_admin
@@ -448,7 +448,7 @@ org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
 org.mate.settingsdaemon.datetimemechanism.settime		auth_admin_keep
 org.mate.settingsdaemon.datetimemechanism.configurehwclock	auth_admin_keep
 org.mate.randr.install-system-wide                              auth_admin_keep
-org.mate.power.backlight-helper					auth_admin_keep
+org.mate.power.backlight-helper					auth_admin_keep:auth_admin_keep:yes
 
 # gufw
 com.ubuntu.pkexec.gufw                          auth_admin
