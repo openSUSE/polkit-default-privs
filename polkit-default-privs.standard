@@ -294,7 +294,7 @@ org.opensuse.yast.system.power-management.shutdown              no
 
 # KDE stuff
 
-org.kde.fontinst.manage                                         auth_admin
+org.kde.fontinst.manage                                         auth_admin_keep
 org.kde.kcontrol.kcmclock.save                                  auth_admin
 org.kde.kcontrol.kcmremotewidgets.save                          auth_admin
 org.kde.ksysguard.processlisthelper.changecpuscheduler          auth_admin
