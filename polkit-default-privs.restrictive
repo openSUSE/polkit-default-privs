@@ -469,5 +469,7 @@ org.selinux.semodule_list yes:yes:yes
 
 org.kde.kcontrol.kcmkwallet.save no:no:auth_self_keep
 
+# baloo (bnc#866131)
+org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
 
 ###
