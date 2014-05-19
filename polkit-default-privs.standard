@@ -517,5 +517,8 @@ org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
 org.debian.pcsc-lite.access_pcsc auth_admin:auth_admin:auth_admin
 org.debian.pcsc-lite.access_card auth_admin:auth_admin:auth_admin
 
+# policycoreutils (bnc#878631)
+org.selinux.customized				no:no:yes
+org.selinux.semodule_list			no:no:yes
 
 ###
