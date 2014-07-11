@@ -5,7 +5,7 @@
 ## Default:     set
 ## Config:      set_polkit_default_privs
 #
-# SuSEconfig can check PolicyKit default privileges.
+# set_polkit_default_privs can check PolicyKit default privileges.
 # Setting this variable to "set" will change privileges that don't match the
 # default. Setting to "warn" only prints a warning and "no" will
 # disable this feature.
