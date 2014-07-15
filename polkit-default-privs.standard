@@ -439,10 +439,10 @@ org.freedesktop.ModemManager1.Location                          auth_admin:auth_
 org.freedesktop.ModemManager1.Firmware                          auth_admin
 org.freedesktop.ModemManager1.USSD                              auth_admin_keep # likely not widely used
 
-# fprintfd (bnc#792095)
-net.reactivated.fprint.device.verify				no:no:auth_admin
-net.reactivated.fprint.device.enroll				no:no:auth_admin
-net.reactivated.fprint.device.setusername			no:no:auth_admin
+# fprintfd (bnc#792095, bnc#850807)
+net.reactivated.fprint.device.verify				no:no:yes
+net.reactivated.fprint.device.enroll				no:no:yes
+net.reactivated.fprint.device.setusername			no:no:auth_admin_keep
 
 # lightdm-kde-greeter (bnc#794705)
 org.kde.kcontrol.kcmlightdm.save                                no:no:auth_admin_keep
