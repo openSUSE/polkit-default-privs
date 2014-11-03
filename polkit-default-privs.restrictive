@@ -498,8 +498,8 @@ org.kde.kcontrol.kcmkwallet.save no:no:auth_self_keep
 org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
 
 # pcsc-lite (bnc#864178)
-org.debian.pcsc-lite.access_pcsc auth_admin:auth_admin:auth_admin
-org.debian.pcsc-lite.access_card auth_admin:auth_admin:auth_admin
+org.debian.pcsc-lite.access_pcsc no:no:yes
+org.debian.pcsc-lite.access_card no:no:yes
 
 # policycoreutils (bnc#878631)
 org.selinux.customized				no:no:yes
