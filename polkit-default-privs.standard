@@ -309,6 +309,7 @@ org.kde.kcontrol.k3bsetup.save                                  auth_admin
 org.kde.kcontrol.kcmkdm.managefaces                             auth_admin_keep
 org.kde.kcontrol.kcmkdm.managethemes                            auth_admin_keep
 org.kde.kcontrol.kcmkdm.save                                    auth_admin
+org.kde.kcontrol.kcmsddm.save                                   auth_admin
 # kde backlight helper (bnc#672145)
 org.kde.powerdevil.backlighthelper.brightness                   no:no:yes
 org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
