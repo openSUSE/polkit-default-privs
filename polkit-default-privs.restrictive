@@ -508,4 +508,15 @@ org.debian.pcsc-lite.access_card no:no:yes
 org.selinux.customized				no:no:yes
 org.selinux.semodule_list			no:no:yes
 
+# firewalld (bnc#907625)
+
+org.fedoraproject.FirewallD1.all		auth_admin_keep
+org.fedoraproject.FirewallD1.info		auth_admin_keep
+org.fedoraproject.FirewallD1.config		auth_admin_keep
+org.fedoraproject.FirewallD1.config.info	auth_admin_keep
+org.fedoraproject.FirewallD1.direct		auth_admin_keep
+org.fedoraproject.FirewallD1.direct.info	auth_admin_keep
+org.fedoraproject.FirewallD1.policies		auth_admin_keep
+org.fedoraproject.FirewallD1.policies.info	auth_admin_keep
+
 ###
