@@ -541,6 +541,7 @@ org.kde.powerdevil.backlighthelper.brightnessvalue no:yes:yes
 org.kde.powerdevil.backlighthelper.brightnessvaluemax no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightnessvalue no:no:yes
 
+
 # storaged (bnc#915770)
 com.redhat.lvm2.create-logical-volume		auth_admin_keep
 com.redhat.lvm2.delete-logical-volume		auth_admin_keep
@@ -553,5 +554,10 @@ com.redhat.lvm2.create-volume-group		auth_admin_keep
 com.redhat.lvm2.delete-volume-group		auth_admin_keep
 com.redhat.lvm2.rename-volume-group		auth_admin_keep
 com.redhat.lvm2.manage-lvm			auth_admin_keep
+
+# systemd new things in 218
+org.freedesktop.systemd1.manage-units		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.systemd1.manage-unit-files	auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.systemd1.reload-daemon		auth_admin:auth_admin:auth_admin_keep
 
 ###
