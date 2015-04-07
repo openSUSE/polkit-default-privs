@@ -542,4 +542,7 @@ org.freedesktop.systemd1.manage-units		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.systemd1.manage-unit-files	auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.systemd1.reload-daemon		auth_admin:auth_admin:auth_admin_keep
 
+# gnome-multi-writer (bnc#924062)
+org.gnome.MultiWriter.probe			auth_admin:auth_admin:auth_admin_keep
+
 ###
