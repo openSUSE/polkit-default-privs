@@ -544,6 +544,11 @@ org.kde.powerdevil.backlighthelper.brightnessvalue no:yes:yes
 org.kde.powerdevil.backlighthelper.brightnessvaluemax no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightnessvalue no:no:yes
 
+# KDE5 powerdevil (bnc#912121) new in 5.2.95
+org.kde.powerdevil.backlighthelper.brightness no:yes:yes
+org.kde.powerdevil.backlighthelper.brightnessmax no:yes:yes
+org.kde.powerdevil.backlighthelper.setbrightness no:no:yes
+
 
 # storaged (bnc#915770)
 com.redhat.lvm2.create-logical-volume		auth_admin_keep
