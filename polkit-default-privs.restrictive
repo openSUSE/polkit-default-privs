@@ -555,4 +555,9 @@ org.freedesktop.systemd1.reload-daemon		auth_admin:auth_admin:auth_admin_keep
 # gnome-multi-writer (bnc#924062)
 org.gnome.MultiWriter.probe			auth_admin:auth_admin:auth_admin_keep
 
+# realmd (bnc#916767)
+org.freedesktop.realmd.configure-realm		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.realmd.deconfigure-realm	auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.realmd.login-policy		auth_admin:auth_admin:auth_admin_keep
+
 ###
