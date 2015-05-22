@@ -41,12 +41,12 @@ org.gnome.settings-daemon.plugins.wacom.wacom-led-helper        no:no:yes
 # bnc#822405
 org.gnome.settings-daemon.plugins.wacom.wacom-oled-helper       no:no:yes
 #
-# colord (bnc#698250)
+# colord (bnc#698250) (bsc#918594)
 #
-org.freedesktop.color-manager.create-device                     auth_admin:auth_admin:yes
-org.freedesktop.color-manager.create-profile                    auth_admin:auth_admin:yes
-org.freedesktop.color-manager.delete-device                     auth_admin:auth_admin:yes
-org.freedesktop.color-manager.delete-profile                    auth_admin:auth_admin:yes
+org.freedesktop.color-manager.create-device                     no:no:yes
+org.freedesktop.color-manager.create-profile                    no:no:yes
+org.freedesktop.color-manager.delete-device                     no:no:yes
+org.freedesktop.color-manager.delete-profile                    no:no:yes
 org.freedesktop.color-manager.modify-device                     auth_admin:auth_admin:yes
 org.freedesktop.color-manager.modify-profile                    auth_admin:auth_admin:yes
 org.freedesktop.color-manager.install-system-wide               auth_admin:auth_admin:auth_admin_keep
