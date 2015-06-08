@@ -561,4 +561,8 @@ org.freedesktop.realmd.configure-realm		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.realmd.deconfigure-realm	auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.realmd.login-policy		auth_admin:auth_admin:auth_admin_keep
 
+# netvisix (bsc#930195)
+org.opensuse.policykit.netvisix			auth_admin:auth_admin:auth_admin
+
+
 ###
