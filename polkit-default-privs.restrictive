@@ -408,6 +408,10 @@ org.gnome.controlcenter.datetime.configure                      auth_admin_keep
 org.freedesktop.packagekit.trigger-offline-update               auth_admin_keep
 org.freedesktop.packagekit.clear-offline-update                 auth_admin_keep
 
+# PackageKit (bnc#929212)
+org.freedesktop.packagekit.package-reinstall			auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.packagekit.package-downgrade			auth_admin:auth_admin:auth_admin_keep
+
 #
 # gparted (bnc#810888)
 #
