@@ -356,6 +356,11 @@ org.gnome.settings-daemon.plugins.power.backlight-helper        auth_admin:auth_
 # code is copy&paste from gnome-power-manager
 org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
 
+# cinnamon settings-daemon (bsc#951830)
+org.cinnamon.settings-daemon.plugins.power.backlight-helper	no:no:yes
+org.cinnamon.settingsdaemon.datetimemechanism.configure		no:no:auth_admin_keep
+
+
 # hp-drive-guard
 com.hp.driveguard.toggle                                        auth_admin
 com.hp.driveguard.install-setup                                 auth_admin
