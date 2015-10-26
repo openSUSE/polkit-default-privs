@@ -378,9 +378,9 @@ org.xfce.power.backlight-helper                                 no:no:yes
 com.hp.driveguard.toggle                                        auth_admin
 com.hp.driveguard.install-setup                                 auth_admin
 
-# ModemManager
-org.freedesktop.ModemManager.Device.Control                     auth_admin_keep:auth_admin_keep:yes
-org.freedesktop.ModemManager.Device.Info                        auth_admin_keep:auth_admin_keep:yes
+# ModemManager (bsc#948728)
+org.freedesktop.ModemManager.Device.Control                     auth_admin_keep:yes:yes
+org.freedesktop.ModemManager.Device.Info                        auth_admin_keep:yes:yes
 org.freedesktop.ModemManager.Contacts                           auth_admin_keep
 org.freedesktop.ModemManager.SMS                                auth_admin_keep
 org.freedesktop.ModemManager.Location                           auth_admin_keep
@@ -444,9 +444,9 @@ org.freedesktop.udisks2.power-off-drive-other-seat		auth_admin:auth_admin:auth_a
 org.freedesktop.udisks2.ata-smart-enable-disable		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.power-off-drive				auth_admin:auth_admin:yes
 
-# ModemManager1 (bnc#798273)
-org.freedesktop.ModemManager1.Control                           auth_admin
-org.freedesktop.ModemManager1.Device.Control                    auth_admin_keep
+# ModemManager1 (bnc#798273, bsc#948728)
+org.freedesktop.ModemManager1.Control                           auth_admin:yes:yes
+org.freedesktop.ModemManager1.Device.Control                    auth_admin_keep:yes:yes
 org.freedesktop.ModemManager1.Contacts                          auth_admin:auth_admin:auth_self_keep
 org.freedesktop.ModemManager1.Messaging                         auth_admin:auth_admin:auth_self_keep
 org.freedesktop.ModemManager1.Location                          auth_admin:auth_admin:auth_self_keep
