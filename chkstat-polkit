@@ -43,6 +43,9 @@ if($#ARGV == -1) {
 	exit 1;
 }
 
+# make sure files create with proper permissions
+umask 0022;
+
 while(<>) {
 	chomp;
 	next unless $_;
