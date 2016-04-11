@@ -698,5 +698,56 @@ org.libvirt.api.storage-vol.getattr			auth_admin_keep
 org.libvirt.api.storage-vol.read			auth_admin_keep
 org.libvirt.api.storage-vol.resize			auth_admin_keep
 
+org.libvirt.api.interface.save				auth_admin_keep
+org.libvirt.api.interface.start				auth_admin_keep
+org.libvirt.api.interface.stop				auth_admin_keep
+org.libvirt.api.interface.write				auth_admin_keep
+org.libvirt.api.network.delete				auth_admin_keep
+org.libvirt.api.network.getattr				auth_admin_keep
+org.libvirt.api.network.read				auth_admin_keep
+org.libvirt.api.network.save				auth_admin_keep
+org.libvirt.api.network.start				auth_admin_keep
+org.libvirt.api.network.stop				auth_admin_keep
+org.libvirt.api.network.write				auth_admin_keep
+org.libvirt.api.node-device.detach			auth_admin_keep
+org.libvirt.api.node-device.getattr			auth_admin_keep
+org.libvirt.api.node-device.read			auth_admin_keep
+org.libvirt.api.node-device.start			auth_admin_keep
+org.libvirt.api.node-device.stop			auth_admin_keep
+org.libvirt.api.node-device.write			auth_admin_keep
+org.libvirt.api.nwfilter.delete				auth_admin_keep
+org.libvirt.api.nwfilter.getattr			auth_admin_keep
+org.libvirt.api.nwfilter.read				auth_admin_keep
+org.libvirt.api.nwfilter.save				auth_admin_keep
+org.libvirt.api.nwfilter.write				auth_admin_keep
+org.libvirt.api.secret.delete				auth_admin_keep
+org.libvirt.api.secret.getattr				auth_admin_keep
+org.libvirt.api.secret.read				auth_admin_keep
+org.libvirt.api.secret.read-secure			auth_admin_keep
+org.libvirt.api.secret.save				auth_admin_keep
+org.libvirt.api.secret.write				auth_admin_keep
+org.libvirt.api.storage-pool.delete			auth_admin_keep
+org.libvirt.api.storage-pool.format			auth_admin_keep
+org.libvirt.api.storage-pool.getattr			auth_admin_keep
+org.libvirt.api.storage-pool.read			auth_admin_keep
+org.libvirt.api.storage-pool.refresh			auth_admin_keep
+org.libvirt.api.storage-pool.save			auth_admin_keep
+org.libvirt.api.storage-pool.search-storage-vols	auth_admin_keep
+org.libvirt.api.storage-pool.start			auth_admin_keep
+org.libvirt.api.storage-pool.stop			auth_admin_keep
+org.libvirt.api.storage-pool.write			auth_admin_keep
+org.libvirt.api.storage-vol.create			auth_admin_keep
+org.libvirt.api.storage-vol.data-read			auth_admin_keep
+org.libvirt.api.storage-vol.data-write			auth_admin_keep
+org.libvirt.api.storage-vol.delete			auth_admin_keep
+org.libvirt.api.storage-vol.format			auth_admin_keep
+org.libvirt.api.storage-vol.getattr			auth_admin_keep
+org.libvirt.api.storage-vol.read			auth_admin_keep
+org.libvirt.api.storage-vol.resize			auth_admin_keep
+
+# importd (bsc#964935)
+org.freedesktop.import1.import				auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.import1.export				auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.import1.pull				auth_admin:auth_admin:auth_admin_keep
 
 ###
