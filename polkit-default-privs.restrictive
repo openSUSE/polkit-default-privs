@@ -685,5 +685,7 @@ org.freedesktop.import1.import				auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.import1.export				auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.import1.pull				auth_admin:auth_admin:auth_admin_keep
 
+# brltty (bsc#967436)
+org.brltty.write-display				no:no:yes
 
 ###
