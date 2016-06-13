@@ -404,6 +404,8 @@ org.freedesktop.ModemManager.SMS                                auth_admin_keep
 org.freedesktop.ModemManager.Location                           auth_admin_keep
 # (bnc#691896)
 org.freedesktop.ModemManager.USSD                               auth_admin_keep
+# (bsc#976945)
+org.freedesktop.ModemManager1.Voice				no:no:auth_self_keep
 
 # urfkill (bnc#688328)
 org.freedesktop.urfkill.block                                   auth_admin:auth_admin:yes
