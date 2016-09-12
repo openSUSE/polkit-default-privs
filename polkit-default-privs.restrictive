@@ -391,7 +391,7 @@ org.freedesktop.ModemManager.Location                           auth_admin_keep
 # (bnc#691896)
 org.freedesktop.ModemManager.USSD                               auth_admin_keep
 # (bsc#976945)
-org.freedesktop.ModemManager1.Voice				no:no:auth_self_keep
+org.freedesktop.ModemManager1.Voice				auth_admin_keep
 
 
 # urfkill (bnc#688328)
@@ -402,7 +402,7 @@ org.freedesktop.urfkill.unblockidx                              auth_admin
 org.freedesktop.urfkill.enablekeycontrol                        auth_admin
 
 # urfkill (bnc#926288)
-org.freedesktop.urfkill.flight_mode                             auth_admin:auth_admin:yes
+org.freedesktop.urfkill.flight_mode                             auth_admin
 
 
 # account services (bnc#676638)
@@ -524,12 +524,13 @@ org.selinux.change_policy_type auth_admin_keep
 org.selinux.config.pkexec.run no:no:auth_admin
 org.selinux.relabel_on_boot auth_admin_keep
 
-org.selinux.customized yes:yes:yes
-org.selinux.semodule_list yes:yes:yes
+# policycoreutils (bnc#878631)
+org.selinux.customized auth_admin_keep
+org.selinux.semodule_list auth_admin_keep
 
 # kwallet (bnc#849739)
 
-org.kde.kcontrol.kcmkwallet.save no:no:auth_self_keep
+org.kde.kcontrol.kcmkwallet.save 	auth_admin_keep
 
 # baloo (bnc#866131)
 org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
@@ -537,10 +538,6 @@ org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
 # pcsc-lite (bnc#864178)
 org.debian.pcsc-lite.access_pcsc no:no:yes
 org.debian.pcsc-lite.access_card no:no:yes
-
-# policycoreutils (bnc#878631)
-org.selinux.customized				no:no:yes
-org.selinux.semodule_list			no:no:yes
 
 # firewalld (bnc#907625)
 org.fedoraproject.FirewallD1.all		auth_admin_keep
@@ -693,7 +690,7 @@ org.freedesktop.import1.export				auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.import1.pull				auth_admin:auth_admin:auth_admin_keep
 
 # brltty (bsc#967436)
-org.brltty.write-display				no:no:yes
+org.brltty.write-display				auth_admin_keep
 
 # sysprof (bsc#996111)
 org.gnome.sysprof2.perf-event-open			auth_admin_keep

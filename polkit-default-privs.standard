@@ -539,8 +539,9 @@ org.selinux.change_policy_type auth_admin_keep
 org.selinux.config.pkexec.run no:no:auth_admin
 org.selinux.relabel_on_boot auth_admin_keep
 
-org.selinux.customized yes:yes:yes
-org.selinux.semodule_list yes:yes:yes
+# policycoreutils (bnc#878631)
+org.selinux.customized no:no:yes
+org.selinux.semodule_list no:no:yes
 
 # kwallet (bnc#849739)
 
@@ -553,9 +554,6 @@ org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
 org.debian.pcsc-lite.access_pcsc auth_admin:auth_admin:yes
 org.debian.pcsc-lite.access_card auth_admin:auth_admin:yes
 
-# policycoreutils (bnc#878631)
-org.selinux.customized				no:no:yes
-org.selinux.semodule_list			no:no:yes
 
 # firewalld (bnc#907625, bsc#971580)
 org.fedoraproject.FirewallD1.all		auth_admin_keep
