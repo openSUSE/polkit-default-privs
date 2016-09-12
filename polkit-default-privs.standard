@@ -407,7 +407,7 @@ org.freedesktop.ModemManager.Location                           auth_admin_keep
 # (bnc#691896)
 org.freedesktop.ModemManager.USSD                               auth_admin_keep
 # (bsc#976945)
-org.freedesktop.ModemManager1.Voice				no:no:auth_self_keep
+org.freedesktop.ModemManager1.Voice				no:no:yes
 
 # urfkill (bnc#688328)
 org.freedesktop.urfkill.block                                   auth_admin:auth_admin:yes
@@ -469,9 +469,9 @@ org.freedesktop.udisks2.power-off-drive				auth_admin:auth_admin:yes
 # ModemManager1 (bnc#798273, bsc#948728)
 org.freedesktop.ModemManager1.Control                           auth_admin:yes:yes
 org.freedesktop.ModemManager1.Device.Control                    auth_admin_keep:yes:yes
-org.freedesktop.ModemManager1.Contacts                          auth_admin:auth_admin:auth_self_keep
-org.freedesktop.ModemManager1.Messaging                         auth_admin:auth_admin:auth_self_keep
-org.freedesktop.ModemManager1.Location                          auth_admin:auth_admin:auth_self_keep
+org.freedesktop.ModemManager1.Contacts                          auth_admin:auth_admin:yes
+org.freedesktop.ModemManager1.Messaging                         auth_admin:auth_admin:yes
+org.freedesktop.ModemManager1.Location                          auth_admin:auth_admin:yes
 org.freedesktop.ModemManager1.Firmware                          auth_admin
 org.freedesktop.ModemManager1.USSD                              auth_admin_keep # likely not widely used
 
@@ -544,7 +544,7 @@ org.selinux.semodule_list yes:yes:yes
 
 # kwallet (bnc#849739)
 
-org.kde.kcontrol.kcmkwallet.save no:no:auth_self_keep
+org.kde.kcontrol.kcmkwallet.save no:no:yes
 
 # baloo (bnc#866131)
 org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
