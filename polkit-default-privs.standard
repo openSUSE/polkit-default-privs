@@ -29,6 +29,8 @@ org.freedesktop.NetworkManager.wifi.share.open                  auth_admin
 org.freedesktop.NetworkManager.settings.modify.own              auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.NetworkManager.settings.modify.system           auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
+# bsc#996110
+org.freedesktop.NetworkManager.enable-disable-statistics	no:no:yes
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
@@ -754,5 +756,8 @@ org.freedesktop.import1.pull				auth_admin:auth_admin:auth_admin_keep
 
 # brltty (bsc#967436)
 org.brltty.write-display				no:no:yes
+
+# sysprof (bsc#996111)
+org.gnome.sysprof2.perf-event-open			auth_admin_keep
 
 ###
