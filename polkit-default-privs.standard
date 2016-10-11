@@ -768,4 +768,15 @@ org.brltty.write-display				no:no:yes
 # sysprof (bsc#996111)
 org.gnome.sysprof2.perf-event-open			auth_admin_keep
 
+# flatpak (bsc#984817)
+org.freedesktop.Flatpak.app-install 		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.runtime-install 	auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.runtime-uninstall 	auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.app-uninstall 		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.configure-remote 	auth_admin:auth_admin:auth_admin
+
+org.freedesktop.Flatpak.app-update 		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.runtime-update		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.appstream-update	auth_admin:auth_admin:auth_admin_keep
+
 ###
