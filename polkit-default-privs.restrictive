@@ -302,6 +302,11 @@ org.kde.kcontrol.kcmkdm.save                                    auth_admin
 # kde backlight helper (bnc#672145)
 org.kde.powerdevil.backlighthelper.brightness                   auth_admin:auth_admin:yes
 org.kde.powerdevil.backlighthelper.setbrightness                auth_admin:auth_admin:yes
+
+# kde powerdevil gpu helper (bsc#1019644)
+org.kde.powerdevil.discretegpuhelper.hasdualgpu			auth_admin_keep
+
+
 # kdepim4/kalarm (bnc#707723)
 org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
 
