@@ -718,4 +718,19 @@ org.blueman.dhcp.client				auth_admin_keep
 org.blueman.pppd.pppconnect			auth_admin_keep
 org.blueman.rfkill.setstate			auth_admin_keep
 
+# tuned (bsc#1007279)
+com.redhat.tuned.gui.run			auth_admin
+com.redhat.tuned.active_profile			yes
+com.redhat.tuned.disable			auth_admin:auth_admin:auth_admin
+com.redhat.tuned.is_running			yes
+com.redhat.tuned.profile_info 			yes
+com.redhat.tuned.profiles			yes
+com.redhat.tuned.profiles2 			yes
+com.redhat.tuned.recommend_profile 		yes
+com.redhat.tuned.reload				auth_admin:auth_admin:yes
+com.redhat.tuned.start				auth_admin:auth_admin:auth_admin
+com.redhat.tuned.stop				auth_admin:auth_admin:auth_admin
+com.redhat.tuned.switch_profile			auth_admin:auth_admin:yes
+com.redhat.tuned.verify_profile			yes:yes:yes
+
 ###
