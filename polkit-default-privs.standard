@@ -802,6 +802,7 @@ com.redhat.tuned.start				auth_admin:auth_admin:yes
 com.redhat.tuned.stop				auth_admin:auth_admin:yes
 com.redhat.tuned.switch_profile			auth_admin:auth_admin:yes
 com.redhat.tuned.verify_profile			yes:yes:yes
+com.redhat.tuned.verify_profile_ignore_missing	yes:yes:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.qt4gui			auth_admin:auth_admin:auth_admin

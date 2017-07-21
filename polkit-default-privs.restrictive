@@ -740,5 +740,6 @@ com.redhat.tuned.start				auth_admin:auth_admin:auth_admin
 com.redhat.tuned.stop				auth_admin:auth_admin:auth_admin
 com.redhat.tuned.switch_profile			auth_admin:auth_admin:yes
 com.redhat.tuned.verify_profile			yes:yes:yes
+com.redhat.tuned.verify_profile_ignore_missing	yes:yes:yes
 
 ###
