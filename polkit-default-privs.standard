@@ -813,4 +813,14 @@ net.launchpad.backintime.qt4gui			auth_admin:auth_admin:auth_admin
 net.launchpad.backintime.UdevRuleSave		auth_admin:auth_admin:auth_admin
 net.launchpad.backintime.UdevRuleDelete		auth_admin:auth_admin:auth_admin
 
+# fwupd (bsc#932807)
+org.freedesktop.fwupd.update-internal		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.downgrade-internal	auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.update-hotplug		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.downgrade-hotplug		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.device-unlock		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.verify-update		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.update-internal-trusted	auth_admin:no:yes
+org.freedesktop.fwupd.update-hotplug-trusted	auth_admin:no:yes
+
 ###

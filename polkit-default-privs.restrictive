@@ -746,4 +746,15 @@ com.redhat.tuned.switch_profile			auth_admin:auth_admin:yes
 com.redhat.tuned.verify_profile			yes:yes:yes
 com.redhat.tuned.verify_profile_ignore_missing	yes:yes:yes
 
+# fwupd (bsc#932807)
+org.freedesktop.fwupd.update-internal		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.downgrade-internal	auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.update-hotplug		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.downgrade-hotplug		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.device-unlock		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.verify-update		auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.update-internal-trusted	auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.update-hotplug-trusted	auth_admin:no:auth_admin_keep
+
+
 ###
