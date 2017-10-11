@@ -756,5 +756,7 @@ org.freedesktop.fwupd.verify-update		auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.update-internal-trusted	auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.update-hotplug-trusted	auth_admin:no:auth_admin_keep
 
+# deja-dup (bsc#1058935)
+org.gnome.DejaDup.duplicity			no:no:auth_admin
 
 ###
