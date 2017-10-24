@@ -826,4 +826,8 @@ org.freedesktop.fwupd.update-hotplug-trusted	auth_admin:no:yes
 # deja-dup (bsc#1058935)
 org.gnome.DejaDup.duplicity			no:no:auth_admin
 
+# connman (bsc#1057697)
+net.connman.modify				auth_admin_keep
+net.connman.vpn.modify				auth_admin_keep
+
 ###
