@@ -720,9 +720,10 @@ org.freedesktop.Flatpak.app-update 		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.runtime-update		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.appstream-update	auth_admin:auth_admin:auth_admin_keep
 
-# flatpak (bsc#1012961)
+# flatpak (bsc#1012961, bsc#1064011)
 org.freedesktop.Flatpak.update-remote		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.install-bundle		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.modify-repo		auth_admin:auth_admin:auth_admin_keep
 
 # blueman (bsc#987141)
 org.blueman.network.setup			auth_admin_keep
