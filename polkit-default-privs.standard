@@ -323,6 +323,9 @@ org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
 
 # sddm kcm oepration (bnc#904313)
 org.kde.kcontrol.kcmsddm.save                                   auth_admin
+# sddm kcm (bsc#1065563)
+org.kde.kcontrol.kcmsddm.installtheme                           no:no:auth_admin_keep
+org.kde.kcontrol.kcmsddm.uninstalltheme                         no:no:auth_admin_keep
 
 # systemd (bnc#641924)
 # systemd (bnc#641924)
