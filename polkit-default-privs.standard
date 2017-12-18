@@ -31,6 +31,8 @@ org.freedesktop.NetworkManager.settings.modify.system           auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 # bsc#996110
 org.freedesktop.NetworkManager.enable-disable-statistics	no:no:yes
+# bnc#1072702
+org.freedesktop.NetworkManager.enable-disable-connectivity-check no:no:yes
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
