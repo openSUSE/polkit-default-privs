@@ -32,6 +32,10 @@ org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 org.freedesktop.NetworkManager.enable-disable-statistics	auth_admin_keep
 # bnc#1072702
 org.freedesktop.NetworkManager.enable-disable-connectivity-check auth_admin_keep
+# bsc#1077504
+org.freedesktop.NetworkManager.checkpoint-rollback              auth_admin_keep:auth_admin_keep:auth_admin_keep
+org.freedesktop.NetworkManager.reload                           auth_admin_keep:auth_admin_keep:auth_admin_keep
+org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:auth_admin_keep:auth_admin_keep
 
 #
 #

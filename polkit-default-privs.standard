@@ -33,6 +33,11 @@ org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 org.freedesktop.NetworkManager.enable-disable-statistics	no:no:yes
 # bnc#1072702
 org.freedesktop.NetworkManager.enable-disable-connectivity-check no:no:yes
+# bsc#1077504
+org.freedesktop.NetworkManager.checkpoint-rollback              auth_admin_keep:auth_admin_keep:auth_admin_keep
+org.freedesktop.NetworkManager.reload                           auth_admin_keep:auth_admin_keep:auth_admin_keep
+org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:auth_admin_keep:auth_admin_keep
+
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
