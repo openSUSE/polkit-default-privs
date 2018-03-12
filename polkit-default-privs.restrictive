@@ -401,6 +401,9 @@ org.xfce.power.backlight-helper                                 auth_admin:auth_
 org.cinnamon.settings-daemon.plugins.power.backlight-helper	no:no:yes
 org.cinnamon.settingsdaemon.datetimemechanism.configure		no:no:auth_admin_keep
 
+# cinnamon settings-daemon (bsc#1083067)
+org.cinnamon.settings-users					auth_admin
+
 
 # hp-drive-guard
 com.hp.driveguard.toggle                                        auth_admin
@@ -460,6 +463,9 @@ org.freedesktop.packagekit.clear-offline-update                 auth_admin_keep
 # PackageKit (bnc#929212)
 org.freedesktop.packagekit.package-reinstall			auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.packagekit.package-downgrade			auth_admin:auth_admin:auth_admin_keep
+
+# PackageKit (bnc#993505)
+org.freedesktop.packagekit.trigger-offline-upgrade		no:auth_admin:auth_admin
 
 #
 # gparted (bnc#810888)
@@ -755,6 +761,9 @@ org.a11y.brlapi.write-display				auth_admin_keep
 # sysprof (bsc#996111)
 org.gnome.sysprof2.perf-event-open			auth_admin_keep
 
+# sysprof (bsc#1083055)
+org.gnome.sysprof2.get-kernel-symbols			auth_admin_keep
+
 # flatpak (bsc#984817)
 org.freedesktop.Flatpak.app-install 		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.runtime-install 	auth_admin:auth_admin:auth_admin_keep
@@ -780,6 +789,9 @@ org.blueman.network.setup			auth_admin:auth_admin_keep:auth_admin_keep
 org.blueman.dhcp.client				auth_admin:auth_admin_keep:auth_admin_keep
 org.blueman.pppd.pppconnect			auth_admin:auth_admin_keep:auth_admin_keep
 org.blueman.rfkill.setstate			auth_admin:auth_admin_keep:auth_admin_keep
+
+# blueman (bsc#1083066)
+org.blueman.bluez.config			no:no:auth_admin_keep
 
 # tuned (bsc#1007279)
 com.redhat.tuned.gui.run			auth_admin
@@ -814,11 +826,48 @@ org.freedesktop.fwupd.verify-update		auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.update-internal-trusted	auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.update-hotplug-trusted	auth_admin:no:auth_admin_keep
 
+# fwupd (bsc#1083022)
+org.freedesktop.fwupd.modify-remote		auth_admin:no:auth_admin_keep
+
 # deja-dup (bsc#1058935)
 org.gnome.DejaDup.duplicity			no:no:auth_admin
 
 # connman (bsc#1057697)
 net.connman.modify				auth_admin_keep
 net.connman.vpn.modify				auth_admin_keep
+
+# connman (bsc#1083069)
+net.connman.secret				no:no:auth_admin_keep
+net.connman.vpn.secret				no:no:auth_admin_keep
+
+# gsmartcontrol (bsc#1084693)
+org.gsmartcontrol				auth_admin
+
+# gvfs (bsc#1073214)
+org.gtk.vfs.file-operations			no:no:auth_admin_keep
+org.gtk.vfs.file-operations-helper		no:no:auth_admin_keep
+
+# laptop-mode-tools (bsc#1084695)
+org.linux.lmt.gui.policy			auth_admin
+
+# mate-system-monitor (bsc#1084701)
+org.mate.mate-system-monitor.kill		no:no:auth_admin
+org.mate.mate-system-monitor.renice		no:no:auth_admin
+
+# nemo (bsc#1084702)
+org.nemo.root					no:no:auth_admin_keep
+
+# nemo-extensions (bsc#1084703)
+org.nemo-share.samba_install			no:no:auth_admin_keep
+
+# pantheon-files (bsc#1084704)
+org.freedesktop.policykit.pkexec.pantheon-files	auth_admin:auth_admin:auth_admin
+org.freedesktop.policykit.pkexec.io.elementary.files auth_admin:auth_admin:auth_admin
+
+# scap-workbench (bsc#1084706)
+scap-workbench-oscap.run			auth_admin:auth_admin:auth_admin
+
+# spice-gtk (bsc#1083025)
+org.spice-space.lowlevelusbaccess		no:no:auth_admin
 
 ###
