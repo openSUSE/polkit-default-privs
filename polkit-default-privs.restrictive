@@ -870,4 +870,12 @@ scap-workbench-oscap.run			auth_admin:auth_admin:auth_admin
 # spice-gtk (bsc#1083025)
 org.spice-space.lowlevelusbaccess		no:no:auth_admin
 
+# bleachbit (bsc#1087326)
+org.bleachbit					auth_admin
+
+# systemd, systemd-mini (bsc#1087328)
+org.freedesktop.login1.halt			auth_admin_keep
+org.freedesktop.login1.halt-ignore-inhibit	auth_admin_keep
+org.freedesktop.login1.halt-multiple-sessions	auth_admin_keep
+
 ###
