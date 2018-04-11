@@ -775,8 +775,12 @@ com.redhat.tuned.reload				auth_admin:auth_admin:yes
 com.redhat.tuned.start				auth_admin:auth_admin:auth_admin
 com.redhat.tuned.stop				auth_admin:auth_admin:auth_admin
 com.redhat.tuned.switch_profile			auth_admin:auth_admin:yes
+# tuned (bsc#1048961)
 com.redhat.tuned.verify_profile			yes:yes:yes
 com.redhat.tuned.verify_profile_ignore_missing	yes:yes:yes
+# tuned (bsc#1088648)
+com.redhat.tuned.auto_profile			auth_admin:auth_admin:yes
+com.redhat.tuned.profile_mode			yes:yes:yes
 
 # fwupd (bsc#932807)
 org.freedesktop.fwupd.update-internal		auth_admin:no:auth_admin_keep
