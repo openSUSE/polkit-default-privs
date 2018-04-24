@@ -324,6 +324,8 @@ org.kde.powerdevil.discretegpuhelper.hasdualgpu			no:no:yes
 
 # kdepim4/kalarm (bnc#707723)
 org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
+# kalarm (bnc#1087714, renamed from kalarmrtcwake)
+org.kde.kalarm.rtcwake.settimer                                 auth_admin_keep
 
 # sddm kcm oepration (bnc#904313)
 org.kde.kcontrol.kcmsddm.save                                   auth_admin
