@@ -453,6 +453,8 @@ org.freedesktop.urfkill.flight_mode                             auth_admin:auth_
 org.freedesktop.accounts.user-administration                    auth_admin_keep
 org.freedesktop.accounts.set-login-option                       auth_admin
 org.freedesktop.accounts.change-own-user-data                   yes
+# bnc#1088780
+org.freedesktop.accounts.change-own-password                    auth_admin
 
 #
 # smb4k (bnc#749065)
