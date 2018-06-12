@@ -346,7 +346,6 @@ org.kde.kcontrol.kcmsddm.installtheme                           no:no:auth_admin
 org.kde.kcontrol.kcmsddm.uninstalltheme                         no:no:auth_admin_keep
 
 # systemd (bnc#641924)
-# systemd (bnc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
 org.freedesktop.hostname1.set-static-hostname                   auth_admin
 org.freedesktop.hostname1.set-machine-info                      auth_admin
@@ -366,23 +365,20 @@ org.freedesktop.login1.reboot                                   auth_admin_keep:
 org.freedesktop.login1.reboot-multiple-sessions                 auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.login1.set-user-linger                          auth_admin_keep
 org.freedesktop.login1.set-self-linger                          yes
-
-#
-# new stuff in bnc#783897
-#
+# systemd new stuff in bnc#783897
 org.freedesktop.login1.power-off-ignore-inhibit			auth_admin_keep
 org.freedesktop.login1.reboot-ignore-inhibit			auth_admin_keep
 org.freedesktop.login1.suspend-ignore-inhibit			auth_admin_keep
 org.freedesktop.login1.hibernate-multiple-sessions		auth_admin_keep
 org.freedesktop.login1.hibernate-ignore-inhibit			auth_admin_keep
-# want more rights: 
+# systemd want more rights:
 org.freedesktop.login1.inhibit-block-shutdown                   no:yes:yes
 org.freedesktop.login1.inhibit-block-sleep                      no:yes:yes
 org.freedesktop.login1.inhibit-handle-power-key                 no:yes:yes
 org.freedesktop.login1.inhibit-handle-suspend-key               no:yes:yes
 org.freedesktop.login1.inhibit-handle-hibernate-key             no:yes:yes
 org.freedesktop.login1.inhibit-handle-lid-switch                no:yes:yes
-# even more
+# systemd even more
 org.freedesktop.login1.inhibit-delay-shutdown                   yes
 org.freedesktop.login1.inhibit-delay-sleep                      yes
 org.freedesktop.login1.inhibit-block-idle                       yes
