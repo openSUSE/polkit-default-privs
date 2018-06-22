@@ -422,6 +422,10 @@ org.cinnamon.settingsdaemon.datetimemechanism.configure		no:no:auth_admin_keep
 # blueman (bsc#1083066)
 org.cinnamon.settings-users					auth_admin
 
+# cinnamon-control-center (bsc#1090371)
+# this is a meta action that unlocks a number of time/date related actions
+org.cinnamon.controlcenter.datetime.configure			no:no:auth_admin_keep
+
 # hp-drive-guard
 com.hp.driveguard.toggle                                        auth_admin
 com.hp.driveguard.install-setup                                 auth_admin
