@@ -419,7 +419,7 @@ org.xfce.power.backlight-helper                                 no:no:yes
 org.cinnamon.settings-daemon.plugins.power.backlight-helper	no:no:yes
 org.cinnamon.settingsdaemon.datetimemechanism.configure		no:no:auth_admin_keep
 
-# blueman (bsc#1083066)
+# cinnamon settings-daemon (bsc#1083067)
 org.cinnamon.settings-users					auth_admin
 
 # cinnamon-control-center (bsc#1090371)
