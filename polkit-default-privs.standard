@@ -32,9 +32,6 @@ org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 # bsc#996110
 org.freedesktop.NetworkManager.enable-disable-statistics	no:no:yes
 #
-org.libvirt.unix.monitor                                    	yes
-org.libvirt.unix.manage                                     	auth_admin_keep_always
-#
 # gnome-settings-daemon (bnc#690496)
 #
 org.gnome.settingsdaemon.datetimemechanism.configure            auth_admin_keep
@@ -494,7 +491,11 @@ org.kde.nepomuk.filewatch.raiselimit				no:no:auth_admin_keep
 # powerdevil (bnc#825256)
 org.kde.powerdevil.backlighthelper.syspath 			no:yes:yes
 
-# libvirt (bnc#827644) ( original wants yes:yes:yes)
+#
+org.libvirt.unix.monitor                                    	yes
+org.libvirt.unix.manage                                     	auth_admin_keep_always
+
+# libvirt (bnc#827644) (original wants yes:yes:yes)
 org.libvirt.api.connect.getattr                 auth_admin_keep
 org.libvirt.api.connect.read                    auth_admin_keep
 org.libvirt.api.connect.search-domains          auth_admin_keep
@@ -519,94 +520,6 @@ org.libvirt.api.storage-pool.getattr            auth_admin_keep
 org.libvirt.api.storage-pool.read               auth_admin_keep
 org.libvirt.api.storage-vol.getattr             auth_admin_keep
 org.libvirt.api.storage-vol.read                auth_admin_keep
-
-# MATE settings-daemon (bnc#831404)
-org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
-org.mate.settingsdaemon.datetimemechanism.settime		auth_admin_keep
-org.mate.settingsdaemon.datetimemechanism.configurehwclock	auth_admin_keep
-org.mate.randr.install-system-wide				auth_admin_keep
-org.mate.power.backlight-helper					no:no:yes
-
-# gufw
-com.ubuntu.pkexec.gufw				auth_admin
-
-# policycoreutils (bnc#848550)
-org.selinux.restorecon auth_admin_keep
-org.selinux.setenforce auth_admin_keep
-org.selinux.semanage auth_admin_keep
-org.selinux.change_default_policy auth_admin_keep
-org.selinux.change_policy_type auth_admin_keep
-org.selinux.config.pkexec.run no:no:auth_admin
-org.selinux.relabel_on_boot auth_admin_keep
-
-# policycoreutils (bnc#878631)
-org.selinux.customized no:no:yes
-org.selinux.semodule_list no:no:yes
-
-# kwallet (bnc#849739)
-
-org.kde.kcontrol.kcmkwallet.save no:no:yes
-
-# baloo (bnc#866131)
-org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
-
-# pcsc-lite (bnc#864178)
-org.debian.pcsc-lite.access_pcsc auth_admin:auth_admin:yes
-org.debian.pcsc-lite.access_card auth_admin:auth_admin:yes
-
-
-# firewalld (bnc#907625, bsc#971580)
-org.fedoraproject.FirewallD1.all		auth_admin_keep
-org.fedoraproject.FirewallD1.info		no:yes:yes
-org.fedoraproject.FirewallD1.config		auth_admin_keep
-org.fedoraproject.FirewallD1.config.info	auth_admin_keep
-org.fedoraproject.FirewallD1.direct		auth_admin_keep
-org.fedoraproject.FirewallD1.direct.info	auth_admin_keep
-org.fedoraproject.FirewallD1.policies		auth_admin_keep
-org.fedoraproject.FirewallD1.policies.info	auth_admin_keep
-
-
-# KDE5 powerdevil (bnc#912121)
-org.kde.powerdevil.backlighthelper.brightnessvalue no:yes:yes
-org.kde.powerdevil.backlighthelper.brightnessvaluemax no:yes:yes
-org.kde.powerdevil.backlighthelper.setbrightnessvalue no:no:yes
-
-# powerdevil action-name changes (bnc#927275)
-org.kde.powerdevil.backlighthelper.brightness no:yes:yes
-org.kde.powerdevil.backlighthelper.brightnessmax no:yes:yes
-org.kde.powerdevil.backlighthelper.setbrightness no:no:yes
-
-
-# storaged (bnc#915770)
-com.redhat.lvm2.create-logical-volume		auth_admin_keep
-com.redhat.lvm2.delete-logical-volume		auth_admin_keep
-com.redhat.lvm2.rename-logical-volume		auth_admin_keep
-com.redhat.lvm2.resize-logical-volume		auth_admin_keep
-com.redhat.lvm2.activate-logical-volume		auth_admin_keep
-com.redhat.lvm2.deactivate-logical-volume	auth_admin_keep
-com.redhat.lvm2.snapshot-logical-volume		auth_admin_keep
-com.redhat.lvm2.create-volume-group		auth_admin_keep
-com.redhat.lvm2.delete-volume-group		auth_admin_keep
-com.redhat.lvm2.rename-volume-group		auth_admin_keep
-com.redhat.lvm2.manage-lvm			auth_admin_keep
-
-# systemd new things in 218
-org.freedesktop.systemd1.manage-units		auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.systemd1.manage-unit-files	auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.systemd1.reload-daemon		auth_admin:auth_admin:auth_admin_keep
-
-# gnome-multi-writer (bnc#924062)
-org.gnome.MultiWriter.probe			auth_admin:auth_admin:auth_admin_keep
-
-# realmd (bnc#916767)
-org.freedesktop.realmd.configure-realm		auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.realmd.deconfigure-realm	auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.realmd.login-policy		auth_admin:auth_admin:auth_admin_keep
-# realmd (bsc#1048025)
-org.freedesktop.realmd.discover-realm		no:yes:yes
-
-# netvisix (bsc#930195)
-org.opensuse.policykit.netvisix			auth_admin:auth_admin:auth_admin
 
 # libvirt (bsc#959297)
 org.libvirt.api.connect.detect-storage-pools		auth_admin_keep
@@ -748,6 +661,95 @@ org.libvirt.api.storage-vol.format			auth_admin_keep
 org.libvirt.api.storage-vol.getattr			auth_admin_keep
 org.libvirt.api.storage-vol.read			auth_admin_keep
 org.libvirt.api.storage-vol.resize			auth_admin_keep
+
+
+# MATE settings-daemon (bnc#831404)
+org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.settime		auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.configurehwclock	auth_admin_keep
+org.mate.randr.install-system-wide				auth_admin_keep
+org.mate.power.backlight-helper					no:no:yes
+
+# gufw
+com.ubuntu.pkexec.gufw				auth_admin
+
+# policycoreutils (bnc#848550)
+org.selinux.restorecon auth_admin_keep
+org.selinux.setenforce auth_admin_keep
+org.selinux.semanage auth_admin_keep
+org.selinux.change_default_policy auth_admin_keep
+org.selinux.change_policy_type auth_admin_keep
+org.selinux.config.pkexec.run no:no:auth_admin
+org.selinux.relabel_on_boot auth_admin_keep
+
+# policycoreutils (bnc#878631)
+org.selinux.customized no:no:yes
+org.selinux.semodule_list no:no:yes
+
+# kwallet (bnc#849739)
+
+org.kde.kcontrol.kcmkwallet.save no:no:yes
+
+# baloo (bnc#866131)
+org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
+
+# pcsc-lite (bnc#864178)
+org.debian.pcsc-lite.access_pcsc auth_admin:auth_admin:yes
+org.debian.pcsc-lite.access_card auth_admin:auth_admin:yes
+
+
+# firewalld (bnc#907625, bsc#971580)
+org.fedoraproject.FirewallD1.all		auth_admin_keep
+org.fedoraproject.FirewallD1.info		no:yes:yes
+org.fedoraproject.FirewallD1.config		auth_admin_keep
+org.fedoraproject.FirewallD1.config.info	auth_admin_keep
+org.fedoraproject.FirewallD1.direct		auth_admin_keep
+org.fedoraproject.FirewallD1.direct.info	auth_admin_keep
+org.fedoraproject.FirewallD1.policies		auth_admin_keep
+org.fedoraproject.FirewallD1.policies.info	auth_admin_keep
+
+
+# KDE5 powerdevil (bnc#912121)
+org.kde.powerdevil.backlighthelper.brightnessvalue no:yes:yes
+org.kde.powerdevil.backlighthelper.brightnessvaluemax no:yes:yes
+org.kde.powerdevil.backlighthelper.setbrightnessvalue no:no:yes
+
+# powerdevil action-name changes (bnc#927275)
+org.kde.powerdevil.backlighthelper.brightness no:yes:yes
+org.kde.powerdevil.backlighthelper.brightnessmax no:yes:yes
+org.kde.powerdevil.backlighthelper.setbrightness no:no:yes
+
+
+# storaged (bnc#915770)
+com.redhat.lvm2.create-logical-volume		auth_admin_keep
+com.redhat.lvm2.delete-logical-volume		auth_admin_keep
+com.redhat.lvm2.rename-logical-volume		auth_admin_keep
+com.redhat.lvm2.resize-logical-volume		auth_admin_keep
+com.redhat.lvm2.activate-logical-volume		auth_admin_keep
+com.redhat.lvm2.deactivate-logical-volume	auth_admin_keep
+com.redhat.lvm2.snapshot-logical-volume		auth_admin_keep
+com.redhat.lvm2.create-volume-group		auth_admin_keep
+com.redhat.lvm2.delete-volume-group		auth_admin_keep
+com.redhat.lvm2.rename-volume-group		auth_admin_keep
+com.redhat.lvm2.manage-lvm			auth_admin_keep
+
+# systemd new things in 218
+org.freedesktop.systemd1.manage-units		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.systemd1.manage-unit-files	auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.systemd1.reload-daemon		auth_admin:auth_admin:auth_admin_keep
+
+# gnome-multi-writer (bnc#924062)
+org.gnome.MultiWriter.probe			auth_admin:auth_admin:auth_admin_keep
+
+# realmd (bnc#916767)
+org.freedesktop.realmd.configure-realm		auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.realmd.deconfigure-realm	auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.realmd.login-policy		auth_admin:auth_admin:auth_admin_keep
+# realmd (bsc#1048025)
+org.freedesktop.realmd.discover-realm		no:yes:yes
+
+# netvisix (bsc#930195)
+org.opensuse.policykit.netvisix			auth_admin:auth_admin:auth_admin
 
 # importd (bsc#964935)
 org.freedesktop.import1.import				auth_admin:auth_admin:auth_admin_keep
