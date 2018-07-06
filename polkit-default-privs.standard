@@ -687,6 +687,12 @@ org.libvirt.api.storage-vol.getattr			auth_admin_keep
 org.libvirt.api.storage-vol.read			auth_admin_keep
 org.libvirt.api.storage-vol.resize			auth_admin_keep
 
+# libvirt (bsc#1100328)
+org.libvirt.api.connect.search-nwfilter-bindings	auth_admin_keep
+org.libvirt.api.nwfilter.binding-getattr		auth_admin_keep
+org.libvirt.api.nwfilter.binding-read			auth_admin_keep
+org.libvirt.api.nwfilter.binding-create			no
+org.libvirt.api.nwfilter.binding-delete			no
 
 # MATE settings-daemon (bnc#831404)
 org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
