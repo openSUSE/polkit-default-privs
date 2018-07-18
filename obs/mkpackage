@@ -1,9 +1,13 @@
 #!/bin/bash
 set -e
 shopt -s nullglob
-name="`pwd -P`"
-name=${name##*/}
-name=${name%%.*}
+if [ $# -eq 1 ]; then
+	name="$1"
+else
+	name="`pwd -P`"
+	name=${name##*/}
+	name=${name%%.*}
+fi
 src="$PWD"
 if [ ! -d "$name/.osc" ]; then
 	echo "*** Error: please check out the package:"
@@ -14,7 +18,19 @@ fi
 if [ "`git --no-pager diff --name-only|wc -l`" != '0' -o "`git --no-pager diff --name-only --cached|wc -l`" != 0 ]; then
 	echo "*** Error: uncomitted changes"
 	echo "run 'git add file' to add files, 'git commit -a' to commit changes"
-	exit 1
+	if [ ! -t 0 ]; then
+		exit 1
+	fi
+	echo "Do you want to continue anyway (y/n)?"
+	echo "The resulting package will not contain the uncommited changes."
+	while true; do
+		read CONT
+		if [ "$CONT" = "y" ]; then
+			break
+		else
+			exit 1
+		fi
+	done
 fi
 cd "$name"
 echo "osc up"
