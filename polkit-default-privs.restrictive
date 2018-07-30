@@ -873,4 +873,7 @@ org.freedesktop.DisplayManager.AccountsService.ModifyAny	no
 org.freedesktop.DisplayManager.AccountsService.ModifyOwn	auth_self
 org.freedesktop.DisplayManager.AccountsService.ReadAny		auth_admin:auth_admin:yes
 
+# gamemode (bsc#1093979)
+com.feralinteractive.GameMode.governor-helper (no:no:auth_admin_keep)
+
 ###
