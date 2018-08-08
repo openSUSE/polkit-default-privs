@@ -942,6 +942,6 @@ org.freedesktop.DisplayManager.AccountsService.ModifyOwn	auth_self:auth_self:yes
 org.freedesktop.DisplayManager.AccountsService.ReadAny		yes
 
 # gamemode (bsc#1093979)
-com.feralinteractive.GameMode.governor-helper (no:no:yes)
+com.feralinteractive.GameMode.governor-helper no:no:yes
 
 ###
