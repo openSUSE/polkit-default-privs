@@ -853,9 +853,6 @@ org.blueman.dhcp.client				auth_admin:auth_admin_keep:yes
 org.blueman.pppd.pppconnect			auth_admin:auth_admin_keep:yes
 org.blueman.rfkill.setstate			auth_admin:auth_admin_keep:yes
 
-# blueman (bsc#1083066)
-org.blueman.bluez.config			no:no:auth_admin_keep
-
 # tuned (bsc#1007279)
 com.redhat.tuned.gui.run			auth_admin
 com.redhat.tuned.active_profile			yes
