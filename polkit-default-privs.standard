@@ -936,6 +936,6 @@ org.freedesktop.policykit.pkexec.io.elementary.files auth_admin:auth_admin:auth_
 scap-workbench-oscap.run			auth_admin_keep:auth_admin_keep:auth_admin_keep
 
 # spice-gtk (bsc#1083025)
-org.spice-space.lowlevelusbaccess		auth_admin:no:auth_admin
+org.spice-space.lowlevelusbaccess		auth_admin:no:yes
 
 ###
