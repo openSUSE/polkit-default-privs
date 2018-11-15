@@ -759,10 +759,10 @@ org.freedesktop.Flatpak.install-bundle		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.modify-repo		auth_admin:auth_admin:auth_admin_keep
 
 # blueman (bsc#987141)
-org.blueman.network.setup			auth_admin_keep
-org.blueman.dhcp.client				auth_admin_keep
-org.blueman.pppd.pppconnect			auth_admin_keep
-org.blueman.rfkill.setstate			auth_admin_keep
+org.blueman.network.setup			auth_admin:auth_admin_keep:auth_admin_keep
+org.blueman.dhcp.client				auth_admin:auth_admin_keep:auth_admin_keep
+org.blueman.pppd.pppconnect			auth_admin:auth_admin_keep:auth_admin_keep
+org.blueman.rfkill.setstate			auth_admin:auth_admin_keep:auth_admin_keep
 
 # tuned (bsc#1007279)
 com.redhat.tuned.gui.run			auth_admin
