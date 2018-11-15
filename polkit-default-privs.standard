@@ -927,7 +927,7 @@ org.pantheon.switchboard.user-accounts.administration no:no:auth_admin_keep
 scap-workbench-oscap.run			auth_admin_keep:auth_admin_keep:auth_admin_keep
 
 # spice-gtk (bsc#1083025)
-org.spice-space.lowlevelusbaccess		auth_admin:no:auth_admin
+org.spice-space.lowlevelusbaccess		auth_admin:no:yes
 
 # bleachbit (bsc#1087326)
 org.bleachbit					auth_admin
