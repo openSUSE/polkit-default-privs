@@ -86,10 +86,15 @@ close F;
 rename($file.'.new', $file) or die "can't rename $file.new: $!\n";
 
 __END__
-/************************************\
-* AUTOMATICALY GENERATED DO NOT EDIT *
-* see man set_polkit_default_privs   *
-\************************************/
+/*******************************************\
+*              DO NOT EDIT                  *
+* This file was automatically generated.    *
+* To add custom rules edit                  *
+*    /etc/polkit-default-privs.local        *
+* instead.                                  *
+* Also see 'man set_polkit_default_privs'   *
+\*******************************************/
+
 polkit.addRule(function(action, subject) {
 	// set to true for debugging
 	var debug = false;
@@ -102,8 +107,8 @@ polkit.addRule(function(action, subject) {
                         i = 2;
                 } else {
                         i = 1;
-                }   
-        }   
+                }
+        }
 	if (debug)
 		polkit.log(subject);
 
