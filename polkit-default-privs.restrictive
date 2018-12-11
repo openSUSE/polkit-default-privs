@@ -783,6 +783,9 @@ com.redhat.tuned.verify_profile_ignore_missing	yes:yes:yes
 # tuned (bsc#1088648)
 com.redhat.tuned.auto_profile			auth_admin:auth_admin:yes
 com.redhat.tuned.profile_mode			yes:yes:yes
+# tuned (bsc#1118117)
+com.redhat.tuned.log_capture_finish		auth_admin:auth_admin:yes
+com.redhat.tuned.log_capture_start		auth_admin:auth_admin:yes
 
 # fwupd (bsc#932807)
 org.freedesktop.fwupd.update-internal		auth_admin:no:auth_admin_keep
