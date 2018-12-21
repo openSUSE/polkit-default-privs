@@ -886,4 +886,9 @@ com.feralinteractive.GameMode.governor-helper no:no:auth_admin_keep
 # meson (bsc#1103811)
 com.mesonbuild.install.run no:no:auth_admin
 
+# bolt (bsc#1119975)
+org.freedesktop.bolt.authorize auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.bolt.enroll auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.bolt.manage auth_admin:auth_admin:auth_admin_keep
+
 ###
