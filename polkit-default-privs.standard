@@ -959,4 +959,8 @@ org.freedesktop.bolt.authorize auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.bolt.enroll auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.bolt.manage auth_admin:auth_admin:auth_admin_keep
 
+# luckybackup (bsc#1120403)
+# Don't relax this, it runs rsync with arbitrary parameters
+net.luckybackup.su auth_admin
+
 ###
