@@ -37,6 +37,8 @@ org.freedesktop.NetworkManager.enable-disable-connectivity-check no:no:yes
 org.freedesktop.NetworkManager.checkpoint-rollback              auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.reload                           auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:auth_admin_keep:auth_admin_keep
+# bsc#1122262 (currently not upstream)
+org.freedesktop.NetworkManager.wifi-scan                        auth_admin:yes:yes
 
 #
 # gnome-settings-daemon (bnc#690496)
