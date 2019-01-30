@@ -839,6 +839,9 @@ org.freedesktop.Flatpak.update-remote		auth_admin:auth_admin:yes
 org.freedesktop.Flatpak.install-bundle		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.modify-repo		auth_admin:auth_admin:yes
 
+# flatpak (bsc#1123653)
+org.freedesktop.Flatpak.metadata-update         auth_admin:auth_admin:auth_admin_keep
+
 # blueman (bsc#987141)
 org.blueman.network.setup			auth_admin:auth_admin_keep:yes
 org.blueman.dhcp.client				auth_admin:auth_admin_keep:yes
