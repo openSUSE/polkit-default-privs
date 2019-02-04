@@ -14,20 +14,16 @@ DESCRIPTION
 -----------
 The set_polkit_default_privs program installs default settings for
 privileges that are granted automatically to locally logged in users
-by PolicyKit.
+by polkit.
 
 CONFIGURATION
 -------------
-see CHECK_POLKIT_PRIVS and POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security
+see CHECK_POLKIT_PRIVS and POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security.
 
 SEE ALSO
 --------
-polkit-default-privs(5), PolicyKit(8)
-
-AUTHOR
-------
-Written by Ludwig Nussel
+polkit-default-privs(5), polkit(8)
 
 REPORTING BUGS
 --------------
-Report bugs to https://bugzilla.novell.com/
+Report bugs to https://bugzilla.suse.com/

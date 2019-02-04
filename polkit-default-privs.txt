@@ -6,10 +6,6 @@ NAME
 ----
 polkit-default-privs - default privilege settings
 
-SYNOPSIS
---------
- 
-
 DESCRIPTION
 -----------
 The files `/etc/polkit-default-privs.*` are line based and space
@@ -34,6 +30,8 @@ FILES
 
 `/etc/polkit-default-privs.standard`
 
+`/etc/polkit-default-privs.easy`
+
 `/etc/polkit-default-privs.d/*`
 
 
@@ -41,10 +39,6 @@ SEE ALSO
 --------
 set_polkit_default_privs(8), PolicyKit(8)
 
-AUTHOR
-------
-Written by Ludwig Nussel
-
 REPORTING BUGS
 --------------
-Report bugs to https://bugzilla.novell.com/
+Report bugs to https://bugzilla.suse.com/
