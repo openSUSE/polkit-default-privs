@@ -1,8 +1,8 @@
 #
 # /etc/polkit-default-privs.restrictive use in an environment where
-# hosts are centrally administered and users should have minimal
-# privileges. Privileged operations require authentication as admin.
-#
+# security is a major concern or hosts are centrally administered and users
+# should have minimal privileges. Many operations require authentication
+# as admin.
 #
 # Please do not modify this file, use polkit-default-privs.local instead.
 #

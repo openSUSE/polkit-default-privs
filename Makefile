@@ -19,7 +19,7 @@ install:
 	install -d $(DESTDIR)$(sysconfdir)/polkit-default-privs.d
 	install -m 755 set_polkit_default_privs $(DESTDIR)$(sbindir)
 	install -m 755 chkstat-polkit $(DESTDIR)$(sbindir)
-	install -m 644 polkit-default-privs.{standard,restrictive,local} $(DESTDIR)$(sysconfdir)
+	install -m 644 polkit-default-privs.{easy,standard,restrictive,local} $(DESTDIR)$(sysconfdir)
 	install -m 644 sysconfig.security-polkit_default_privs $(DESTDIR)$(fillupdir)
 	@for i in $(manpages); do \
 		s=$${i##*.}; \

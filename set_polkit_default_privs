@@ -46,11 +46,11 @@ esac
 # 1. common privileges file (we have none yet)
 files=""
 
-# 2. relaxed, standard, restrictive as those are defined by SUSE
+# 2. easy, standard, restrictive as those are defined by SUSE
 have_local=
 for level in $POLKIT_DEFAULT_PRIVS; do 
     case "$level" in
-	relaxed|standard|restrictive)
+	easy|standard|restrictive)
 	    if [ -e /etc/polkit-default-privs.$level ]; then
 		files="$files /etc/polkit-default-privs.$level"
 	    fi
@@ -79,7 +79,7 @@ done
 # 4. central privileges files with user defined level incl 'local'
 for level in $POLKIT_DEFAULT_PRIVS; do 
     case "$level" in
-	relaxed|standard|restrictive) continue ;;
+	easy|standard|restrictive) continue ;;
 	local) have_local=1 ;;
     esac
     if [ -e /etc/polkit-default-privs.$level ]; then
