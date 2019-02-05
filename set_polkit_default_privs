@@ -48,12 +48,15 @@ files=""
 
 # 2. easy, standard, restrictive as those are defined by SUSE
 have_local=
-for level in $POLKIT_DEFAULT_PRIVS; do 
+for level in $POLKIT_DEFAULT_PRIVS; do
     case "$level" in
 	easy|standard|restrictive)
 	    if [ -e /etc/polkit-default-privs.$level ]; then
 		files="$files /etc/polkit-default-privs.$level"
 	    fi
+	;;
+	*)
+	    echo "invalid value '$level' in POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security, ignoring" 1>&2
 	;;
     esac
 done
