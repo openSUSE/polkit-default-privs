@@ -10,8 +10,11 @@ all: mans
 
 mans: $(manpages)
 
-.txt.8 .txt.5:
+.adoc.8 .adoc.5:
 	a2x -f manpage $<
+
+clean:
+	rm -f man/*.{5,8}
 
 install:
 	install -d $(DESTDIR)$(sbindir)  $(DESTDIR)$(sysconfdir) $(DESTDIR)$(fillupdir)
@@ -29,6 +32,6 @@ install:
 		"$$@"; \
 	done
 
-.SUFFIXES: .8 .5 .txt
+.SUFFIXES: .8 .5 .adoc
 
 .PHONY: all mans install package
