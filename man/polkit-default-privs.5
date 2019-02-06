@@ -2,12 +2,12 @@
 .\"     Title: polkit-default-privs
 .\"    Author: Ludwig Nussel <ludwig.nussel@suse.de>
 .\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
-.\"      Date: 02/04/2019
+.\"      Date: 02/06/2019
 .\"    Manual: \ \&
 .\"    Source: \ \&
 .\"  Language: English
 .\"
-.TH "POLKIT\-DEFAULT\-PRI" "5" "02/04/2019" "\ \&" "\ \&"
+.TH "POLKIT\-DEFAULT\-PRI" "5" "02/06/2019" "\ \&" "\ \&"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,13 +31,67 @@
 polkit-default-privs \- default privilege settings
 .SH "DESCRIPTION"
 .sp
-The files /etc/polkit\-default\-privs\&.* are line based and space delimited\&.
+The files \fI/etc/polkit\-default\-privs\&.*\fR are line based and whitespace delimited\&.
 .sp
-Lines starting with # are comments\&.
+Lines starting with # are comments\&. Comments and empty lines will be ignored\&. All other lines that are not empty consist of two whitespace delimited columns \fIACTION\fR and \fIAUTHORIZATION\fR\&. The \fIACTION\fR column specifies the polkit action name to configure the default polkit authorization settings for\&.
 .sp
-The first column lists the privilege names
+The \fIAUTHORIZATION\fR column consists of colon separated fields of the form \fIANY\-USER:INACTIVE\-CONSOLE:ACTIVE\-CONSOLE\fR\&. Each of the fields can have one of the values auth_admin, auth_admin_keep, auth_self, auth_self_keep, no and yes\&. For the meaning of these values see polkit(8)\&. The field \fIACTIVE\-CONSOLE\fR determines the authorization required for active users on a local console\&. The field \fIINACTIVE\-CONSOLE\fR determines the authorization required for inactive users on a local console (e\&.g\&. a locked graphical session)\&. The field \fIANY\-USER\fR determines the authorization required for all others users (e\&.g\&. remotely logged in via SSH)\&. If all three fields carry the same value then the column can be shortened to a single field without a separating colon\&. This setting will then apply to all three field types\&.
+.SH "PROFILE TYPES"
 .sp
-The second column lists the PolicyKit default setting\&. A default setting consists of three values separated by colon\&. The meanings from left to right are are \fIany user\fR, \fIuser not on the active console\fR and \fIuser on the active console\fR\&. If all three values are the same only one value may be specified without colon to shorten the line\&.
+There exist three profile types for setting polkit default privileges\&. The selection of the profile is performed via the setting POLKIT_DEFAULT_PRIVS in \fI/etc/sysconfig/security\fR\&. The following profile types exist:
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBrestrictive\fR: conservative settings that require the root user password for a lot of actions and disable certain actions completely for remote users\&. This should only be used on systems where security requirements are high and for experienced users\&. Usability can suffer a bit, especially on desktop systems, so custom tuning of polkit rules might become necessary\&.
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBstandard\fR: balanced settings that restrict sensitive actions to require root authentication but allow less dangerous operations for regular logged in users\&. This should be used on server systems or multi\-user systems\&.
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBeasy\fR: settings that are focused on ease of use\&. This sacrifices security to some degree to allow a more seamless user experience without interruptions in the workflow due to password prompts\&. This should only be used for single\-user desktop systems\&.
+.RE
+.sp
+.RS 4
+.ie n \{\
+\h'-04'\(bu\h'+03'\c
+.\}
+.el \{\
+.sp -1
+.IP \(bu 2.3
+.\}
+\fBlocal\fR: this is a custom profile that can be used on top of the predefined profiles\&. Configuration items from this profile always take precedence and therefore override the predefined profiles\&. Therefore this profile can be customized to loosen or tighten certain polkit actions\&.
+.RE
+.SH "EXAMPLES"
+.sp
+\fBorg\&.spice\-space\&.lowlevelusbaccess auth_admin:auth_self:yes\fR
+.sp
+This line configures the org\&.spice\-space\&.lowlevelusbaccess polkit action to require admin authentication for remote users, the own account password for inactive users and no authentication for active users\&.
+.sp
+\fBnet\&.connman\&.modify auth_admin\fR
+.sp
+This line configures the net\&.connman\&.modify polkit action to require admin authentication for all three user context types: remote users, inactive users and active users\&.
 .SH "FILES"
 .sp
 /etc/polkit\-default\-privs\&.local
@@ -51,7 +105,7 @@ The second column lists the PolicyKit default setting\&. A default setting consi
 /etc/polkit\-default\-privs\&.d/*
 .SH "SEE ALSO"
 .sp
-set_polkit_default_privs(8), PolicyKit(8)
+set_polkit_default_privs(8), polkit(8)
 .SH "REPORTING BUGS"
 .sp
 Report bugs to https://bugzilla\&.suse\&.com/

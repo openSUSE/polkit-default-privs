@@ -8,22 +8,72 @@ polkit-default-privs - default privilege settings
 
 DESCRIPTION
 -----------
-The files `/etc/polkit-default-privs.*` are line based and space
+The files _/etc/polkit-default-privs.*_ are line based and whitespace
 delimited.
 
-Lines starting with `#` are comments.
+Lines starting with `#` are comments. Comments and empty lines will be
+ignored. All other lines that are not empty consist of two whitespace
+delimited columns _ACTION_ and _AUTHORIZATION_. The _ACTION_ column specifies
+the polkit action name to configure the default polkit authorization settings
+for.
 
-The first column lists the privilege names
+The _AUTHORIZATION_ column consists of colon separated fields of the form
+_ANY-USER:INACTIVE-CONSOLE:ACTIVE-CONSOLE_. Each of the fields can have one of
+the values `auth_admin`, `auth_admin_keep`, `auth_self`, `auth_self_keep`,
+`no` and `yes`. For the meaning of these values see polkit(8). The field
+_ACTIVE-CONSOLE_ determines the authorization required for active users on a
+local console. The field _INACTIVE-CONSOLE_ determines the authorization
+required for inactive users on a local console (e.g. a locked graphical
+session). The field _ANY-USER_ determines the authorization required for all
+others users (e.g. remotely logged in via SSH). If all three fields carry the
+same value then the column can be shortened to a single field without a
+separating colon. This setting will then apply to all three field types.
 
-The second column lists the PolicyKit default setting. A default
-setting consists of three values separated by colon. The meanings
-from left to right are are 'any user', 'user not on the active
-console' and 'user on the active console'. If all three values are
-the same only one value may be specified without colon to shorten
-the line.
+PROFILE TYPES
+-------------
+
+There exist three profile types for setting polkit default privileges.  The
+selection of the profile is performed via the setting `POLKIT_DEFAULT_PRIVS`
+in _/etc/sysconfig/security_. The following profile types exist:
+
+- *restrictive*: conservative settings that require the root user password for
+  a lot of actions and disable certain actions completely for remote users.
+  This should only be used on systems where security requirements are high and
+  for experienced users. Usability can suffer a bit, especially on desktop
+  systems, so custom tuning of polkit rules might become necessary.
+
+- *standard*: balanced settings that restrict sensitive actions to require
+  root authentication but allow less dangerous operations for regular logged
+  in users. This should be used on server systems or multi-user systems.
+
+- *easy*: settings that are focused on ease of use. This sacrifices security
+  to some degree to allow a more seamless user experience without
+  interruptions in the workflow due to password prompts. This should only be
+  used for single-user desktop systems.
+
+- *local*: this is a custom profile that can be used on top of the predefined
+  profiles. Configuration items from this profile always take precedence and
+  therefore override the predefined profiles. Therefore this profile can be
+  customized to loosen or tighten certain polkit actions.
+
+EXAMPLES
+--------
+
+*org.spice-space.lowlevelusbaccess auth_admin:auth_self:yes*
+
+This line configures the org.spice-space.lowlevelusbaccess polkit action to
+require admin authentication for remote users, the own account password for
+inactive users and no authentication for active users.
+
+*net.connman.modify auth_admin*
+
+This line configures the net.connman.modify polkit action to require admin
+authentication for all three user context types: remote users, inactive users
+and active users.
 
 FILES
 -----
+
 `/etc/polkit-default-privs.local`
 
 `/etc/polkit-default-privs.restrictive`
@@ -34,10 +84,9 @@ FILES
 
 `/etc/polkit-default-privs.d/*`
 
-
 SEE ALSO
 --------
-set_polkit_default_privs(8), PolicyKit(8)
+set_polkit_default_privs(8), polkit(8)
 
 REPORTING BUGS
 --------------

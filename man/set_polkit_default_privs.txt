@@ -4,7 +4,7 @@ Ludwig Nussel <ludwig.nussel@suse.de>
 
 NAME
 ----
-set_polkit_default_privs - set default privileges for PolicyKit
+set_polkit_default_privs - set default privileges for Polkit
 
 SYNOPSIS
 --------
@@ -12,9 +12,11 @@ set_polkit_default_privs
 
 DESCRIPTION
 -----------
-The set_polkit_default_privs program installs default settings for
-privileges that are granted automatically to locally logged in users
-by polkit.
+The set_polkit_default_privs program installs default settings for polkit
+actions according to the currently configured polkit-default-privs profile.
+This program needs to be called to make changes effective when the profile has
+been altered or customizations in /etc/polkit-default-privs.local have been
+made.
 
 CONFIGURATION
 -------------

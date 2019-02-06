@@ -2,12 +2,12 @@
 .\"     Title: set_polkit_default_privs
 .\"    Author: Ludwig Nussel <ludwig.nussel@suse.de>
 .\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
-.\"      Date: 02/04/2019
+.\"      Date: 02/06/2019
 .\"    Manual: \ \&
 .\"    Source: \ \&
 .\"  Language: English
 .\"
-.TH "SET_POLKIT_DEFAULT_P" "8" "02/04/2019" "\ \&" "\ \&"
+.TH "SET_POLKIT_DEFAULT_P" "8" "02/06/2019" "\ \&" "\ \&"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -28,13 +28,13 @@
 .\" * MAIN CONTENT STARTS HERE *
 .\" -----------------------------------------------------------------
 .SH "NAME"
-set_polkit_default_privs \- set default privileges for PolicyKit
+set_polkit_default_privs \- set default privileges for Polkit
 .SH "SYNOPSIS"
 .sp
 set_polkit_default_privs
 .SH "DESCRIPTION"
 .sp
-The set_polkit_default_privs program installs default settings for privileges that are granted automatically to locally logged in users by polkit\&.
+The set_polkit_default_privs program installs default settings for polkit actions according to the currently configured polkit\-default\-privs profile\&. This program needs to be called to make changes effective when the profile has been altered or customizations in /etc/polkit\-default\-privs\&.local have been made\&.
 .SH "CONFIGURATION"
 .sp
 see CHECK_POLKIT_PRIVS and POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security\&.
