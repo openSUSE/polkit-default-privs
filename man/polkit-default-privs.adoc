@@ -1,6 +1,5 @@
 polkit-default-privs(5)
 =======================
-Ludwig Nussel <ludwig.nussel@suse.de>
 
 NAME
 ----
@@ -87,6 +86,13 @@ FILES
 SEE ALSO
 --------
 set_polkit_default_privs(8), polkit(8)
+
+AUTHORS
+-------
+
+Written by Ludwig Nussel <ludwig.nussel@suse.de>
+
+Man page written by Matthias Gerstner <matthias.gerstner@suse.de>
 
 REPORTING BUGS
 --------------
