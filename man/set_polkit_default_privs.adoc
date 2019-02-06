@@ -14,9 +14,9 @@ DESCRIPTION
 -----------
 The set_polkit_default_privs program installs default settings for polkit
 actions according to the currently configured polkit-default-privs profile.
-This program needs to be called to make changes effective when the profile has
-been altered or customizations in /etc/polkit-default-privs.local have been
-made.
+This program needs to be called to make changes effective when the selected
+profile has been changed or customizations in /etc/polkit-default-privs.local
+have been made.
 
 CONFIGURATION
 -------------

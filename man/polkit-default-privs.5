@@ -2,12 +2,12 @@
 .\"     Title: polkit-default-privs
 .\"    Author: [see the "AUTHORS" section]
 .\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
-.\"      Date: 02/06/2019
+.\"      Date: 02/07/2019
 .\"    Manual: \ \&
 .\"    Source: \ \&
 .\"  Language: English
 .\"
-.TH "POLKIT\-DEFAULT\-PRI" "5" "02/06/2019" "\ \&" "\ \&"
+.TH "POLKIT\-DEFAULT\-PRI" "5" "02/07/2019" "\ \&" "\ \&"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -28,14 +28,16 @@
 .\" * MAIN CONTENT STARTS HERE *
 .\" -----------------------------------------------------------------
 .SH "NAME"
-polkit-default-privs \- default privilege settings
+polkit-default-privs \- configuration of polkit security profiles
 .SH "DESCRIPTION"
 .sp
-The files \fI/etc/polkit\-default\-privs\&.*\fR are line based and whitespace delimited\&.
+The files \fI/etc/polkit\-default\-privs\&.*\fR define different security profiles that influence the authorization required for various polkit actions used across applications\&. These files are line based and whitespace delimited\&.
 .sp
-Lines starting with # are comments\&. Comments and empty lines will be ignored\&. All other lines that are not empty consist of two whitespace delimited columns \fIACTION\fR and \fIAUTHORIZATION\fR\&. The \fIACTION\fR column specifies the polkit action name to configure the default polkit authorization settings for\&.
+Lines starting with # are comments\&. Comments and empty lines will be ignored\&. All other lines consist of two whitespace delimited columns \fIACTION\fR and \fIAUTHORIZATION\fR\&. The \fIACTION\fR column specifies the polkit action name to configure the default polkit authorization settings for\&.
 .sp
 The \fIAUTHORIZATION\fR column consists of colon separated fields of the form \fIANY\-USER:INACTIVE\-CONSOLE:ACTIVE\-CONSOLE\fR\&. Each of the fields can have one of the values auth_admin, auth_admin_keep, auth_self, auth_self_keep, no and yes\&. For the meaning of these values see polkit(8)\&. The field \fIACTIVE\-CONSOLE\fR determines the authorization required for active users on a local console\&. The field \fIINACTIVE\-CONSOLE\fR determines the authorization required for inactive users on a local console (e\&.g\&. a locked graphical session)\&. The field \fIANY\-USER\fR determines the authorization required for all others users (e\&.g\&. remotely logged in via SSH)\&. If all three fields carry the same value then the column can be shortened to a single field without a separating colon\&. This setting will then apply to all three field types\&.
+.sp
+Changes in these files don\(cqt take effect immediately\&. The settings need to be converted into polkit java script code\&. This can be achieved by calling set_polkit_default_privs(8)\&.
 .SH "PROFILE TYPES"
 .sp
 There exist three profile types for setting polkit default privileges\&. The selection of the profile is performed via the setting POLKIT_DEFAULT_PRIVS in \fI/etc/sysconfig/security\fR\&. The following profile types exist:
@@ -81,7 +83,7 @@ There exist three profile types for setting polkit default privileges\&. The sel
 .sp -1
 .IP \(bu 2.3
 .\}
-\fBlocal\fR: this is a custom profile that can be used on top of the predefined profiles\&. Configuration items from this profile always take precedence and therefore override the predefined profiles\&. Therefore this profile can be customized to loosen or tighten certain polkit actions\&.
+\fBlocal\fR: this is a custom profile that can be used on top of the predefined profiles\&. Configuration items from this profile always take precedence and thus override the predefined profiles\&. Therefore this profile can be customized to loosen or tighten certain polkit actions\&.
 .RE
 .SH "EXAMPLES"
 .sp
@@ -108,27 +110,9 @@ This line configures the net\&.connman\&.modify polkit action to require admin a
 set_polkit_default_privs(8), polkit(8)
 .SH "AUTHORS"
 .sp
-.RS 4
-.ie n \{\
-\h'-04'\(bu\h'+03'\c
-.\}
-.el \{\
-.sp -1
-.IP \(bu 2.3
-.\}
 Written by Ludwig Nussel <ludwig\&.nussel@suse\&.de>
-.RE
 .sp
-.RS 4
-.ie n \{\
-\h'-04'\(bu\h'+03'\c
-.\}
-.el \{\
-.sp -1
-.IP \(bu 2.3
-.\}
 Man page written by Matthias Gerstner <matthias\&.gerstner@suse\&.de>
-.RE
 .SH "REPORTING BUGS"
 .sp
 Report bugs to https://bugzilla\&.suse\&.com/

@@ -3,18 +3,18 @@ polkit-default-privs(5)
 
 NAME
 ----
-polkit-default-privs - default privilege settings
+polkit-default-privs - configuration of polkit security profiles
 
 DESCRIPTION
 -----------
-The files _/etc/polkit-default-privs.*_ are line based and whitespace
-delimited.
+The files _/etc/polkit-default-privs.*_ define different security profiles
+that influence the authorization required for various polkit actions used
+across applications. These files are line based and whitespace delimited.
 
 Lines starting with `#` are comments. Comments and empty lines will be
-ignored. All other lines that are not empty consist of two whitespace
-delimited columns _ACTION_ and _AUTHORIZATION_. The _ACTION_ column specifies
-the polkit action name to configure the default polkit authorization settings
-for.
+ignored. All other lines consist of two whitespace delimited columns _ACTION_
+and _AUTHORIZATION_. The _ACTION_ column specifies the polkit action name to
+configure the default polkit authorization settings for.
 
 The _AUTHORIZATION_ column consists of colon separated fields of the form
 _ANY-USER:INACTIVE-CONSOLE:ACTIVE-CONSOLE_. Each of the fields can have one of
@@ -27,6 +27,10 @@ session). The field _ANY-USER_ determines the authorization required for all
 others users (e.g. remotely logged in via SSH). If all three fields carry the
 same value then the column can be shortened to a single field without a
 separating colon. This setting will then apply to all three field types.
+
+Changes in these files don't take effect immediately. The settings need to be
+converted into polkit java script code. This can be achieved by calling
+set_polkit_default_privs(8).
 
 PROFILE TYPES
 -------------
@@ -52,7 +56,7 @@ in _/etc/sysconfig/security_. The following profile types exist:
 
 - *local*: this is a custom profile that can be used on top of the predefined
   profiles. Configuration items from this profile always take precedence and
-  therefore override the predefined profiles. Therefore this profile can be
+  thus override the predefined profiles. Therefore this profile can be
   customized to loosen or tighten certain polkit actions.
 
 EXAMPLES
