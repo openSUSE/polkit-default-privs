@@ -28,6 +28,10 @@ others users (e.g. remotely logged in via SSH). If all three fields carry the
 same value then the column can be shortened to a single field without a
 separating colon. This setting will then apply to all three field types.
 
+Changes in these files don't take effect immediately. The settings need to be
+converted into polkit java script code. This can be achieved by calling
+set_polkit_default_privs(8).
+
 PROFILE TYPES
 -------------
 
@@ -52,7 +56,7 @@ in _/etc/sysconfig/security_. The following profile types exist:
 
 - *local*: this is a custom profile that can be used on top of the predefined
   profiles. Configuration items from this profile always take precedence and
-  therefore override the predefined profiles. Therefore this profile can be
+  thus override the predefined profiles. Therefore this profile can be
   customized to loosen or tighten certain polkit actions.
 
 EXAMPLES
