@@ -1,17 +1,11 @@
 #
 # /etc/polkit-default-privs.local
 #
-# This file is used by set_polkit_default_privs to check or set
-# the implicit default privileges granted by PolicyKit
+# This file is used by the set_polkit_default_privs tool to generate polkit
+# rules. It is meant for local overrides of the active profile (defined in
+# /etc/sysconfig/security) by the administrator of the system: any definitions
+# here take precedence over the distribution defaults in
+# /etc/polkit-default-privs.<profile>.
 #
-# In particular, this file will not be touched during an upgrade of the
-# installation. It is designed to be a placeholder for local
-# additions by the administrator of the system.
-#
-# Note that you need to run /sbin/set_polkit_default_privs for
-# changes to take effect.
-#
-# Format:
-# <privilege> <any>:<inactive>:<active>
-#
-
+# The syntax for this file is defined in polkit-default-privs(5). Note that you
+# need to run /sbin/set_polkit_default_privs for changes to take effect.
