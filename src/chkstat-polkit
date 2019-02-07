@@ -67,7 +67,8 @@ while(<>) {
 
 
 my $rules = '';
-while (my ($privilege, $perms) = each %to_set) {
+foreach my $privilege (sort keys %to_set) {
+	my $perms = $to_set{$privilege};
 	my @p = @$perms;
 	$rules .= sprintf("\t\t'%s':\n\t\t\t[ '%s', '%s', '%s' ],\n", $privilege, $p[0], $p[1], $p[2]);
 }
