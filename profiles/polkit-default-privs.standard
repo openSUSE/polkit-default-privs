@@ -228,6 +228,9 @@ org.freedesktop.udisks2.lvm2.manage-lvm                 auth_admin:auth_admin:au
 org.freedesktop.udisks2.manage-led                      auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.zram.manage-zram                auth_admin:auth_admin:auth_admin_keep
 
+# bsc#1123747
+org.freedesktop.udisks2.vdo.manage-vdo                  auth_admin:auth_admin:auth_admin_keep
+
 
 #
 # upower
