@@ -25,6 +25,7 @@ install:
 	install -m 755 src/chkstat-polkit $(DESTDIR)$(sbindir)
 	install -m 644 profiles/polkit-default-privs.{easy,standard,restrictive,local} $(DESTDIR)$(sysconfdir)
 	install -m 644 etc/sysconfig.security-polkit_default_privs $(DESTDIR)$(fillupdir)
+	install -m 644 etc/polkit-rules-whitelist.json $(DESTDIR)$(sysconfdir)
 	install -m 644 README.md $(DESTDIR)$(docdir)/polkit-default-privs
 	@for src in $(manpages); do \
 		page=`basename $$src` \
