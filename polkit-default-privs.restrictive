@@ -427,10 +427,10 @@ org.freedesktop.urfkill.enablekeycontrol                        auth_admin
 org.freedesktop.urfkill.flight_mode                             auth_admin
 
 
-# account services (bnc#676638)
+# account services (bnc#676638, bsc#1125110)
 org.freedesktop.accounts.user-administration                    auth_admin_keep
 org.freedesktop.accounts.set-login-option                       auth_admin
-org.freedesktop.accounts.change-own-user-data                   auth_admin
+org.freedesktop.accounts.change-own-user-data                   auth_self:yes:yes
 
 #
 # smb4k (bnc#749065)
