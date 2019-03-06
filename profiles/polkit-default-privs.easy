@@ -403,6 +403,8 @@ org.freedesktop.machine1.host-login                             auth_admin:auth_
 # systemd follow-up for resolve actions (bnc#1096907)
 org.freedesktop.resolve1.register-service                       auth_admin
 org.freedesktop.resolve1.unregister-service                     auth_admin
+# systemd get-product-uuid incremental addition (bsc#1127847)
+org.freedesktop.hostname1.get-product-uuid                      auth_admin
 
 # gnome-control-center
 org.gnome.randr.install-system-wide                             auth_admin
