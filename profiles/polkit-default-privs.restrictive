@@ -38,6 +38,8 @@ org.freedesktop.NetworkManager.reload                           auth_admin_keep:
 org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:auth_admin_keep:auth_admin_keep
 # bsc#1122262 (currently not upstream)
 org.freedesktop.NetworkManager.wifi-scan                        auth_admin:auth_admin_keep:yes
+# bsc#1122262, bsc#1128560 (renamed from previously wifi-scan)
+org.freedesktop.NetworkManager.wifi.scan                        auth_admin:auth_admin_keep:yes
 
 #
 # gnome-settings-daemon (bnc#690496)
