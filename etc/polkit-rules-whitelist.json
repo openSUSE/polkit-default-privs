@@ -20,5 +20,27 @@
 				"digest": "sha256:aea3041de2c15db8683620de8533206e50241c309eb27893605d5ead17e5e75f"
 			}
 		]
+	},
+	{
+		"package": "systemd",
+		"path": "/usr/share/polkit-1/rules.d/60-systemd-networkd.rules",
+		"audits": [
+			{
+				"bug": "bsc#1125438",
+				"comment": "allows systemd-networkd to set hostname and timezone from DHCP information",
+				"digest": "sha256:bf10f0b71878f90516b89d205a7fb2f8363cec6614ec717da88c2acf49c276a5"
+			}
+		]
+	},
+	{
+		"package": "flatpak",
+		"path": "/usr/share/polkit-1/rules.d/60-org.freedesktop.Flatpak.rules",
+		"audits": [
+			{
+				"bug": "bsc#984817",
+				"comment": "allows the wheel group to operate in a passwordless fashion. this is an exception at the moment since normally we don't follow the special meaning of 'wheel'",
+				"digest": "sha256:a439399ec33c8909e935e68d2daf3a76dff411d94ade3a8e15243a7da68a7005"
+			}
+		]
 	}
 ]
