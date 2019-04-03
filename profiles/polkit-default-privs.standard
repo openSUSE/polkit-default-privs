@@ -37,8 +37,8 @@ org.freedesktop.NetworkManager.enable-disable-connectivity-check no:no:yes
 org.freedesktop.NetworkManager.checkpoint-rollback              auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.reload                           auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:auth_admin_keep:auth_admin_keep
-# bsc#1122262 (currently not upstream)
-org.freedesktop.NetworkManager.wifi-scan                        auth_admin:yes:yes
+# bsc#1122262 (was only temporarily used, replaced by the next one)
+# org.freedesktop.NetworkManager.wifi-scan                        auth_admin:yes:yes
 # bsc#1122262, bsc#1128560 (renamed from previously wifi-scan)
 org.freedesktop.NetworkManager.wifi.scan                        auth_admin:yes:yes
 
