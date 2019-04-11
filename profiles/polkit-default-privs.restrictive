@@ -894,6 +894,8 @@ org.freedesktop.DisplayManager.AccountsService.ReadAny		auth_admin:auth_admin:ye
 
 # gamemode (bsc#1093979)
 com.feralinteractive.GameMode.governor-helper no:no:auth_admin_keep
+# additional gpuclockctl (bsc#1129967)
+com.feralinteractive.GameMode.gpu-helper no:no:auth_admin_keep
 
 # meson (bsc#1103811)
 com.mesonbuild.install.run no:no:auth_admin
