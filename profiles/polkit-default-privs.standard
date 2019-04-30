@@ -882,6 +882,8 @@ com.redhat.tuned.log_capture_start		auth_admin:auth_admin:yes
 net.launchpad.backintime.qt4gui			auth_admin:auth_admin:auth_admin
 net.launchpad.backintime.UdevRuleSave		auth_admin:auth_admin:auth_admin
 net.launchpad.backintime.UdevRuleDelete		auth_admin:auth_admin:auth_admin
+# backintime changed name in qt5 (bsc#1133680)
+net.launchpad.backintime.qtgui			auth_admin:auth_admin:auth_admin
 
 # fwupd (bsc#932807)
 org.freedesktop.fwupd.update-internal		auth_admin:no:auth_admin_keep
