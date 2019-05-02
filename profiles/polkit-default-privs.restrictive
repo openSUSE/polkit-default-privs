@@ -831,9 +831,12 @@ org.freedesktop.fwupd.device-unlock		auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.verify-update		auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.update-internal-trusted	auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.update-hotplug-trusted	auth_admin:no:auth_admin_keep
-
 # fwupd (bsc#1083022)
 org.freedesktop.fwupd.modify-remote		auth_admin:no:auth_admin_keep
+# fwupd (bsc#1133082)
+org.freedesktop.fwupd.device-activate           auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.self-sign                 auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.set-approved-firmware     auth_admin:no:auth_admin_keep
 
 # deja-dup (bsc#1058935)
 org.gnome.DejaDup.duplicity			no:no:auth_admin
