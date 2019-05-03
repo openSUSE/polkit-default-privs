@@ -876,6 +876,10 @@ com.redhat.tuned.profile_mode			yes:yes:yes
 # tuned (bsc#1118117)
 com.redhat.tuned.log_capture_finish		auth_admin:auth_admin:yes
 com.redhat.tuned.log_capture_start		auth_admin:auth_admin:yes
+# tuned (bsc#1131858)
+com.redhat.tuned.get_all_plugins                yes:yes:yes
+com.redhat.tuned.get_plugin_documentation       yes:yes:yes
+com.redhat.tuned.get_plugin_hints               yes:yes:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.qt4gui			auth_admin:auth_admin:auth_admin
