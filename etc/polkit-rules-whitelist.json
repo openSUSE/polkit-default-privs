@@ -42,5 +42,16 @@
 				"digest": "sha256:a439399ec33c8909e935e68d2daf3a76dff411d94ade3a8e15243a7da68a7005"
 			}
 		]
+	},
+	{
+		"package": "libvirt":,
+		"path": "/usr/share/polkit-1/rules.d/50-libvirt.rules",
+		"audits": [
+			{
+				"bug": "bsc#1125314",
+				"comment": "allows members of the group libvirt to manage libvirt without password",
+				"digest": "sha256:18ecc523dec42f91c679143043c9b28ef82eac68d1729a21d371c18eb93f2a18"
+			}
+		]
 	}
 ]
