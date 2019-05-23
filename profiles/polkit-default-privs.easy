@@ -990,4 +990,7 @@ org.freedesktop.bolt.manage auth_admin:auth_admin:auth_admin_keep
 # Don't relax this, it runs rsync with arbitrary parameters
 net.luckybackup.su auth_admin
 
+# lightdm-gtk-greeter-settings (bsc#1135695)
+com.ubuntu.pkexec.lightdm-gtk-greeter-settings auth_admin:auth_admin:auth_self_keep
+
 ###
