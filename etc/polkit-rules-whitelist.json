@@ -44,7 +44,7 @@
 		]
 	},
 	{
-		"package": "libvirt":,
+		"package": "libvirt",
 		"path": "/usr/share/polkit-1/rules.d/50-libvirt.rules",
 		"audits": [
 			{
