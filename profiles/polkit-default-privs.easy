@@ -886,7 +886,6 @@ com.redhat.tuned.get_plugin_documentation       yes:yes:yes
 com.redhat.tuned.get_plugin_hints               yes:yes:yes
 
 # backintime (bsc#1007723)
-net.launchpad.backintime.qt4gui			auth_admin:auth_admin:auth_admin
 net.launchpad.backintime.UdevRuleSave		auth_admin:auth_admin:auth_admin
 net.launchpad.backintime.UdevRuleDelete		auth_admin:auth_admin:auth_admin
 # backintime changed name in qt5 (bsc#1133680)
