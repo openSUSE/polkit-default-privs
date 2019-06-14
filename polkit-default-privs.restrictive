@@ -716,6 +716,7 @@ org.freedesktop.Flatpak.configure-remote 	auth_admin:auth_admin:auth_admin
 org.freedesktop.Flatpak.app-update 		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.runtime-update		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.appstream-update	auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.configure		auth_admin:auth_admin:auth_admin_keep
 
 # flatpak (bsc#1012961, bsc#1064011)
 org.freedesktop.Flatpak.update-remote		auth_admin:auth_admin:auth_admin_keep
