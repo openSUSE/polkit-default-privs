@@ -643,10 +643,13 @@ org.libvirt.api.nwfilter-binding.create			no
 org.libvirt.api.nwfilter-binding.delete			no
 
 # libvirt (bsc#1140151)
-# addition of all no:no:no actions
+# addition of all no:no:no actions and two read-only actions
 org.libvirt.api.network-port.create			no
 org.libvirt.api.network-port.delete			no
 org.libvirt.api.network-port.write			no
+org.libvirt.api.network.search-ports			no
+org.libvirt.api.network-port.getattr			auth_self:yes:yes
+org.libvirt.api.network-port.read			auth_self:yes:yes
 
 # MATE settings-daemon (bnc#831404)
 org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
