@@ -734,6 +734,10 @@ org.libvirt.api.network.search-ports			no
 org.libvirt.api.network-port.getattr			yes
 org.libvirt.api.network-port.read			yes
 
+# libvirt (bsc#1144077)
+# another no:no:no action
+org.libvirt.api.domain.checkpoint                       no 
+
 # MATE settings-daemon (bnc#831404)
 org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
 org.mate.settingsdaemon.datetimemechanism.settime		auth_admin_keep
