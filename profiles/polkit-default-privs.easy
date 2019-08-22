@@ -415,6 +415,18 @@ org.freedesktop.login1.set-reboot-to-boot-loader-menu           auth_admin_keep
 org.freedesktop.portable1.attach-images                         auth_admin_keep
 org.freedesktop.portable1.inspect-images                        auth_admin_keep
 org.freedesktop.portable1.manage-images                         auth_admin_keep
+# networkd (boo#1146300)
+org.freedesktop.network1.revert-dns                             auth_admin_keep
+org.freedesktop.network1.revert-ntp                             auth_admin_keep
+org.freedesktop.network1.set-default-route                      auth_admin_keep
+org.freedesktop.network1.set-dns-over-tls                       auth_admin_keep
+org.freedesktop.network1.set-dns-servers                        auth_admin_keep
+org.freedesktop.network1.set-dnssec                             auth_admin_keep
+org.freedesktop.network1.set-dnssec-negative-trust-anchors      auth_admin_keep
+org.freedesktop.network1.set-domains                            auth_admin_keep
+org.freedesktop.network1.set-llmnr                              auth_admin_keep
+org.freedesktop.network1.set-mdns                               auth_admin_keep
+org.freedesktop.network1.set-ntp-servers                        auth_admin_keep
 
 # gnome-control-center
 org.gnome.randr.install-system-wide                             auth_admin
