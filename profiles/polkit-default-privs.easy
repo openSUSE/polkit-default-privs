@@ -405,6 +405,16 @@ org.freedesktop.machine1.host-login                             auth_admin:auth_
 # systemd follow-up for resolve actions (bnc#1096907)
 org.freedesktop.resolve1.register-service                       auth_admin
 org.freedesktop.resolve1.unregister-service                     auth_admin
+# resolve actions from bnc#1149216
+org.freedesktop.resolve1.revert                                 auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dnssec-negative-trust-anchors      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dnssec                             auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dns-over-tls                       auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-mdns                               auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-llmnr                              auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-default-route                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-domains                            auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dns-servers                        auth_admin:auth_admin:auth_admin_keep
 # systemd get-product-uuid incremental addition (bsc#1127847)
 org.freedesktop.hostname1.get-product-uuid                      auth_admin
 # systemd org.freedesktop.login1.* services (bsc#1133843)
