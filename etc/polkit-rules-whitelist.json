@@ -33,6 +33,17 @@
 		]
 	},
 	{
+		"package": "systemd-networkd",
+		"path": "/usr/share/polkit-1/rules.d/60-systemd-networkd.rules",
+		"audits": [
+			{
+				"bug": "bsc#1125438",
+				"comment": "allows systemd-networkd to set hostname and timezone from DHCP information",
+				"digest": "sha256:bf10f0b71878f90516b89d205a7fb2f8363cec6614ec717da88c2acf49c276a5"
+			}
+		]
+	},
+	{
 		"package": "flatpak",
 		"path": "/usr/share/polkit-1/rules.d/60-org.freedesktop.Flatpak.rules",
 		"audits": [
