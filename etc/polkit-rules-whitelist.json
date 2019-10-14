@@ -33,7 +33,7 @@
 		]
 	},
 	{
-		"package": "systemd-networkd",
+		"package": "systemd-network",
 		"path": "/usr/share/polkit-1/rules.d/60-systemd-networkd.rules",
 		"audits": [
 			{
