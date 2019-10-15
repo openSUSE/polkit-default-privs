@@ -64,5 +64,16 @@
 				"digest": "sha256:18ecc523dec42f91c679143043c9b28ef82eac68d1729a21d371c18eb93f2a18"
 			}
 		]
+	},
+	{
+		"package": "gnome-initial-setup",
+		"path": "/usr/share/polkit-1/rules.d/20-gnome-initial-setup.rules",
+		"audits": [
+			{
+				"bug": "bsc#1125432",
+				"comment": "Allows gnome-initial-session to configure the system after input is collected from the user",
+				"digest": "sha256:6daefe0a835dc1b34513302f393e98089c137602823f41fd0c3dd984c40902d8"
+			}
+		]
 	}
 ]
