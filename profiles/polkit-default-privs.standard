@@ -343,11 +343,14 @@ org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
 # kalarm (bnc#1087714, renamed from kalarmrtcwake)
 org.kde.kalarm.rtcwake.settimer                                 auth_admin_keep
 
-# sddm kcm oepration (bnc#904313)
+# sddm kcm operation (bnc#904313)
 org.kde.kcontrol.kcmsddm.save                                   auth_admin
 # sddm kcm (bsc#1065563)
 org.kde.kcontrol.kcmsddm.installtheme                           no:no:auth_admin_keep
 org.kde.kcontrol.kcmsddm.uninstalltheme                         no:no:auth_admin_keep
+# sddm kcm incremental addition (bsc#1145182)
+org.kde.kcontrol.kcmsddm.reset                                  no:no:auth_admin_keep
+org.kde.kcontrol.kcmsddm.sync                                   no:no:auth_admin_keep
 
 # systemd (bnc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
