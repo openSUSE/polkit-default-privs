@@ -480,7 +480,7 @@ org.freedesktop.ModemManager.USSD                               auth_admin_keep
 # (bsc#976945)
 org.freedesktop.ModemManager1.Voice				no:no:yes
 # bsc#1156961
-org.freedesktop.ModemManager1.Modem.Time                        no:no:auth_self_keep
+org.freedesktop.ModemManager1.Time                              no:no:auth_self_keep
 
 # urfkill (bnc#688328)
 org.freedesktop.urfkill.block                                   auth_admin:auth_admin:yes

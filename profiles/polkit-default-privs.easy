@@ -550,7 +550,7 @@ org.freedesktop.ModemManager1.Location                          auth_admin:auth_
 org.freedesktop.ModemManager1.Firmware                          auth_admin
 org.freedesktop.ModemManager1.USSD                              auth_admin_keep # likely not widely used
 # bsc#1156961
-org.freedesktop.ModemManager1.Modem.Time                        no:no:auth_self_keep
+org.freedesktop.ModemManager1.Time                              no:no:auth_self_keep
 
 # fprintfd (bnc#792095, bnc#850807)
 net.reactivated.fprint.device.verify				no:no:yes
