@@ -876,6 +876,8 @@ org.gnome.sysprof2.perf-event-open			auth_admin_keep
 
 # sysprof (bsc#1083055)
 org.gnome.sysprof2.get-kernel-symbols			auth_admin_keep
+# sysprof (bsc#1151418)
+org.gnome.sysprof3.profile           			auth_admin_keep
 
 # flatpak (bsc#984817)
 org.freedesktop.Flatpak.app-install 		auth_admin:auth_admin:auth_admin_keep
