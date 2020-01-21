@@ -426,6 +426,10 @@ org.freedesktop.network1.set-domains                            auth_admin
 org.freedesktop.network1.set-llmnr                              auth_admin
 org.freedesktop.network1.set-mdns                               auth_admin
 org.freedesktop.network1.set-ntp-servers                        auth_admin
+# networkd follow-up (bsc#1161328)
+org.freedesktop.network1.reconfigure                            auth_admin:auth_admin:auth_admin
+org.freedesktop.network1.reload                                 auth_admin:auth_admin:auth_admin
+org.freedesktop.network1.renew                                  auth_admin:auth_admin:auth_admin
 
 # gnome-control-center
 org.gnome.randr.install-system-wide                             auth_admin
