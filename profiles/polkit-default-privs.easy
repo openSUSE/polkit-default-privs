@@ -1051,9 +1051,4 @@ org.xfce.mousepad no:auth_admin:auth_admin
 # calamares run as root in X11 (bsc#1143147)
 com.github.calamares.calamares.pkexec.run no:no:auth_admin
 
-# lutris gaming/gamepad settings (bsc#1161650)
-net.lutris.resetxpad.pkexec.run no:no:yes
-net.lutris.xboxdrv.pkexec.run no:no:yes
-net.lutris.xboxdrvctl.pkexec.run no:no:yes
-
 ###
