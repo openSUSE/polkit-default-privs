@@ -1051,5 +1051,3 @@ org.xfce.mousepad no:auth_admin:auth_admin
 
 # calamares run as root in X11 (bsc#1143147)
 com.github.calamares.calamares.pkexec.run no:no:auth_admin
-
-###
