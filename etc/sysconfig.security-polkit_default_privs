@@ -43,7 +43,7 @@ CHECK_POLKIT_PRIVS=""
 # PERMISSION_SECURITY. If PERMISSION_SECURITY contains 'secure' or
 # 'paranoid' the value will be 'restrictive', otherwise 'standard'.
 #
-# The 'local' file is always evaluated and takes precedence over all
-# other files.
+# The '/etc/polkit-default-privs.local' file is always evaluated and takes
+# precedence over all other files.
 POLKIT_DEFAULT_PRIVS=""
 

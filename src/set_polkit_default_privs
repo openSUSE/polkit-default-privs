@@ -26,10 +26,10 @@ shopt -s nullglob
 . /etc/sysconfig/security || exit 1
 
 if [ -z "$POLKIT_DEFAULT_PRIVS" ]; then
-	case "$PERMISSION_SECURITY" in
-		*secure*|*paranoid*) POLKIT_DEFAULT_PRIVS="restrictive" ;;
-		*) POLKIT_DEFAULT_PRIVS="standard" ;;
-	esac
+    case "$PERMISSION_SECURITY" in
+        *secure*|*paranoid*) POLKIT_DEFAULT_PRIVS="restrictive" ;;
+        *) POLKIT_DEFAULT_PRIVS="standard" ;;
+    esac
 fi
 
 mode=""
@@ -44,50 +44,50 @@ esac
 # we need to use a useful order
 #
 # 1. common privileges file (we have none yet)
-files=""
+files=()
 
 # 2. easy, standard, restrictive as those are defined by SUSE
-have_local=
 for level in $POLKIT_DEFAULT_PRIVS; do
     case "$level" in
-	easy|standard|restrictive)
-	    if [ -e /etc/polkit-default-privs.$level ]; then
-		files="$files /etc/polkit-default-privs.$level"
-	    fi
-	;;
-	*)
-	    echo "invalid value '$level' in POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security, ignoring" 1>&2
-	;;
+        easy|standard|restrictive)
+            if [ -e /usr/share/polkit-default-privs/profiles/$level ]; then
+                files+=("/usr/share/polkit-default-privs/profiles/$level")
+            fi
+        ;;
+        *)
+            echo "invalid value '$level' in POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security, ignoring" 1>&2
+        ;;
     esac
 done
-
-if [ -z "$have_local" ]; then
-	POLKIT_DEFAULT_PRIVS="$POLKIT_DEFAULT_PRIVS local"
-fi
 
 # 3. package specific privileges
-pkgfiles=(/etc/polkit-default-privs.d/*)
-pkgfiles=(${pkgfiles[*]##*/})
-pkgfiles=(${pkgfiles[*]%%.*})
-pkgfiles=(`for i in ${pkgfiles[@]}; do echo $i; done | /usr/bin/sort -u`)
+# The /usr/share is the new and preferred path, /etc is deprecated but still supported for the moment.
+pkgfiles=()
+for f in /usr/share/polkit-default-privs/package-overrides.d/* /etc/polkit-default-privs.d/* ; do
+    base="${f##*/}"
+    profile="${base%%.*}"
+    if ! [[ " ${pkgfiles[*]} " == *" ${profile} "* ]] ; then
+        pkgfiles+=("${profile}")
 
-for file in ${pkgfiles[@]}; do
-    file=/etc/polkit-default-privs.d/$file
-    [ -e $file ] && files="$files $file"
-    for level in $POLKIT_DEFAULT_PRIVS; do 
-	[ -e $file.$level ] && files="$files $file.$level"
-    done
-done
-
-# 4. central privileges files with user defined level incl 'local'
-for level in $POLKIT_DEFAULT_PRIVS; do 
-    case "$level" in
-	easy|standard|restrictive) continue ;;
-	local) have_local=1 ;;
-    esac
-    if [ -e /etc/polkit-default-privs.$level ]; then
-	files="$files /etc/polkit-default-privs.$level"
+        for prefix in /usr/share/polkit-default-privs/package-overrides.d/ /etc/polkit-default-privs.d/ ; do
+            file="${prefix}${profile}"
+            [ -e "$file" ] && files+=("$file")
+            for level in $POLKIT_DEFAULT_PRIVS; do
+                [ -e "$file.$level" ] && files+=("$file.$level")
+            done
+            # do not process /etc if we found a file in /usr/share
+            [ -e "$file" ] && break
+        done
     fi
 done
 
-chkstat-polkit $mode $files
+# 4. central privileges files with user defined level excl 'local'
+for level in $POLKIT_DEFAULT_PRIVS; do
+    if [ -e "/usr/share/polkit-default-privs/profiles/$level" ] && [[ "$level" != local ]]; then
+        files+=("/usr/share/polkit-default-privs/profiles/$level")
+    fi
+done
+
+[ -e "/etc/polkit-default-privs.local" ] && files+=("/etc/polkit-default-privs.local")
+
+chkstat-polkit "$mode" "${files[@]}"

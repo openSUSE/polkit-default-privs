@@ -1,9 +1,10 @@
 DESTDIR=
 sbindir=/sbin
 sysconfdir=/etc
+datadir=/usr/share
 fillupdir=/var/adm/fillup-templates
-mandir=/usr/share/man
-docdir=/usr/share/doc/packages
+mandir=$(datadir)/man
+docdir=$(datadir)/doc/packages
 
 manpages = man/set_polkit_default_privs.8 man/polkit-default-privs.5
 
@@ -19,13 +20,14 @@ clean:
 
 install:
 	install -d $(DESTDIR)$(sbindir)  $(DESTDIR)$(sysconfdir) $(DESTDIR)$(fillupdir)
-	install -d $(DESTDIR)$(sysconfdir)/polkit-default-privs.d
+	install -d $(DESTDIR)$(datadir)/polkit-default-privs/{package-overrides.d,profiles}
 	install -d $(DESTDIR)$(docdir)/polkit-default-privs
 	install -m 755 src/set_polkit_default_privs $(DESTDIR)$(sbindir)
 	install -m 755 src/chkstat-polkit $(DESTDIR)$(sbindir)
-	install -m 644 profiles/polkit-default-privs.{easy,standard,restrictive,local} $(DESTDIR)$(sysconfdir)
+	install -m 644 etc/polkit-default-privs.local $(DESTDIR)$(sysconfdir)/
+	install -m 644 profiles/* $(DESTDIR)$(datadir)/polkit-default-privs/profiles/
 	install -m 644 etc/sysconfig.security-polkit_default_privs $(DESTDIR)$(fillupdir)
-	install -m 644 etc/polkit-rules-whitelist.json $(DESTDIR)$(sysconfdir)
+	install -m 644 polkit-rules-whitelist.json $(DESTDIR)$(datadir)/polkit-default-privs/
 	install -m 644 README.md $(DESTDIR)$(docdir)/polkit-default-privs
 	@for src in $(manpages); do \
 		page=`basename $$src` \

@@ -7,7 +7,7 @@ polkit-default-privs - configuration of polkit security profiles
 
 DESCRIPTION
 -----------
-The files _/etc/polkit-default-privs.*_ define different security profiles
+The files _/usr/share/polkit-default-privs/*_ define different security profiles
 that influence the authorization required for various polkit actions used
 across applications. These files are line based and whitespace delimited.
 
@@ -54,7 +54,8 @@ in _/etc/sysconfig/security_. The following profile types exist:
   interruptions in the workflow due to password prompts. This should only be
   used for single-user desktop systems.
 
-- *local*: this is a custom profile that can be used on top of the predefined
+- *local*: this is a custom profile located in
+  _/etc/polkit-default-privs.local_ that can be used on top of the predefined
   profiles. Configuration items from this profile always take precedence and
   thus override the predefined profiles. Therefore this profile can be
   customized to loosen or tighten certain polkit actions.
@@ -79,13 +80,13 @@ FILES
 
 `/etc/polkit-default-privs.local`
 
-`/etc/polkit-default-privs.restrictive`
+`/usr/share/polkit-default-privs/restrictive`
 
-`/etc/polkit-default-privs.standard`
+`/usr/share/polkit-default-privs/standard`
 
-`/etc/polkit-default-privs.easy`
+`/usr/share/polkit-default-privs/easy`
 
-`/etc/polkit-default-privs.d/*`
+`/usr/share/polkit-default-privs/package-overrides.d/*`
 
 SEE ALSO
 --------

@@ -1,13 +1,13 @@
 '\" t
 .\"     Title: polkit-default-privs
 .\"    Author: [see the "AUTHORS" section]
-.\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
-.\"      Date: 02/07/2019
+.\" Generator: DocBook XSL Stylesheets vsnapshot <http://docbook.sf.net/>
+.\"      Date: 03/05/2020
 .\"    Manual: \ \&
 .\"    Source: \ \&
 .\"  Language: English
 .\"
-.TH "POLKIT\-DEFAULT\-PRI" "5" "02/07/2019" "\ \&" "\ \&"
+.TH "POLKIT\-DEFAULT\-PRI" "5" "03/05/2020" "\ \&" "\ \&"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,7 +31,7 @@
 polkit-default-privs \- configuration of polkit security profiles
 .SH "DESCRIPTION"
 .sp
-The files \fI/etc/polkit\-default\-privs\&.*\fR define different security profiles that influence the authorization required for various polkit actions used across applications\&. These files are line based and whitespace delimited\&.
+The files \fI/usr/share/polkit\-default\-privs/*\fR define different security profiles that influence the authorization required for various polkit actions used across applications\&. These files are line based and whitespace delimited\&.
 .sp
 Lines starting with # are comments\&. Comments and empty lines will be ignored\&. All other lines consist of two whitespace delimited columns \fIACTION\fR and \fIAUTHORIZATION\fR\&. The \fIACTION\fR column specifies the polkit action name to configure the default polkit authorization settings for\&.
 .sp
@@ -83,7 +83,9 @@ There exist three profile types for setting polkit default privileges\&. The sel
 .sp -1
 .IP \(bu 2.3
 .\}
-\fBlocal\fR: this is a custom profile that can be used on top of the predefined profiles\&. Configuration items from this profile always take precedence and thus override the predefined profiles\&. Therefore this profile can be customized to loosen or tighten certain polkit actions\&.
+\fBlocal\fR: this is a custom profile located in
+\fI/etc/polkit\-default\-privs\&.local\fR
+that can be used on top of the predefined profiles\&. Configuration items from this profile always take precedence and thus override the predefined profiles\&. Therefore this profile can be customized to loosen or tighten certain polkit actions\&.
 .RE
 .SH "EXAMPLES"
 .sp
@@ -98,13 +100,13 @@ This line configures the net\&.connman\&.modify polkit action to require admin a
 .sp
 /etc/polkit\-default\-privs\&.local
 .sp
-/etc/polkit\-default\-privs\&.restrictive
+/usr/share/polkit\-default\-privs/restrictive
 .sp
-/etc/polkit\-default\-privs\&.standard
+/usr/share/polkit\-default\-privs/standard
 .sp
-/etc/polkit\-default\-privs\&.easy
+/usr/share/polkit\-default\-privs/easy
 .sp
-/etc/polkit\-default\-privs\&.d/*
+/usr/share/polkit\-default\-privs/polkit\-default\-privs\&.d/*
 .SH "SEE ALSO"
 .sp
 set_polkit_default_privs(8), polkit(8)
