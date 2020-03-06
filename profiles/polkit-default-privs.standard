@@ -1051,3 +1051,7 @@ org.xfce.mousepad no:auth_admin:auth_admin
 
 # calamares run as root in X11 (bsc#1143147)
 com.github.calamares.calamares.pkexec.run no:no:auth_admin
+
+# backup tool that needs root privilege escalation via pkexec (bsc#1165436)
+in.teejeetech.pkexec.timeshift-gtk auth_admin:auth_admin:auth_admin
+in.teejeetech.pkexec.timeshift auth_admin:auth_admin:auth_admin
