@@ -945,6 +945,8 @@ org.bleachbit					auth_admin
 org.freedesktop.login1.halt			auth_admin_keep
 org.freedesktop.login1.halt-ignore-inhibit	auth_admin_keep
 org.freedesktop.login1.halt-multiple-sessions	auth_admin_keep
+#  chvt action in systemd-logind (bsc#1167542)
+org.freedesktop.login1.chvt auth_admin_keep:auth_admin_keep:yes
 
 # liblxqt (backlight backend helper, bsc#1092192)
 org.lxqt.backlight.pkexec                       no:no:yes
