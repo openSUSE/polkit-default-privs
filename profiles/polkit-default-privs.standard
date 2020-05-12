@@ -1057,3 +1057,6 @@ com.github.calamares.calamares.pkexec.run no:no:auth_admin
 # backup tool that needs root privilege escalation via pkexec (bsc#1165436)
 in.teejeetech.pkexec.timeshift-gtk auth_admin:auth_admin:auth_admin
 in.teejeetech.pkexec.timeshift auth_admin:auth_admin:auth_admin
+
+# cockpit uses polkit to gain additional privileges on demand (bsc#1169614)
+org.cockpit-project.cockpit.root-bridge auth_admin:auth_admin:auth_admin
