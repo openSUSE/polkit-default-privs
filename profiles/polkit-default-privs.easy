@@ -1051,4 +1051,7 @@ com.github.calamares.calamares.pkexec.run no:no:auth_admin
 # incremental addition for DHCP forced renew (bsc#1176215)
 org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
 
+# cockpit uses polkit to gain additional privileges on demand (bsc#1169614)
+org.cockpit-project.cockpit.root-bridge auth_admin:auth_admin:auth_admin
+
 ###
