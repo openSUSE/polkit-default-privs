@@ -997,3 +997,6 @@ in.teejeetech.pkexec.timeshift auth_admin:auth_admin:auth_admin
 
 # cockpit uses polkit to gain additional privileges on demand (bsc#1169614)
 org.cockpit-project.cockpit.root-bridge auth_admin:auth_admin:auth_admin
+
+# allow veyon-configurator to run as root (bsc#1172318)
+io.veyon.pkexec.veyon-configurator no:no:auth_admin_keep
