@@ -74,5 +74,15 @@
 				}
 			}
 		}
+	},
+	"libvirt-dbus": {
+		"audits": {
+			"bsc#1173093": {
+				"comment": "Allows the libvirt-dbus daemon to run unprivileged but still control libvirt",
+				"digests": {
+					"/usr/share/polkit-1/rules.d/libvirt-dbus.rules": "sha256:1ae3b094d372d0108f34b58f577d133fdf0c9527bd5b72edf1d22a13daa74f6e"
+				}
+			}
+		}
 	}
 }
