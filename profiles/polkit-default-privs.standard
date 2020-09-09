@@ -1063,3 +1063,6 @@ org.cockpit-project.cockpit.root-bridge auth_admin:auth_admin:auth_admin
 
 # allow veyon-configurator to run as root (bsc#1172318)
 io.veyon.pkexec.veyon-configurator auth_admin_keep:auth_admin_keep:auth_admin_keep
+
+# incremental addition for DHCP forced renew (bsc#1176215)
+org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
