@@ -980,4 +980,7 @@ org.xfce.mousepad no:no:auth_admin
 # calamares run as root in X11 (bsc#1143147)
 com.github.calamares.calamares.pkexec.run no:no:auth_admin
 
+# incremental addition for DHCP forced renew (bsc#1176215)
+org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
+
 ###
