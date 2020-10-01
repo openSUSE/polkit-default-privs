@@ -1065,3 +1065,7 @@ io.veyon.pkexec.veyon-configurator auth_admin_keep:auth_admin_keep:auth_admin_ke
 
 # incremental addition for DHCP forced renew (bsc#1176215)
 org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
+
+# KDE battery charge threshold control (bsc#1176474)
+org.kde.powerdevil.chargethresholdhelper.getthreshold no:yes:yes
+org.kde.powerdevil.chargethresholdhelper.setthreshold no:no:auth_admin_keep
