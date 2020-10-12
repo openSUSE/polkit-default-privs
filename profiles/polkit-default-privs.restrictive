@@ -1007,3 +1007,6 @@ org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
 # KDE battery charge threshold control (bsc#1176474)
 org.kde.powerdevil.chargethresholdhelper.getthreshold no:auth_admin:yes
 org.kde.powerdevil.chargethresholdhelper.setthreshold no:no:auth_admin
+
+# KDE smartctl helper (bsc#1176742)
+org.kde.kded.smart.smartctl no:no:auth_admin
