@@ -56,7 +56,6 @@ org.freedesktop.color-manager.create-device                     no:no:yes
 org.freedesktop.color-manager.create-profile                    no:no:yes
 org.freedesktop.color-manager.delete-device                     no:no:yes
 org.freedesktop.color-manager.delete-profile                    no:no:yes
-org.freedesktop.color-manager.delete-profile                    auth_admin
 org.freedesktop.color-manager.modify-device                     auth_admin
 org.freedesktop.color-manager.modify-profile                    auth_admin
 org.freedesktop.color-manager.install-system-wide               auth_admin
