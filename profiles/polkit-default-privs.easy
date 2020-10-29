@@ -331,7 +331,7 @@ org.kde.kcontrol.kcmkdm.managefaces                             auth_admin_keep
 org.kde.kcontrol.kcmkdm.managethemes                            auth_admin_keep
 org.kde.kcontrol.kcmkdm.save                                    auth_admin
 # kde backlight helper (bnc#672145)
-org.kde.powerdevil.backlighthelper.brightness                   no:no:yes
+org.kde.powerdevil.backlighthelper.brightness                   no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
 
 # kde powerdevil gpu helper (bsc#1019644)
@@ -759,7 +759,6 @@ org.kde.powerdevil.backlighthelper.brightnessvaluemax no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightnessvalue no:no:yes
 
 # powerdevil action-name changes (bnc#927275)
-org.kde.powerdevil.backlighthelper.brightness no:yes:yes
 org.kde.powerdevil.backlighthelper.brightnessmax no:yes:yes
 
 
