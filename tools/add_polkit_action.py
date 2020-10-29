@@ -4,11 +4,8 @@
 
 import os, sys
 import argparse
-from pathlib import Path
 
-def printerr(*args, **kwargs):
-    kwargs["file"] = sys.stderr
-    print(*args, **kwargs)
+from pkcommon import *
 
 epilog = """Example invocation:
 
@@ -24,14 +21,11 @@ epilog = """Example invocation:
 class PolkitActionHandler:
 
     # existing default profiles in increasing order of security
-    PROFILES = ("easy", "standard", "restrictive")
     # existing authentication type settings in increasing order of security
     AUTH_TYPES = ("yes", "auth_self_keep", "auth_self", "auth_admin_keep", "auth_admin", "no")
     AUTH_CATEGORIES = ("any-user", "inactive-session", "active-session")
 
     def __init__(self):
-
-        self.m_profile_dir = Path(__file__).parent.with_name("profiles")
 
         self.m_parser = argparse.ArgumentParser(
             description = "Adds a new action with associated authentication settings to the polkit profiles managed by polkit-default-privs",
@@ -53,7 +47,7 @@ class PolkitActionHandler:
             type = self.parseAction
         )
 
-        for profile in self.PROFILES:
+        for profile in PROFILES:
 
             self.m_parser.add_argument(
                 "--" + profile,
@@ -130,15 +124,11 @@ class PolkitActionHandler:
 
         return s
 
-    def getProfilePath(self, which):
-        base = "polkit-default-privs.{}".format(which)
-        return self.m_profile_dir / base
-
     def run(self):
 
         self.m_args = self.m_parser.parse_args()
         # tuple of auth types matching the profiles
-        self.m_auth_types = tuple( getattr(self.m_args, profile) for profile in self.PROFILES )
+        self.m_auth_types = tuple( getattr(self.m_args, profile) for profile in PROFILES )
 
         if not self.sanityCheck():
             printerr("Not adding new action since sanity check(s) failed")
@@ -162,28 +152,24 @@ class PolkitActionHandler:
 
         ret = True
 
-        for profile in self.PROFILES:
+        for profile in PROFILES:
 
-            path = self.getProfilePath(profile)
+            path = getProfilePath(profile)
 
-            with open(path) as fd:
-
-                nr = 0
-                for line in fd.readlines():
-                    nr += 1
-                    line = line.strip()
-                    if not line or line.startswith('#'):
-                        continue
-
-                    action = line.split()[0]
-                    if action == self.m_args.action:
-                        printerr("ERROR: action to be added already exists in {}:{}".format(
-                            path, nr
-                        ))
-                        ret = False
-
+            for entry in parseProfile(path):
+                if not self.checkDuplicate(entry):
+                    ret = False
 
         return ret
+
+    def checkDuplicate(self, entry):
+        if entry.action == self.m_args.action:
+            printerr("ERROR: action to be added already exists in {}:{}".format(
+                entry.path, entry.linenr
+            ))
+            return False
+
+        return True
 
     def checkProfileAuthTypeOrder(self):
         """Checks that authentication types are not getting weaker in stronger
@@ -192,14 +178,14 @@ class PolkitActionHandler:
         ret = True
         strongest = [ self.AUTH_TYPES[0] ] * 3
 
-        for profile, auth_types in zip( self.PROFILES, self.m_auth_types ):
+        for profile, auth_types in zip( PROFILES, self.m_auth_types ):
             for nr, old, new in zip( range(len(strongest)), strongest, auth_types ):
 
                 if self.AUTH_TYPES.index(old) > self.AUTH_TYPES.index(new):
                     printerr("ERROR: Auth type for {} in profile {} is weaker than in profile {}".format(
                         self.AUTH_CATEGORIES[nr],
                         profile,
-                        self.PROFILES[ self.PROFILES.index(profile) - 1]
+                        PROFILES[ PROFILES.index(profile) - 1]
                     ))
                     ret = False
 
@@ -242,9 +228,9 @@ class PolkitActionHandler:
 
     def addAction(self):
 
-        for profile, auth_settings in zip(self.PROFILES, self.m_auth_types):
+        for profile, auth_settings in zip(PROFILES, self.m_auth_types):
 
-            path = self.getProfilePath(profile)
+            path = getProfilePath(profile)
 
             with open(path, 'a') as fd:
 
