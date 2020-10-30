@@ -75,5 +75,16 @@
 				"digest": "sha256:6daefe0a835dc1b34513302f393e98089c137602823f41fd0c3dd984c40902d8"
 			}
 		]
+	},
+	{
+		"package": "malcontent",
+		"path": "/usr/share/polkit-1/rules.d/com.endlessm.ParentalControls.rules",
+		"audits": [
+			{
+				"bug": "bsc#1177974",
+				"comment": "Allows wheel members to bypass parental controls. We allow this as an exception (granting implicit authorization to wheel) since this is not security relevant per se.",
+				"digests": "sha256:4dca105e78ff95c2317386d4df4f959f0c055eec13e12c34c48084b9bbb385b4"
+			}
+		]
 	}
 ]
