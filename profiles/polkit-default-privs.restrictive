@@ -983,3 +983,18 @@ org.kde.powerdevil.chargethresholdhelper.setthreshold no:no:auth_admin
 
 # KDE smartctl helper (bsc#1176742)
 org.kde.kded.smart.smartctl no:no:auth_admin
+
+# GNOME parental controls, accountservice extensions (bsc#1177974)
+com.endlessm.ParentalControls.AccountInfo.ReadAny auth_admin:auth_admin:yes
+com.endlessm.ParentalControls.AppFilter.ReadOwn auth_admin:auth_admin:yes
+com.endlessm.ParentalControls.SessionLimits.ReadOwn auth_admin:auth_admin:yes
+com.endlessm.ParentalControls.AccountInfo.ChangeAny no:auth_admin:auth_admin_keep
+com.endlessm.ParentalControls.AccountInfo.ChangeOwn no:auth_admin:auth_admin_keep
+com.endlessm.ParentalControls.AppFilter.ChangeAny no:auth_admin:auth_admin_keep
+com.endlessm.ParentalControls.AppFilter.ChangeOwn no:auth_admin:auth_admin_keep
+com.endlessm.ParentalControls.AppFilter.ReadAny no:auth_admin:auth_admin_keep
+com.endlessm.ParentalControls.SessionLimits.ChangeAny no:auth_admin:auth_admin_keep
+com.endlessm.ParentalControls.SessionLimits.ChangeOwn no:auth_admin:auth_admin_keep
+com.endlessm.ParentalControls.SessionLimits.ReadAny no:auth_admin:auth_admin_keep
+org.freedesktop.MalcontentControl.administration no:no:auth_admin
+com.endlessm.ParentalControls.AccountInfo.ReadOwn auth_admin:auth_admin:yes
