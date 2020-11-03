@@ -226,7 +226,7 @@ org.freedesktop.udisks2.bcache.manage-bcache            auth_admin:auth_admin:au
 org.freedesktop.udisks2.btrfs.manage-btrfs              auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.filesystem-take-ownership       auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.lvm2.manage-lvm                 auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.manage-led                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.lsm.manage-led                  auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.zram.manage-zram                auth_admin:auth_admin:auth_admin_keep
 
 # bsc#1123747
