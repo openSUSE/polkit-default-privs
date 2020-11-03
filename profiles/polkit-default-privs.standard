@@ -6,19 +6,14 @@
 #
 # Please do not modify this file, use polkit-default-privs.local instead.
 #
-org.freedesktop.network-manager-settings.system.modify      	auth_admin_keep_always
-org.freedesktop.network-manager-settings.system.hostname.modify auth_admin_keep
-org.freedesktop.network-manager-settings.system.wifi.share.protected auth_admin
-org.freedesktop.network-manager-settings.system.wifi.share.open auth_admin
-org.freedesktop.NetworkManager.enable-disable-network           auth_admin:auth_admin:yes
-org.freedesktop.NetworkManager.enable-disable-wifi              auth_admin:auth_admin:yes
-org.freedesktop.NetworkManager.enable-disable-wwan              auth_admin:auth_admin:yes
-org.freedesktop.NetworkManager.use-user-connections             auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.enable-disable-network           no:no:yes
+org.freedesktop.NetworkManager.enable-disable-wifi              no:no:yes
+org.freedesktop.NetworkManager.enable-disable-wwan              no:no:yes
 # auth_admin probably causes issues with suspend here (bnc#716291)
 org.freedesktop.NetworkManager.network-control                  no:no:yes
-org.freedesktop.NetworkManager.sleep-wake                       auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.sleep-wake                       no
 # bnc#680140
-org.freedesktop.NetworkManager.enable-disable-wimax             auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.enable-disable-wimax             no:no:yes
 org.freedesktop.NetworkManager.wifi.share.protected             auth_admin
 org.freedesktop.NetworkManager.wifi.share.open                  auth_admin
 org.freedesktop.NetworkManager.settings.modify.own              auth_admin_keep:auth_admin_keep:yes
@@ -32,8 +27,6 @@ org.freedesktop.NetworkManager.enable-disable-connectivity-check no:no:yes
 org.freedesktop.NetworkManager.checkpoint-rollback              auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.reload                           auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:auth_admin_keep:auth_admin_keep
-# bsc#1122262 (was only temporarily used, replaced by the next one)
-# org.freedesktop.NetworkManager.wifi-scan                        auth_admin:yes:yes
 # bsc#1122262, bsc#1128560 (renamed from previously wifi-scan)
 org.freedesktop.NetworkManager.wifi.scan                        auth_admin:yes:yes
 
