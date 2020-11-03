@@ -30,9 +30,8 @@ org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:
 org.freedesktop.NetworkManager.wifi.scan                        auth_admin:yes:yes
 
 #
-# gnome-settings-daemon (bnc#690496)
+# gnome-settings-daemon
 #
-org.gnome.settingsdaemon.datetimemechanism.configure            auth_admin_keep
 # bnc#750795
 org.gnome.settings-daemon.plugins.wacom.wacom-led-helper        no:no:yes
 # bnc#822405
