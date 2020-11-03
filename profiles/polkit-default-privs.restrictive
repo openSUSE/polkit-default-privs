@@ -6,11 +6,6 @@
 #
 # Please do not modify this file, use polkit-default-privs.local instead.
 #
-org.freedesktop.policykit.read                              	auth_admin_keep_always
-org.freedesktop.policykit.revoke                            	auth_admin_keep_always
-org.freedesktop.policykit.grant                             	auth_admin_keep_always
-org.freedesktop.policykit.modify-defaults                   	auth_admin_keep_always
-#
 org.freedesktop.network-manager-settings.system.modify      	auth_admin_keep_always
 org.freedesktop.network-manager-settings.system.hostname.modify auth_admin_keep
 org.freedesktop.network-manager-settings.system.wifi.share.protected auth_admin
