@@ -70,12 +70,6 @@ org.freedesktop.packagekit.repair-system                        auth_admin
 org.gnome.gconf.defaults.set-system                             auth_admin_keep
 org.gnome.gconf.defaults.set-mandatory                          auth_admin_keep
 #
-# should be consistent with udisks
-org.freedesktop.consolekit.system.stop                          auth_admin_keep_always
-org.freedesktop.consolekit.system.stop-multiple-users           auth_admin_keep_always
-org.freedesktop.consolekit.system.restart                       auth_admin_keep_always
-org.freedesktop.consolekit.system.restart-multiple-users        auth_admin_keep_always
-#
 # smpppd
 #
 org.opensuse.smpppd.connect                                     auth_admin_keep_always
