@@ -70,18 +70,6 @@ org.freedesktop.packagekit.repair-system                        auth_admin
 org.gnome.gconf.defaults.set-system                             auth_admin_keep
 org.gnome.gconf.defaults.set-mandatory                          auth_admin_keep
 #
-# just an example program
-#
-org.gnome.policykit.examples.jump                               no:no:auth_self_one_shot
-org.gnome.policykit.examples.frobnicate                         no:no:auth_self
-org.gnome.policykit.examples.tweak                              no:no:auth_admin
-org.gnome.policykit.examples.twiddle                            no:no:auth_admin_keep_always
-org.gnome.policykit.examples.punch                              no:no:auth_self_keep_session
-org.gnome.policykit.examples.toggle                             no:no:auth_admin_keep_always
-org.gnome.policykit.examples.kick-foo                           no:no:auth_self
-org.gnome.policykit.examples.kick-bar                           no:no:auth_self
-org.gnome.policykit.examples.kick-baz                           no:no:auth_self
-#
 # should be consistent with udisks
 org.freedesktop.consolekit.system.stop                          auth_admin_keep_always
 org.freedesktop.consolekit.system.stop-multiple-users           auth_admin_keep_always
