@@ -117,7 +117,7 @@ org.freedesktop.RealtimeKit1.acquire-real-time                  auth_admin:auth_
 org.freedesktop.policykit.exec                                  auth_admin:auth_admin:auth_admin
 org.freedesktop.policykit.lockdown                              auth_admin
 # example progam
-org.freedesktop.policykit.example.pkexec.run-frobnicate         auth_admin:auth_admin:auth_admin
+org.freedesktop.policykit.example.pkexec.run-frobnicate         no:no:auth_admin_keep
 
 #
 # udisks.
