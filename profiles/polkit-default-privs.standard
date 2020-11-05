@@ -89,8 +89,8 @@ org.opensuse.cupspkhelper.mechanism.all-edit                    auth_admin_keep
 #
 # RealTimeKit (bnc#753849)
 #
-org.freedesktop.RealtimeKit1.acquire-high-priority              auth_admin:auth_admin:yes
-org.freedesktop.RealtimeKit1.acquire-real-time                  auth_admin:auth_admin:yes
+org.freedesktop.RealtimeKit1.acquire-high-priority              no:auth_admin:yes
+org.freedesktop.RealtimeKit1.acquire-real-time                  no:auth_admin:yes
 
 #
 # polkit-1
