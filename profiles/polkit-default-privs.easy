@@ -99,30 +99,6 @@ org.freedesktop.policykit.exec                                  auth_admin
 org.freedesktop.policykit.example.pkexec.run-frobnicate         no:no:auth_admin_keep
 
 #
-# udisks.
-#
-org.freedesktop.udisks.filesystem-mount                auth_admin:auth_admin:yes
-org.freedesktop.udisks.filesystem-mount-system-internal auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks.filesystem-check                auth_admin:auth_admin:yes
-org.freedesktop.udisks.filesystem-check-system-internal auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks.filesystem-unmount-others       auth_admin:auth_admin:auth_admin
-org.freedesktop.udisks.filesystem-lsof                 auth_admin:auth_admin:yes
-org.freedesktop.udisks.filesystem-lsof-system-internal auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks.drive-eject                     auth_admin:auth_admin:yes
-org.freedesktop.udisks.drive-detach                    auth_admin:auth_admin:yes
-org.freedesktop.udisks.change                          auth_admin:auth_admin:yes
-org.freedesktop.udisks.change-system-internal          auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks.drive-ata-smart-refresh         auth_admin:auth_admin:yes
-org.freedesktop.udisks.drive-ata-smart-selftest        auth_admin:auth_admin:auth_admin
-org.freedesktop.udisks.drive-ata-smart-retrieve-historical-data auth_admin:auth_admin:yes
-org.freedesktop.udisks.luks-unlock                     auth_admin:auth_admin:yes
-org.freedesktop.udisks.luks-lock-others                auth_admin:auth_admin:auth_admin
-org.freedesktop.udisks.linux-md                        auth_admin:auth_admin:auth_admin
-org.freedesktop.udisks.cancel-job-others               auth_admin:auth_admin:auth_admin
-org.freedesktop.udisks.inhibit-polling                 auth_admin:auth_admin:yes
-org.freedesktop.udisks.drive-set-spindown              auth_admin:auth_admin:yes
-org.freedesktop.udisks.linux-lvm2                      auth_admin_keep
-#
 # udisks2 (bnc#742751)
 #
 org.freedesktop.udisks2.filesystem-mount-system         auth_admin:auth_admin:auth_admin_keep
