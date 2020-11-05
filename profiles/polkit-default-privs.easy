@@ -94,8 +94,7 @@ org.freedesktop.RealtimeKit1.acquire-real-time                  no:yes:yes
 #
 # polkit-1
 #
-org.freedesktop.policykit.exec                                  auth_admin:auth_admin:auth_admin
-org.freedesktop.policykit.lockdown                              auth_admin
+org.freedesktop.policykit.exec                                  auth_admin
 # example progam
 org.freedesktop.policykit.example.pkexec.run-frobnicate         no:no:auth_admin_keep
 
