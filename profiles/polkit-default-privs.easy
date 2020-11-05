@@ -71,11 +71,6 @@ org.gnome.gconf.defaults.set-system                             auth_admin_keep
 org.gnome.gconf.defaults.set-mandatory                          auth_admin_keep
 
 #
-# backup-manager
-#
-org.opensuse.backupmanager.schedule                             auth_admin
-
-#
 # system-config-printer
 #
 org.opensuse.cupspkhelper.mechanism.printer-set-default         auth_admin_keep
