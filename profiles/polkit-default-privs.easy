@@ -69,10 +69,6 @@ org.freedesktop.packagekit.repair-system                        auth_admin
 #
 org.gnome.gconf.defaults.set-system                             auth_admin_keep
 org.gnome.gconf.defaults.set-mandatory                          auth_admin_keep
-#
-# smpppd
-#
-org.opensuse.smpppd.connect                                     auth_admin_keep_always:auth_admin_keep_always:yes
 
 #
 # backup-manager
