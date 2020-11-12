@@ -159,10 +159,6 @@ org.freedesktop.udisks2.vdo.manage-vdo                  auth_admin
 #
 # YaST
 #
-org.opensuse.yast.modules.yapi.language.read                    no
-org.opensuse.yast.modules.yapi.language.write                   no
-org.opensuse.yast.modules.yapi.time.read                        no
-org.opensuse.yast.modules.yapi.time.write                       no
 org.opensuse.yast.modules.ysr.statelessregister                 auth_admin_keep_session
 org.opensuse.yast.modules.ysr.getregistrationconfig             auth_admin_keep_session
 org.opensuse.yast.modules.ysr.setregistrationconfig             auth_admin_keep_session
