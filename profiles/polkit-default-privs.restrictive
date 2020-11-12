@@ -158,13 +158,13 @@ org.freedesktop.udisks2.vdo.manage-vdo                  auth_admin
 
 # KDE stuff
 
-org.kde.fontinst.manage                                         auth_admin_keep
-org.kde.kcontrol.kcmclock.save                                  auth_admin
+org.kde.fontinst.manage                                         no:no:auth_admin_keep
+org.kde.kcontrol.kcmclock.save                                  no:no:auth_admin
 org.kde.kcontrol.kcmremotewidgets.save                          auth_admin
-org.kde.ksysguard.processlisthelper.changecpuscheduler          auth_admin
-org.kde.ksysguard.processlisthelper.changeioscheduler           auth_admin
-org.kde.ksysguard.processlisthelper.renice                      auth_admin
-org.kde.ksysguard.processlisthelper.sendsignal                  auth_admin
+org.kde.ksysguard.processlisthelper.changecpuscheduler          no:no:auth_admin
+org.kde.ksysguard.processlisthelper.changeioscheduler           no:no:auth_admin
+org.kde.ksysguard.processlisthelper.renice                      no:no:auth_admin
+org.kde.ksysguard.processlisthelper.sendsignal                  no:no:auth_admin
 org.kde.polkitkde1.changeexplicitauthorizations                 auth_admin_keep
 org.kde.polkitkde1.changeimplicitauthorizations                 auth_admin
 org.kde.polkitkde1.changesystemconfiguration                    auth_admin
@@ -174,7 +174,7 @@ org.kde.kcontrol.kcmkdm.managefaces                             auth_admin_keep
 org.kde.kcontrol.kcmkdm.managethemes                            auth_admin_keep
 org.kde.kcontrol.kcmkdm.save                                    auth_admin
 # kde backlight helper (bnc#672145)
-org.kde.powerdevil.backlighthelper.brightness                   auth_admin:auth_admin:yes
+org.kde.powerdevil.backlighthelper.brightness                   no:auth_admin:yes
 
 # kde powerdevil gpu helper (bsc#1019644, bsc#1026038)
 org.kde.powerdevil.discretegpuhelper.hasdualgpu			no:no:yes
