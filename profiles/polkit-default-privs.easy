@@ -156,17 +156,6 @@ org.freedesktop.udisks2.zram.manage-zram                auth_admin:auth_admin:au
 # bsc#1123747
 org.freedesktop.udisks2.vdo.manage-vdo                  auth_admin:auth_admin:auth_admin_keep
 
-
-#
-# upower
-#
-org.freedesktop.upower.suspend                         auth_admin:auth_admin:yes
-org.freedesktop.upower.hibernate                       auth_admin:auth_admin:yes
-org.freedesktop.upower.qos.request-latency             auth_admin:auth_admin:yes
-org.freedesktop.upower.qos.request-latency-persistent  auth_admin:auth_admin:yes
-org.freedesktop.upower.qos.set-minimum-latency         auth_admin:auth_admin:auth_admin
-org.freedesktop.upower.qos.cancel-request              auth_admin:auth_admin:auth_admin
-
 #
 # YaST
 #
