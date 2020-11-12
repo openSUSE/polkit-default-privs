@@ -156,27 +156,6 @@ org.freedesktop.udisks2.zram.manage-zram                auth_admin:auth_admin:au
 # bsc#1123747
 org.freedesktop.udisks2.vdo.manage-vdo                  auth_admin
 
-#
-# YaST
-#
-# webyast
-org.opensuse.yast.modules.eulas.accept                          no
-org.opensuse.yast.modules.yapi.activedirectory.read             no
-org.opensuse.yast.roles.assign                                  no
-org.opensuse.yast.roles.modify                                  no
-org.opensuse.yast.system.repositories.read                      no
-org.opensuse.yast.system.repositories.write                     no
-org.opensuse.yast.system.packages.read                          no
-org.opensuse.yast.system.patches.read                           no
-org.opensuse.yast.system.patches.install                        no
-org.opensuse.yast.system.status.read                            no
-org.opensuse.yast.system.status.writelimits                     no
-org.opensuse.yast.system.terminal.read                          no
-# bnc#687807
-org.opensuse.yast.system.power-management.reboot                no
-org.opensuse.yast.system.power-management.shutdown              no
-
-
 # KDE stuff
 
 org.kde.fontinst.manage                                         auth_admin_keep
