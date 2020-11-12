@@ -160,8 +160,6 @@ org.freedesktop.udisks2.vdo.manage-vdo                  auth_admin:auth_admin:au
 #
 # YaST
 #
-org.opensuse.yast.module-manager.import                         auth_admin_keep_session
-org.opensuse.yast.module-manager.lock                           auth_admin_keep_session
 org.opensuse.yast.modules.yapi.language.read                    no
 org.opensuse.yast.modules.yapi.language.write                   no
 org.opensuse.yast.modules.yapi.time.read                        no
@@ -169,16 +167,6 @@ org.opensuse.yast.modules.yapi.time.write                       no
 org.opensuse.yast.modules.ysr.statelessregister                 auth_admin_keep_session
 org.opensuse.yast.modules.ysr.getregistrationconfig             auth_admin_keep_session
 org.opensuse.yast.modules.ysr.setregistrationconfig             auth_admin_keep_session
-org.opensuse.yast.scr.read                                      auth_admin_keep_session
-org.opensuse.yast.scr.write                                     auth_admin_keep_session
-org.opensuse.yast.scr.execute                                   auth_admin_keep_session
-org.opensuse.yast.scr.dir                                       auth_admin_keep_session
-org.opensuse.yast.scr.registeragent                             auth_admin_keep_session
-org.opensuse.yast.scr.unregisteragent                           auth_admin_keep_session
-org.opensuse.yast.scr.unmountagent                              auth_admin_keep_session
-org.opensuse.yast.scr.error                                     auth_admin_keep_session
-org.opensuse.yast.scr.unregisterallagents                       auth_admin_keep_session
-org.opensuse.yast.scr.registernewagents                         auth_admin_keep_session
 # webyast
 org.opensuse.yast.permissions.read                              no
 org.opensuse.yast.permissions.write                             no
