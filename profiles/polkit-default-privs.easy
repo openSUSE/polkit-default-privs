@@ -160,19 +160,10 @@ org.freedesktop.udisks2.vdo.manage-vdo                  auth_admin:auth_admin:au
 
 org.kde.fontinst.manage                                         no:no:auth_admin_keep
 org.kde.kcontrol.kcmclock.save                                  no:no:auth_admin
-org.kde.kcontrol.kcmremotewidgets.save                          auth_admin
 org.kde.ksysguard.processlisthelper.changecpuscheduler          no:no:auth_admin
 org.kde.ksysguard.processlisthelper.changeioscheduler           no:no:auth_admin
 org.kde.ksysguard.processlisthelper.renice                      no:no:auth_admin
 org.kde.ksysguard.processlisthelper.sendsignal                  no:no:auth_admin
-org.kde.polkitkde1.changeexplicitauthorizations                 auth_admin_keep
-org.kde.polkitkde1.changeimplicitauthorizations                 auth_admin
-org.kde.polkitkde1.changesystemconfiguration                    auth_admin
-org.kde.polkitkde1.readauthorizations                           auth_admin_keep
-org.kde.kcontrol.k3bsetup.save                                  auth_admin
-org.kde.kcontrol.kcmkdm.managefaces                             auth_admin_keep
-org.kde.kcontrol.kcmkdm.managethemes                            auth_admin_keep
-org.kde.kcontrol.kcmkdm.save                                    auth_admin
 # kde backlight helper (bnc#672145)
 org.kde.powerdevil.backlighthelper.brightness                   no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
@@ -180,9 +171,7 @@ org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
 # kde powerdevil gpu helper (bsc#1019644)
 org.kde.powerdevil.discretegpuhelper.hasdualgpu			yes
 
-# kdepim4/kalarm (bnc#707723)
-org.kde.kalarmrtcwake.settimer                                  auth_admin_keep
-# kalarm (bnc#1087714, renamed from kalarmrtcwake)
+# kdepim4/kalarm (bnc#707723, bnc#1087714 (renamed from kalarmrtcwake))
 org.kde.kalarm.rtcwake.settimer                                 auth_admin_keep
 
 # sddm kcm operation (bnc#904313)
