@@ -280,10 +280,10 @@ org.freedesktop.network1.renew                                  auth_admin:auth_
 org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin_keep
 
 # gnome-power-manager/gnome-settings-daemon (bnc#650401, bnc#712841)
-org.gnome.settings-daemon.plugins.power.backlight-helper        no:no:yes
+org.gnome.settings-daemon.plugins.power.backlight-helper        auth_admin:auth_admin:yes
 # xfce4-power-manager, bnc#665169
 # code is copy&paste from gnome-power-manager
-org.xfce.power.backlight-helper                                 no:no:yes
+org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
 
 # cinnamon settings-daemon (bsc#951830)
 org.cinnamon.settings-daemon.plugins.power.backlight-helper	no:no:yes
