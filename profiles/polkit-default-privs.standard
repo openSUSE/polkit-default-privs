@@ -298,8 +298,8 @@ org.cinnamon.settings-users					auth_admin
 org.cinnamon.controlcenter.datetime.configure			no:no:auth_admin_keep
 
 # hp-drive-guard
-com.hp.driveguard.toggle                                        auth_admin
-com.hp.driveguard.install-setup                                 auth_admin
+com.hp.driveguard.toggle                                        no:no:auth_admin
+com.hp.driveguard.install-setup                                 no:no:auth_admin
 
 # ModemManager (bsc#948728)
 org.freedesktop.ModemManager.Device.Control                     auth_admin_keep:yes:yes
