@@ -277,11 +277,8 @@ org.freedesktop.network1.reconfigure                            auth_admin:auth_
 org.freedesktop.network1.reload                                 auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.network1.renew                                  auth_admin:auth_admin:auth_admin_keep
 
-# gnome-control-center
-org.gnome.randr.install-system-wide                             auth_admin
-
 # gnome-control-center (bnc#927508)
-org.gnome.controlcenter.remote-login-helper			no:no:auth_admin_keep
+org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin_keep
 
 # gnome-power-manager/gnome-settings-daemon (bnc#650401, bnc#712841)
 org.gnome.settings-daemon.plugins.power.backlight-helper        no:no:yes
