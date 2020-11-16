@@ -320,7 +320,7 @@ org.freedesktop.urfkill.blockidx                                no:no:auth_admin
 org.freedesktop.urfkill.flight_mode                             no:no:auth_admin
 
 # account services (bnc#676638, bsc#1125110)
-org.freedesktop.accounts.user-administration                    auth_admin_keep
+org.freedesktop.accounts.user-administration                    auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.accounts.set-login-option                       auth_admin
 org.freedesktop.accounts.change-own-user-data                   auth_self:yes:yes
 # bnc#1088780
