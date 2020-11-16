@@ -494,11 +494,11 @@ org.libvirt.api.network-port.read			auth_self:yes:yes
 org.libvirt.api.domain.checkpoint                       no 
 
 # MATE settings-daemon (bnc#831404)
-org.mate.settingsdaemon.datetimemechanism.settimezone		auth_admin_keep
-org.mate.settingsdaemon.datetimemechanism.settime		auth_admin_keep
-org.mate.settingsdaemon.datetimemechanism.configurehwclock	auth_admin_keep
-org.mate.randr.install-system-wide                              auth_admin_keep
-org.mate.power.backlight-helper					auth_admin_keep:auth_admin_keep:yes
+org.mate.settingsdaemon.datetimemechanism.settimezone		no:no:auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.settime		no:no:auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.configurehwclock	no:no:auth_admin_keep
+org.mate.randr.install-system-wide				no:no:auth_admin_keep
+org.mate.power.backlight-helper					no:no:yes
 
 # gufw
 com.ubuntu.pkexec.gufw                          auth_admin
