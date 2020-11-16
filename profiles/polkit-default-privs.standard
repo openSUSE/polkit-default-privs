@@ -328,12 +328,6 @@ org.freedesktop.accounts.change-own-user-data                   yes
 org.freedesktop.accounts.change-own-password                    auth_admin
 
 #
-# smb4k (bnc#749065)
-#
-de.berlios.smb4k.mounthelper.mount                              auth_admin_keep
-de.berlios.smb4k.mounthelper.unmount                            auth_admin_keep
-
-#
 # RecordItNow (bnc#753908)
 #
 org.kde.recorditnow.helper.watch                                auth_admin
