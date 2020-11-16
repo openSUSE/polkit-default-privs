@@ -537,19 +537,6 @@ org.fedoraproject.FirewallD1.direct.info	auth_admin_keep
 org.fedoraproject.FirewallD1.policies		auth_admin_keep
 org.fedoraproject.FirewallD1.policies.info	auth_admin_keep
 
-# storaged (bnc#915770)
-com.redhat.lvm2.create-logical-volume		auth_admin_keep
-com.redhat.lvm2.delete-logical-volume		auth_admin_keep
-com.redhat.lvm2.rename-logical-volume		auth_admin_keep
-com.redhat.lvm2.resize-logical-volume		auth_admin_keep
-com.redhat.lvm2.activate-logical-volume		auth_admin_keep
-com.redhat.lvm2.deactivate-logical-volume	auth_admin_keep
-com.redhat.lvm2.snapshot-logical-volume		auth_admin_keep
-com.redhat.lvm2.create-volume-group		auth_admin_keep
-com.redhat.lvm2.delete-volume-group		auth_admin_keep
-com.redhat.lvm2.rename-volume-group		auth_admin_keep
-com.redhat.lvm2.manage-lvm			auth_admin_keep
-
 # systemd new things in 218
 org.freedesktop.systemd1.manage-units		auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.systemd1.manage-unit-files	auth_admin:auth_admin:auth_admin_keep
