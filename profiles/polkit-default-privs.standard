@@ -315,14 +315,10 @@ org.freedesktop.ModemManager1.Voice                             no:no:yes
 org.freedesktop.ModemManager1.Time                              no:no:auth_self_keep
 
 # urfkill (bnc#688328)
-org.freedesktop.urfkill.block                                   auth_admin:auth_admin:yes
-org.freedesktop.urfkill.blockidx                                auth_admin:auth_admin:yes
-org.freedesktop.urfkill.unblock                                 auth_admin:auth_admin:yes
-org.freedesktop.urfkill.unblockidx                              auth_admin:auth_admin:yes
-org.freedesktop.urfkill.enablekeycontrol                        auth_admin:auth_admin:yes
-
+org.freedesktop.urfkill.block                                   no:auth_admin:yes
+org.freedesktop.urfkill.blockidx                                no:auth_admin:yes
 # urfkill (bnc#926288)
-org.freedesktop.urfkill.flight_mode                             auth_admin:auth_admin:yes
+org.freedesktop.urfkill.flight_mode                             no:auth_admin:yes
 
 # account services (bnc#676638)
 org.freedesktop.accounts.user-administration                    auth_admin_keep
