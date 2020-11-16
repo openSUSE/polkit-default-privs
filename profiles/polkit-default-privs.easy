@@ -596,7 +596,6 @@ org.blueman.pppd.pppconnect			auth_admin:auth_admin_keep:yes
 org.blueman.rfkill.setstate			auth_admin:auth_admin_keep:yes
 
 # tuned (bsc#1007279)
-com.redhat.tuned.gui.run			auth_admin
 com.redhat.tuned.active_profile			yes
 com.redhat.tuned.disable			auth_admin:auth_admin:yes
 com.redhat.tuned.is_running			yes
