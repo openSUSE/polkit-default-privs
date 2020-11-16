@@ -167,9 +167,15 @@ org.kde.ksysguard.processlisthelper.sendsignal                  no:no:auth_admin
 # kde backlight helper (bnc#672145)
 org.kde.powerdevil.backlighthelper.brightness                   no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
-
+# powerdevil (bnc#825256)
+org.kde.powerdevil.backlighthelper.syspath                      no:yes:yes
+# KDE5 powerdevil (bnc#912121, bnc#927275)
+org.kde.powerdevil.backlighthelper.brightnessmax                no:yes:yes
 # kde powerdevil gpu helper (bsc#1019644)
-org.kde.powerdevil.discretegpuhelper.hasdualgpu			yes
+org.kde.powerdevil.discretegpuhelper.hasdualgpu                 yes
+# KDE battery charge threshold control (bsc#1176474)
+org.kde.powerdevil.chargethresholdhelper.getthreshold           no:yes:yes
+org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin_keep
 
 # kdepim4/kalarm (bnc#707723, bnc#1087714 (renamed from kalarmrtcwake))
 org.kde.kalarm.rtcwake.settimer                                 auth_admin_keep
@@ -369,9 +375,6 @@ net.reactivated.fprint.device.setusername			no:no:auth_admin_keep
 org.gnome.gnome-system-monitor.kill				no:no:auth_admin
 org.gnome.gnome-system-monitor.renice				no:no:auth_admin
 
-# powerdevil (bnc#825256)
-org.kde.powerdevil.backlighthelper.syspath 			no:yes:yes
-
 #
 org.libvirt.unix.monitor                                    	yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
@@ -531,10 +534,6 @@ org.fedoraproject.FirewallD1.direct		auth_admin_keep
 org.fedoraproject.FirewallD1.direct.info	auth_admin_keep
 org.fedoraproject.FirewallD1.policies		auth_admin_keep
 org.fedoraproject.FirewallD1.policies.info	auth_admin_keep
-
-
-# KDE5 powerdevil (bnc#912121, bnc#927275)
-org.kde.powerdevil.backlighthelper.brightnessmax no:yes:yes
 
 # storaged (bnc#915770)
 com.redhat.lvm2.create-logical-volume		auth_admin_keep
@@ -767,10 +766,6 @@ io.veyon.pkexec.veyon-configurator auth_admin_keep:auth_admin_keep:auth_admin_ke
 
 # incremental addition for DHCP forced renew (bsc#1176215)
 org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
-
-# KDE battery charge threshold control (bsc#1176474)
-org.kde.powerdevil.chargethresholdhelper.getthreshold no:yes:yes
-org.kde.powerdevil.chargethresholdhelper.setthreshold no:no:auth_admin_keep
 
 # KDE smartctl helper (bsc#1176742)
 org.kde.kded.smart.smartctl auth_admin:auth_admin:yes
