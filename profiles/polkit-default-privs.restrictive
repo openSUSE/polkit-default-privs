@@ -510,8 +510,8 @@ org.selinux.config.pkexec.run no:no:auth_admin
 org.selinux.relabel_on_boot auth_admin_keep
 
 # policycoreutils (bnc#878631)
-org.selinux.customized auth_admin_keep
-org.selinux.semodule_list auth_admin_keep
+org.selinux.customized no:no:auth_admin_keep
+org.selinux.semodule_list no:no:auth_admin_keep
 
 # kwallet (bnc#849739)
 
