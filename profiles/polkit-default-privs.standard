@@ -674,17 +674,6 @@ org.nemo.root					no:no:auth_admin_keep
 # nemo-extensions (bsc#1084703)
 org.nemo-share.samba_install			no:no:auth_admin_keep
 
-# pantheon-files (bsc#1084704)
-org.freedesktop.policykit.pkexec.pantheon-files	auth_admin:auth_admin:auth_admin
-org.freedesktop.policykit.pkexec.io.elementary.files auth_admin:auth_admin:auth_admin
-
-# switchboard-plug-locale (bsc#1088472)
-org.pantheon.switchboard.locale.administration	no:no:auth_admin_keep
-# switchboard-plug-security-privacy (bsc#1088472)
-org.pantheon.security-privacy no:no:auth_admin_keep
-# switchboard-plug-useraccounts (bsc#1088472)
-org.pantheon.switchboard.user-accounts.administration no:no:auth_admin_keep
-
 # scap-workbench (bsc#1084706)
 scap-workbench-oscap.run			auth_admin_keep:auth_admin_keep:auth_admin_keep
 
