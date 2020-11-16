@@ -548,10 +548,6 @@ org.freedesktop.realmd.login-policy		auth_admin:auth_admin:auth_admin_keep
 # realmd (bsc#1048025)
 org.freedesktop.realmd.discover-realm		no:auth_admin:auth_admin_keep
 
-
-# netvisix (bsc#930195)
-org.opensuse.policykit.netvisix			auth_admin:auth_admin:auth_admin
-
 # importd (bsc#964935)
 org.freedesktop.import1.import				auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.import1.export				auth_admin:auth_admin:auth_admin_keep
