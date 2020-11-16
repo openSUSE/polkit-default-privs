@@ -365,10 +365,6 @@ net.reactivated.fprint.device.verify				no:no:yes
 net.reactivated.fprint.device.enroll				no:no:yes
 net.reactivated.fprint.device.setusername			no:no:auth_admin_keep
 
-# lightdm-kde-greeter (bnc#794705)
-org.kde.kcontrol.kcmlightdm.save                                no:no:auth_admin_keep
-org.kde.kcontrol.kcmlightdm.savethemedetails                    no:no:auth_admin_keep
-
 # gnome-system-monitor (bnc#822011)
 org.gnome.gnome-system-monitor.kill				no:no:auth_admin
 org.gnome.gnome-system-monitor.renice				no:no:auth_admin
