@@ -476,13 +476,7 @@ org.libvirt.api.storage-vol.resize			auth_admin_keep
 
 # libvirt (bsc#1100328)
 org.libvirt.api.connect.search-nwfilter-bindings	auth_admin_keep
-org.libvirt.api.nwfilter.binding-getattr		auth_admin_keep
-org.libvirt.api.nwfilter.binding-read			auth_admin_keep
-org.libvirt.api.nwfilter.binding-create			no
-org.libvirt.api.nwfilter.binding-delete			no
-
-# libvirt (bsc#1106813)
-# resulting from an upstream bugfix, just corrected names
+# libvirt (bsc#1106813) resulting from an upstream bugfix, just corrected names
 org.libvirt.api.nwfilter-binding.getattr		auth_admin_keep
 org.libvirt.api.nwfilter-binding.read			auth_admin_keep
 org.libvirt.api.nwfilter-binding.create			no
