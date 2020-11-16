@@ -369,9 +369,6 @@ net.reactivated.fprint.device.setusername			no:no:auth_admin_keep
 org.gnome.gnome-system-monitor.kill				no:no:auth_admin
 org.gnome.gnome-system-monitor.renice				no:no:auth_admin
 
-# nepomuk (bnc#825262)
-org.kde.nepomuk.filewatch.raiselimit				no:no:auth_admin_keep
-
 # powerdevil (bnc#825256)
 org.kde.powerdevil.backlighthelper.syspath 			no:yes:yes
 
