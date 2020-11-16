@@ -554,8 +554,7 @@ org.freedesktop.import1.export				auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.import1.pull				auth_admin:auth_admin:auth_admin_keep
 
 # brltty (bsc#967436)
-org.brltty.write-display				auth_admin_keep
-org.a11y.brlapi.write-display				auth_admin_keep
+org.a11y.brlapi.write-display				no:no:auth_admin_keep
 
 # sysprof (bsc#996111)
 org.gnome.sysprof2.perf-event-open			auth_admin_keep
