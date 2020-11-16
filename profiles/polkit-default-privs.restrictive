@@ -513,13 +513,8 @@ org.selinux.relabel_on_boot auth_admin_keep
 org.selinux.customized no:no:auth_admin_keep
 org.selinux.semodule_list no:no:auth_admin_keep
 
-# kwallet (bnc#849739)
-
-org.kde.kcontrol.kcmkwallet.save 	auth_admin_keep
-
-# kwallet5 (bnc#1033296)
-
-org.kde.kcontrol.kcmkwallet5.save 	auth_admin_keep
+# kwallet5 (bnc#849739, bnc#1033296)
+org.kde.kcontrol.kcmkwallet5.save 	no:no:auth_admin_keep
 
 # baloo (bnc#866131)
 org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep

@@ -515,12 +515,7 @@ org.selinux.relabel_on_boot auth_admin_keep
 org.selinux.customized no:no:yes
 org.selinux.semodule_list no:no:yes
 
-# kwallet (bnc#849739)
-
-org.kde.kcontrol.kcmkwallet.save no:no:yes
-
-# kwallet5 (bnc#1033296)
-
+# kwallet5 (bnc#849739, bnc#1033296)
 org.kde.kcontrol.kcmkwallet5.save 	no:no:yes
 
 # baloo (bnc#866131)
