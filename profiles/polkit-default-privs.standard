@@ -518,9 +518,6 @@ org.selinux.semodule_list no:no:yes
 # kwallet5 (bnc#849739, bnc#1033296)
 org.kde.kcontrol.kcmkwallet5.save 	no:no:yes
 
-# baloo (bnc#866131)
-org.kde.baloo.filewatch.raiselimit no:no:auth_admin_keep
-
 # pcsc-lite (bnc#864178)
 org.debian.pcsc-lite.access_pcsc auth_admin:auth_admin:yes
 org.debian.pcsc-lite.access_card auth_admin:auth_admin:yes
