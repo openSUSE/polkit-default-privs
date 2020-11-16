@@ -502,9 +502,6 @@ org.mate.settingsdaemon.datetimemechanism.configurehwclock	auth_admin_keep
 org.mate.randr.install-system-wide				auth_admin_keep
 org.mate.power.backlight-helper					auth_admin:auth_self:yes
 
-# gufw
-com.ubuntu.pkexec.gufw				auth_admin
-
 # policycoreutils (bnc#848550)
 org.selinux.restorecon auth_admin_keep
 org.selinux.setenforce auth_admin_keep
