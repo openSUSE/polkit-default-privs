@@ -644,9 +644,6 @@ org.freedesktop.fwupd.self-sign                 auth_admin:auth_admin:auth_admin
 org.freedesktop.fwupd.set-approved-firmware     auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.fwupd.modify-config             auth_admin:auth_admin:auth_admin_keep
 
-# deja-dup (bsc#1058935)
-org.gnome.DejaDup.duplicity			no:no:auth_admin
-
 # connman (bsc#1057697)
 net.connman.modify				auth_admin_keep
 net.connman.vpn.modify				auth_admin_keep
