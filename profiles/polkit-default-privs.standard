@@ -302,13 +302,13 @@ com.hp.driveguard.toggle                                        no:no:auth_admin
 com.hp.driveguard.install-setup                                 no:no:auth_admin
 
 # ModemManager1 (bnc#798273, bsc#948728)
-org.freedesktop.ModemManager1.Control                           auth_admin:yes:yes
-org.freedesktop.ModemManager1.Device.Control                    auth_admin_keep:yes:yes
-org.freedesktop.ModemManager1.Contacts                          auth_admin:auth_admin:yes
-org.freedesktop.ModemManager1.Messaging                         auth_admin:auth_admin:yes
-org.freedesktop.ModemManager1.Location                          auth_admin:auth_admin:yes
-org.freedesktop.ModemManager1.Firmware                          auth_admin
-org.freedesktop.ModemManager1.USSD                              auth_admin_keep # likely not widely used
+org.freedesktop.ModemManager1.Control                           no:yes:yes
+org.freedesktop.ModemManager1.Device.Control                    no:yes:yes
+org.freedesktop.ModemManager1.Contacts                          no:auth_admin:yes
+org.freedesktop.ModemManager1.Messaging                         no:auth_admin:yes
+org.freedesktop.ModemManager1.Location                          no:auth_admin:yes
+org.freedesktop.ModemManager1.Firmware                          no:no:auth_admin
+org.freedesktop.ModemManager1.USSD                              no:no:auth_admin_keep # likely not widely used
 # bsc#976945
 org.freedesktop.ModemManager1.Voice                             no:no:yes
 # bsc#1156961
