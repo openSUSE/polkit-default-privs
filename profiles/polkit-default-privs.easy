@@ -1042,4 +1042,7 @@ org.xfce.mousepad no:auth_admin:auth_admin
 # calamares run as root in X11 (bsc#1143147)
 com.github.calamares.calamares.pkexec.run no:no:auth_admin
 
+# cockpit uses polkit to gain additional privileges on demand (bsc#1169614)
+org.cockpit-project.cockpit.root-bridge auth_admin:auth_admin:auth_admin
+
 ###
