@@ -75,5 +75,16 @@
 				"digest": "sha256:6daefe0a835dc1b34513302f393e98089c137602823f41fd0c3dd984c40902d8"
 			}
 		]
+	},
+	{
+		"package": "libvirt-dbus",
+		"path": "/usr/share/polkit-1/rules.d/libvirt-dbus.rules",
+		"audits": [
+			{
+				"bug": "bsc#1173093",
+				"comment": "Allows the libvirt-dbus daemon to run unprivileged but still control libvirt",
+				"digests": "sha256:1ae3b094d372d0108f34b58f577d133fdf0c9527bd5b72edf1d22a13daa74f6e"
+			}
+		]
 	}
 ]
