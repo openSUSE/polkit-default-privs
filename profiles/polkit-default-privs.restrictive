@@ -364,7 +364,7 @@ org.gnome.gnome-system-monitor.kill                             no:no:auth_admin
 org.gnome.gnome-system-monitor.renice                           no:no:auth_admin
 
 # libvirt
-org.libvirt.unix.monitor                                        auth_admin_keep
+org.libvirt.unix.monitor                                        auth_admin:auth_admin_keep:yes
 org.libvirt.unix.manage                                         auth_admin_keep
 # libvirt (bsc#827644) (original wants yes:yes:yes)
 org.libvirt.api.connect.getattr                                 auth_admin_keep
