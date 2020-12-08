@@ -48,15 +48,15 @@ org.freedesktop.color-manager.device-inhibit                    auth_admin
 org.freedesktop.color-manager.sensor-lock                       auth_admin
 
 # PackageKit
-org.freedesktop.packagekit.package-install                      auth_admin_keep_always
+org.freedesktop.packagekit.package-install                      auth_admin_keep
 org.freedesktop.packagekit.package-install-untrusted            auth_admin
 org.freedesktop.packagekit.system-trust-signing-key             auth_admin
-org.freedesktop.packagekit.package-eula-accept                  auth_admin_keep_always
-org.freedesktop.packagekit.package-remove                       auth_admin_keep_always
-org.freedesktop.packagekit.system-update                        auth_admin_keep_always
-org.freedesktop.packagekit.system-sources-configure             auth_admin_keep_always
+org.freedesktop.packagekit.package-eula-accept                  auth_admin_keep
+org.freedesktop.packagekit.package-remove                       auth_admin_keep
+org.freedesktop.packagekit.system-update                        auth_admin_keep
+org.freedesktop.packagekit.system-sources-configure             auth_admin_keep
 org.freedesktop.packagekit.system-sources-refresh               no:no:yes
-org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep_always
+org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep
 org.freedesktop.packagekit.cancel-foreign                       auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.packagekit.device-rebind                        auth_admin_keep
 org.freedesktop.packagekit.upgrade-system                       auth_admin
@@ -364,8 +364,8 @@ org.gnome.gnome-system-monitor.kill                             no:no:auth_admin
 org.gnome.gnome-system-monitor.renice                           no:no:auth_admin
 
 # libvirt
-org.libvirt.unix.monitor                                        auth_admin_keep_always
-org.libvirt.unix.manage                                         auth_admin_keep_always
+org.libvirt.unix.monitor                                        auth_admin_keep
+org.libvirt.unix.manage                                         auth_admin_keep
 # libvirt (bsc#827644) (original wants yes:yes:yes)
 org.libvirt.api.connect.getattr                                 auth_admin_keep
 org.libvirt.api.connect.read                                    auth_admin_keep
