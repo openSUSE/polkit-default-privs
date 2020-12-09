@@ -557,7 +557,7 @@ org.kde.powerdevil.backlighthelper.syspath 			no:yes:yes
 
 #
 #
-org.libvirt.unix.monitor                                    	auth_admin_keep_always
+org.libvirt.unix.monitor                                    	auth_admin:auth_admin_keep_always:yes
 org.libvirt.unix.manage                                     	auth_admin_keep_always
 
 # libvirt (bnc#827644) ( original wants yes:yes:yes)
