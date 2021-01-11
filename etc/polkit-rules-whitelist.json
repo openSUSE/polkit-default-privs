@@ -94,5 +94,15 @@
 				}
 			}
 		}
+	},
+	"brltty": {
+		"audits": {
+			"bsc#1180593": {
+				"comment": "Allows members of 'brltty' to implicitly get polkit authorization",
+				"digests": {
+					"/usr/share/polkit-1/rules.d/org.a11y.brlapi.rules": "sha256:f8f1dc555dfc72fd95263e107cd87f44b3d1ce899dbdc0f11b7dfbccaa92a434"
+				}
+			}
+		}
 	}
 }
