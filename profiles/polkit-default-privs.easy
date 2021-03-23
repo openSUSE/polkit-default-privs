@@ -697,3 +697,8 @@ com.endlessm.ParentalControls.SessionLimits.ChangeOwn           auth_admin_keep:
 com.endlessm.ParentalControls.SessionLimits.ReadAny             auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.MalcontentControl.administration                no:no:auth_admin_keep
 com.endlessm.ParentalControls.AccountInfo.ReadOwn               yes:yes:yes
+
+# kdenetwork-filesharing, Samba configuration (bsc#1175633)
+org.kde.filesharing.samba.isuserknown                           yes:yes:yes
+org.kde.filesharing.samba.createuser                            auth_admin:auth_admin:auth_admin
+org.kde.filesharing.samba.addtogroup                            auth_admin:auth_admin:auth_admin
