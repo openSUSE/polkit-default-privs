@@ -702,3 +702,6 @@ com.endlessm.ParentalControls.AccountInfo.ReadOwn               yes:yes:yes
 org.kde.filesharing.samba.isuserknown                           yes:yes:yes
 org.kde.filesharing.samba.createuser                            auth_admin:auth_admin:auth_admin
 org.kde.filesharing.samba.addtogroup                            auth_admin:auth_admin:auth_admin
+
+# KDiskMark, HDD/SSD benchmark tool (bsc#1182521)
+org.jonmagon.kdiskmark.dropcache                                auth_admin_keep:auth_admin_keep:auth_admin_keep
