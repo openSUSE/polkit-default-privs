@@ -585,6 +585,8 @@ com.redhat.tuned.log_capture_start                              auth_admin:auth_
 com.redhat.tuned.get_all_plugins                                auth_admin:auth_admin:yes
 com.redhat.tuned.get_plugin_documentation                       auth_admin:auth_admin:yes
 com.redhat.tuned.get_plugin_hints                               auth_admin:auth_admin:yes
+# incremental addition (bsc#1185418)
+com.redhat.tuned.post_loaded_profile                            yes:yes:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.UdevRuleSave                           auth_admin:auth_admin:auth_admin
