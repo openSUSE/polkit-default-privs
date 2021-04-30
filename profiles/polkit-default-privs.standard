@@ -288,6 +288,8 @@ org.freedesktop.login1.halt-multiple-sessions                   auth_admin_keep
 org.freedesktop.login1.chvt                                     auth_admin_keep:auth_admin_keep:yes
 # incremental addition for DHCP forced renew (bsc#1176215)
 org.freedesktop.network1.forcerenew                             auth_admin:auth_admin:auth_admin_keep
+# incremental addition to handle reboot key events (bsc#1185468)
+org.freedesktop.login1.inhibit-handle-reboot-key                no:yes:yes
 
 # GNOME control-center (bsc#927508)
 org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin_keep
