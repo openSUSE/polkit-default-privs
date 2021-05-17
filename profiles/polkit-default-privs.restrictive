@@ -291,6 +291,14 @@ org.freedesktop.network1.forcerenew                             auth_admin:auth_
 # incremental addition to handle reboot key events (bsc#1185468)
 org.freedesktop.login1.inhibit-handle-reboot-key                no:auth_self:yes
 
+# systemd homed (boo#1185285)
+org.freedesktop.home1.authenticate-home                         auth_admin
+org.freedesktop.home1.create-home                               auth_admin
+org.freedesktop.home1.passwd-home                               auth_admin
+org.freedesktop.home1.remove-home                               auth_admin
+org.freedesktop.home1.resize-home                               auth_admin
+org.freedesktop.home1.update-home                               auth_admin
+
 # GNOME control-center (bsc#927508)
 org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin
 # GNOME control-center (bsc#779938)
