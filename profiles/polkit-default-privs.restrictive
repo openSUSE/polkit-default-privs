@@ -724,3 +724,6 @@ org.jonmagon.kdiskmark.dropcache                                auth_admin:auth_
 com.deepin.pkexec.deepin-system-monitor.kill no:no:auth_admin
 com.deepin.pkexec.deepin-system-monitor.renice no:no:auth_admin
 com.deepin.pkexec.deepin-system-monitor.systemctl no:no:auth_admin
+
+# setroubleshoot (boo#1186344)
+org.fedoraproject.setroubleshootfixit.write                     auth_admin
