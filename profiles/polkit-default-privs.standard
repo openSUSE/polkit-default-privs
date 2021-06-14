@@ -320,6 +320,8 @@ org.cinnamon.settings-users                                     auth_admin
 # cinnamon-control-center (bsc#1090371)
 # this is a meta action that unlocks a number of time/date related actions
 org.cinnamon.controlcenter.datetime.configure                   no:no:auth_admin_keep
+# cinnamon-settings-daemon (bsc#1186845)
+org.cinnamon.settings-daemon.plugins.wacom.wacom-led-helper     no:no:yes
 
 # hp-drive-guard
 com.hp.driveguard.toggle                                        no:no:auth_admin
