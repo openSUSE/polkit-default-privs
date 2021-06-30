@@ -495,18 +495,6 @@ org.mate.settingsdaemon.datetimemechanism.configurehwclock      no:no:auth_admin
 org.mate.randr.install-system-wide                              no:no:auth_admin_keep
 org.mate.power.backlight-helper                                 no:no:yes
 
-# policycoreutils (bsc#848550)
-org.selinux.restorecon                                          auth_admin_keep
-org.selinux.setenforce                                          auth_admin_keep
-org.selinux.semanage                                            auth_admin_keep
-org.selinux.change_default_policy                               auth_admin_keep
-org.selinux.change_policy_type                                  auth_admin_keep
-org.selinux.config.pkexec.run                                   no:no:auth_admin
-org.selinux.relabel_on_boot                                     auth_admin_keep
-# policycoreutils (bsc#878631)
-org.selinux.customized                                          no:no:auth_admin_keep
-org.selinux.semodule_list                                       no:no:auth_admin_keep
-
 # pcsc-lite (bsc#864178)
 org.debian.pcsc-lite.access_pcsc                                no:no:yes
 org.debian.pcsc-lite.access_card                                no:no:yes
