@@ -501,7 +501,7 @@ org.debian.pcsc-lite.access_card                                auth_admin:auth_
 
 # firewalld (bsc#907625, bsc#971580)
 org.fedoraproject.FirewallD1.all                                auth_admin_keep
-org.fedoraproject.FirewallD1.info                               no:yes:yes
+org.fedoraproject.FirewallD1.info                               auth_admin_keep:yes:yes
 org.fedoraproject.FirewallD1.config                             auth_admin_keep
 org.fedoraproject.FirewallD1.config.info                        auth_admin_keep
 org.fedoraproject.FirewallD1.direct                             auth_admin_keep
