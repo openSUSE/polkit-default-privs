@@ -164,8 +164,8 @@ org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
 org.kde.powerdevil.backlighthelper.syspath                      no:yes:yes
 # KDE5 powerdevil (bsc#912121, bsc#927275)
 org.kde.powerdevil.backlighthelper.brightnessmax                no:yes:yes
-# kde powerdevil gpu helper (bsc#1019644)
-org.kde.powerdevil.discretegpuhelper.hasdualgpu                 yes
+# kde powerdevil gpu helper (bsc#1019748)
+org.kde.powerdevil.discretegpuhelper.hasdualgpu                 no:no:yes
 # KDE battery charge threshold control (bsc#1176474)
 org.kde.powerdevil.chargethresholdhelper.getthreshold           no:yes:yes
 org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin_keep
