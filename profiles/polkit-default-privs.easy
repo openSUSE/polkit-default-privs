@@ -330,7 +330,7 @@ org.freedesktop.ModemManager1.Contacts                          auth_admin:auth_
 org.freedesktop.ModemManager1.Messaging                         auth_admin:auth_self_keep:yes
 org.freedesktop.ModemManager1.Location                          auth_admin:auth_self_keep:yes
 org.freedesktop.ModemManager1.Firmware                          auth_admin
-org.freedesktop.ModemManager1.USSD                              auth_admin_keep
+org.freedesktop.ModemManager1.USSD                              auth_admin:auth_admin_keep:yes
 # bsc#976945
 org.freedesktop.ModemManager1.Voice                             auth_admin:auth_self_keep:yes
 # bsc#1156961

@@ -331,7 +331,7 @@ org.freedesktop.ModemManager1.Contacts                          no:auth_admin:ye
 org.freedesktop.ModemManager1.Messaging                         no:auth_admin:yes
 org.freedesktop.ModemManager1.Location                          no:auth_admin:yes
 org.freedesktop.ModemManager1.Firmware                          no:no:auth_admin
-org.freedesktop.ModemManager1.USSD                              no:no:auth_admin_keep
+org.freedesktop.ModemManager1.USSD                              no:no:yes
 # bsc#976945
 org.freedesktop.ModemManager1.Voice                             no:no:yes
 # bsc#1156961
