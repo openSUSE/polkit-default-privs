@@ -630,7 +630,7 @@ net.connman.modify                                              auth_admin_keep
 net.connman.vpn.modify                                          auth_admin_keep
 # connman (bsc#1083069)
 net.connman.secret                                              no:no:auth_admin_keep
-net.connman.vpn.secret                                          no:no:auth_admin_keep_session
+net.connman.vpn.secret                                          no:no:auth_admin_keep
 
 # gsmartcontrol (bsc#1084693)
 org.gsmartcontrol                                               auth_admin
