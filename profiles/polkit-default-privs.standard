@@ -83,7 +83,7 @@ org.opensuse.cupspkhelper.mechanism.printer-remote-edit         auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.class-edit                  auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.server-settings             auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin_keep
-org.opensuse.cupspkhelper.mechanism.job-edit                    yes
+org.opensuse.cupspkhelper.mechanism.job-edit                    auth_admin:auth_admin:yes
 org.opensuse.cupspkhelper.mechanism.job-not-owned-edit          auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.devices-get                 auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.all-edit                    auth_admin_keep
@@ -164,8 +164,8 @@ org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
 org.kde.powerdevil.backlighthelper.syspath                      no:yes:yes
 # KDE5 powerdevil (bsc#912121, bsc#927275)
 org.kde.powerdevil.backlighthelper.brightnessmax                no:yes:yes
-# kde powerdevil gpu helper (bsc#1019644)
-org.kde.powerdevil.discretegpuhelper.hasdualgpu                 yes
+# kde powerdevil gpu helper (bsc#1019748)
+org.kde.powerdevil.discretegpuhelper.hasdualgpu                 no:no:yes
 # KDE battery charge threshold control (bsc#1176474)
 org.kde.powerdevil.chargethresholdhelper.getthreshold           no:yes:yes
 org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin_keep
@@ -317,9 +317,6 @@ org.cinnamon.settings-daemon.plugins.power.backlight-helper     no:no:yes
 org.cinnamon.settingsdaemon.datetimemechanism.configure         no:no:auth_admin_keep
 # cinnamon settings-daemon (bsc#1083067)
 org.cinnamon.settings-users                                     auth_admin
-# cinnamon-control-center (bsc#1090371)
-# this is a meta action that unlocks a number of time/date related actions
-org.cinnamon.controlcenter.datetime.configure                   no:no:auth_admin_keep
 # cinnamon-settings-daemon (bsc#1186845)
 org.cinnamon.settings-daemon.plugins.wacom.wacom-led-helper     no:no:yes
 
@@ -334,7 +331,7 @@ org.freedesktop.ModemManager1.Contacts                          no:auth_admin:ye
 org.freedesktop.ModemManager1.Messaging                         no:auth_admin:yes
 org.freedesktop.ModemManager1.Location                          no:auth_admin:yes
 org.freedesktop.ModemManager1.Firmware                          no:no:auth_admin
-org.freedesktop.ModemManager1.USSD                              no:no:auth_admin_keep
+org.freedesktop.ModemManager1.USSD                              no:no:yes
 # bsc#976945
 org.freedesktop.ModemManager1.Voice                             no:no:yes
 # bsc#1156961
@@ -499,18 +496,6 @@ org.mate.settingsdaemon.datetimemechanism.configurehwclock      auth_admin_keep
 org.mate.randr.install-system-wide                              auth_admin_keep
 org.mate.power.backlight-helper                                 auth_admin:auth_self:yes
 
-# policycoreutils (bsc#848550)
-org.selinux.restorecon                                          auth_admin_keep
-org.selinux.setenforce                                          auth_admin_keep
-org.selinux.semanage                                            auth_admin_keep
-org.selinux.change_default_policy                               auth_admin_keep
-org.selinux.change_policy_type                                  auth_admin_keep
-org.selinux.config.pkexec.run                                   no:no:auth_admin
-org.selinux.relabel_on_boot                                     auth_admin_keep
-# policycoreutils (bsc#878631)
-org.selinux.customized                                          no:no:yes
-org.selinux.semodule_list                                       no:no:yes
-
 # pcsc-lite (bsc#864178)
 org.debian.pcsc-lite.access_pcsc                                auth_admin:auth_admin:yes
 org.debian.pcsc-lite.access_card                                auth_admin:auth_admin:yes
@@ -631,7 +616,7 @@ net.connman.modify                                              auth_admin_keep
 net.connman.vpn.modify                                          auth_admin_keep
 # connman (bsc#1083069)
 net.connman.secret                                              no:no:auth_admin_keep
-net.connman.vpn.secret                                          no:no:auth_admin_keep_session
+net.connman.vpn.secret                                          no:no:auth_admin_keep
 
 # gsmartcontrol (bsc#1084693)
 org.gsmartcontrol                                               auth_admin
