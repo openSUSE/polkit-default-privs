@@ -1,5 +1,7 @@
 #
 # /etc/polkit-default-privs.local
+# NOTE: This file is a template ONLY. Please create a copy of it in the
+#       /etc directory and remove this line.
 #
 # This file is used by the set_polkit_default_privs tool to generate polkit
 # rules. It is meant for local overrides of the active profile (defined in

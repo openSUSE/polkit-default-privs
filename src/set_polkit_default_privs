@@ -51,8 +51,8 @@ have_local=
 for level in $POLKIT_DEFAULT_PRIVS; do
     case "$level" in
 	easy|standard|restrictive)
-	    if [ -e /etc/polkit-default-privs.$level ]; then
-		files="$files /etc/polkit-default-privs.$level"
+	    if [ -e /usr/etc/polkit-default-privs.$level ]; then
+		files="$files /usr/etc/polkit-default-privs.$level"
 	    fi
 	;;
 	*)
