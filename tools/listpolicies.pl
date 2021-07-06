@@ -43,7 +43,7 @@ if ($#ARGV == -1) {
 	my $rpm_buildroot = $ENV{'RPM_BUILD_ROOT'} || '';
 	push @ARGV, glob "$rpm_buildroot/usr/share/polkit-1/actions/*.policy";
 	unless ($options{'policy'}) {
-		$options{'policy'} = [ "$buildroot/etc/polkit-default-privs.standard" ];
+		$options{'policy'} = [ "$buildroot/urs/etc/polkit-default-privs.standard" ];
 	}
 }
 

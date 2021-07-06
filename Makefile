@@ -1,6 +1,6 @@
 DESTDIR=
 sbindir=/sbin
-sysconfdir=/etc
+sysconfdir=/usr/etc
 fillupdir=/var/adm/fillup-templates
 mandir=/usr/share/man
 docdir=/usr/share/doc/packages
