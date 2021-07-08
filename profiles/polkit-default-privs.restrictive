@@ -365,7 +365,7 @@ org.freedesktop.udisks2.power-off-drive                         auth_admin:auth_
 
 # fprintfd (bsc#792095, bsc#850807)
 net.reactivated.fprint.device.verify                            no:no:yes
-net.reactivated.fprint.device.enroll                            no:no:yes
+net.reactivated.fprint.device.enroll                            no:no:auth_self_keep
 net.reactivated.fprint.device.setusername                       no:no:auth_admin_keep
 
 # gnome-system-monitor (bsc#822011)
