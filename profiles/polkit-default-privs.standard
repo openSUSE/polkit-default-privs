@@ -701,7 +701,7 @@ org.freedesktop.MalcontentControl.administration                no:no:auth_admin
 com.endlessm.ParentalControls.AccountInfo.ReadOwn               yes:yes:yes
 
 # kdenetwork-filesharing, Samba configuration (bsc#1175633)
-org.kde.filesharing.samba.isuserknown                           yes:yes:yes
+org.kde.filesharing.samba.isuserknown                           no:yes:yes
 org.kde.filesharing.samba.createuser                            auth_admin:auth_admin:auth_admin
 org.kde.filesharing.samba.addtogroup                            auth_admin:auth_admin:auth_admin
 
