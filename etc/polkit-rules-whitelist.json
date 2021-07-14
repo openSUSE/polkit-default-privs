@@ -14,7 +14,7 @@
 			"bsc#1125314": {
 				"comment": "default rule shipped by polkit, allows uid 0 to do everything",
 				"digests": {
-					"/etc/polkit-1/rules.d/50-default.rules": "sha256:aea3041de2c15db8683620de8533206e50241c309eb27893605d5ead17e5e75f"
+					"/usr/share/polkit-1/rules.d/50-default.rules": "sha256:aea3041de2c15db8683620de8533206e50241c309eb27893605d5ead17e5e75f"
 				}
 			}
 		}
