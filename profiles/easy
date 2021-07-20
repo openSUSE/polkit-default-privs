@@ -1,9 +1,12 @@
 #
-# /etc/polkit-default-privs.easy is set up for use in single-user
-# desktop systems to make common operations work out-of-the box for
-# locally logged in users.
+# The easy profile is set up for use in single-user desktop systems to make
+# common operations work out-of-the box for locally logged in users.
 #
-# Please do not modify this file, use polkit-default-privs.local instead.
+# Please do not modify this file, use a local copy of
+#     /usr/etc/polkit-default-privs/local.template
+# in
+#     /etc/polkit-default-privs/local
+# instead.
 
 
 # NetworkManager

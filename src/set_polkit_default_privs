@@ -45,16 +45,26 @@ esac
 #
 # 1. common privileges file (we have none yet)
 files=""
+FIXED_PROFILES_DIR=/usr/etc/polkit-default-privs/profiles
+CUSTOM_PROFILES_DIR=/etc/polkit-default-privs
 
 # 2. easy, standard, restrictive as those are defined by SUSE
 have_local=
 for level in $POLKIT_DEFAULT_PRIVS; do
+    profile=$FIXED_PROFILES_DIR/$level
     case "$level" in
 	easy|standard|restrictive)
-	    if [ -e /etc/polkit-default-privs.$level ]; then
-		files="$files /etc/polkit-default-privs.$level"
+	    if [ -e $profile ]; then
+		files="$files $profile"
 	    fi
 	;;
+	local)
+	    # we always add the local profile to the list of profiles, this
+	    # only serves as an ordering helper, i.e. if a specific order is
+	    # configured, then maintain that. Otherwise append "local" to the
+	    # end below.
+	    have_local=1
+	    ;;
 	*)
 	    echo "invalid value '$level' in POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security, ignoring" 1>&2
 	;;
@@ -65,28 +75,14 @@ if [ -z "$have_local" ]; then
 	POLKIT_DEFAULT_PRIVS="$POLKIT_DEFAULT_PRIVS local"
 fi
 
-# 3. package specific privileges
-pkgfiles=(/etc/polkit-default-privs.d/*)
-pkgfiles=(${pkgfiles[*]##*/})
-pkgfiles=(${pkgfiles[*]%%.*})
-pkgfiles=(`for i in ${pkgfiles[@]}; do echo $i; done | /usr/bin/sort -u`)
-
-for file in ${pkgfiles[@]}; do
-    file=/etc/polkit-default-privs.d/$file
-    [ -e $file ] && files="$files $file"
-    for level in $POLKIT_DEFAULT_PRIVS; do 
-	[ -e $file.$level ] && files="$files $file.$level"
-    done
-done
-
-# 4. central privileges files with user defined level incl 'local'
+# 3. central privileges files with user defined level incl 'local'
 for level in $POLKIT_DEFAULT_PRIVS; do 
     case "$level" in
 	easy|standard|restrictive) continue ;;
-	local) have_local=1 ;;
     esac
-    if [ -e /etc/polkit-default-privs.$level ]; then
-	files="$files /etc/polkit-default-privs.$level"
+    profile=$CUSTOM_PROFILES_DIR/$level
+    if [ -e $profile ]; then
+	files="$files $profile"
     fi
 done
 

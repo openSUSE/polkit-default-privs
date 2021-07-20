@@ -1,10 +1,14 @@
 #
-# /etc/polkit-default-privs.restrictive use in an environment where
+# The restrictive profile is for use in an environment where
 # security is a major concern or hosts are centrally administered and users
 # should have minimal privileges. Many operations require authentication
 # as admin.
 #
-# Please do not modify this file, use polkit-default-privs.local instead.
+# Please do not modify this file, use a local copy of
+#     /usr/etc/polkit-default-privs/local.template
+# in
+#     /etc/polkit-default-privs/local
+# instead.
 
 # NetworkManager
 org.freedesktop.NetworkManager.enable-disable-network           no:no:auth_admin

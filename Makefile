@@ -1,6 +1,7 @@
 DESTDIR=
 sbindir=/sbin
-sysconfdir=/etc
+sysconfdir=/usr/etc/polkit-default-privs
+profiledir=$(sysconfdir)/profiles
 fillupdir=/var/adm/fillup-templates
 mandir=/usr/share/man
 docdir=/usr/share/doc/packages
@@ -18,14 +19,17 @@ clean:
 	rm -f man/*.{5,8}
 
 install:
-	install -d $(DESTDIR)$(sbindir)  $(DESTDIR)$(sysconfdir) $(DESTDIR)$(fillupdir)
-	install -d $(DESTDIR)$(sysconfdir)/polkit-default-privs.d
+	install -d $(DESTDIR)$(sbindir)  $(DESTDIR)$(sysconfdir) $(DESTDIR)$(fillupdir) $(DESTDIR)$(profiledir)
 	install -d $(DESTDIR)$(docdir)/polkit-default-privs
 	install -m 755 src/set_polkit_default_privs $(DESTDIR)$(sbindir)
 	install -m 755 src/chkstat-polkit $(DESTDIR)$(sbindir)
-	install -m 644 profiles/polkit-default-privs.{easy,standard,restrictive,local} $(DESTDIR)$(sysconfdir)
+	install -m 644 profiles/* $(DESTDIR)$(profiledir)
+	install -m 644 etc/local.template $(DESTDIR)$(sysconfdir)
 	install -m 644 etc/sysconfig.security-polkit_default_privs $(DESTDIR)$(fillupdir)
-	install -m 644 etc/polkit-rules-whitelist.json $(DESTDIR)$(sysconfdir)
+	# create a safe directory for potential custom profiles
+	install -d $(DESTDIR)/etc/polkit-default-privs
+	# TODO: remove whitelist.json once rpmlint2 is in place
+	install -m 644 etc/polkit-rules-whitelist.json $(DESTDIR)/etc
 	install -m 644 README.md $(DESTDIR)$(docdir)/polkit-default-privs
 	@for src in $(manpages); do \
 		page=`basename $$src` \

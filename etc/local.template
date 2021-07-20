@@ -1,11 +1,13 @@
 #
-# /etc/polkit-default-privs.local
+# /etc/polkit-default-privs/local
+# NOTE: This file is a template ONLY. Please create a copy of it in
+#       /etc/polkit-default-privs/local and remove this NOTE.
 #
 # This file is used by the set_polkit_default_privs tool to generate polkit
 # rules. It is meant for local overrides of the active profile (defined in
 # /etc/sysconfig/security) by the administrator of the system: any definitions
 # here take precedence over the distribution defaults in
-# /etc/polkit-default-privs.<profile>.
+# /usr/etc/polkit-default-privs/profiles/<profile>.
 #
 # The syntax for this file is defined in polkit-default-privs(5). Note that you
 # need to run /sbin/set_polkit_default_privs for changes to take effect.

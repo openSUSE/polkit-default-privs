@@ -2,12 +2,12 @@
 .\"     Title: polkit-default-privs
 .\"    Author: [see the "AUTHORS" section]
 .\" Generator: DocBook XSL Stylesheets v1.79.1 <http://docbook.sf.net/>
-.\"      Date: 02/07/2019
+.\"      Date: 07/20/2021
 .\"    Manual: \ \&
 .\"    Source: \ \&
 .\"  Language: English
 .\"
-.TH "POLKIT\-DEFAULT\-PRI" "5" "02/07/2019" "\ \&" "\ \&"
+.TH "POLKIT\-DEFAULT\-PRI" "5" "07/20/2021" "\ \&" "\ \&"
 .\" -----------------------------------------------------------------
 .\" * Define some portability stuff
 .\" -----------------------------------------------------------------
@@ -31,7 +31,7 @@
 polkit-default-privs \- configuration of polkit security profiles
 .SH "DESCRIPTION"
 .sp
-The files \fI/etc/polkit\-default\-privs\&.*\fR define different security profiles that influence the authorization required for various polkit actions used across applications\&. These files are line based and whitespace delimited\&.
+The files in \fI/usr/etc/polkit\-default\-privs/profiles\fR define different security profiles that influence the authorization required for various polkit actions used across applications\&. These files are line based and whitespace delimited\&.
 .sp
 Lines starting with # are comments\&. Comments and empty lines will be ignored\&. All other lines consist of two whitespace delimited columns \fIACTION\fR and \fIAUTHORIZATION\fR\&. The \fIACTION\fR column specifies the polkit action name to configure the default polkit authorization settings for\&.
 .sp
@@ -96,15 +96,13 @@ This line configures the org\&.spice\-space\&.lowlevelusbaccess polkit action to
 This line configures the net\&.connman\&.modify polkit action to require admin authentication for all three user context types: remote users, inactive users and active users\&.
 .SH "FILES"
 .sp
-/etc/polkit\-default\-privs\&.local
+/usr/etc/polkit\-default\-privs/local\&.template is a template for /etc/polkit\-default\-privs\&.local
 .sp
-/etc/polkit\-default\-privs\&.restrictive
+/usr/etc/polkit\-default\-privs/profiles/restrictive
 .sp
-/etc/polkit\-default\-privs\&.standard
+/usr/etc/polkit\-default\-privs/profiles/standard
 .sp
-/etc/polkit\-default\-privs\&.easy
-.sp
-/etc/polkit\-default\-privs\&.d/*
+/usr/etc/polkit\-default\-privs/profiles/easy
 .SH "SEE ALSO"
 .sp
 set_polkit_default_privs(8), polkit(8)

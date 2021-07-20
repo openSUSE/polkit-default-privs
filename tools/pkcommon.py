@@ -5,14 +5,14 @@ from pathlib import Path
 PROFILES = ("easy", "standard", "restrictive")
 profile_dir = Path(__file__).parent.with_name("profiles")
 
+
 def printerr(*args, **kwargs):
     kwargs["file"] = sys.stderr
     print(*args, **kwargs)
 
 
 def getProfilePath(which):
-    base = "polkit-default-privs.{}".format(which)
-    return profile_dir / base
+    return profile_dir / which
 
 
 class ProfileEntry:

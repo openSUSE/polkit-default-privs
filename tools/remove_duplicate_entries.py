@@ -4,15 +4,15 @@
 
 import argparse
 
-from pkcommon import *
+from pkcommon import PROFILES, getProfilePath, parseProfile, printerr
+
 
 class DuplicateEntryRemover:
 
     def __init__(self):
         self.m_parser = argparse.ArgumentParser(
-                description = "Removes superfluous duplicate entries from polkit profiles or warns about conflicting ones."
+            description="Removes superfluous duplicate entries from polkit profiles or warns about conflicting ones."
         )
-
 
     def run(self):
         self.m_args = self.m_parser.parse_args()
@@ -30,7 +30,6 @@ class DuplicateEntryRemover:
                 self.rewriteProfile(path, self.m_lines_to_drop)
             else:
                 print("{}: no entries removed".format(path.name.ljust(35)))
-
 
     def checkDuplicate(self, entry):
         seen = self.m_actions_seen.get(entry.action, None)
@@ -55,14 +54,13 @@ class DuplicateEntryRemover:
 
                 ))
 
-
     def rewriteProfile(self, path, lines_to_drop):
 
         lines = []
 
         with open(path) as fd:
 
-            for linenr, line in enumerate(fd.readlines(), start = 1):
+            for linenr, line in enumerate(fd.readlines(), start=1):
 
                 if linenr not in lines_to_drop:
                     lines.append(line)
