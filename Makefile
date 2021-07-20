@@ -19,7 +19,6 @@ clean:
 
 install:
 	install -d $(DESTDIR)$(sbindir)  $(DESTDIR)$(sysconfdir) $(DESTDIR)$(fillupdir)
-	install -d $(DESTDIR)$(sysconfdir)/polkit-default-privs.d
 	install -d $(DESTDIR)$(docdir)/polkit-default-privs
 	install -m 755 src/set_polkit_default_privs $(DESTDIR)$(sbindir)
 	install -m 755 src/chkstat-polkit $(DESTDIR)$(sbindir)

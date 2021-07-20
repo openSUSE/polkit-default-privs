@@ -87,8 +87,6 @@ FILES
 
 `/usr/etc/polkit-default-privs.easy`
 
-`/etc/polkit-default-privs.d/*`
-
 SEE ALSO
 --------
 set_polkit_default_privs(8), polkit(8)
