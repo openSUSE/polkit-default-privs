@@ -2,21 +2,22 @@
 
 # vim: ts=4 et sw=4 sts=4 :
 
-import os, sys
 import argparse
+import sys
 
-from pkcommon import *
+from pkcommon import PROFILES, getProfilePath, parseProfile, printerr
 
-epilog = """Example invocation:
+epilog = f"""Example invocation:
 
 # add a single new rule introducing a new group of actions
-{} \\
+{__file__} \\
     --new-group "bsc#1165436:backup tool that performs privilege escalation to root" \\
     --action in.teejeetech.pkexec.timeshift \\
     --easy auth_admin:auth_admin:auth_admin_keep \\
     --standard auth_admin \\
     --restrictive auth_admin
-""".format(__file__)
+"""
+
 
 class PolkitActionHandler:
 
@@ -28,33 +29,33 @@ class PolkitActionHandler:
     def __init__(self):
 
         self.m_parser = argparse.ArgumentParser(
-            description = "Adds a new action with associated authentication settings to the polkit profiles managed by polkit-default-privs",
-            formatter_class = argparse.RawTextHelpFormatter,
-            epilog = epilog
+            description="Adds a new action with associated authentication settings to the polkit profiles managed by polkit-default-privs",
+            formatter_class=argparse.RawTextHelpFormatter,
+            epilog=epilog
         )
 
         self.m_parser.add_argument(
             "--new-group",
-            metavar = "bsc#<bug>:<comment>",
-            type = self.parseGroupArg,
-            help = "Introduces a new group block of related polkit actions. Requires a bug reference and comment string"
+            metavar="bsc#<bug>:<comment>",
+            type=self.parseGroupArg,
+            help="Introduces a new group block of related polkit actions. Requires a bug reference and comment string"
         )
 
         self.m_parser.add_argument(
             "--action",
-            help = "the canonical action name to add like 'in.teejeetech.pkexec.timeshift'",
-            required = True,
-            type = self.parseAction
+            help="the canonical action name to add like 'in.teejeetech.pkexec.timeshift'",
+            required=True,
+            type=self.parseAction
         )
 
         for profile in PROFILES:
 
             self.m_parser.add_argument(
                 "--" + profile,
-                metavar = ':'.join(self.AUTH_CATEGORIES),
-                type = self.parseAuthTuple,
-                help = "Specifies the settings for the --action in this profile. If all three fields are equal you may also specify only a single field without colons.",
-                required = True
+                metavar=':'.join(self.AUTH_CATEGORIES),
+                type=self.parseAuthTuple,
+                help="Specifies the settings for the --action in this profile. If all three fields are equal you may also specify only a single field without colons.",
+                required=True
             )
 
     def parseAuthTuple(self, s):
@@ -128,7 +129,7 @@ class PolkitActionHandler:
 
         self.m_args = self.m_parser.parse_args()
         # tuple of auth types matching the profiles
-        self.m_auth_types = tuple( getattr(self.m_args, profile) for profile in PROFILES )
+        self.m_auth_types = tuple(getattr(self.m_args, profile) for profile in PROFILES)
 
         if not self.sanityCheck():
             printerr("Not adding new action since sanity check(s) failed")
@@ -176,16 +177,16 @@ class PolkitActionHandler:
         profiles."""
 
         ret = True
-        strongest = [ self.AUTH_TYPES[0] ] * 3
+        strongest = [self.AUTH_TYPES[0]] * 3
 
-        for profile, auth_types in zip( PROFILES, self.m_auth_types ):
-            for nr, old, new in zip( range(len(strongest)), strongest, auth_types ):
+        for profile, auth_types in zip(PROFILES, self.m_auth_types):
+            for nr, old, new in zip(range(len(strongest)), strongest, auth_types):
 
                 if self.AUTH_TYPES.index(old) > self.AUTH_TYPES.index(new):
                     printerr("ERROR: Auth type for {} in profile {} is weaker than in profile {}".format(
                         self.AUTH_CATEGORIES[nr],
                         profile,
-                        PROFILES[ PROFILES.index(profile) - 1]
+                        PROFILES[PROFILES.index(profile) - 1]
                     ))
                     ret = False
 
@@ -217,8 +218,8 @@ class PolkitActionHandler:
             # actual bug summary once more on success
             subprocess.check_call(
                 [insect, "info", "-1", str(nr)],
-                shell = False,
-                close_fds = True
+                shell=False,
+                close_fds=True
             )
         except subprocess.CalledProcessError:
             printerr("ERROR: bug {}#{} doesn't seem to exist".format(*bug))
