@@ -45,16 +45,26 @@ esac
 #
 # 1. common privileges file (we have none yet)
 files=""
+FIXED_PROFILES_DIR=/usr/etc/polkit-default-privs/profiles
+CUSTOM_PROFILES_DIR=/etc/polkit-default-privs
 
 # 2. easy, standard, restrictive as those are defined by SUSE
 have_local=
 for level in $POLKIT_DEFAULT_PRIVS; do
+    profile=$FIXED_PROFILES_DIR/$level
     case "$level" in
 	easy|standard|restrictive)
-	    if [ -e /usr/etc/polkit-default-privs.$level ]; then
-		files="$files /usr/etc/polkit-default-privs.$level"
+	    if [ -e $profile ]; then
+		files="$files $profile"
 	    fi
 	;;
+	local)
+	    # we always add the local profile to the list of profiles, this
+	    # only serves as an ordering helper, i.e. if a specific order is
+	    # configured, then maintain that. Otherwise append "local" to the
+	    # end below.
+	    have_local=1
+	    ;;
 	*)
 	    echo "invalid value '$level' in POLKIT_DEFAULT_PRIVS in /etc/sysconfig/security, ignoring" 1>&2
 	;;
@@ -69,10 +79,10 @@ fi
 for level in $POLKIT_DEFAULT_PRIVS; do 
     case "$level" in
 	easy|standard|restrictive) continue ;;
-	local) have_local=1 ;;
     esac
-    if [ -e /etc/polkit-default-privs.$level ]; then
-	files="$files /etc/polkit-default-privs.$level"
+    profile=$CUSTOM_PROFILES_DIR/$level
+    if [ -e $profile ]; then
+	files="$files $profile"
     fi
 done
 

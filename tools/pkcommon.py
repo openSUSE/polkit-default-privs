@@ -11,8 +11,7 @@ def printerr(*args, **kwargs):
 
 
 def getProfilePath(which):
-    base = "polkit-default-privs.{}".format(which)
-    return profile_dir / base
+    return profile_dir / which
 
 
 class ProfileEntry:

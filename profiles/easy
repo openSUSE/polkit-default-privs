@@ -1,60 +1,62 @@
 #
-# /usr/etc/polkit-default-privs.restrictive use in an environment where
-# security is a major concern or hosts are centrally administered and users
-# should have minimal privileges. Many operations require authentication
-# as admin.
+# The easy profile is set up for use in single-user desktop systems to make
+# common operations work out-of-the box for locally logged in users.
 #
 # Please do not modify this file, use a local copy of
-# /usr/etc/polkit-default-privs.local in /etc instead.
+#     /usr/etc/polkit-default-privs/local.template
+# in
+#     /etc/polkit-default-privs/local
+# instead.
+
 
 # NetworkManager
-org.freedesktop.NetworkManager.enable-disable-network           no:no:auth_admin
-org.freedesktop.NetworkManager.enable-disable-wifi              no:no:auth_admin
-org.freedesktop.NetworkManager.enable-disable-wwan              no:no:auth_admin
-# auth_admin probably causes issues with suspend here? (bsc#716291)
-org.freedesktop.NetworkManager.network-control                  no:no:auth_admin
-org.freedesktop.NetworkManager.sleep-wake                       no
+org.freedesktop.NetworkManager.enable-disable-network           auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.enable-disable-wifi              auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.enable-disable-wwan              auth_admin:auth_admin:yes
+# auth_admin probably causes issues with suspend here (bsc#716291)
+org.freedesktop.NetworkManager.network-control                  no:no:yes
+org.freedesktop.NetworkManager.sleep-wake                       auth_admin
 # bsc#680140
-org.freedesktop.NetworkManager.enable-disable-wimax             no:no:auth_admin
-org.freedesktop.NetworkManager.wifi.share.protected             no:no:auth_admin
-org.freedesktop.NetworkManager.wifi.share.open                  no:no:auth_admin
-org.freedesktop.NetworkManager.settings.modify.own              auth_admin_keep
+org.freedesktop.NetworkManager.enable-disable-wimax             auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.wifi.share.protected             auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.wifi.share.open                  auth_admin:auth_admin:yes
+org.freedesktop.NetworkManager.settings.modify.own              auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.NetworkManager.settings.modify.system           auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 # bsc#996110
-org.freedesktop.NetworkManager.enable-disable-statistics        no:no:auth_admin_keep
+org.freedesktop.NetworkManager.enable-disable-statistics        no:no:yes
 # bsc#1072702
-org.freedesktop.NetworkManager.enable-disable-connectivity-check no:no:auth_admin_keep
+org.freedesktop.NetworkManager.enable-disable-connectivity-check no:no:yes
 # bsc#1077504
 org.freedesktop.NetworkManager.checkpoint-rollback              auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.reload                           auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:auth_admin_keep:auth_admin_keep
 # bsc#1122262, bsc#1128560 (renamed from previously wifi-scan)
-org.freedesktop.NetworkManager.wifi.scan                        auth_admin:auth_admin_keep:yes
+org.freedesktop.NetworkManager.wifi.scan                        auth_admin:yes:yes
 
 # gnome-settings-daemon (bsc#750795)
-org.gnome.settings-daemon.plugins.wacom.wacom-led-helper        no:no:auth_admin
+org.gnome.settings-daemon.plugins.wacom.wacom-led-helper        no:no:yes
 # bsc#822405
-org.gnome.settings-daemon.plugins.wacom.wacom-oled-helper       no:no:auth_admin
+org.gnome.settings-daemon.plugins.wacom.wacom-oled-helper       no:no:yes
 
-# colord (bsc#698250, bsc#887511, bsc#918594)
+# colord (bsc#698250, bsc#918594)
 org.freedesktop.color-manager.create-device                     no:no:yes
 org.freedesktop.color-manager.create-profile                    no:no:yes
 org.freedesktop.color-manager.delete-device                     no:no:yes
 org.freedesktop.color-manager.delete-profile                    no:no:yes
-org.freedesktop.color-manager.modify-device                     auth_admin
-org.freedesktop.color-manager.modify-profile                    auth_admin
-org.freedesktop.color-manager.install-system-wide               auth_admin
-org.freedesktop.color-manager.device-inhibit                    auth_admin
-org.freedesktop.color-manager.sensor-lock                       auth_admin
+org.freedesktop.color-manager.modify-device                     auth_admin:auth_admin:yes
+org.freedesktop.color-manager.modify-profile                    auth_admin:auth_admin:yes
+org.freedesktop.color-manager.install-system-wide               auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.color-manager.device-inhibit                    auth_admin:auth_admin:yes
+org.freedesktop.color-manager.sensor-lock                       auth_admin:auth_admin:yes
 
 # PackageKit
 org.freedesktop.packagekit.package-install                      auth_admin_keep
 org.freedesktop.packagekit.package-install-untrusted            auth_admin
 org.freedesktop.packagekit.system-trust-signing-key             auth_admin
-org.freedesktop.packagekit.package-eula-accept                  auth_admin_keep
+org.freedesktop.packagekit.package-eula-accept                  auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.packagekit.package-remove                       auth_admin_keep
-org.freedesktop.packagekit.system-update                        auth_admin_keep
+org.freedesktop.packagekit.system-update                        auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.packagekit.system-sources-configure             auth_admin_keep
 org.freedesktop.packagekit.system-sources-refresh               no:no:yes
 org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep
@@ -64,13 +66,13 @@ org.freedesktop.packagekit.upgrade-system                       auth_admin
 org.freedesktop.packagekit.repair-system                        auth_admin
 # PackageKit / systemd offline updates (bsc#798885)
 # same as org.freedesktop.packagekit.system-update
-org.freedesktop.packagekit.trigger-offline-update               auth_admin_keep
-org.freedesktop.packagekit.clear-offline-update                 auth_admin_keep
+org.freedesktop.packagekit.trigger-offline-update               auth_admin_keep:auth_admin_keep:yes
+org.freedesktop.packagekit.clear-offline-update                 auth_admin_keep:auth_admin_keep:yes
 # PackageKit (bsc#929212)
 org.freedesktop.packagekit.package-reinstall                    auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.packagekit.package-downgrade                    auth_admin:auth_admin:auth_admin_keep
 # PackageKit (bsc#993505)
-org.freedesktop.packagekit.trigger-offline-upgrade              no:auth_admin:auth_admin
+org.freedesktop.packagekit.trigger-offline-upgrade              auth_admin:auth_admin:auth_admin
 
 # gconf
 org.gnome.gconf.defaults.set-system                             auth_admin_keep
@@ -84,14 +86,14 @@ org.opensuse.cupspkhelper.mechanism.printer-remote-edit         auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.class-edit                  auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.server-settings             auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.printeraddremove            auth_admin_keep
-org.opensuse.cupspkhelper.mechanism.job-edit                    auth_admin:auth_admin:yes
+org.opensuse.cupspkhelper.mechanism.job-edit                    auth_admin:yes:yes
 org.opensuse.cupspkhelper.mechanism.job-not-owned-edit          auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.devices-get                 auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.all-edit                    auth_admin_keep
 
 # RealTimeKit (bsc#753849)
-org.freedesktop.RealtimeKit1.acquire-high-priority              no:auth_admin:auth_admin
-org.freedesktop.RealtimeKit1.acquire-real-time                  no:auth_admin:auth_admin
+org.freedesktop.RealtimeKit1.acquire-high-priority              no:yes:yes
+org.freedesktop.RealtimeKit1.acquire-real-time                  no:yes:yes
 
 # polkit-1
 org.freedesktop.policykit.exec                                  auth_admin
@@ -99,35 +101,35 @@ org.freedesktop.policykit.exec                                  auth_admin
 org.freedesktop.policykit.example.pkexec.run-frobnicate         no:no:auth_admin_keep
 
 # udisks2 (bsc#742751)
-org.freedesktop.udisks2.filesystem-mount-system                 auth_admin
-org.freedesktop.udisks2.filesystem-fstab                        auth_admin
-org.freedesktop.udisks2.filesystem-unmount-others               auth_admin
-org.freedesktop.udisks2.encrypted-unlock-system                 auth_admin
-org.freedesktop.udisks2.encrypted-unlock-crypttab               auth_admin
-org.freedesktop.udisks2.encrypted-lock-others                   auth_admin
-org.freedesktop.udisks2.encrypted-change-passphrase-system      auth_admin
-org.freedesktop.udisks2.loop-delete-others                      auth_admin
-org.freedesktop.udisks2.manage-swapspace                        auth_admin
-org.freedesktop.udisks2.modify-device-system                    auth_admin
-org.freedesktop.udisks2.open-device                             auth_admin
-org.freedesktop.udisks2.open-device-system                      auth_admin
+org.freedesktop.udisks2.filesystem-mount-system                 auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.filesystem-fstab                        auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.filesystem-unmount-others               auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.encrypted-unlock-system                 auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.encrypted-unlock-crypttab               auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.encrypted-lock-others                   auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.encrypted-change-passphrase-system      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.loop-delete-others                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.manage-swapspace                        auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.modify-device-system                    auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.open-device                             auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.open-device-system                      auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.modify-system-configuration             auth_admin
 org.freedesktop.udisks2.read-system-configuration-secrets       auth_admin
-org.freedesktop.udisks2.ata-smart-selftest                      auth_admin
-org.freedesktop.udisks2.filesystem-mount                        auth_admin
-org.freedesktop.udisks2.encrypted-unlock                        auth_admin
-org.freedesktop.udisks2.encrypted-change-passphrase             auth_admin
-org.freedesktop.udisks2.loop-setup                              auth_admin
-org.freedesktop.udisks2.modify-device                           auth_admin
-org.freedesktop.udisks2.ata-smart-update                        auth_admin
+org.freedesktop.udisks2.ata-smart-selftest                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.filesystem-mount                        auth_admin:auth_admin:yes
+org.freedesktop.udisks2.encrypted-unlock                        auth_admin:auth_admin:yes
+org.freedesktop.udisks2.encrypted-change-passphrase             auth_admin:auth_admin:yes
+org.freedesktop.udisks2.loop-setup                              auth_admin:auth_admin:yes
+org.freedesktop.udisks2.modify-device                           auth_admin:auth_admin:yes
+org.freedesktop.udisks2.ata-smart-update                        auth_admin:auth_admin:yes
 # (bsc#761872)
-org.freedesktop.udisks2.eject-media                             auth_admin
-org.freedesktop.udisks2.filesystem-mount-other-seat             auth_admin
-org.freedesktop.udisks2.encrypted-unlock-other-seat             auth_admin
-org.freedesktop.udisks2.loop-modify-others                      auth_admin
-org.freedesktop.udisks2.eject-media-system                      auth_admin
-org.freedesktop.udisks2.eject-media-other-seat                  auth_admin
-org.freedesktop.udisks2.modify-device-other-seat                auth_admin
+org.freedesktop.udisks2.eject-media                             auth_admin:auth_admin:yes
+org.freedesktop.udisks2.filesystem-mount-other-seat             auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.encrypted-unlock-other-seat             auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.loop-modify-others                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.eject-media-system                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.eject-media-other-seat                  auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.modify-device-other-seat                auth_admin:auth_admin:auth_admin_keep
 # (bsc#779404)
 # root only parts
 org.freedesktop.udisks2.modify-drive-settings                   auth_admin:auth_admin:auth_admin_keep
@@ -149,7 +151,7 @@ org.freedesktop.udisks2.lvm2.manage-lvm                         auth_admin:auth_
 org.freedesktop.udisks2.lsm.manage-led                          auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.zram.manage-zram                        auth_admin:auth_admin:auth_admin_keep
 # bsc#1123747
-org.freedesktop.udisks2.vdo.manage-vdo                          auth_admin
+org.freedesktop.udisks2.vdo.manage-vdo                          auth_admin:auth_admin:auth_admin_keep
 
 # KDE stuff
 org.kde.fontinst.manage                                         no:no:auth_admin_keep
@@ -159,17 +161,17 @@ org.kde.ksysguard.processlisthelper.changeioscheduler           no:no:auth_admin
 org.kde.ksysguard.processlisthelper.renice                      no:no:auth_admin
 org.kde.ksysguard.processlisthelper.sendsignal                  no:no:auth_admin
 # kde backlight helper (bsc#672145)
-org.kde.powerdevil.backlighthelper.brightness                   no:auth_admin:yes
+org.kde.powerdevil.backlighthelper.brightness                   no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightness                no:no:yes
 # powerdevil (bsc#825256)
 org.kde.powerdevil.backlighthelper.syspath                      no:yes:yes
 # KDE5 powerdevil (bsc#912121, bsc#927275)
 org.kde.powerdevil.backlighthelper.brightnessmax                no:yes:yes
-# kde powerdevil gpu helper (bsc#1019748, bsc#1026038)
-org.kde.powerdevil.discretegpuhelper.hasdualgpu                 no:no:yes
+# kde powerdevil gpu helper (bsc#1019748)
+org.kde.powerdevil.discretegpuhelper.hasdualgpu                 yes
 # KDE battery charge threshold control (bsc#1176474)
-org.kde.powerdevil.chargethresholdhelper.getthreshold           no:auth_admin:yes
-org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin
+org.kde.powerdevil.chargethresholdhelper.getthreshold           no:yes:yes
+org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin_keep
 # kdepim4/kalarm (bsc#707723, bsc#1087714 (renamed from kalarmrtcwake))
 org.kde.kalarm.rtcwake.settimer                                 auth_admin_keep
 # sddm kcm operation (bsc#904313)
@@ -178,12 +180,12 @@ org.kde.kcontrol.kcmsddm.save                                   auth_admin
 org.kde.kcontrol.kcmsddm.installtheme                           no:no:auth_admin_keep
 org.kde.kcontrol.kcmsddm.uninstalltheme                         no:no:auth_admin_keep
 # sddm kcm incremental addition (bsc#1145182)
-org.kde.kcontrol.kcmsddm.reset                                  no:no:auth_admin
-org.kde.kcontrol.kcmsddm.sync                                   no:no:auth_admin
+org.kde.kcontrol.kcmsddm.reset                                  no:no:auth_admin_keep
+org.kde.kcontrol.kcmsddm.sync                                   no:no:auth_admin_keep
 # kwallet5 (bsc#849739, bsc#1033296)
-org.kde.kcontrol.kcmkwallet5.save                               no:no:auth_admin_keep
+org.kde.kcontrol.kcmkwallet5.save                               no:no:yes
 # KDE smartctl helper (bsc#1176742)
-org.kde.kded.smart.smartctl                                     no:no:auth_admin
+org.kde.kded.smart.smartctl                                     auth_admin:auth_admin:yes
 
 # systemd (bsc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
@@ -191,17 +193,17 @@ org.freedesktop.hostname1.set-static-hostname                   auth_admin
 org.freedesktop.hostname1.set-machine-info                      auth_admin
 org.freedesktop.systemd1.reply-password                         auth_admin
 org.freedesktop.timedate1.set-time                              auth_admin_keep
-org.freedesktop.timedate1.set-timezone                          auth_admin_keep
+org.freedesktop.timedate1.set-timezone                          auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.timedate1.set-ntp                               auth_admin_keep
 org.freedesktop.timedate1.set-local-rtc                         auth_admin_keep
 org.freedesktop.locale1.set-locale                              auth_admin_keep
 org.freedesktop.locale1.set-keyboard                            auth_admin_keep
 org.freedesktop.login1.attach-device                            auth_admin_keep
 org.freedesktop.login1.flush-devices                            auth_admin_keep
-org.freedesktop.login1.power-off                                auth_admin_keep
-org.freedesktop.login1.power-off-multiple-sessions              auth_admin_keep
-org.freedesktop.login1.reboot                                   auth_admin_keep
-org.freedesktop.login1.reboot-multiple-sessions                 auth_admin_keep
+org.freedesktop.login1.power-off                                auth_admin_keep:auth_admin_keep:yes
+org.freedesktop.login1.power-off-multiple-sessions              auth_admin_keep:auth_admin_keep:yes
+org.freedesktop.login1.reboot                                   auth_admin_keep:auth_admin_keep:yes
+org.freedesktop.login1.reboot-multiple-sessions                 auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.login1.set-user-linger                          auth_admin_keep
 org.freedesktop.login1.set-self-linger                          yes
 # systemd additions I (bsc#783897)
@@ -242,15 +244,15 @@ org.freedesktop.machine1.host-login                             auth_admin:auth_
 org.freedesktop.resolve1.register-service                       auth_admin
 org.freedesktop.resolve1.unregister-service                     auth_admin
 # resolve actions from bsc#1149216
-org.freedesktop.resolve1.revert                                 auth_admin
-org.freedesktop.resolve1.set-dnssec-negative-trust-anchors      auth_admin
-org.freedesktop.resolve1.set-dnssec                             auth_admin
-org.freedesktop.resolve1.set-dns-over-tls                       auth_admin
-org.freedesktop.resolve1.set-mdns                               auth_admin
-org.freedesktop.resolve1.set-llmnr                              auth_admin
-org.freedesktop.resolve1.set-default-route                      auth_admin
-org.freedesktop.resolve1.set-domains                            auth_admin
-org.freedesktop.resolve1.set-dns-servers                        auth_admin
+org.freedesktop.resolve1.revert                                 auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dnssec-negative-trust-anchors      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dnssec                             auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dns-over-tls                       auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-mdns                               auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-llmnr                              auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-default-route                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-domains                            auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.resolve1.set-dns-servers                        auth_admin:auth_admin:auth_admin_keep
 # systemd get-product-uuid incremental addition (bsc#1127847)
 org.freedesktop.hostname1.get-product-uuid                      auth_admin
 # systemd org.freedesktop.login1.* services (bsc#1133843)
@@ -258,25 +260,25 @@ org.freedesktop.login1.set-reboot-parameter                     auth_admin_keep
 org.freedesktop.login1.set-reboot-to-boot-loader-entry          auth_admin_keep
 org.freedesktop.login1.set-reboot-to-boot-loader-menu           auth_admin_keep
 # portabled (boo#1145639)
-org.freedesktop.portable1.attach-images                         auth_admin
-org.freedesktop.portable1.inspect-images                        auth_admin
-org.freedesktop.portable1.manage-images                         auth_admin
+org.freedesktop.portable1.attach-images                         auth_admin_keep
+org.freedesktop.portable1.inspect-images                        auth_admin_keep
+org.freedesktop.portable1.manage-images                         auth_admin_keep
 # networkd (boo#1146300)
-org.freedesktop.network1.revert-dns                             auth_admin
-org.freedesktop.network1.revert-ntp                             auth_admin
-org.freedesktop.network1.set-default-route                      auth_admin
-org.freedesktop.network1.set-dns-over-tls                       auth_admin
-org.freedesktop.network1.set-dns-servers                        auth_admin
-org.freedesktop.network1.set-dnssec                             auth_admin
-org.freedesktop.network1.set-dnssec-negative-trust-anchors      auth_admin
-org.freedesktop.network1.set-domains                            auth_admin
-org.freedesktop.network1.set-llmnr                              auth_admin
-org.freedesktop.network1.set-mdns                               auth_admin
-org.freedesktop.network1.set-ntp-servers                        auth_admin
+org.freedesktop.network1.revert-dns                             auth_admin_keep
+org.freedesktop.network1.revert-ntp                             auth_admin_keep
+org.freedesktop.network1.set-default-route                      auth_admin_keep
+org.freedesktop.network1.set-dns-over-tls                       auth_admin_keep
+org.freedesktop.network1.set-dns-servers                        auth_admin_keep
+org.freedesktop.network1.set-dnssec                             auth_admin_keep
+org.freedesktop.network1.set-dnssec-negative-trust-anchors      auth_admin_keep
+org.freedesktop.network1.set-domains                            auth_admin_keep
+org.freedesktop.network1.set-llmnr                              auth_admin_keep
+org.freedesktop.network1.set-mdns                               auth_admin_keep
+org.freedesktop.network1.set-ntp-servers                        auth_admin_keep
 # networkd follow-up (bsc#1161328)
-org.freedesktop.network1.reconfigure                            auth_admin:auth_admin:auth_admin
-org.freedesktop.network1.reload                                 auth_admin:auth_admin:auth_admin
-org.freedesktop.network1.renew                                  auth_admin:auth_admin:auth_admin
+org.freedesktop.network1.reconfigure                            auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.network1.reload                                 auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.network1.renew                                  auth_admin:auth_admin:auth_admin_keep
 # systemd new things in 218
 org.freedesktop.systemd1.manage-units                           auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.systemd1.manage-unit-files                      auth_admin:auth_admin:auth_admin_keep
@@ -290,27 +292,27 @@ org.freedesktop.login1.chvt                                     auth_admin_keep:
 # incremental addition for DHCP forced renew (bsc#1176215)
 org.freedesktop.network1.forcerenew                             auth_admin:auth_admin:auth_admin_keep
 # incremental addition to handle reboot key events (bsc#1185468)
-org.freedesktop.login1.inhibit-handle-reboot-key                no:auth_self:yes
+org.freedesktop.login1.inhibit-handle-reboot-key                no:yes:yes
 
 # systemd homed (boo#1185285)
-org.freedesktop.home1.authenticate-home                         auth_admin
-org.freedesktop.home1.create-home                               auth_admin
-org.freedesktop.home1.passwd-home                               auth_admin
-org.freedesktop.home1.remove-home                               auth_admin
-org.freedesktop.home1.resize-home                               auth_admin
-org.freedesktop.home1.update-home                               auth_admin
+org.freedesktop.home1.authenticate-home                         auth_admin_keep
+org.freedesktop.home1.create-home                               auth_admin_keep
+org.freedesktop.home1.passwd-home                               auth_admin_keep
+org.freedesktop.home1.remove-home                               auth_admin_keep
+org.freedesktop.home1.resize-home                               auth_admin_keep
+org.freedesktop.home1.update-home                               auth_admin_keep
 
 # GNOME control-center (bsc#927508)
-org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin
+org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin_keep
 # GNOME control-center (bsc#779938)
-org.gnome.controlcenter.user-accounts.administration            no:no:auth_admin_keep
-org.gnome.controlcenter.datetime.configure                      no:no:auth_admin_keep
+org.gnome.controlcenter.user-accounts.administration            auth_admin:auth_admin:auth_admin_keep
+org.gnome.controlcenter.datetime.configure                      auth_admin:auth_admin:auth_admin_keep
 
 # gnome-power-manager/gnome-settings-daemon (bsc#650401, bsc#712841)
-org.gnome.settings-daemon.plugins.power.backlight-helper        no:no:yes
+org.gnome.settings-daemon.plugins.power.backlight-helper        auth_admin:auth_admin:yes
 # xfce4-power-manager (bsc#665169)
 # code is copy&paste from gnome-power-manager
-org.xfce.power.backlight-helper                                 no:no:yes
+org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
 
 # cinnamon settings-daemon (bsc#951830)
 org.cinnamon.settings-daemon.plugins.power.backlight-helper     no:no:yes
@@ -318,41 +320,41 @@ org.cinnamon.settingsdaemon.datetimemechanism.configure         no:no:auth_admin
 # cinnamon settings-daemon (bsc#1083067)
 org.cinnamon.settings-users                                     auth_admin
 # cinnamon-settings-daemon (bsc#1186845)
-org.cinnamon.settings-daemon.plugins.wacom.wacom-led-helper     no:no:auth_admin_keep
+org.cinnamon.settings-daemon.plugins.wacom.wacom-led-helper     no:no:yes
 
 # hp-drive-guard
-com.hp.driveguard.toggle                                        no:no:auth_admin
-com.hp.driveguard.install-setup                                 no:no:auth_admin
+com.hp.driveguard.toggle                                        auth_admin
+com.hp.driveguard.install-setup                                 auth_admin
 
 # ModemManager1 (bsc#798273, bsc#948728)
-org.freedesktop.ModemManager1.Control                           no:no:auth_admin
-org.freedesktop.ModemManager1.Device.Control                    no:no:auth_self_keep
-org.freedesktop.ModemManager1.Contacts                          no:no:auth_self_keep
-org.freedesktop.ModemManager1.Messaging                         no:no:auth_self_keep
-org.freedesktop.ModemManager1.Location                          no:no:auth_self_keep
-org.freedesktop.ModemManager1.Firmware                          no:no:auth_admin
-org.freedesktop.ModemManager1.USSD                              no:no:auth_self_keep
+org.freedesktop.ModemManager1.Control                           auth_admin:yes:yes
+org.freedesktop.ModemManager1.Device.Control                    auth_admin_keep:yes:yes
+org.freedesktop.ModemManager1.Contacts                          auth_admin:auth_self_keep:yes
+org.freedesktop.ModemManager1.Messaging                         auth_admin:auth_self_keep:yes
+org.freedesktop.ModemManager1.Location                          auth_admin:auth_self_keep:yes
+org.freedesktop.ModemManager1.Firmware                          auth_admin
+org.freedesktop.ModemManager1.USSD                              auth_admin:auth_admin_keep:yes
 # bsc#976945
-org.freedesktop.ModemManager1.Voice                             no:no:auth_admin_keep
+org.freedesktop.ModemManager1.Voice                             auth_admin:auth_self_keep:yes
 # bsc#1156961
 org.freedesktop.ModemManager1.Time                              no:no:auth_self_keep
 
 # urfkill (bsc#688328)
-org.freedesktop.urfkill.block                                   no:no:auth_admin
-org.freedesktop.urfkill.blockidx                                no:no:auth_admin
+org.freedesktop.urfkill.block                                   auth_admin:auth_self:yes
+org.freedesktop.urfkill.blockidx                                auth_admin:auth_self:yes
 # urfkill (bsc#926288)
-org.freedesktop.urfkill.flight_mode                             no:no:auth_admin
+org.freedesktop.urfkill.flight_mode                             auth_admin:auth_self:yes
 
-# account services (bsc#676638, bsc#1125110)
-org.freedesktop.accounts.user-administration                    auth_admin:auth_admin:auth_admin_keep
+# account services (bsc#676638)
+org.freedesktop.accounts.user-administration                    auth_admin_keep
 org.freedesktop.accounts.set-login-option                       auth_admin
-org.freedesktop.accounts.change-own-user-data                   auth_self:yes:yes
+org.freedesktop.accounts.change-own-user-data                   yes
 # bsc#1088780
 org.freedesktop.accounts.change-own-password                    auth_admin
 # lightdm (uses accountsservice extension system, bsc#1089436)
 org.freedesktop.DisplayManager.AccountsService.ModifyAny        no
-org.freedesktop.DisplayManager.AccountsService.ModifyOwn        auth_self
-org.freedesktop.DisplayManager.AccountsService.ReadAny          auth_admin:auth_admin:yes
+org.freedesktop.DisplayManager.AccountsService.ModifyOwn        auth_self:auth_self:yes
+org.freedesktop.DisplayManager.AccountsService.ReadAny          yes
 
 # gparted (bsc#810888)
 org.opensuse.policykit.gparted                                  auth_admin
@@ -366,7 +368,7 @@ org.freedesktop.udisks2.power-off-drive                         auth_admin:auth_
 
 # fprintfd (bsc#792095, bsc#850807)
 net.reactivated.fprint.device.verify                            no:no:yes
-net.reactivated.fprint.device.enroll                            no:no:auth_self_keep
+net.reactivated.fprint.device.enroll                            no:no:yes
 net.reactivated.fprint.device.setusername                       no:no:auth_admin_keep
 
 # gnome-system-monitor (bsc#822011)
@@ -374,7 +376,7 @@ org.gnome.gnome-system-monitor.kill                             no:no:auth_admin
 org.gnome.gnome-system-monitor.renice                           no:no:auth_admin
 
 # libvirt
-org.libvirt.unix.monitor                                        auth_admin:auth_admin_keep:yes
+org.libvirt.unix.monitor                                        yes
 org.libvirt.unix.manage                                         auth_admin_keep
 # libvirt (bsc#827644) (original wants yes:yes:yes)
 org.libvirt.api.connect.getattr                                 auth_admin_keep
@@ -482,27 +484,27 @@ org.libvirt.api.network-port.create                             no
 org.libvirt.api.network-port.delete                             no
 org.libvirt.api.network-port.write                              no
 org.libvirt.api.network.search-ports                            no
-org.libvirt.api.network-port.getattr                            auth_self:yes:yes
-org.libvirt.api.network-port.read                               auth_self:yes:yes
+org.libvirt.api.network-port.getattr                            yes
+org.libvirt.api.network-port.read                               yes
 # libvirt (bsc#1144077) another no:no:no action
 org.libvirt.api.domain.checkpoint                               no
 # libvirt added node-device action (bsc#1186270)
 org.libvirt.api.node-device.delete                              no:no:no
 
 # MATE settings-daemon (bsc#831404)
-org.mate.settingsdaemon.datetimemechanism.settimezone           no:no:auth_admin_keep
-org.mate.settingsdaemon.datetimemechanism.settime               no:no:auth_admin_keep
-org.mate.settingsdaemon.datetimemechanism.configurehwclock      no:no:auth_admin_keep
-org.mate.randr.install-system-wide                              no:no:auth_admin_keep
-org.mate.power.backlight-helper                                 no:no:yes
+org.mate.settingsdaemon.datetimemechanism.settimezone           auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.settime               auth_admin_keep
+org.mate.settingsdaemon.datetimemechanism.configurehwclock      auth_admin_keep
+org.mate.randr.install-system-wide                              auth_admin_keep
+org.mate.power.backlight-helper                                 auth_self:yes:yes
 
 # pcsc-lite (bsc#864178)
-org.debian.pcsc-lite.access_pcsc                                no:no:yes
-org.debian.pcsc-lite.access_card                                no:no:yes
+org.debian.pcsc-lite.access_pcsc                                auth_admin:auth_admin:yes
+org.debian.pcsc-lite.access_card                                auth_admin:auth_admin:yes
 
-# firewalld (bsc#907625)
+# firewalld (bsc#907625, bsc#971580)
 org.fedoraproject.FirewallD1.all                                auth_admin_keep
-org.fedoraproject.FirewallD1.info                               auth_admin_keep
+org.fedoraproject.FirewallD1.info                               auth_admin_keep:yes:yes
 org.fedoraproject.FirewallD1.config                             auth_admin_keep
 org.fedoraproject.FirewallD1.config.info                        auth_admin_keep
 org.fedoraproject.FirewallD1.direct                             auth_admin_keep
@@ -518,7 +520,7 @@ org.freedesktop.realmd.configure-realm                          auth_admin:auth_
 org.freedesktop.realmd.deconfigure-realm                        auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.realmd.login-policy                             auth_admin:auth_admin:auth_admin_keep
 # realmd (bsc#1048025)
-org.freedesktop.realmd.discover-realm                           no:auth_admin:auth_admin_keep
+org.freedesktop.realmd.discover-realm                           no:yes:yes
 
 # importd (bsc#964935)
 org.freedesktop.import1.import                                  auth_admin:auth_admin:auth_admin_keep
@@ -526,7 +528,7 @@ org.freedesktop.import1.export                                  auth_admin:auth_
 org.freedesktop.import1.pull                                    auth_admin:auth_admin:auth_admin_keep
 
 # brltty (bsc#967436)
-org.a11y.brlapi.write-display                                   no:no:auth_admin_keep
+org.a11y.brlapi.write-display                                   no:no:yes
 
 # sysprof (bsc#996111)
 org.gnome.sysprof2.perf-event-open                              auth_admin_keep
@@ -543,34 +545,34 @@ org.freedesktop.Flatpak.app-uninstall                           auth_admin:auth_
 org.freedesktop.Flatpak.configure-remote                        auth_admin:auth_admin:auth_admin
 org.freedesktop.Flatpak.app-update                              auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.Flatpak.runtime-update                          auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.Flatpak.appstream-update                        auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.appstream-update                        auth_admin:auth_admin:yes
 org.freedesktop.Flatpak.configure                               auth_admin:auth_admin:auth_admin_keep
 # flatpak (bsc#1012961, bsc#1064011)
-org.freedesktop.Flatpak.update-remote                           auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.update-remote                           auth_admin:auth_admin:yes
 org.freedesktop.Flatpak.install-bundle                          auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.Flatpak.modify-repo                             auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.modify-repo                             auth_admin:auth_admin:yes
 # flatpak (bsc#1123653)
 org.freedesktop.Flatpak.metadata-update                         auth_admin:auth_admin:auth_admin_keep
 # flatpak (bsc#1161091)
 org.freedesktop.Flatpak.override-parental-controls              auth_admin:auth_admin:auth_admin
 
 # blueman (bsc#987141)
-org.blueman.network.setup                                       auth_admin:auth_admin_keep:auth_admin_keep
-org.blueman.dhcp.client                                         auth_admin:auth_admin_keep:auth_admin_keep
-org.blueman.pppd.pppconnect                                     auth_admin:auth_admin_keep:auth_admin_keep
-org.blueman.rfkill.setstate                                     auth_admin:auth_admin_keep:auth_admin_keep
+org.blueman.network.setup                                       auth_admin:auth_admin_keep:yes
+org.blueman.dhcp.client                                         auth_admin:auth_admin_keep:yes
+org.blueman.pppd.pppconnect                                     auth_admin:auth_admin_keep:yes
+org.blueman.rfkill.setstate                                     auth_admin:auth_admin_keep:yes
 
 # tuned (bsc#1007279)
 com.redhat.tuned.active_profile                                 yes
-com.redhat.tuned.disable                                        auth_admin:auth_admin:auth_admin
+com.redhat.tuned.disable                                        auth_admin:auth_admin:yes
 com.redhat.tuned.is_running                                     yes
 com.redhat.tuned.profile_info                                   yes
 com.redhat.tuned.profiles                                       yes
 com.redhat.tuned.profiles2                                      yes
 com.redhat.tuned.recommend_profile                              yes
 com.redhat.tuned.reload                                         auth_admin:auth_admin:yes
-com.redhat.tuned.start                                          auth_admin:auth_admin:auth_admin
-com.redhat.tuned.stop                                           auth_admin:auth_admin:auth_admin
+com.redhat.tuned.start                                          auth_admin:auth_admin:yes
+com.redhat.tuned.stop                                           auth_admin:auth_admin:yes
 com.redhat.tuned.switch_profile                                 auth_admin:auth_admin:yes
 # tuned (bsc#1048961)
 com.redhat.tuned.verify_profile                                 yes:yes:yes
@@ -582,9 +584,9 @@ com.redhat.tuned.profile_mode                                   yes:yes:yes
 com.redhat.tuned.log_capture_finish                             auth_admin:auth_admin:yes
 com.redhat.tuned.log_capture_start                              auth_admin:auth_admin:yes
 # tuned (bsc#1131858)
-com.redhat.tuned.get_all_plugins                                auth_admin:auth_admin:yes
-com.redhat.tuned.get_plugin_documentation                       auth_admin:auth_admin:yes
-com.redhat.tuned.get_plugin_hints                               auth_admin:auth_admin:yes
+com.redhat.tuned.get_all_plugins                                yes:yes:yes
+com.redhat.tuned.get_plugin_documentation                       yes:yes:yes
+com.redhat.tuned.get_plugin_hints                               yes:yes:yes
 # incremental addition (bsc#1185418)
 com.redhat.tuned.post_loaded_profile                            yes:yes:yes
 
@@ -601,15 +603,15 @@ org.freedesktop.fwupd.update-hotplug                            auth_admin:no:au
 org.freedesktop.fwupd.downgrade-hotplug                         auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.device-unlock                             auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.verify-update                             auth_admin:no:auth_admin_keep
-org.freedesktop.fwupd.update-internal-trusted                   auth_admin:no:auth_admin_keep
-org.freedesktop.fwupd.update-hotplug-trusted                    auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.update-internal-trusted                   auth_admin:no:yes
+org.freedesktop.fwupd.update-hotplug-trusted                    auth_admin:no:yes
 # fwupd (bsc#1083022)
 org.freedesktop.fwupd.modify-remote                             auth_admin:no:auth_admin_keep
 # fwupd (bsc#1133082)
-org.freedesktop.fwupd.device-activate                           auth_admin:no:auth_admin_keep
-org.freedesktop.fwupd.self-sign                                 auth_admin:no:auth_admin_keep
-org.freedesktop.fwupd.set-approved-firmware                     auth_admin:no:auth_admin_keep
-org.freedesktop.fwupd.modify-config                             auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.device-activate                           auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.fwupd.self-sign                                 auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.fwupd.set-approved-firmware                     auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.fwupd.modify-config                             auth_admin:auth_admin:auth_admin_keep
 
 # connman (bsc#1057697)
 net.connman.modify                                              auth_admin_keep
@@ -629,8 +631,8 @@ org.gtk.vfs.file-operations-helper                              no:no:auth_admin
 org.linux.lmt.gui.policy                                        auth_admin
 
 # mate-system-monitor (bsc#1084701)
-org.mate.mate-system-monitor.kill                               no:no:auth_admin
-org.mate.mate-system-monitor.renice                             no:no:auth_admin
+org.mate.mate-system-monitor.kill                               no:no:auth_admin_keep
+org.mate.mate-system-monitor.renice                             no:no:auth_admin_keep
 
 # nemo (bsc#1084702)
 org.nemo.root                                                   no:no:auth_admin_keep
@@ -638,10 +640,10 @@ org.nemo.root                                                   no:no:auth_admin
 org.nemo-share.samba_install                                    no:no:auth_admin_keep
 
 # scap-workbench (bsc#1084706)
-scap-workbench-oscap.run                                        auth_admin:auth_admin:auth_admin
+scap-workbench-oscap.run                                        auth_admin_keep:auth_admin_keep:auth_admin_keep
 
 # spice-gtk (bsc#1083025)
-org.spice-space.lowlevelusbaccess                               no:no:auth_admin
+org.spice-space.lowlevelusbaccess                               auth_admin:auth_self:yes
 
 # bleachbit (bsc#1087326)
 org.bleachbit                                                   auth_admin
@@ -650,12 +652,12 @@ org.bleachbit                                                   auth_admin
 org.lxqt.backlight.pkexec                                       no:no:yes
 
 # gamemode (bsc#1093979)
-com.feralinteractive.GameMode.governor-helper                   no:no:auth_admin_keep
+com.feralinteractive.GameMode.governor-helper                   no:no:yes
 # additional gpuclockctl (bsc#1129967)
-com.feralinteractive.GameMode.gpu-helper                        no:no:auth_admin_keep
+com.feralinteractive.GameMode.gpu-helper                        no:no:yes
 
 # meson (bsc#1103811)
-com.mesonbuild.install.run                                      no:no:auth_admin
+com.mesonbuild.install.run                                      no:no:auth_admin_keep
 
 # bolt (bsc#1119975)
 org.freedesktop.bolt.authorize                                  auth_admin:auth_admin:auth_admin_keep
@@ -667,10 +669,10 @@ org.freedesktop.bolt.manage                                     auth_admin:auth_
 net.luckybackup.su                                              auth_admin
 
 # lightdm-gtk-greeter-settings (bsc#1135695)
-com.ubuntu.pkexec.lightdm-gtk-greeter-settings                  auth_admin
+com.ubuntu.pkexec.lightdm-gtk-greeter-settings                  auth_admin:auth_admin:auth_self_keep
 
 # mousepad run as root in X11 (bsc#1143216)
-org.xfce.mousepad                                               no:no:auth_admin
+org.xfce.mousepad                                               no:auth_admin:auth_admin
 
 # calamares run as root in X11 (bsc#1143147)
 com.github.calamares.calamares.pkexec.run                       no:no:auth_admin
@@ -683,35 +685,35 @@ in.teejeetech.pkexec.timeshift                                  auth_admin:auth_
 org.cockpit-project.cockpit.root-bridge                         auth_admin:auth_admin:auth_admin
 
 # allow veyon-configurator to run as root (bsc#1172318)
-io.veyon.pkexec.veyon-configurator                              no:no:auth_admin_keep
+io.veyon.pkexec.veyon-configurator                              auth_admin_keep:auth_admin_keep:auth_admin_keep
 
 # GNOME parental controls, accountservice extensions (bsc#1177974)
-com.endlessm.ParentalControls.AccountInfo.ReadAny               auth_admin:auth_admin:yes
-com.endlessm.ParentalControls.AppFilter.ReadOwn                 auth_admin:auth_admin:yes
-com.endlessm.ParentalControls.SessionLimits.ReadOwn             auth_admin:auth_admin:yes
-com.endlessm.ParentalControls.AccountInfo.ChangeAny             no:auth_admin:auth_admin_keep
-com.endlessm.ParentalControls.AccountInfo.ChangeOwn             no:auth_admin:auth_admin_keep
-com.endlessm.ParentalControls.AppFilter.ChangeAny               no:auth_admin:auth_admin_keep
-com.endlessm.ParentalControls.AppFilter.ChangeOwn               no:auth_admin:auth_admin_keep
-com.endlessm.ParentalControls.AppFilter.ReadAny                 no:auth_admin:auth_admin_keep
-com.endlessm.ParentalControls.SessionLimits.ChangeAny           no:auth_admin:auth_admin_keep
-com.endlessm.ParentalControls.SessionLimits.ChangeOwn           no:auth_admin:auth_admin_keep
-com.endlessm.ParentalControls.SessionLimits.ReadAny             no:auth_admin:auth_admin_keep
-org.freedesktop.MalcontentControl.administration                no:no:auth_admin
-com.endlessm.ParentalControls.AccountInfo.ReadOwn               auth_admin:auth_admin:yes
+com.endlessm.ParentalControls.AccountInfo.ReadAny               yes:yes:yes
+com.endlessm.ParentalControls.AppFilter.ReadOwn                 yes:yes:yes
+com.endlessm.ParentalControls.SessionLimits.ReadOwn             yes:yes:yes
+com.endlessm.ParentalControls.AccountInfo.ChangeAny             auth_admin_keep:auth_admin_keep:auth_admin_keep
+com.endlessm.ParentalControls.AccountInfo.ChangeOwn             auth_admin_keep:auth_admin_keep:auth_admin_keep
+com.endlessm.ParentalControls.AppFilter.ChangeAny               auth_admin_keep:auth_admin_keep:auth_admin_keep
+com.endlessm.ParentalControls.AppFilter.ChangeOwn               auth_admin_keep:auth_admin_keep:auth_admin_keep
+com.endlessm.ParentalControls.AppFilter.ReadAny                 auth_admin_keep:auth_admin_keep:auth_admin_keep
+com.endlessm.ParentalControls.SessionLimits.ChangeAny           auth_admin_keep:auth_admin_keep:auth_admin_keep
+com.endlessm.ParentalControls.SessionLimits.ChangeOwn           auth_admin_keep:auth_admin_keep:auth_admin_keep
+com.endlessm.ParentalControls.SessionLimits.ReadAny             auth_admin_keep:auth_admin_keep:auth_admin_keep
+org.freedesktop.MalcontentControl.administration                no:no:auth_admin_keep
+com.endlessm.ParentalControls.AccountInfo.ReadOwn               yes:yes:yes
 
 # kdenetwork-filesharing, Samba configuration (bsc#1175633)
-org.kde.filesharing.samba.isuserknown                           no:auth_admin_keep:auth_admin_keep
+org.kde.filesharing.samba.isuserknown                           yes:yes:yes
 org.kde.filesharing.samba.createuser                            auth_admin:auth_admin:auth_admin
 org.kde.filesharing.samba.addtogroup                            auth_admin:auth_admin:auth_admin
 
 # KDiskMark, HDD/SSD benchmark tool (bsc#1182521)
-org.jonmagon.kdiskmark.dropcache                                auth_admin:auth_admin:auth_admin
+org.jonmagon.kdiskmark.dropcache                                auth_admin_keep:auth_admin_keep:auth_admin_keep
 
 # deeping-system-monitor pkexec actions to invoke kill, renice, systemctl as root (bsc#1181886)
-com.deepin.pkexec.deepin-system-monitor.kill no:no:auth_admin
-com.deepin.pkexec.deepin-system-monitor.renice no:no:auth_admin
-com.deepin.pkexec.deepin-system-monitor.systemctl no:no:auth_admin
+com.deepin.pkexec.deepin-system-monitor.kill no:no:auth_admin_keep
+com.deepin.pkexec.deepin-system-monitor.renice no:no:auth_admin_keep
+com.deepin.pkexec.deepin-system-monitor.systemctl no:no:auth_admin_keep
 
 # setroubleshoot (boo#1186344)
 org.fedoraproject.setroubleshootfixit.write                     auth_admin

@@ -87,14 +87,14 @@ close F;
 rename($file.'.new', $file) or die "can't rename $file.new: $!\n";
 
 __END__
-/*******************************************\
-*              DO NOT EDIT                  *
-* This file was automatically generated.    *
-* To add custom rules edit                  *
-*    /etc/polkit-default-privs.local        *
-* instead.                                  *
-* Also see 'man set_polkit_default_privs'   *
-\*******************************************/
+/**********************************************\
+*              DO NOT EDIT                     *
+* This file was automatically generated.       *
+* To add custom rules copy and edit            *
+* /usr/etc/polkit-default-privs/local.template *
+* instead.                                     *
+* Also see 'man set_polkit_default_privs'      *
+\**********************************************/
 
 polkit.addRule(function(action, subject) {
 	// set to true for debugging

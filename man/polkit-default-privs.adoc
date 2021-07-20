@@ -7,9 +7,10 @@ polkit-default-privs - configuration of polkit security profiles
 
 DESCRIPTION
 -----------
-The files _/usr/etc/polkit-default-privs.*_ define different security profiles
-that influence the authorization required for various polkit actions used
-across applications. These files are line based and whitespace delimited.
+The files in _/usr/etc/polkit-default-privs/profiles_ define different
+security profiles that influence the authorization required for various polkit
+actions used across applications. These files are line based and whitespace
+delimited.
 
 Lines starting with `#` are comments. Comments and empty lines will be
 ignored. All other lines consist of two whitespace delimited columns _ACTION_
@@ -77,15 +78,13 @@ and active users.
 FILES
 -----
 
-`/usr/etc/polkit-default-privs.local` is a template for:
+`/usr/etc/polkit-default-privs/local.template` is a template for  `/etc/polkit-default-privs.local`
 
-`/etc/polkit-default-privs.local`
+`/usr/etc/polkit-default-privs/profiles/restrictive`
 
-`/usr/etc/polkit-default-privs.restrictive`
+`/usr/etc/polkit-default-privs/profiles/standard`
 
-`/usr/etc/polkit-default-privs.standard`
-
-`/usr/etc/polkit-default-privs.easy`
+`/usr/etc/polkit-default-privs/profiles/easy`
 
 SEE ALSO
 --------
