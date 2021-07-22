@@ -719,3 +719,6 @@ com.deepin.pkexec.deepin-system-monitor.systemctl no:no:auth_admin_keep
 
 # setroubleshoot (boo#1186344)
 org.fedoraproject.setroubleshootfixit.write                     auth_admin
+
+#  zypp-gui repository manager (bsc#1188364)
+zypp.gui.pkexec.run auth_admin:auth_admin:auth_admin_keep
