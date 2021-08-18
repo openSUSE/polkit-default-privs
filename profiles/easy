@@ -710,7 +710,7 @@ org.kde.filesharing.samba.addtogroup                            auth_admin:auth_
 # KDiskMark, HDD/SSD benchmark tool (bsc#1182521)
 org.jonmagon.kdiskmark.dropcache                                auth_admin_keep:auth_admin_keep:auth_admin_keep
 
-# deeping-system-monitor pkexec actions to invoke kill, renice, systemctl as root (bsc#1181886)
+# deepin-system-monitor pkexec actions to invoke kill, renice, systemctl as root (bsc#1181886)
 com.deepin.pkexec.deepin-system-monitor.kill no:no:auth_admin_keep
 com.deepin.pkexec.deepin-system-monitor.renice no:no:auth_admin_keep
 com.deepin.pkexec.deepin-system-monitor.systemctl no:no:auth_admin_keep
