@@ -716,6 +716,9 @@ org.jonmagon.kdiskmark.dropcache                                auth_admin_keep:
 com.deepin.pkexec.deepin-system-monitor.kill no:no:auth_admin_keep
 com.deepin.pkexec.deepin-system-monitor.renice no:no:auth_admin_keep
 com.deepin.pkexec.deepin-system-monitor.systemctl no:no:auth_admin_keep
+# deepin desktop environment helpers (bsc#1070943)
+com.deepin.api.locale-helper.manage-locale no:no:yes
+com.deepin.api.device.unblock-bluetooth-devices no:no:auth_admin_keep
 
 # setroubleshoot (boo#1186344)
 org.fedoraproject.setroubleshootfixit.write                     auth_admin
