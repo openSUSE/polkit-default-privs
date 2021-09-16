@@ -989,6 +989,9 @@ com.github.calamares.calamares.pkexec.run no:no:auth_admin
 # incremental addition for DHCP forced renew (bsc#1176215)
 org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
 
+# incremental addition to handle reboot key events (bsc#1185468)
+org.freedesktop.login1.inhibit-handle-reboot-key                no:auth_self:yes
+
 # GNOME parental controls, accountservice extensions (bsc#1177974)
 com.endlessm.ParentalControls.AccountInfo.ReadAny auth_admin:auth_admin:yes
 com.endlessm.ParentalControls.AppFilter.ReadOwn                 yes:yes:yes
