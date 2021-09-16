@@ -28,8 +28,6 @@ install:
 	install -m 644 etc/sysconfig.security-polkit_default_privs $(DESTDIR)$(fillupdir)
 	# create a safe directory for potential custom profiles
 	install -d $(DESTDIR)/etc/polkit-default-privs
-	# TODO: remove whitelist.json once rpmlint2 is in place
-	install -m 644 etc/polkit-rules-whitelist.json $(DESTDIR)/etc
 	install -m 644 README.md $(DESTDIR)$(docdir)/polkit-default-privs
 	@for src in $(manpages); do \
 		page=`basename $$src` \

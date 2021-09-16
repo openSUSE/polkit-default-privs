@@ -43,17 +43,6 @@ diverging polkit settings which can lead to a bad user experience or even
 broken software in extreme cases. We are trying to catch theses cases and
 patch our packages or improve upstream code.
 
-rules.d whitelisting
---------------------
-
-Polkit uses Java Script snippets to allow customization of the authentication
-process. Additional rule files can be installed in `/etc/polkit-1/rules.d` and
-`/usr/share/polkit-1/rules.d`. These files are independent of the polkit
-profiles implemented by polkit-default-privs. Therefore a separate
-whitelisting for them is managed in this repository found in
-`etc/polkit-rules-whitelist.json`. This whitelist is used by SUSE
-rpmlint-checks to determine valid additions to those directories.
-
 Maintainer
 ----------
 
