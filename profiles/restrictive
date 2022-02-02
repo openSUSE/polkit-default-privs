@@ -717,7 +717,6 @@ com.deepin.pkexec.deepin-system-monitor.kill no:no:auth_admin
 com.deepin.pkexec.deepin-system-monitor.renice no:no:auth_admin
 com.deepin.pkexec.deepin-system-monitor.systemctl no:no:auth_admin
 # deepin desktop environment helpers (bsc#1070943)
-com.deepin.api.locale-helper.manage-locale no:no:auth_admin
 com.deepin.api.device.unblock-bluetooth-devices no:no:auth_admin_keep
 
 # setroubleshoot (boo#1186344)
