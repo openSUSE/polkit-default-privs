@@ -770,6 +770,10 @@ org.kde.powerdevil.backlighthelper.brightness no:yes:yes
 org.kde.powerdevil.backlighthelper.brightnessmax no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightness no:no:yes
 
+# KDE battery charge threshold control (bsc#1195662 bsc#1176474)
+org.kde.powerdevil.chargethresholdhelper.getthreshold           no:auth_admin:yes
+org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin
+
 # KDE smartctl helper (bsc#1176742)
 org.kde.kded.smart.smartctl                                     no:no:auth_admin
 

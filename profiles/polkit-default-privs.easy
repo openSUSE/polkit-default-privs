@@ -836,6 +836,9 @@ org.kde.powerdevil.backlighthelper.brightness no:yes:yes
 org.kde.powerdevil.backlighthelper.brightnessmax no:yes:yes
 org.kde.powerdevil.backlighthelper.setbrightness no:no:yes
 
+# KDE battery charge threshold control (bsc#1195662 bsc#1176474)
+org.kde.powerdevil.chargethresholdhelper.getthreshold           no:yes:yes
+org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin_keep
 
 # storaged (bnc#915770)
 com.redhat.lvm2.create-logical-volume		auth_admin_keep
