@@ -730,3 +730,6 @@ net.hadess.PowerProfiles.hold-profile auth_admin:yes:yes
 
 # kcron dbus helper (bsc#1193945)
 local.kcron.crontab.save no:no:auth_admin_keep
+
+# preliminary whitelisting of shaky partitioning service (bsc#1178848)
+org.kde.kpmcore.externalcommand.init no:no:auth_admin_keep
