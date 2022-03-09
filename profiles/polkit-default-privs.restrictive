@@ -1021,4 +1021,7 @@ org.kde.filesharing.samba.addtogroup                            auth_admin:auth_
 # kcron dbus helper (bsc#1193945)
 local.kcron.crontab.save no:no:auth_admin
 
+# preliminary whitelisting of shaky partitioning service (bsc#1178848)
+org.kde.kpmcore.externalcommand.init no:no:auth_admin
+
 ###
