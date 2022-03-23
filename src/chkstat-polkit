@@ -111,7 +111,7 @@ polkit.addRule(function(action, subject) {
                 }
         }
 	if (debug)
-		polkit.log(subject);
+		polkit.log("subject=" + subject);
 
         if (rules[action.id]) {
 		if (debug)
