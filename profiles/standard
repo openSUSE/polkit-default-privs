@@ -737,9 +737,9 @@ local.kcron.crontab.save no:no:auth_admin_keep
 org.kde.kpmcore.externalcommand.init no:no:auth_admin
 
 # D-Bus bridge connecting towards the custom IPC protocol of usbguard (bsc#1196621)
-org.usbguard.Policy1.listRules no:no:auth_self_keep
-org.usbguard.Devices1.listDevices no:no:auth_self_keep
-org.usbguard1.getParameter no:no:auth_self_keep
+org.usbguard.Policy1.listRules no:no:yes
+org.usbguard.Devices1.listDevices no:no:yes
+org.usbguard1.getParameter no:no:yes
 org.usbguard.Policy1.appendRule no:no:auth_admin
 org.usbguard.Policy1.removeRule no:no:auth_admin
 org.usbguard.Devices1.applyDevicePolicy no:no:auth_admin
