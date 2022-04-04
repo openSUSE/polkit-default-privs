@@ -308,6 +308,11 @@ org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin
 org.gnome.controlcenter.user-accounts.administration            no:no:auth_admin_keep
 org.gnome.controlcenter.datetime.configure                      no:no:auth_admin_keep
 
+# budgie-control-center (bsc#1195023)
+org.buddiesofbudgie.controlcenter.datetime.configure		no:no:auth_admin_keep
+org.buddiesofbudgie.controlcenter.remote-login-helper		no:no:auth_admin_keep
+org.buddiesofbudgie.controlcenter.user-accounts.administration	no:no:auth_admin_keep
+
 # gnome-power-manager/gnome-settings-daemon (bsc#650401, bsc#712841)
 org.gnome.settings-daemon.plugins.power.backlight-helper        no:no:yes
 # xfce4-power-manager (bsc#665169)
