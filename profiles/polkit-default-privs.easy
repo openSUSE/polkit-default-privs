@@ -451,12 +451,6 @@ org.freedesktop.network1.renew                                  auth_admin:auth_
 # gnome-control-center
 org.gnome.randr.install-system-wide                             auth_admin
 
-# gnome-control-center (bnc#927508)
-org.gnome.controlcenter.remote-login-helper			no:no:auth_admin_keep
-
-# budgie-control-center (bsc#1195023)
-org.buddiesofbudgie.controlcenter.remote-login-helper		no:no:auth_admin_keep
-
 # gnome-power-manager/gnome-settings-daemon (bnc#650401, bnc#712841)
 org.gnome.settings-daemon.plugins.power.backlight-helper        no:no:yes
 # xfce4-power-manager, bnc#665169
@@ -520,12 +514,14 @@ org.kde.recorditnow.helper.watch                                auth_admin
 #
 # GNOME control-center (bnc#779938)
 #
-org.gnome.controlcenter.user-accounts.administration		no:no:auth_admin_keep
 org.gnome.controlcenter.datetime.configure			no:no:auth_admin_keep
+org.gnome.controlcenter.remote-login-helper			no:no:auth_admin_keep
+org.gnome.controlcenter.user-accounts.administration		no:no:auth_admin_keep
 
 # budgie-control-center (bsc#1195023)
-org.buddiesofbudgie.controlcenter.user-accounts.administration	no:no:auth_admin_keep
 org.buddiesofbudgie.controlcenter.datetime.configure		no:no:auth_admin_keep
+org.buddiesofbudgie.controlcenter.remote-login-helper		no:no:auth_admin_keep
+org.buddiesofbudgie.controlcenter.user-accounts.administration	no:no:auth_admin_keep
 
 #
 # PackageKit / systemd offline updates (bnc#798885)
