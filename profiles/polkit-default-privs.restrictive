@@ -502,6 +502,7 @@ org.kde.recorditnow.helper.watch                                auth_admin
 # GNOME control-center (bnc#779938)
 #
 org.gnome.controlcenter.datetime.configure                      auth_admin_keep
+org.gnome.controlcenter.remote-login-helper			no:no:auth_admin_keep
 org.gnome.controlcenter.user-accounts.administration            auth_admin_keep
 
 # budgie-control-center (bsc#1195023)
