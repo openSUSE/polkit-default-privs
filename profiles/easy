@@ -74,10 +74,6 @@ org.freedesktop.packagekit.package-downgrade                    auth_admin:auth_
 # PackageKit (bsc#993505)
 org.freedesktop.packagekit.trigger-offline-upgrade              auth_admin:auth_admin:auth_admin
 
-# gconf
-org.gnome.gconf.defaults.set-system                             auth_admin_keep
-org.gnome.gconf.defaults.set-mandatory                          auth_admin_keep
-
 # system-config-printer
 org.opensuse.cupspkhelper.mechanism.printer-set-default         auth_admin_keep
 org.opensuse.cupspkhelper.mechanism.printer-enable              auth_admin_keep
