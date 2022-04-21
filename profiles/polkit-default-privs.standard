@@ -1093,4 +1093,8 @@ org.kde.kpmcore.externalcommand.init no:no:auth_admin
 # deepin desktop environment helpers (bsc#1196681 bsc#1070943)
 com.deepin.api.device.unblock-bluetooth-devices no:no:auth_admin_keep
 
+# power-profiles-daemon (bsc#1198693)
+net.hadess.PowerProfiles.switch-profile no:no:yes
+net.hadess.PowerProfiles.hold-profile no:no:yes
+
 ###
