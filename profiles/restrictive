@@ -181,6 +181,8 @@ org.kde.kcontrol.kcmsddm.sync                                   no:no:auth_admin
 org.kde.kcontrol.kcmkwallet5.save                               no:no:auth_admin_keep
 # KDE smartctl helper (bsc#1176742)
 org.kde.kded.smart.smartctl                                     no:no:auth_admin
+# kinfocenter5 (bsc#1199735)
+org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
 
 # systemd (bsc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
