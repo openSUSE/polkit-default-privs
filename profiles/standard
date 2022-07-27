@@ -751,3 +751,6 @@ org.usbguard.Policy1.appendRule no:no:auth_admin
 org.usbguard.Policy1.removeRule no:no:auth_admin
 org.usbguard.Devices1.applyDevicePolicy no:no:auth_admin
 org.usbguard1.setParameter no:no:auth_admin
+
+# iio-sensor-proxy sensor access (bsc#1201558)
+net.hadess.SensorProxy.claim-sensor no:no:yes
