@@ -1,5 +1,5 @@
 DESTDIR=
-sbindir=/sbin
+sbindir=/usr/sbin
 sysconfdir=/usr/etc/polkit-default-privs
 profiledir=$(sysconfdir)/profiles
 fillupdir=/var/adm/fillup-templates
