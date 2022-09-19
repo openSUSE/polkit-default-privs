@@ -717,8 +717,8 @@ org.kde.filesharing.samba.isuserknown                           no:auth_admin_ke
 org.kde.filesharing.samba.createuser                            auth_admin:auth_admin:auth_admin
 org.kde.filesharing.samba.addtogroup                            auth_admin:auth_admin:auth_admin
 
-# KDiskMark, HDD/SSD benchmark tool (bsc#1182521)
-org.jonmagon.kdiskmark.dropcache                                auth_admin:auth_admin:auth_admin
+# KDiskMark, HDD/SSD benchmark tool (bsc#1182521, bsc#1202725)
+dev.jonmagon.kdiskmark.helper.init                              no:no:auth_admin
 
 # deepin-system-monitor pkexec actions to invoke kill, renice, systemctl as root (bsc#1181886)
 com.deepin.pkexec.deepin-system-monitor.kill no:no:auth_admin
