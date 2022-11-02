@@ -21,7 +21,7 @@ org.freedesktop.NetworkManager.enable-disable-wimax             auth_admin:auth_
 org.freedesktop.NetworkManager.wifi.share.protected             auth_admin:auth_admin:yes
 org.freedesktop.NetworkManager.wifi.share.open                  auth_admin:auth_admin:yes
 org.freedesktop.NetworkManager.settings.modify.own              auth_admin_keep:auth_admin_keep:yes
-org.freedesktop.NetworkManager.settings.modify.system           auth_admin_keep
+org.freedesktop.NetworkManager.settings.modify.system           auth_admin_keep:auth_admin_keep:yes
 org.freedesktop.NetworkManager.settings.modify.hostname         auth_admin
 # bsc#996110
 org.freedesktop.NetworkManager.enable-disable-statistics        no:no:yes
