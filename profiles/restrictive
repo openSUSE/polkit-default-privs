@@ -596,6 +596,8 @@ com.redhat.tuned.get_plugin_documentation                       auth_admin:auth_
 com.redhat.tuned.get_plugin_hints                               auth_admin:auth_admin:yes
 # incremental addition (bsc#1185418)
 com.redhat.tuned.post_loaded_profile                            yes:yes:yes
+# addition of acquire_devices method (bsc#1208727)
+com.redhat.tuned.instance_acquire_devices                       auth_admin:auth_admin:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.UdevRuleSave                           auth_admin:auth_admin:auth_admin
