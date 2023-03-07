@@ -183,6 +183,9 @@ org.kde.kcontrol.kcmkwallet5.save                               no:no:auth_admin
 org.kde.kded.smart.smartctl                                     no:no:auth_admin
 # kinfocenter5 (bsc#1199735)
 org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
+# kde-inotify-survey (bsc#1208689)
+org.kde.kded.inotify.increaseinstancelimit                      no:no:auth_admin
+org.kde.kded.inotify.increasewatchlimit                         no:no:auth_admin
 
 # systemd (bsc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
