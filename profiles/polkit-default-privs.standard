@@ -1106,4 +1106,7 @@ org.usbguard.Policy1.removeRule no:no:auth_admin
 org.usbguard.Devices1.applyDevicePolicy no:no:auth_admin
 org.usbguard1.setParameter no:no:auth_admin
 
+# kinfocenter5 (bsc#1209378, bsc#1199735)
+org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
+
 ###
