@@ -307,6 +307,9 @@ org.freedesktop.timesync1.set-runtime-servers                   auth_admin:auth_
 org.freedesktop.hostname1.get-hardware-serial                   auth_admin_keep
 org.freedesktop.hostname1.get-description                       auth_admin_keep
 
+# systemd Dump*() rate-limiting (bsc#1211978)
+org.freedesktop.systemd1.bypass-dump-ratelimit auth_admin:auth_admin:auth_admin_keep
+
 # GNOME control-center (bsc#927508)
 org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin_keep
 # GNOME control-center (bsc#779938)
