@@ -147,6 +147,14 @@ org.freedesktop.udisks2.filesystem-take-ownership               auth_admin:auth_
 org.freedesktop.udisks2.lvm2.manage-lvm                         auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.lsm.manage-led                          auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.zram.manage-zram                        auth_admin:auth_admin:auth_admin_keep
+# bsc#1214897
+org.freedesktop.udisks2.filesystem-mount-other-user             auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.nvme-smart-selftest                     auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.nvme-sanitize                           auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.nvme-format-namespace                   auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.nvme-connect                            auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.nvme-disconnect                         auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.nvme-set-hostnqn-id                     auth_admin:auth_admin:auth_admin_keep
 
 # KDE stuff
 org.kde.fontinst.manage                                         no:no:auth_admin_keep
