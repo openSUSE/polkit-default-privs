@@ -1063,6 +1063,22 @@ org.freedesktop.network1.forcerenew auth_admin:auth_admin:auth_admin_keep
 # incremental addition to handle reboot key events (bsc#1185468)
 org.freedesktop.login1.inhibit-handle-reboot-key                no:yes:yes
 
+# systemd homed (boo#1185285)
+org.freedesktop.home1.authenticate-home                         auth_admin_keep
+org.freedesktop.home1.create-home                               auth_admin_keep
+org.freedesktop.home1.passwd-home                               auth_admin_keep
+org.freedesktop.home1.remove-home                               auth_admin_keep
+org.freedesktop.home1.resize-home                               auth_admin_keep
+org.freedesktop.home1.update-home                               auth_admin_keep
+
+# systemd timesync1, hostname1 (bsc#1200098)
+org.freedesktop.timesync1.set-runtime-servers                   auth_admin:auth_admin_keep:auth_admin_keep
+org.freedesktop.hostname1.get-hardware-serial                   auth_admin_keep
+org.freedesktop.hostname1.get-description                       auth_admin_keep
+
+# systemd Dump*() rate-limiting (bsc#1211978)
+org.freedesktop.systemd1.bypass-dump-ratelimit auth_admin:auth_admin:auth_admin_keep
+
 # GNOME parental controls, accountservice extensions (bsc#1177974)
 com.endlessm.ParentalControls.AccountInfo.ReadAny yes:yes:yes
 com.endlessm.ParentalControls.AppFilter.ReadOwn yes:yes:yes
