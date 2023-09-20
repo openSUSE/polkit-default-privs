@@ -154,6 +154,7 @@ org.freedesktop.udisks2.nvme-format-namespace                   auth_admin:auth_
 org.freedesktop.udisks2.nvme-connect                            auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.nvme-disconnect                         auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.nvme-set-hostnqn-id                     auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.udisks2.nvme-smart-update                       auth_admin:auth_admin:yes
 
 # KDE stuff
 org.kde.fontinst.manage                                         no:no:auth_admin_keep
