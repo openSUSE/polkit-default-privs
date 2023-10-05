@@ -771,3 +771,14 @@ org.usbguard1.setParameter no:no:auth_admin_keep
 
 # iio-sensor-proxy sensor access (bsc#1201558)
 net.hadess.SensorProxy.claim-sensor no:no:yes
+
+# policycoreutils-dbus (bsc#1213435)
+org.selinux.config.pkexec.run no:no:auth_admin
+org.selinux.restorecon no:no:auth_admin_keep
+org.selinux.setenforce no:no:auth_admin_keep
+org.selinux.semanage no:no:auth_admin_keep
+org.selinux.customized no:no:auth_admin_keep
+org.selinux.semodule_list no:no:auth_admin_keep
+org.selinux.relabel_on_boot no:no:auth_admin_keep
+org.selinux.change_default_policy no:no:auth_admin_keep
+org.selinux.change_default_mode no:no:auth_admin_keep
