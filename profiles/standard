@@ -141,12 +141,10 @@ org.freedesktop.udisks2.ata-check-power                         auth_admin:auth_
 org.freedesktop.udisks2.ata-standby                             auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.cancel-job                              auth_admin:auth_admin:auth_admin_keep
 # bsc#1073216
-org.freedesktop.udisks2.bcache.manage-bcache                    auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.btrfs.manage-btrfs                      auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.filesystem-take-ownership               auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.lvm2.manage-lvm                         auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.lsm.manage-led                          auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.zram.manage-zram                        auth_admin:auth_admin:auth_admin_keep
 # bsc#1214897
 org.freedesktop.udisks2.filesystem-mount-other-user             auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.nvme-smart-selftest                     auth_admin:auth_admin:auth_admin_keep
@@ -552,10 +550,6 @@ org.freedesktop.import1.pull                                    auth_admin:auth_
 # brltty (bsc#967436)
 org.a11y.brlapi.write-display                                   no:no:yes
 
-# sysprof (bsc#996111)
-org.gnome.sysprof2.perf-event-open                              auth_admin_keep
-# sysprof (bsc#1083055)
-org.gnome.sysprof2.get-kernel-symbols                           auth_admin_keep
 # sysprof (bsc#1151418)
 org.gnome.sysprof3.profile                                      auth_admin_keep
 
