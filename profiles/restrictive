@@ -636,6 +636,9 @@ org.freedesktop.fwupd.downgrade-hotplug-trusted                 auth_admin:no:au
 # fwupd (bsc#1204026)
 org.freedesktop.fwupd.get-bios-settings                         auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.set-bios-settings                         auth_admin:no:auth_admin
+# fwupd (bsc#1216832)
+org.freedesktop.fwupd.fix-host-security-attr                    auth_admin:no:auth_admin
+org.freedesktop.fwupd.undo-host-security-attr                   auth_admin:no:auth_admin
 
 # connman (bsc#1057697)
 net.connman.modify                                              auth_admin_keep
