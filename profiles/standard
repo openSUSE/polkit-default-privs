@@ -141,12 +141,10 @@ org.freedesktop.udisks2.ata-check-power                         auth_admin:auth_
 org.freedesktop.udisks2.ata-standby                             auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.cancel-job                              auth_admin:auth_admin:auth_admin_keep
 # bsc#1073216
-org.freedesktop.udisks2.bcache.manage-bcache                    auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.btrfs.manage-btrfs                      auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.filesystem-take-ownership               auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.lvm2.manage-lvm                         auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.lsm.manage-led                          auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.udisks2.zram.manage-zram                        auth_admin:auth_admin:auth_admin_keep
 # bsc#1214897
 org.freedesktop.udisks2.filesystem-mount-other-user             auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.udisks2.nvme-smart-selftest                     auth_admin:auth_admin:auth_admin_keep
