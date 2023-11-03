@@ -549,10 +549,6 @@ org.freedesktop.import1.pull                                    auth_admin:auth_
 # brltty (bsc#967436)
 org.a11y.brlapi.write-display                                   no:no:yes
 
-# sysprof (bsc#996111)
-org.gnome.sysprof2.perf-event-open                              auth_admin_keep
-# sysprof (bsc#1083055)
-org.gnome.sysprof2.get-kernel-symbols                           auth_admin_keep
 # sysprof (bsc#1151418)
 org.gnome.sysprof3.profile                                      auth_admin_keep
 
