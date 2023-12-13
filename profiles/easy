@@ -679,10 +679,14 @@ org.bleachbit                                                   auth_admin
 # liblxqt (backlight backend helper, bsc#1092192)
 org.lxqt.backlight.pkexec                                       no:no:yes
 
-# gamemode (bsc#1093979)
-com.feralinteractive.GameMode.governor-helper                   no:no:yes
+# gamemode (bsc#1093979): this is now bound to gamemode group membership
+# established in  custom polkit rules in 40-gamemode.rules
+com.feralinteractive.GameMode.governor-helper                   no:no:no
 # additional gpuclockctl (bsc#1129967)
-com.feralinteractive.GameMode.gpu-helper                        no:no:yes
+com.feralinteractive.GameMode.gpu-helper                        no:no:no
+# additional cpu and procsys helpers (bsc#1217915)
+com.feralinteractive.GameMode.cpu-helper                        no:no:no
+com.feralinteractive.GameMode.procsys-helper                    no:no:no
 
 # meson (bsc#1103811)
 com.mesonbuild.install.run                                      no:no:auth_admin_keep
