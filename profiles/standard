@@ -62,7 +62,6 @@ org.freedesktop.packagekit.system-sources-configure             auth_admin_keep
 org.freedesktop.packagekit.system-sources-refresh               no:no:yes
 org.freedesktop.packagekit.system-network-proxy-configure       auth_admin_keep
 org.freedesktop.packagekit.cancel-foreign                       auth_admin:auth_admin:auth_admin_keep
-org.freedesktop.packagekit.device-rebind                        auth_admin_keep
 org.freedesktop.packagekit.upgrade-system                       auth_admin
 org.freedesktop.packagekit.repair-system                        auth_admin
 # PackageKit / systemd offline updates (bsc#798885)
