@@ -753,9 +753,9 @@ org.fedoraproject.setroubleshootfixit.write                     auth_admin
 #  zypp-gui repository manager (bsc#1188364)
 zypp.gui.pkexec.run no:no:auth_admin_keep
 
-# a daemon that deals with system power settings (bsc#1189900)
-net.hadess.PowerProfiles.switch-profile no:no:yes
-net.hadess.PowerProfiles.hold-profile no:no:yes
+# a daemon that deals with system power settings (bsc#1189900, bsc#1219957)
+org.freedesktop.UPower.PowerProfiles.switch-profile no:no:yes
+org.freedesktop.UPower.PowerProfiles.hold-profile no:no:yes
 
 # kcron dbus helper (bsc#1193945)
 local.kcron.crontab.save no:no:auth_admin
