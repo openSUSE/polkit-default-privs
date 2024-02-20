@@ -954,6 +954,9 @@ com.redhat.tuned.get_plugin_hints               auth_admin:auth_self:yes
 com.redhat.tuned.post_loaded_profile            yes:yes:yes
 # addition of acquire_devices method (bsc#1208727)
 com.redhat.tuned.instance_acquire_devices       auth_admin:auth_admin:yes
+# additional getter methods (bsc#1220081)
+com.redhat.tuned.get_instances                  yes:yes:yes
+com.redhat.tuned.instance_get_devices           yes:yes:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.UdevRuleSave		auth_admin:auth_admin:auth_admin
