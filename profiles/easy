@@ -510,6 +510,8 @@ org.libvirt.api.network-port.read                               yes
 org.libvirt.api.domain.checkpoint                               no
 # libvirt added node-device action (bsc#1186270)
 org.libvirt.api.node-device.delete                              no:no:no
+# addition of node-device.save (bsc#1221094)
+org.libvirt.api.node-device.save                                no:no:no
 
 # MATE settings-daemon (bsc#831404)
 org.mate.settingsdaemon.datetimemechanism.settimezone           auth_admin_keep
