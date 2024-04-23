@@ -182,8 +182,6 @@ org.kde.kcontrol.kcmsddm.uninstalltheme                         no:no:auth_admin
 # sddm kcm incremental addition (bsc#1145182)
 org.kde.kcontrol.kcmsddm.reset                                  no:no:auth_admin_keep
 org.kde.kcontrol.kcmsddm.sync                                   no:no:auth_admin_keep
-# kwallet5 (bsc#849739, bsc#1033296)
-org.kde.kcontrol.kcmkwallet5.save                               no:no:yes
 # KDE smartctl helper (bsc#1176742)
 org.kde.kded.smart.smartctl                                     auth_admin:auth_admin:yes
 # kinfocenter5 (bsc#1199735)
