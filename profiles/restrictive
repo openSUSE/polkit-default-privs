@@ -796,3 +796,7 @@ org.rpm.dnf.v0.rpm.Repo.conf_write auth_admin:auth_admin:auth_admin
 org.rpm.dnf.v0.rpm.execute_transaction auth_admin:auth_admin:auth_admin
 org.rpm.dnf.v0.rpm.Repo.confirm_key auth_admin:auth_admin:auth_admin
 org.rpm.dnf.v0.base.Config.override auth_admin:auth_admin:auth_admin
+
+#  system wide RDP daemon for display manager access (bsc#1222159)
+org.gnome.remotedesktop.configure-system-daemon auth_admin:auth_admin:auth_admin
+org.gnome.remotedesktop.enable-system-daemon auth_admin:auth_admin:auth_admin
