@@ -314,6 +314,17 @@ org.freedesktop.hostname1.get-description                       auth_admin_keep
 # systemd Dump*() rate-limiting (bsc#1211978)
 org.freedesktop.systemd1.bypass-dump-ratelimit auth_admin:auth_admin:auth_admin_keep
 
+# systemd new policies in v256 (bsc#1225317)
+io.systemd.credentials.decrypt                                  auth_admin_keep:auth_admin_keep:auth_admin_keep
+io.systemd.credentials.encrypt                                  auth_admin_keep:auth_admin_keep:auth_admin_keep
+io.systemd.mount-file-system.mount-image                        auth_admin_keep:auth_admin_keep:yes
+io.systemd.mount-file-system.mount-image-privately              yes:yes:yes
+io.systemd.mount-file-system.mount-untrusted-image              auth_admin:auth_admin:auth_admin
+io.systemd.mount-file-system.mount-untrusted-image-privately    auth_admin:auth_admin:auth_admin
+org.freedesktop.home1.activate-home                             auth_admin_keep:auth_admin_keep:auth_admin_keep
+org.freedesktop.import1.cancel                                  auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.network1.set-persistent-storage                 auth_admin:auth_admin:auth_admin_keep
+
 # GNOME control-center (bsc#927508)
 org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin_keep
 # GNOME control-center (bsc#779938)
