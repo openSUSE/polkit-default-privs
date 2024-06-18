@@ -190,6 +190,8 @@ org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
 # kde-inotify-survey (bsc#1208689)
 org.kde.kded.inotify.increaseinstancelimit                      no:no:auth_admin
 org.kde.kded.inotify.increasewatchlimit                         no:no:auth_admin
+# drkonqi6 (bsc#1220190)
+org.kde.drkonqi.saveCoreToFile                                  no:no:auth_admin
 
 # systemd (bsc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
