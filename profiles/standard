@@ -173,6 +173,9 @@ org.kde.powerdevil.discretegpuhelper.hasdualgpu                 no:no:yes
 # KDE battery charge threshold control (bsc#1176474)
 org.kde.powerdevil.chargethresholdhelper.getthreshold           no:yes:yes
 org.kde.powerdevil.chargethresholdhelper.setthreshold           no:no:auth_admin_keep
+# powerdevil battery conservation mode (bsc#1226424)
+org.kde.powerdevil.chargethresholdhelper.getconservationmode    no:yes:yes
+org.kde.powerdevil.chargethresholdhelper.setconservationmode    no:no:auth_admin_keep
 # kdepim4/kalarm (bsc#707723, bsc#1087714 (renamed from kalarmrtcwake))
 org.kde.kalarm.rtcwake.settimer                                 auth_admin_keep
 # sddm kcm operation (bsc#904313)
