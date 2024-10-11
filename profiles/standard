@@ -783,8 +783,8 @@ org.freedesktop.UPower.PowerProfiles.hold-profile no:no:yes
 # kcron dbus helper (bsc#1193945)
 local.kcron.crontab.save no:no:auth_admin_keep
 
-# preliminary whitelisting of shaky partitioning service (bsc#1178848)
-org.kde.kpmcore.externalcommand.init no:no:auth_admin
+# preliminary whitelisting of shaky partitioning service (bsc#1178848, bsc#1203315)
+org.kde.kpmcore.externalcommand.init no:no:auth_admin_keep
 
 # D-Bus bridge connecting towards the custom IPC protocol of usbguard (bsc#1196621)
 org.usbguard.Policy1.listRules no:no:yes
