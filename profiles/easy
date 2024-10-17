@@ -189,6 +189,8 @@ org.kde.kcontrol.kcmsddm.sync                                   no:no:auth_admin
 org.kde.kded.smart.smartctl                                     auth_admin:auth_admin:yes
 # kinfocenter5 (bsc#1199735)
 org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
+# kinfocenter6 (bsc#1231659)
+org.kde.kinfocenter.dmidecode.memoryinformation                 no:no:yes
 # kde-inotify-survey (bsc#1208689)
 org.kde.kded.inotify.increaseinstancelimit                      no:no:auth_admin
 org.kde.kded.inotify.increasewatchlimit                         no:no:auth_admin
