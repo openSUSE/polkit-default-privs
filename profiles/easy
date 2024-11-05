@@ -351,6 +351,10 @@ org.gnome.settings-daemon.plugins.power.backlight-helper        auth_admin:auth_
 # xfce4-power-manager (bsc#665169)
 # code is copy&paste from gnome-power-manager
 org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
+# run mousepad editor as root (bsc#1232231)
+# this must never be relaxed to anything weaker than auth_admin, since command
+# line arguments can be used to run user controlled code (via --gtk-module)
+org.xfce.mousepad                                               no:auth_admin:auth_admin_keep
 
 # cinnamon settings-daemon (bsc#951830)
 org.cinnamon.settings-daemon.plugins.power.backlight-helper     no:no:yes
