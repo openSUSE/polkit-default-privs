@@ -933,9 +933,9 @@ com.redhat.tuned.profile_info 			yes
 com.redhat.tuned.profiles			yes
 com.redhat.tuned.profiles2 			yes
 com.redhat.tuned.recommend_profile 		yes
-com.redhat.tuned.reload				auth_admin:auth_admin:yes
-com.redhat.tuned.start				auth_admin:auth_admin:yes
-com.redhat.tuned.stop				auth_admin:auth_admin:yes
+com.redhat.tuned.reload				auth_admin:auth_admin:auth_admin
+com.redhat.tuned.start				auth_admin:auth_admin:auth_admin
+com.redhat.tuned.stop				auth_admin:auth_admin:auth_admin
 com.redhat.tuned.switch_profile			auth_admin:auth_admin:yes
 # tuned (bsc#1048961)
 com.redhat.tuned.verify_profile			yes:yes:yes
@@ -953,7 +953,7 @@ com.redhat.tuned.get_plugin_hints               auth_admin:auth_self:yes
 # incremental addition (bsc#1185418)
 com.redhat.tuned.post_loaded_profile            yes:yes:yes
 # addition of acquire_devices method (bsc#1208727)
-com.redhat.tuned.instance_acquire_devices       auth_admin:auth_admin:yes
+com.redhat.tuned.instance_acquire_devices       auth_admin:auth_admin:auth_admin
 # additional getter methods (bsc#1220081)
 com.redhat.tuned.get_instances                  yes:yes:yes
 com.redhat.tuned.instance_get_devices           yes:yes:yes
