@@ -440,6 +440,10 @@ org.gnome.settings-daemon.plugins.power.backlight-helper        auth_admin:auth_
 # code is copy&paste from gnome-power-manager
 org.xfce.power.backlight-helper                                 auth_admin:auth_admin:yes
 
+# xfce4-power-manager (bsc#1232244)
+# this helper is not actually packaged in openSUSE, but we do ship the polkit policy.
+org.xfce.power.xfce4-pm-helper                                  no:no:yes
+
 # cinnamon settings-daemon (bsc#951830)
 org.cinnamon.settings-daemon.plugins.power.backlight-helper	no:no:yes
 org.cinnamon.settingsdaemon.datetimemechanism.configure		no:no:auth_admin_keep
