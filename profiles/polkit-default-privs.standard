@@ -1134,4 +1134,8 @@ org.usbguard1.setParameter no:no:auth_admin
 # kinfocenter5 (bsc#1209378, bsc#1199735)
 org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
 
+# system wide RDP daemon for display manager access (bsc#1222159, bsc#1235551)
+org.gnome.remotedesktop.configure-system-daemon auth_admin:auth_admin:auth_admin_keep
+org.gnome.remotedesktop.enable-system-daemon auth_admin:auth_admin:auth_admin_keep
+
 ###
