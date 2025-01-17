@@ -686,6 +686,11 @@ org.freedesktop.fwupd.set-bios-settings                         auth_admin:auth_
 # fwupd (bsc#1216832)
 org.freedesktop.fwupd.fix-host-security-attr                    auth_admin_keep:no:auth_admin
 org.freedesktop.fwupd.undo-host-security-attr                   auth_admin_keep:no:auth_admin
+# fwupd 2.0 update (bsc#1235659)
+org.freedesktop.fwupd.quit                                      auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.fwupd.reset-config                              auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.fwupd.emulation-save                            auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.fwupd.emulation-tag                             auth_admin:auth_admin:auth_admin_keep
 
 # connman (bsc#1057697)
 net.connman.modify                                              auth_admin_keep
