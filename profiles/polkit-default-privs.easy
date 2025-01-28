@@ -958,8 +958,14 @@ com.redhat.tuned.instance_get_devices           yes:yes:yes
 # additional instance create/destroy and PPD methods (bsc#1232412)
 com.redhat.tuned.instance_create                auth_admin:auth_admin:auth_admin_keep
 com.redhat.tuned.instance_destroy               auth_admin:auth_admin:auth_admin_keep
-net.hadess.PowerProfiles.HoldProfile            no:no:yes
-net.hadess.PowerProfiles.ReleaseProfile         no:no:yes
+# tuned-ppd (bsc#1236029)
+# renamed some actions & compatibility with UPower interface
+net.hadess.PowerProfiles.hold-profile           no:no:yes
+net.hadess.PowerProfiles.release-profile        no:no:yes
+net.hadess.PowerProfiles.switch-profile         no:no:yes
+# this action is currently only found in tuned-ppd.
+# once upower-daemon implements it, this should be moved into the UPower section
+org.freedesktop.UPower.PowerProfiles.release-profile no:no:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.UdevRuleSave		auth_admin:auth_admin:auth_admin
