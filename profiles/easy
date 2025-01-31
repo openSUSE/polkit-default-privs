@@ -722,9 +722,6 @@ org.nemo.root                                                   no:no:auth_admin
 # nemo-extensions (bsc#1084703)
 org.nemo-share.samba_install                                    no:no:auth_admin_keep
 
-# scap-workbench (bsc#1084706)
-scap-workbench-oscap.run                                        auth_admin_keep:auth_admin_keep:auth_admin_keep
-
 # spice-gtk (bsc#1083025)
 org.spice-space.lowlevelusbaccess                               auth_admin:auth_self:yes
 
