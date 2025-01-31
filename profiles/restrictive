@@ -362,9 +362,6 @@ org.gnome.settings-daemon.plugins.power.backlight-helper        no:no:yes
 # xfce4-power-manager (bsc#665169)
 # code is copy&paste from gnome-power-manager
 org.xfce.power.backlight-helper                                 no:no:yes
-# xfce4-power-manager (bsc#1232244)
-# this helper is not actually packaged in openSUSE, but we do ship the polkit policy.
-org.xfce.power.xfce4-pm-helper                                  no:no:yes
 # run mousepad editor as root (bsc#1232231)
 # this must never be relaxed to anything weaker than auth_admin, since command
 # line arguments can be used to run user controlled code (via --gtk-module)
