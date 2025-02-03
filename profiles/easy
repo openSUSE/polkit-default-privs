@@ -619,15 +619,15 @@ org.blueman.rfkill.setstate                                     auth_admin:auth_
 
 # tuned (bsc#1007279)
 com.redhat.tuned.active_profile                                 yes
-com.redhat.tuned.disable                                        auth_admin:auth_admin:yes
+com.redhat.tuned.disable                                        auth_admin:auth_admin:auth_admin_keep
 com.redhat.tuned.is_running                                     yes
 com.redhat.tuned.profile_info                                   yes
 com.redhat.tuned.profiles                                       yes
 com.redhat.tuned.profiles2                                      yes
 com.redhat.tuned.recommend_profile                              yes
-com.redhat.tuned.reload                                         auth_admin:auth_admin:yes
-com.redhat.tuned.start                                          auth_admin:auth_admin:yes
-com.redhat.tuned.stop                                           auth_admin:auth_admin:yes
+com.redhat.tuned.reload                                         auth_admin:auth_admin:auth_admin_keep
+com.redhat.tuned.start                                          auth_admin:auth_admin:auth_admin_keep
+com.redhat.tuned.stop                                           auth_admin:auth_admin:auth_admin_keep
 com.redhat.tuned.switch_profile                                 auth_admin:auth_admin:yes
 # tuned (bsc#1048961)
 com.redhat.tuned.verify_profile                                 yes:yes:yes
@@ -645,10 +645,21 @@ com.redhat.tuned.get_plugin_hints                               yes:yes:yes
 # incremental addition (bsc#1185418)
 com.redhat.tuned.post_loaded_profile                            yes:yes:yes
 # addition of acquire_devices method (bsc#1208727)
-com.redhat.tuned.instance_acquire_devices                       auth_admin:auth_admin:yes
+com.redhat.tuned.instance_acquire_devices                       auth_admin:auth_admin:auth_admin_keep
 # additional getter methods (bsc#1220081)
 com.redhat.tuned.get_instances                                  yes:yes:yes
 com.redhat.tuned.instance_get_devices                           yes:yes:yes
+# additional instance create/destroy and PPD methods (bsc#1232412)
+com.redhat.tuned.instance_create                                auth_admin:auth_admin:auth_admin_keep
+com.redhat.tuned.instance_destroy                               auth_admin:auth_admin:auth_admin_keep
+# tuned-ppd (bsc#1236029)
+# renamed some actions & compatibility with UPower interface
+net.hadess.PowerProfiles.hold-profile                           no:no:yes
+net.hadess.PowerProfiles.release-profile                        no:no:yes
+net.hadess.PowerProfiles.switch-profile                         no:no:yes
+# this action is currently only found in tuned-ppd.
+# once upower-daemon implements it, this should be moved into the UPower section
+org.freedesktop.UPower.PowerProfiles.release-profile            no:no:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.UdevRuleSave                           auth_admin:auth_admin:auth_admin
