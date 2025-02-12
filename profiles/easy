@@ -843,3 +843,6 @@ org.rpm.dnf.v0.base.Config.override auth_admin:auth_admin:auth_admin
 #  system wide RDP daemon for display manager access (bsc#1222159)
 org.gnome.remotedesktop.configure-system-daemon auth_admin:auth_admin:auth_admin_keep
 org.gnome.remotedesktop.enable-system-daemon auth_admin:auth_admin:auth_admin_keep
+
+# timekpr-next admin interface (bsc#1234134)
+com.ubuntu.timekpr.pkexec auth_admin:auth_admin:auth_admin
