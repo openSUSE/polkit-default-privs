@@ -850,3 +850,10 @@ org.rpm.dnf.v0.base.Config.override auth_admin:auth_admin:auth_admin
 #  system wide RDP daemon for display manager access (bsc#1222159)
 org.gnome.remotedesktop.configure-system-daemon auth_admin:auth_admin:auth_admin_keep
 org.gnome.remotedesktop.enable-system-daemon auth_admin:auth_admin:auth_admin_keep
+
+# update management of operating system assets like containers (bsc#1237106)
+org.freedesktop.sysupdate1.check auth_admin:auth_admin:yes
+org.freedesktop.sysupdate1.update auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.sysupdate1.update-to-version auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.sysupdate1.vacuum auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.sysupdate1.manage-features auth_admin:auth_admin:auth_admin_keep
