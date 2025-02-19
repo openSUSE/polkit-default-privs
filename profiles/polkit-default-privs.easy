@@ -966,6 +966,9 @@ net.hadess.PowerProfiles.switch-profile         no:no:yes
 # this action is currently only found in tuned-ppd.
 # once upower-daemon implements it, this should be moved into the UPower section
 org.freedesktop.UPower.PowerProfiles.release-profile no:no:yes
+# additional upower actions covered by tuned that are whitelisted for upower in Factory already
+org.freedesktop.UPower.PowerProfiles.switch-profile auth_admin:yes:yes
+org.freedesktop.UPower.PowerProfiles.hold-profile auth_admin:yes:yes
 
 # backintime (bsc#1007723)
 net.launchpad.backintime.UdevRuleSave		auth_admin:auth_admin:auth_admin
