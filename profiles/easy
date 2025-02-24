@@ -856,3 +856,7 @@ org.freedesktop.sysupdate1.update auth_admin:auth_admin:yes
 org.freedesktop.sysupdate1.update-to-version auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.sysupdate1.vacuum auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.sysupdate1.manage-features auth_admin:auth_admin:auth_admin_keep
+
+# apparmor-utils: helper to whitelist violations found in the audit.log (bsc#1237329)
+net.apparmor.pkexec.aa-notify.modify_profile auth_admin:auth_admin:auth_admin
+net.apparmor.pkexec.aa-notify.create_userns auth_admin:auth_admin:auth_admin
