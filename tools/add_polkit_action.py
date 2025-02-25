@@ -28,20 +28,20 @@ class PolkitActionHandler:
 
     def __init__(self):
 
-        self.m_parser = argparse.ArgumentParser(
+        self.parser = argparse.ArgumentParser(
             description="Adds a new action with associated authentication settings to the polkit profiles managed by polkit-default-privs",
             formatter_class=argparse.RawTextHelpFormatter,
             epilog=epilog
         )
 
-        self.m_parser.add_argument(
+        self.parser.add_argument(
             "--new-group",
             metavar="bsc#<bug>:<comment>",
             type=self.parseGroupArg,
             help="Introduces a new group block of related polkit actions. Requires a bug reference and comment string"
         )
 
-        self.m_parser.add_argument(
+        self.parser.add_argument(
             "--action",
             help="the canonical action name to add like 'in.teejeetech.pkexec.timeshift'",
             required=True,
@@ -50,7 +50,7 @@ class PolkitActionHandler:
 
         for profile in PROFILES:
 
-            self.m_parser.add_argument(
+            self.parser.add_argument(
                 "--" + profile,
                 metavar=':'.join(self.AUTH_CATEGORIES),
                 type=self.parseAuthTuple,
@@ -58,7 +58,7 @@ class PolkitActionHandler:
                 default=None
             )
 
-        self.m_parser.add_argument(
+        self.parser.add_argument(
             "--all",
             metavar=':'.join(self.AUTH_CATEGORIES),
             type=self.parseAuthTuple,
@@ -135,16 +135,16 @@ class PolkitActionHandler:
 
     def run(self):
 
-        self.m_args = self.m_parser.parse_args()
+        self.args = self.parser.parse_args()
 
         if not self.checkArgs():
             sys.exit(1)
 
-        if self.m_args.all:
-            self.m_args.easy = self.m_args.standard = self.m_args.restrictive = self.m_args.all
+        if self.args.all:
+            self.args.easy = self.args.standard = self.args.restrictive = self.args.all
 
         # tuple of auth types matching the profiles
-        self.m_auth_types = tuple(getattr(self.m_args, profile) for profile in PROFILES)
+        self.auth_types = tuple(getattr(self.args, profile) for profile in PROFILES)
 
         if not self.sanityCheck():
             printerr("Not adding new action since sanity check(s) failed")
@@ -155,14 +155,14 @@ class PolkitActionHandler:
     def checkArgs(self):
         """Verify logical consistency of command line arguments."""
         num_profiles = 0
-        for prof in (self.m_args.easy, self.m_args.standard, self.m_args.restrictive):
+        for prof in (self.args.easy, self.args.standard, self.args.restrictive):
             if prof is not None:
                 num_profiles += 1
 
-        if num_profiles == 0 and not self.m_args.all:
+        if num_profiles == 0 and not self.args.all:
             printerr("Need to specify --all _or_ all off --easy, --standard and --restrictive")
             return False
-        elif num_profiles > 0 and self.m_args.all:
+        elif num_profiles > 0 and self.args.all:
             printerr("Cannot specify --all _and_ any of --easy, --standard or --restrictive")
             return False
         elif num_profiles > 0 and num_profiles < 3:
@@ -198,7 +198,7 @@ class PolkitActionHandler:
         return ret
 
     def checkDuplicate(self, entry):
-        if entry.action == self.m_args.action:
+        if entry.action == self.args.action:
             printerr("ERROR: action to be added already exists in {}:{}".format(
                 entry.path, entry.linenr
             ))
@@ -213,7 +213,7 @@ class PolkitActionHandler:
         ret = True
         strongest = [self.AUTH_TYPES[0]] * 3
 
-        for profile, auth_types in zip(PROFILES, self.m_auth_types):
+        for profile, auth_types in zip(PROFILES, self.auth_types):
             for nr, old, new in zip(range(len(strongest)), strongest, auth_types):
 
                 if self.AUTH_TYPES.index(old) > self.AUTH_TYPES.index(new):
@@ -234,10 +234,10 @@ class PolkitActionHandler:
         import subprocess
         import shutil
 
-        if not self.m_args.new_group:
+        if not self.args.new_group:
             return True
 
-        bug = self.m_args.new_group[0]
+        bug = self.args.new_group[0]
         nr = bug[1]
 
         insect = shutil.which("insect")
@@ -263,21 +263,21 @@ class PolkitActionHandler:
 
     def addAction(self):
 
-        for profile, auth_settings in zip(PROFILES, self.m_auth_types):
+        for profile, auth_settings in zip(PROFILES, self.auth_types):
 
             path = getProfilePath(profile)
 
             with open(path, 'a') as fd:
 
-                if self.m_args.new_group:
-                    bug, comment = self.m_args.new_group
+                if self.args.new_group:
+                    bug, comment = self.args.new_group
                     fd.write("\n")
                     fd.write("# {} ({}#{})\n".format(
                         comment, *bug
                     ))
 
                 fd.write("{} {}\n".format(
-                    self.m_args.action,
+                    self.args.action,
                     ':'.join(auth_settings)
                 ))
 
