@@ -55,8 +55,16 @@ class PolkitActionHandler:
                 metavar=':'.join(self.AUTH_CATEGORIES),
                 type=self.parseAuthTuple,
                 help="Specifies the settings for the --action in this profile. If all three fields are equal you may also specify only a single field without colons.",
-                required=True
+                default=None
             )
+
+        self.m_parser.add_argument(
+            "--all",
+            metavar=':'.join(self.AUTH_CATEGORIES),
+            type=self.parseAuthTuple,
+            help="Use these settings for all profiles (conflicts with --easy, --standard, --restrictive)",
+            default=None
+        )
 
     def parseAuthTuple(self, s):
         s = s.lower()
@@ -128,6 +136,13 @@ class PolkitActionHandler:
     def run(self):
 
         self.m_args = self.m_parser.parse_args()
+
+        if not self.checkArgs():
+            sys.exit(1)
+
+        if self.m_args.all:
+            self.m_args.easy = self.m_args.standard = self.m_args.restrictive = self.m_args.all
+
         # tuple of auth types matching the profiles
         self.m_auth_types = tuple(getattr(self.m_args, profile) for profile in PROFILES)
 
@@ -136,6 +151,25 @@ class PolkitActionHandler:
             sys.exit(2)
 
         self.addAction()
+
+    def checkArgs(self):
+        """Verify logical consistency of command line arguments."""
+        num_profiles = 0
+        for prof in (self.m_args.easy, self.m_args.standard, self.m_args.restrictive):
+            if prof is not None:
+                num_profiles += 1
+
+        if num_profiles == 0 and not self.m_args.all:
+            printerr("Need to specify --all _or_ all off --easy, --standard and --restrictive")
+            return False
+        elif num_profiles > 0 and self.m_args.all:
+            printerr("Cannot specify --all _and_ any of --easy, --standard or --restrictive")
+            return False
+        elif num_profiles > 0 and num_profiles < 3:
+            printerr("Need to specify _all_ of --easy, --standard and --restrictive")
+            return False
+
+        return True
 
     def sanityCheck(self):
         """Perform a couple of sanity checks for the newly added actions. This
