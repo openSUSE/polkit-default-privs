@@ -1,0 +1,25 @@
+name: flake8
+
+on:
+  pull_request:
+    paths:
+      - "tools/*.py"
+      - ".github/workflows/flake8.yml"
+  push:
+    branches:
+      - '**'
+    paths:
+      - "tools/*.py"
+      - ".github/workflows/flake8.yml"
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source repository
+        uses: actions/checkout@v3
+      - name: Lint with flake8
+        uses: py-actions/flake8@v2
+        with:
+          ignore: "E265,E266,E501,E402"
+          max-line-length: "120"
