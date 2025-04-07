@@ -810,6 +810,9 @@ org.freedesktop.UPower.PowerProfiles.switch-profile no:no:yes
 org.freedesktop.UPower.PowerProfiles.hold-profile no:no:yes
 # added charging-limit action (bsc#1232835)
 org.freedesktop.UPower.enable-charging-limit no:no:yes
+# added configure-action & configure-battery-aware (bsc#1240862)
+org.freedesktop.UPower.PowerProfiles.configure-action no:no:yes
+org.freedesktop.UPower.PowerProfiles.configure-battery-aware no:no:yes
 
 # kcron dbus helper (bsc#1193945)
 local.kcron.crontab.save no:no:auth_admin_keep
