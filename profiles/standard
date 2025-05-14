@@ -610,6 +610,8 @@ org.freedesktop.Flatpak.modify-repo                             auth_admin:auth_
 org.freedesktop.Flatpak.metadata-update                         auth_admin:auth_admin:auth_admin_keep
 # flatpak (bsc#1161091)
 org.freedesktop.Flatpak.override-parental-controls              auth_admin:auth_admin:auth_admin
+# update of app which is restricted by parental controls (bsc#1243046)
+org.freedesktop.Flatpak.override-parental-controls-update       auth_admin:auth_admin:yes
 
 # blueman (bsc#987141)
 org.blueman.network.setup                                       auth_admin:auth_admin_keep:yes
