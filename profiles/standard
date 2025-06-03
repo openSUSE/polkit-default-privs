@@ -395,6 +395,8 @@ org.freedesktop.ModemManager1.USSD                              no:no:yes
 org.freedesktop.ModemManager1.Voice                             no:no:yes
 # bsc#1156961
 org.freedesktop.ModemManager1.Time                              no:no:auth_self_keep
+# bsc#1243684
+org.freedesktop.ModemManager1.CellBroadcast                     no:no:yes
 
 # urfkill (bsc#688328)
 org.freedesktop.urfkill.block                                   no:auth_admin:yes
