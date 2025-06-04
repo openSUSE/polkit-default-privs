@@ -198,6 +198,8 @@ org.kde.kded.inotify.increasewatchlimit                         no:no:auth_admin
 org.kde.drkonqi.saveCoreToFile                                  no:no:auth_admin_keep
 # kdeplasma-addons-kameleon (bsc#1226306)
 org.kde.kameleonhelper.writecolor                               no:yes:yes
+# privileged file operations in KDE used e.g. in Dolphin (bsc#1229913)
+org.kde.kio.admin.commands                                      no:no:auth_admin_keep
 
 # systemd (bsc#641924)
 org.freedesktop.hostname1.set-hostname                          auth_admin
