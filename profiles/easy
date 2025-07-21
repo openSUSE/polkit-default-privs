@@ -846,9 +846,10 @@ org.selinux.relabel_on_boot no:no:auth_admin_keep
 org.selinux.change_default_policy no:no:auth_admin_keep
 org.selinux.change_default_mode no:no:auth_admin_keep
 
-# dnf5daemon-server (bsc#1218327)
+# dnf5daemon-server (bsc#1218327 bsc#1245451)
 org.rpm.dnf.v0.rpm.Repo.conf_write auth_admin:auth_admin:auth_admin_keep
 org.rpm.dnf.v0.rpm.execute_transaction auth_admin:auth_admin:auth_admin_keep
+org.rpm.dnf.v0.rpm.execute_trusted_transaction auth_admin:auth_admin:auth_admin_keep
 org.rpm.dnf.v0.rpm.Repo.confirm_key auth_admin:auth_admin:auth_admin
 org.rpm.dnf.v0.base.Config.override auth_admin:auth_admin:auth_admin
 
