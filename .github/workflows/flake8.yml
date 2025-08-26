@@ -1,4 +1,6 @@
 name: flake8
+permissions:
+  contents: read
 
 on:
   pull_request:
