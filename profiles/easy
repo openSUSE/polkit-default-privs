@@ -256,6 +256,8 @@ org.freedesktop.login1.set-wall-message                         auth_admin_keep
 org.freedesktop.machine1.host-login                             auth_admin:auth_admin:yes
 # v257 addition (bsc#1233295)
 org.freedesktop.machine1.create-machine                         auth_admin:auth_admin:auth_admin_keep
+# v258 addition (bsc#1250893)
+org.freedesktop.machine1.register-machine                       auth_admin:auth_admin:auth_admin_keep
 # systemd follow-up for resolve actions (bsc#1096907)
 org.freedesktop.resolve1.register-service                       auth_admin
 org.freedesktop.resolve1.unregister-service                     auth_admin
