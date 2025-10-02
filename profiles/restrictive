@@ -257,6 +257,8 @@ org.freedesktop.login1.set-wall-message                         auth_admin_keep
 org.freedesktop.machine1.host-login                             auth_admin:auth_admin:yes
 # v257 addition (bsc#1233295)
 org.freedesktop.machine1.create-machine                         auth_admin:auth_admin:auth_admin
+# v258 addition (bsc#1250893)
+org.freedesktop.machine1.register-machine                       no:auth_admin:auth_admin_keep
 # systemd follow-up for resolve actions (bsc#1096907)
 org.freedesktop.resolve1.register-service                       auth_admin
 org.freedesktop.resolve1.unregister-service                     auth_admin
@@ -276,6 +278,8 @@ org.freedesktop.resolve1.dump-cache                             auth_admin:auth_
 org.freedesktop.resolve1.dump-server-state                      auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.resolve1.dump-statistics                        auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.resolve1.reset-statistics                       auth_admin:auth_admin:auth_admin_keep
+# v258 addition (bsc#1250880)
+org.freedesktop.resolve1.subscribe-dns-configuration            auth_admin:auth_admin:auth_admin_keep
 # systemd get-product-uuid incremental addition (bsc#1127847)
 org.freedesktop.hostname1.get-product-uuid                      auth_admin
 # systemd org.freedesktop.login1.* services (bsc#1133843)
@@ -326,6 +330,8 @@ org.freedesktop.home1.resize-home                               auth_admin
 org.freedesktop.home1.update-home                               auth_admin
 # v257 addition (bsc#1233295)
 org.freedesktop.home1.update-home-by-owner                      auth_admin_keep:auth_admin_keep:yes
+# v258 addition (bsc#1250884)
+org.freedesktop.home1.manage-signing-keys                       no:auth_admin:auth_admin
 
 # systemd timesync1, hostname1 (bsc#1200098)
 org.freedesktop.timesync1.set-runtime-servers                   auth_admin:auth_admin:auth_admin
