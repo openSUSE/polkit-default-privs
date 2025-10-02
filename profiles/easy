@@ -275,6 +275,8 @@ org.freedesktop.resolve1.dump-cache                             auth_admin:auth_
 org.freedesktop.resolve1.dump-server-state                      auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.resolve1.dump-statistics                        auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.resolve1.reset-statistics                       auth_admin:auth_admin:auth_admin_keep
+# v258 addition (bsc#1250880)
+org.freedesktop.resolve1.subscribe-dns-configuration            auth_admin:auth_admin:auth_admin_keep
 # systemd get-product-uuid incremental addition (bsc#1127847)
 org.freedesktop.hostname1.get-product-uuid                      auth_admin
 # systemd org.freedesktop.login1.* services (bsc#1133843)
