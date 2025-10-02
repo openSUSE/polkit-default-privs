@@ -328,6 +328,8 @@ org.freedesktop.home1.resize-home                               auth_admin_keep
 org.freedesktop.home1.update-home                               auth_admin_keep
 # v257 addition (bsc#1233295)
 org.freedesktop.home1.update-home-by-owner                      auth_admin_keep:auth_admin_keep:yes
+# v258 addition (bsc#1250884)
+org.freedesktop.home1.manage-signing-keys                       auth_admin_keep:auth_admin_keep:auth_admin_keep
 
 # systemd timesync1, hostname1 (bsc#1200098)
 org.freedesktop.timesync1.set-runtime-servers                   auth_admin:auth_admin_keep:auth_admin_keep
