@@ -871,3 +871,8 @@ net.apparmor.pkexec.aa-notify.create_userns auth_admin:auth_admin:auth_admin
 
 # clone of Gnome backlight helper (bsc#1248851)
 org.gnome.mutter.backlight-helper no:no:yes
+
+# budgie-desktop: another clone of Gnome backlight helper (bsc#1252691)
+org.buddiesofbudgie.settings-daemon.plugins.power.backlight-helper no:no:yes
+org.buddiesofbudgie.settings-daemon.plugins.wacom.wacom-led-helper no:no:yes
+org.buddiesofbudgie.settings-daemon.plugins.wacom.wacom-oled-helper no:no:yes
