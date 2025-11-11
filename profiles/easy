@@ -707,6 +707,8 @@ org.freedesktop.fwupd.reset-config                              auth_admin:auth_
 org.freedesktop.fwupd.emulation-save                            auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.fwupd.emulation-tag                             auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.fwupd.emulation-load                            auth_admin:auth_admin:auth_admin_keep
+# fwupd (bsc#1253111)
+org.freedesktop.fwupd.clean-remote                              auth_admin:no:auth_admin_keep
 
 # connman (bsc#1057697)
 net.connman.modify                                              auth_admin_keep
