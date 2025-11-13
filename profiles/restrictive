@@ -351,6 +351,19 @@ io.systemd.mount-file-system.mount-untrusted-image-privately    auth_admin:auth_
 org.freedesktop.home1.activate-home                             auth_admin_keep:auth_admin_keep:auth_admin_keep
 org.freedesktop.import1.cancel                                  auth_admin:auth_admin:auth_admin_keep
 org.freedesktop.network1.set-persistent-storage                 auth_admin:auth_admin:auth_admin_keep
+# new actions in v258 mountfsd (bsc#1250898)
+io.systemd.mount-file-system.make-directory-untrusted            auth_admin:auth_admin:auth_admin
+io.systemd.mount-file-system.make-directory                      yes:yes:yes
+io.systemd.mount-file-system.mount-directory                     auth_admin_keep:auth_admin_keep:yes
+io.systemd.mount-file-system.mount-directory-privately           yes:yes:yes
+io.systemd.mount-file-system.mount-untrusted-directory           auth_admin:auth_admin:auth_admin
+io.systemd.mount-file-system.mount-untrusted-directory-privately auth_admin:auth_admin:auth_admin
+# new actions in v258 nsresourced (bsc#1250902)
+io.systemd.namespace-resource.allocate-user-namespace            yes:yes:yes
+io.systemd.namespace-resource.delegate-cgroup                    yes:yes:yes
+io.systemd.namespace-resource.delegate-mount                     yes:yes:yes
+io.systemd.namespace-resource.delegate-network-interface         yes:yes:yes
+io.systemd.namespace-resource.register-user-namespace            yes:yes:yes
 
 # GNOME control-center (bsc#927508)
 org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin
