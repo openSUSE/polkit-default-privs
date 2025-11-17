@@ -892,3 +892,6 @@ org.gnome.mutter.backlight-helper no:no:yes
 org.buddiesofbudgie.settings-daemon.plugins.power.backlight-helper no:no:yes
 org.buddiesofbudgie.settings-daemon.plugins.wacom.wacom-led-helper no:no:yes
 org.buddiesofbudgie.settings-daemon.plugins.wacom.wacom-oled-helper no:no:yes
+
+# kauth action to change greeter theme settings (bsc#1249146)
+org.kde.kcontrol.kcmlightdm.save no:no:auth_admin_keep
