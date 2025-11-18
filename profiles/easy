@@ -894,3 +894,10 @@ org.buddiesofbudgie.settings-daemon.plugins.wacom.wacom-oled-helper no:no:yes
 
 # kauth action to change greeter theme settings (bsc#1249146)
 org.kde.kcontrol.kcmlightdm.save no:no:auth_admin_keep
+
+# snapd (bsc#1248682)
+io.snapcraft.snapd.login auth_admin:auth_admin:auth_admin_keep
+io.snapcraft.snapd.manage auth_admin:auth_admin:auth_admin_keep
+io.snapcraft.snapd.manage-interfaces auth_admin:auth_admin:auth_admin_keep
+io.snapcraft.snapd.manage-configuration auth_admin:auth_admin:auth_admin_keep
+io.snapcraft.snapd.manage-fde auth_admin:auth_admin:auth_admin_keep
