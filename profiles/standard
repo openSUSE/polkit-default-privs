@@ -35,11 +35,6 @@ org.freedesktop.NetworkManager.settings.modify.global-dns       auth_admin_keep:
 # bsc#1122262, bsc#1128560 (renamed from previously wifi-scan)
 org.freedesktop.NetworkManager.wifi.scan                        auth_admin:yes:yes
 
-# gnome-settings-daemon (bsc#750795)
-org.gnome.settings-daemon.plugins.wacom.wacom-led-helper        no:no:yes
-# bsc#822405
-org.gnome.settings-daemon.plugins.wacom.wacom-oled-helper       no:no:yes
-
 # colord (bsc#698250, bsc#918594)
 org.freedesktop.color-manager.create-device                     no:no:yes
 org.freedesktop.color-manager.create-profile                    no:no:yes
