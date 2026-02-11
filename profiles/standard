@@ -1011,3 +1011,6 @@ org.shadowblip.Output.ForceFeedback.Rumble no:auth_admin:auth_admin
 org.shadowblip.Output.ForceFeedback.Stop no:auth_admin:auth_admin
 org.shadowblip.Input.Metrics.Enabled no:auth_admin:auth_admin
 org.shadowblip.Input.Metrics.SetEnabled no:auth_admin:auth_admin
+
+# gdm (bsc#1258025)
+org.gnome.displaymanager.displayfactory.manage-user-displays auth_admin:auth_admin:auth_admin
