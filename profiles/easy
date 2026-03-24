@@ -1015,3 +1015,6 @@ org.shadowblip.Input.Metrics.SetEnabled no:auth_admin:auth_admin
 
 # gdm (bsc#1258025)
 org.gnome.displaymanager.displayfactory.manage-user-displays auth_admin:auth_admin:auth_admin_keep
+
+# desktop settings dialog (bsc#1259402)
+com.system76.CosmicSettings.Users.Admin no:no:auth_admin_keep
