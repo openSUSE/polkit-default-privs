@@ -364,6 +364,11 @@ io.systemd.namespace-resource.delegate-network-interface         yes:yes:yes
 io.systemd.namespace-resource.register-user-namespace            yes:yes:yes
 # new action in v258.4 ask-password (bsc#1257943)
 io.systemd.ask-password.ask                                      auth_admin_keep:auth_admin_keep:yes
+# new action in v260 sysext (bsc#1259318)
+io.systemd.sysext.manage                                         auth_admin:auth_admin:auth_admin_keep
+io.systemd.confext.manage                                        auth_admin:auth_admin:auth_admin_keep
+# new action in v260 networkd (bsc#1259318)
+org.freedesktop.network1.manage-links                            auth_admin:auth_admin:auth_admin_keep
 
 # GNOME control-center (bsc#927508)
 org.gnome.controlcenter.remote-login-helper                     no:no:auth_admin_keep
