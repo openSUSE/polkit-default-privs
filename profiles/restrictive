@@ -367,6 +367,8 @@ io.systemd.ask-password.ask                                      auth_admin_keep
 # new action in v260 sysext (bsc#1259318)
 io.systemd.sysext.manage                                         auth_admin:auth_admin:auth_admin_keep
 io.systemd.confext.manage                                        auth_admin:auth_admin:auth_admin_keep
+io.systemd.sysext.read                                           yes:yes:yes
+io.systemd.confext.read                                          yes:yes:yes
 # new action in v260 networkd (bsc#1259318)
 org.freedesktop.network1.manage-links                            auth_admin:auth_admin:auth_admin_keep
 
