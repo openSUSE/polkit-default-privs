@@ -1026,3 +1026,6 @@ org.gnome.displaymanager.displayfactory.manage-user-displays auth_admin:auth_adm
 
 # desktop settings dialog (bsc#1259402)
 com.system76.CosmicSettings.Users.Admin no:no:auth_admin_keep
+
+# mcp-server-systemd (bsc#1259556)
+com.suse.gatekeeper.readlog auth_admin:auth_admin:auth_admin
