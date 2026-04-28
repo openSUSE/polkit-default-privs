@@ -880,3 +880,6 @@ org.freedesktop.sysupdate1.manage-features auth_admin:auth_admin:auth_admin_keep
 # apparmor-utils: helper to whitelist violations found in the audit.log (bsc#1237329)
 net.apparmor.pkexec.aa-notify.modify_profile auth_admin:auth_admin:auth_admin
 net.apparmor.pkexec.aa-notify.create_userns auth_admin:auth_admin:auth_admin
+
+# mcp-server-systemd (bsc#1259556)
+com.suse.gatekeeper.readlog auth_admin:auth_admin:auth_admin
