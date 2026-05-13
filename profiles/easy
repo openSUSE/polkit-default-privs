@@ -893,6 +893,8 @@ org.freedesktop.sysupdate1.manage-features auth_admin:auth_admin:auth_admin_keep
 # apparmor-utils: helper to whitelist violations found in the audit.log (bsc#1237329)
 net.apparmor.pkexec.aa-notify.modify_profile auth_admin:auth_admin:auth_admin
 net.apparmor.pkexec.aa-notify.create_userns auth_admin:auth_admin:auth_admin
+# follow-up review of from_file pkexec action (bsc#1265157)
+net.apparmor.pkexec.aa-notify.from_file auth_admin:auth_admin:auth_admin
 
 # clone of Gnome backlight helper (bsc#1248851)
 org.gnome.mutter.backlight-helper no:no:yes
