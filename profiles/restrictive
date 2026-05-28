@@ -1034,3 +1034,12 @@ com.system76.CosmicSettings.Users.Admin no:no:auth_admin_keep
 
 # mcp-server-systemd (bsc#1259556)
 com.suse.gatekeeper.readlog auth_admin:auth_admin:auth_admin
+
+# qsnapper (bsc#1261537)
+com.presire.qsnapper.list-snapshots auth_admin:auth_admin:yes
+com.presire.qsnapper.view-diff auth_admin:auth_admin:auth_admin_keep
+com.presire.qsnapper.create-snapshot auth_admin:auth_admin:auth_admin_keep
+com.presire.qsnapper.delete-snapshot auth_admin:auth_admin:auth_admin_keep
+com.presire.qsnapper.modify-snapshot auth_admin:auth_admin:auth_admin_keep
+com.presire.qsnapper.rollback-snapshot auth_admin:auth_admin:auth_admin_keep
+com.presire.qsnapper.configure auth_admin:auth_admin:auth_admin_keep
