@@ -197,6 +197,9 @@ org.kde.kded.inotify.increasewatchlimit                         no:no:auth_admin
 org.kde.drkonqi.saveCoreToFile                                  no:no:auth_admin
 # kdeplasma-addons-kameleon (bsc#1226306)
 org.kde.kameleonhelper.writecolor                               no:no:yes
+# kdeplasma6-addons kameleon.qmk (bsc#1267818)
+org.kde.kameleon.qmk.helper.HasDevices                          no:no:yes
+org.kde.kameleon.qmk.helper.ApplyColor                          no:no:yes
 # privileged file operations in KDE used e.g. in Dolphin (bsc#1229913)
 org.kde.kio.admin.commands                                      no:no:auth_admin_keep
 # Samba/CIFS network share mount helper (bsc#1249004)
