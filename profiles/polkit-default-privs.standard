@@ -994,6 +994,31 @@ org.freedesktop.fwupd.device-activate           auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.self-sign                 auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.set-approved-firmware     auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.modify-config             auth_admin:no:auth_admin_keep
+# fwupd (bsc#1193310)
+org.freedesktop.fwupd.downgrade-internal-trusted                auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.downgrade-hotplug-trusted                 auth_admin:no:auth_admin_keep
+# fwupd (bsc#1204026)
+org.freedesktop.fwupd.get-bios-settings                         auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.set-bios-settings                         auth_admin:no:auth_admin
+# fwupd (bsc#1216832)
+org.freedesktop.fwupd.fix-host-security-attr                    auth_admin:no:auth_admin
+org.freedesktop.fwupd.undo-host-security-attr                   auth_admin:no:auth_admin
+# fwupd 2.0 update (bsc#1235659)
+org.freedesktop.fwupd.quit                                      auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.reset-config                              auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.emulation-save                            auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.emulation-tag                             auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.emulation-load                            auth_admin:no:auth_admin_keep
+# fwupd (bsc#1253111)
+org.freedesktop.fwupd.clean-remote                              auth_admin:no:auth_admin_keep
+# fwupd (bsc#1267014)
+org.freedesktop.fwupd.modify-device                             auth_admin:no:yes
+org.freedesktop.fwupd.clear-results                             auth_admin:no:yes
+org.freedesktop.fwupd.verify                                    auth_admin:no:yes
+org.freedesktop.fwupd.get-remotes                               auth_admin:no:yes
+org.freedesktop.fwupd.refresh-remote                            auth_admin:no:yes
+org.freedesktop.fwupd.enable-remote                             auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.device-emulate                            auth_admin:no:auth_admin
 
 # deja-dup (bsc#1058935)
 org.gnome.DejaDup.duplicity			no:no:auth_admin
