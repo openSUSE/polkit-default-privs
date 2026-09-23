@@ -1070,3 +1070,6 @@ com.presire.qsnapper.configure auth_admin:auth_admin:auth_admin_keep
 
 # GPU management daemon (bsc#1274863)
 io.github.ilya_zlobintsev.LACT.profile-hook auth_admin:auth_admin:auth_admin_keep
+
+# datarecovery (bsc#1280118)
+datarecovery.run-ddrescue auth_admin:auth_admin:auth_admin
