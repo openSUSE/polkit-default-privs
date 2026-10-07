@@ -901,9 +901,11 @@ org.rpm.dnf.v0.rpm.execute_trusted_transaction auth_admin:auth_admin:auth_admin
 org.rpm.dnf.v0.rpm.Repo.confirm_key auth_admin:auth_admin:auth_admin
 org.rpm.dnf.v0.base.Config.override auth_admin:auth_admin:auth_admin
 
-#  system wide RDP daemon for display manager access (bsc#1222159)
+# gnome-remote-desktop: system wide RDP daemon for display manager access (bsc#1222159)
 org.gnome.remotedesktop.configure-system-daemon auth_admin:auth_admin:auth_admin
 org.gnome.remotedesktop.enable-system-daemon auth_admin:auth_admin:auth_admin
+# pcscd smart card related additions (bsc#1276523)
+org.gnome.remotedesktop.use-grd-pcscd auth_admin:auth_admin:auth_admin
 
 # timekpr-next admin interface (bsc#1234134)
 com.ubuntu.timekpr.pkexec auth_admin:auth_admin:auth_admin
