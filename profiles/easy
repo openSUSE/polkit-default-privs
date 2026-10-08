@@ -658,6 +658,9 @@ org.freedesktop.Flatpak.metadata-update                         auth_admin:auth_
 org.freedesktop.Flatpak.override-parental-controls              auth_admin:auth_admin:auth_admin
 # Update of app which is restricted by parental controls (bsc#1243046)
 org.freedesktop.Flatpak.override-parental-controls-update       auth_admin:auth_admin:yes
+# flatpak downgrade actions (bsc#1283013)
+org.freedesktop.Flatpak.app-downgrade                           auth_admin:auth_admin:auth_admin_keep
+org.freedesktop.Flatpak.runtime-downgrade                       auth_admin:auth_admin:auth_admin_keep
 
 # blueman (bsc#987141)
 org.blueman.network.setup                                       auth_admin:auth_admin_keep:yes
