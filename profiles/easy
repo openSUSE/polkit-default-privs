@@ -1077,3 +1077,6 @@ io.github.ilya_zlobintsev.LACT.profile-hook auth_admin_keep:auth_admin_keep:auth
 
 # datarecovery (bsc#1280118)
 datarecovery.run-ddrescue auth_admin:auth_admin:auth_admin
+
+# Wayland greeter application theme config helper (bsc#1285400)
+org.noctalia.greeter.sync-appearance auth_admin:auth_admin:auth_admin
