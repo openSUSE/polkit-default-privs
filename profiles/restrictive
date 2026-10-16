@@ -156,6 +156,8 @@ org.kde.ksysguard.processlisthelper.changecpuscheduler          no:no:auth_admin
 org.kde.ksysguard.processlisthelper.changeioscheduler           no:no:auth_admin
 org.kde.ksysguard.processlisthelper.renice                      no:no:auth_admin
 org.kde.ksysguard.processlisthelper.sendsignal                  no:no:auth_admin
+# additional meta action (bsc#1281596)
+org.kde.ksysguard.processlisthelper.applyscheduling             no:no:auth_admin
 # kdenetwork-filesharing (bsc#1262258, bsc#1263037)
 org.kde.filesharing.samba.enableservice                         no:auth_admin:auth_admin
 org.kde.filesharing.samba.startservice                          no:auth_admin:auth_admin
