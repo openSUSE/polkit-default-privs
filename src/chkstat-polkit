@@ -75,6 +75,12 @@ foreach my $privilege (sort keys %to_set) {
 
 exit(0) unless $do_set;
 
+# the rules directory belongs to polkit, which is not necessarily
+# installed, so create it here before writing the generated file
+my $rules_dir = $file;
+$rules_dir =~ s{/[^/]+$}{};
+File::Path::make_path($rules_dir);
+
 open(F, '>', $file.'.new') or die "can't open $file.new: $!\n";
 while(<DATA>) {
 	if (/INSERT_RULES_HERE/) {
