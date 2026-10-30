@@ -886,3 +886,6 @@ net.apparmor.pkexec.aa-notify.create_userns auth_admin:auth_admin:auth_admin
 
 # mcp-server-systemd (bsc#1259556)
 com.suse.gatekeeper.readlog auth_admin:auth_admin:auth_admin
+
+# self-authentication to access the master keyring of the password manager (bsc#1286643)
+org.keepassxc.KeePassXC.unlockDatabase no:no:auth_self
