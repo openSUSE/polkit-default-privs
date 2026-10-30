@@ -1086,3 +1086,6 @@ datarecovery.run-ddrescue auth_admin:auth_admin:auth_admin
 
 # Wayland greeter application theme config helper (bsc#1285400)
 org.noctalia.greeter.sync-appearance auth_admin:auth_admin:auth_admin
+
+# self-authentication to access the master keyring of the password manager (bsc#1286643)
+org.keepassxc.KeePassXC.unlockDatabase no:no:auth_self
