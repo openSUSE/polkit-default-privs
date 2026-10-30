@@ -1123,4 +1123,7 @@ org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
 org.gnome.remotedesktop.configure-system-daemon auth_admin:auth_admin:auth_admin
 org.gnome.remotedesktop.enable-system-daemon auth_admin:auth_admin:auth_admin
 
+# self-authentication to access the master keyring of the password manager (bsc#1286643)
+org.keepassxc.KeePassXC.unlockDatabase no:no:auth_self
+
 ###
