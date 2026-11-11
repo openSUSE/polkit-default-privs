@@ -1091,3 +1091,6 @@ org.noctalia.greeter.sync-appearance auth_admin:auth_admin:auth_admin
 
 # self-authentication to access the master keyring of the password manager (bsc#1286643)
 org.keepassxc.KeePassXC.unlockDatabase no:no:auth_self
+
+# owly Apple WiFi data exchange helper (bsc#1288451)
+io.github.t4t5.Owly.acquire auth_admin:auth_admin:yes
