@@ -1080,6 +1080,16 @@ com.presire.qsnapper.delete-snapshot auth_admin:auth_admin:auth_admin_keep
 com.presire.qsnapper.modify-snapshot auth_admin:auth_admin:auth_admin_keep
 com.presire.qsnapper.rollback-snapshot auth_admin:auth_admin:auth_admin_keep
 com.presire.qsnapper.configure auth_admin:auth_admin:auth_admin_keep
+# qsnapper 1.4.x additions (bsc#1288229)
+com.presire.qsnapper.view-config auth_admin:auth_admin:yes
+com.presire.qsnapper.view-timers auth_admin:auth_admin:yes
+com.presire.qsnapper.view-filesystem auth_admin:auth_admin:yes
+com.presire.qsnapper.manage-timers auth_admin:auth_admin:auth_admin_keep
+com.presire.qsnapper.setup-quota auth_admin:auth_admin:auth_admin_keep
+com.presire.qsnapper.create-config auth_admin:auth_admin:auth_admin
+com.presire.qsnapper.delete-config auth_admin:auth_admin:auth_admin
+com.presire.qsnapper.delete-snapshots auth_admin:auth_admin:auth_admin
+com.presire.qsnapper.list-subvolumes auth_admin:auth_admin:auth_admin_keep
 
 # GPU management daemon (bsc#1274863)
 io.github.ilya_zlobintsev.LACT.profile-hook no:auth_admin:auth_admin_keep
