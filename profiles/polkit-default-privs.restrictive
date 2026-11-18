@@ -951,12 +951,12 @@ org.freedesktop.fwupd.emulation-tag                             auth_admin:no:au
 org.freedesktop.fwupd.emulation-load                            auth_admin:no:auth_admin_keep
 # fwupd (bsc#1253111)
 org.freedesktop.fwupd.clean-remote                              auth_admin:no:auth_admin_keep
-# fwupd (bsc#1267014)
+# fwupd (bsc#1267014, bsc#1290621)
 org.freedesktop.fwupd.modify-device                             auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.clear-results                             auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.verify                                    auth_admin:no:auth_admin_keep
-org.freedesktop.fwupd.get-remotes                               auth_admin:no:auth_admin_keep
-org.freedesktop.fwupd.refresh-remote                            auth_admin:no:auth_admin_keep
+org.freedesktop.fwupd.get-remotes                               auth_admin:yes:yes
+org.freedesktop.fwupd.refresh-remote                            auth_admin:auth_admin_keep:yes
 org.freedesktop.fwupd.enable-remote                             auth_admin:no:auth_admin_keep
 org.freedesktop.fwupd.device-emulate                            auth_admin:no:auth_admin
 
@@ -1122,5 +1122,8 @@ org.kde.kinfocenter.dmidecode.systeminformation                 no:yes:yes
 # system wide RDP daemon for display manager access (bsc#1222159, bsc#1235551)
 org.gnome.remotedesktop.configure-system-daemon auth_admin:auth_admin:auth_admin
 org.gnome.remotedesktop.enable-system-daemon auth_admin:auth_admin:auth_admin
+
+# self-authentication to access the master keyring of the password manager (bsc#1286643)
+org.keepassxc.KeePassXC.unlockDatabase no:no:auth_self
 
 ###
