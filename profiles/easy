@@ -1104,3 +1104,8 @@ org.keepassxc.KeePassXC.unlockDatabase no:no:auth_self
 
 # owly Apple WiFi data exchange helper (bsc#1288451)
 io.github.t4t5.Owly.acquire auth_admin:auth_admin:yes
+
+# plasma6 login manager theme configuration actions (bsc#1260039)
+org.kde.kcontrol.kcmplasmalogin.reset no:no:auth_admin
+org.kde.kcontrol.kcmplasmalogin.save no:no:auth_admin
+org.kde.kcontrol.kcmplasmalogin.sync no:no:auth_admin
